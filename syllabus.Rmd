@@ -1,0 +1,344 @@
+---
+title: "Syllabus"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+---
+
+```{r child = "knitr_setup.Rmd"}
+```
+
+# Course Information
+
+<div style="width:550px">
+Instructor | Course
+---|---
+<i class="fas fa-user"></i> John Paul Helveston | <i class="far fa-calendar"></i> Wednesdays
+<i class="fas fa-university"></i> Science & Engineering Hall, Office 2830 | <i class="fa fa-map-marker-alt"></i> Anywhere!
+<i class="fas fa-phone"></i> +1 (202) 994-7173 | <i class="far fa-calendar-alt"></i> Aug. 30 - Dec. 07, 2022
+<i class="fas fa-envelope"></i> [jpg@gwu.edu](mailto:jph@gwu.edu) | <i class="far fa-clock"></i> 12:45PM - 03:15PM EST
+<i class="fab fa-twitter"></i> [\@JohnHelveston](https://twitter.com/JohnHelveston) | <i class="fab fa-slack"></i> [Slack](https://emse-eda-s21.slack.com)
+</div>
+
+**Overview of online mode**
+
+- All synchronous class periods will be held online during the designated class time: Wednesdays from 12:45PM - 03:15PM EST.
+- All class periods will be recorded and posted on blackboard.
+- Students are encouraged to stream or download the recordings for personal use only and are **not** permitted to post or share the recordings.
+- We will hold multiple online study sessions every week.
+- All quizzes and exams will be held online during the designated class periods.
+
+# Course Description
+
+## Official GW Bulletin Description
+
+Introduction to exploratory data analysis using the [R programming language](https://www.r-project.org/); data visualization, data cleaning, exploratory analysis, information communication, rmarkdown, reproducibility.
+
+## Unofficial Description
+
+```{r child = '_description.Rmd'}
+```
+
+## Prerequisites
+
+```{r child = '_prerequisites.Rmd'}
+```
+
+# Learning Objectives
+
+```{r child = '_learning-objectives.Rmd'}
+```
+
+# Pep Talk!
+
+Learning a programming language can be as challenging as learning a new spoken language. Hadley Wickham - the chief data scientist at RStudio, and author of many amazing R packages you'll be using - [made this wise observation](https://r-posts.com/advice-to-young-and-old-programmers-a-conversation-with-hadley-wickham/):
+
+> It's easy when you start out programming to get really frustrated and think, "Oh it's me, I'm really stupid," or, "I'm not made out to program." But, that is absolutely not the case. Everyone gets frustrated. I still get frustrated occasionally when writing R code. It's just a natural part of programming. So, it happens to everyone and gets less and less over time. Don't blame yourself. Just take a break, do something fun, and then come back and try again later.
+
+If you're finding yourself taking way too long hitting your head against a wall and not understanding, take a break, talk to classmates, ask questions in Slack, e-mail me, etc.
+
+I promise, you can do this.
+
+# Required Texts & Materials
+
+All texts and software for this course is freely available on the web. This includes:
+
+## Software
+
+Go to the [Course Software](ref-course-software.html) page for detailed instructions on how to install the software we'll be using. Here's a quick list:
+
+- R (version 4.0.2 or later), which can be downloaded from [The Comprehensive R Archive Network (CRAN)](https://cloud.r-project.org)
+- RStudio (Desktop Version), a free IDE for R, which can be downloaded from [RStudio](https://rstudio.com/products/rstudio/download/)
+- We'll be using [Slack](https://emse-eda-s21.slack.com) for most communication.
+- Throughout the semester, you'll have free access to [DataCamp](https://www.datacamp.com) for extra (optional) practice.
+
+## Texts / Other Useful Resources
+
+Each week students will be responsible for completing assigned readings, most of which will come from these three books, which are available both free online and for purchase via the following links:
+
+- Healy, Kieran. "Data Visualization: A practical introduction" [[free online](http://socviz.co/)], [[buy on amazon](https://www.amazon.com/Data-Visualization-Introduction-Kieran-Healy/dp/0691181624)]
+- Grolemund, Garrett and Wickham, Hadley. "R for Data Science" [[free online](https://r4ds.had.co.nz/)], [[buy on amazon](https://www.amazon.com/Data-Science-Transform-Visualize-Model/dp/1491910399)]
+- Wilke, Claus O. "Fundamentals of Data Visualization" [[free online](https://serialmentor.com/dataviz/)], [[buy on amazon](https://www.amazon.com/Fundamentals-Data-Visualization-Informative-Compelling/dp/1492031089)]
+
+# Assignments
+
+## Class Participation
+
+Regular class attendance is **essential**. Much of the class time will be spent doing exercises and coding. Multiple absences, inappropriate or unprofessional behavior during class (such as monopolizing discussions or being rude or disruptive), not participating in classroom exercises, and not being prepared for class will result in poor performance in this class.
+
+## Quizzes
+
+There will be several quizzes given about once every two weeks immediately at the beginning of class. Quizzes cover material presented in previous classes and assignments during the weeks since the most-recent quiz. Quizzes are designed to be time-intensive, to test for fluency, and to demonstrate where additional study is needed. **Quizzes are low-stakes** - your worst one is dropped, and the rest count for just 15% of your final grade. If you do poorly on one, use that as feedback on where you need additional improvement.
+
+> **Why quiz at all?** Research shows that giving small quizzes throughout a class can dramatically help with *retention*. It's a phenomenon known as the "retrieval effect" - basically, you have to _practice_ remembering things, otherwise your brain won't remember them. The phenomenon and research on it is explained in detail in the book ["Make It Stick: The Science of Successful Learning,"](https://www.hup.harvard.edu/catalog.php?isbn=9780674729018) by Brown, Roediger, and McDaniel.
+
+## Assignments
+
+Students will be responsible for two types of assignments throughout the semester:
+
+- **Reflections**: Each week, students will be assigned specific readings to prepare for the next class period. Students will need to submit reflections on these readings each week. Additional, optional assignments on [DataCamp](https://www.datacamp.com) will be available for extra practice.
+- **Mini Projects**: There will be three mini projects throughout the semester designed to provide hands-on experience with the material covered in class by working with and exploring real data sets and / or creating visualizations. While students may work with their peers on these assignments, each student must submit their own work. Credit for each assignment will be allocated according to a rubric provided in the assignment description.
+
+## Final Project
+
+Throughout the semester, students will work in teams of 2-3 students towards a final project of an exploratory data analysis. At the end of the semester, each student will submit a report of their analysis in the form of an html web page and create a 5 to 10-minute video presentation of their results. To make the overall project more manageable, it will be broken down into several separate "milestone" deliverables due throughout the semester, including a proposal, progress report, presentation video, and final report.
+
+View the [final project assignment](a-project.html) page for more details.
+
+## Final Interview
+
+Rather than have a final exam, each student will have a 10-minute interview by the instructor. The interview will be focused on the final project the student worked and will contain questions related to concepts covered during the course. Students will be provided a list of questions and the grading rubric ahead of the interview.
+
+# Grading
+
+## Category Breakdown
+
+Final grades will be calculated as follows:
+
+<div style="width:550px">
+Item                          | Weight | Notes
+------------------------------|--------|-------------------------------------
+Reflections                   | 6 %    | Weekly assignment (12 x 0.5%)
+Quizzes                       | 12 %   | 5 quizzes, lowest dropped
+Mini Project 1                | 9 %    | Individual projects
+Mini Project 2                | 9 %    |
+Mini Project 3                | 9 %    |
+Final Project Proposal        | 10 %   | Teams of 2-3 students
+Final Project Progress Report | 10 %   |
+Final Project Report          | 15 %   |
+Final Project Presentation    | 10 %   |
+Final Interview               | 10 %   | Individual interview about your project
+</div>
+
+Here's a visual breakdown by category:
+
+```{r grade-breakdown, echo=FALSE, fig.height=3, fig.align='left'}
+library(viridis)
+library(ggrepel)
+
+df <- data.frame(
+    category = c(
+      'Reflections', 'Quizzes', 'Mini Projects', 'Final Project',  'Interview'),
+    percent = c(6, 12, 27, 45, 10)) %>%
+    arrange(desc(percent)) %>%
+    mutate(
+      cumpercent = cumsum(percent),
+      label_y = cumpercent - (percent / 2),
+      category = fct_reorder(category, percent))
+
+ggplot(df) +
+    geom_col(aes(x = "", y = percent, fill = category),
+             width = 1.1, alpha = 0.8) +
+    geom_label(data = filter(df, category %in% c(
+               'Mini Projects', 'Final Project')),
+               aes(x = "", y = label_y, label = category)) +
+    geom_label_repel(data = filter(df, category %in% c(
+                     'Quizzes', 'Interview', 'Reflections')),
+                     aes(x = "", y = label_y, label = category),
+                     direction = 'y', label.padding = 0.25, segment.size = 0) +
+    coord_flip() +
+    scale_y_continuous(expand = expansion(mult = c(0, 0.05))) +
+    scale_fill_viridis(discrete = TRUE) +
+    theme_minimal_vgrid() +
+    theme(legend.position = 'none') +
+    labs(y = 'Percent of final grade', x = NULL)
+```
+
+## Grading Scale
+
+<div style="width:350px">
+Grade  | Range       | Grade | Range
+-------|-------------|-------|------------
+A      | 93 - 100%   | C     | 73 - 76.99%
+A-     | 90 - 92.99% | C-    | 70 - 72.99%
+B+     | 87 - 89.99% | D+    | 67 - 69.99%
+B      | 83 - 86.99% | D     | 63 - 66.99%
+B-     | 80 - 82.99% | D-    | 60 - 62.99%
+C+     | 77 - 79.99% | F     | < 60%
+</div>
+
+The course instructors may choose to change the scales at their discretion. You are guaranteed that your letter grade will never become worse as a result of changing scales.
+
+# Getting Help
+
+This class can be challenging - don't suffer in silence. Look at the ["Getting Help"](ref-getting-help.html) page for ways to get resources that can help you succeed.
+
+# Course Policies
+
+## [tl;dr](https://whatis.techtarget.com/definition/tldr-TLDR)
+
+- **BE NICE. BE HONEST. DON'T CHEAT.**
+- You get **5** late days - use them however you want, but you can't use more than **2** late days on any one assignment.
+- If you're not sure about something, talk with me and we'll figure it out.
+
+## Late Policy
+
+Each students is allowed **5** late homework submission days - use them however you want, no questions asked. **No more than 2 days can be applied toward a single assignment**. Late days are meant to cover illness, family emergencies, and religious holidays. Assignments submitted more than 2 days after the due date will not be graded. In extreme circumstances, contact the instructor.
+
+## Collaboration Policy
+
+<!-- This policy is mostly copied from the course 15-112 at Carnegie Mellon University -->
+
+Learning how to program is like learning how to ride a bicycle - to get better, you must practice writing code **yourself**. Therefore, we have a set of strict rules regarding what kind of collaboration is allowed, what counts as over-collaboration, and what counts as cheating.
+
+### Good Collaboration
+
+- Discussing which general concepts might be useful in solving a problem (conditionals, loops, etc.).
+- Asking for debugging help with code.
+- Sketch out algorithms on a whiteboard together.
+- To avoid copying the code, you should write up the solution together, discuss it, then erase the solution, wait a few minutes, and write up solutions individually.
+- Help each other debug specific parts of assignment code.
+- General discussion of course concepts.
+- Detailed explanations of example code on the course website.
+- Collaboratively solving a practice problem, with any level of co-writing code and co-debugging.
+
+### Over-collaboration
+
+Over-collaboration results in a warning on the first offense, and a penalty on later offenses. Examples include:
+
+- Explaining to a friend how to solve a problem in high-level terms by going through your own program line-by-line.
+- Helping a friend debug code by suggesting they use your own approach to the problem.
+- Collaborating with a student on an assignment and then _not_ including their name as a collaborator in the assignment writeup.
+- In the case that you have taken this course before, copying your own code from the previous time you took the course.
+
+### Cheating
+
+Cheating results in a penalty on the first offense, and failing the course on the second offense. Cheating on assignments can include:
+
+- Copying or stealing any amount of code from someone currently in the class or someone who has taken the class before.
+- NOTE: Copying is never okay, whether the code is provided electronically, visually, audibly, or on paper.
+- Providing code you have written for an assignment to anyone else in the class.
+- Finding code online and using it in the assignment. One exception: you may use code from the course website.
+- Putting code solutions from the course assignments online.
+- Receiving code-level assistance from any person not associated with the course.
+- Getting someone else to write the assignment code for you.
+- Asking questions about the assignments on any online services outside of the course office hours / Slack.
+
+Cheating on quizzes, assignments, or the final project can include:
+
+- Referring to any external resources while completing the assignment (phones, notes, etc.).
+- Copying part of an answer off of another student's paper, even if it is very small.
+- Using solutions provided by students who previously took the course.
+
+### Penalties
+
+Violations will be reported to the [Office of Student Rights & Responsibilities](https://studentconduct.gwu.edu/charging-academic-integrity-violations). Penalties are decided by the course instructors, and can vary based on the severity of the offense. Possible penalties include:
+
+- Receiving a 0 on the assignment/quiz in question.
+- Receiving a full letter grade deduction in the course.
+- Automatically failing the course.
+
+Depending on the student's prior academic history, violations may also be accompanied by a letter to the Dean of Student Affairs, again at the instructors' discretion. This can lead to university-level penalties, such as being suspended or expelled.
+
+## Children in class
+
+<!-- Policy copied from Andrew Heiss's class -->
+<!-- https://evalsp20.classes.andrewheiss.com/syllabus/ -->
+
+I applaud all of you who attend school with children! It is difficult to balance academic, work, and family commitments, and I want you to succeed. Here are my policies regarding children in class:
+
+1. All breastfeeding babies are welcome in class as often as necessary.
+2. Non-nursing babies and older children are welcome whenever alternate arrangements cannot be made. As a parent of young children, I understand that babysitters fall through, partners have conflicting schedules, children get sick, and other issues arise that leave parents with few other options.
+3. In cases where children come to class, I invite parents/caregivers to sit close to the door so as to more easily excuse yourself to attend to your child's needs. Non-parents in the class: please reserve seats near the door for your parenting classmates.
+4. All students are expected to join with me in creating a welcoming environment that is respectful of your classmates who bring children to class.
+
+I understand that sleep deprivation and exhaustion are among the most difficult aspects of parenting young children. The struggle of balancing school, work, childcare, and graduate school is tiring, and I will do my best to accommodate any such issues while maintaining the same high expectations for all students enrolled in the class. Please do not hesitate to contact me with any questions or concerns.
+
+## Lauren's Promise
+
+<!-- Policy copied from Andrew Heiss's class -->
+<!-- https://evalsp20.classes.andrewheiss.com/syllabus/ -->
+
+**I will listen and believe you if someone is threatening you.**
+
+Lauren McCluskey, a 21-year-old honors student athlete, [was murdered on October 22, 2018 by a man she briefly dated on the University of Utah campus](https://www.sltrib.com/opinion/commentary/2019/02/10/commentary-failing-lauren/). We must all take action to ensure that this never happens again.
+
+If you are in immediate danger, call 911 or GWU police at 202-994-6111 (GWPD).
+
+If you are experiencing sexual assault, domestic violence, or stalking, if you report it to me I will listen and connect you to resources or call GWU's [Counseling and Psychological Services](https://healthcenter.gwu.edu/counseling-and-psychological-services) (202-994-5300).
+
+Any form of sexual harassment or violence will not be excused or tolerated at GWU. GWU has instituted procedures to respond to violations of these laws and standards, programs aimed at the prevention of such conduct, and intervention on behalf of the victims. GWU Police officers will treat victims of sexual assault, domestic violence, and stalking with respect and dignity. Advocates on campus and in the community can help with victims' physical and emotional health, reporting options, and academic concerns.
+
+## Use of Course Materials
+
+All course materials available on the course website are developed open source - you are welcome to post and share them following the licensing guidelines listed in the [license](LICENSE.html) page.
+
+However, all **solutions** to assignments and quizzes are proprietary. Don't post them online or try to sell them - this is a violation of the [student code of conduct](https://studentconduct.gwu.edu/code-student-conduct).
+
+## What To Do if the Instructor Does Not Arrive
+
+Wait **20 minutes**, after that you're free to leave. One member of the class should be selected to notify the EMSE Department of the Instructor's absence by calling the EMSE Department 202-994-4892 on next business day.
+
+# University Policies
+
+## University Policy on Religious Holidays
+
+In accordance with University Policy, students should notify faculty during the first week of the semester of their intention to be absent from class on their day(s) of religious observance. Official university policy here: https://students.gwu.edu/accommodations-religious-holidays
+
+- Students should notify faculty during the first week of the semester of their intention to be absent from class on their day(s) of religious observance.
+- Faculty should extend to these students the courtesy of absence without penalty on such occasions, including permission to make up examinations.
+- Faculty who intend to observe a religious holiday should arrange at the beginning of the semester to reschedule missed classes or to make other provisions for their course-related activities.
+
+## Support for Students Outside the Classroom
+
+**Disability Support Services (DSS)**:
+Any student who may need an accommodation based on the potential impact of a disability should contact the Disability Support Services office at 202-994-8250 in the Rome Hall, Suite 102, to establish eligibility and to coordinate reasonable accommodations. For additional information please refer to: https://disabilitysupport.gwu.edu/
+
+**Mental Health Services (202-994-5300)**:
+The University's Mental Health Services offers 24/7 assistance and referral to address students' personal, social, career, and study skills problems. Services for students include: crisis and emergency mental health consultations confidential assessment, counseling services (individual and small group), and referrals. https://healthcenter.gwu.edu/counseling-and-psychological-services
+
+## Academic Integrity Code
+
+Academic dishonesty is defined as cheating of any kind, including misrepresenting one's own work, taking credit for the work of others without crediting them and without appropriate authorization, and the fabrication of information. For the remainder of the code, see: https://studentconduct.gwu.edu/code-academic-integrity
+
+In addition to the formal code of academic integrity, the instructor expects that students will treat this course with the level of professionalism required in the workplace. Remember that real firms are sponsoring student projects throughout the semester; in a workplace setting, these firms would be paying clients for the analyses being conducted. This course prepares students to succeed in the workplace, and maintaining a high degree of professionalism is expected.
+
+# Super Heros
+
+<div class = "row">
+
+<div class = "col-md-4">
+<img src="images/prof_x.gif">
+</div>
+
+<div class = "col-md-8">
+
+Once you have read this entire syllabus and viewed the [course schedule](schedule.html), please send me a picture of your favorite super hero in a direct message on Slack.
+
+For real.
+
+Brownie points if it's animated.
+
+</div>
+</div>
+
+---
+
+**Page sources**:
+
+Some content on this page is inspired by and / or modified from other sources:
+
+- The "Pep Talk" and "Super Heros" sections are inspired by Andrew Heiss's course [Program Evaluation For Public Service](https://evalf19.classes.andrewheiss.com/syllabus/)
+- The collaboration policy is modified from the course [15-112](http://www.kosbie.net/cmu/fall-19/15-112/) at Carnegie Mellon University
+

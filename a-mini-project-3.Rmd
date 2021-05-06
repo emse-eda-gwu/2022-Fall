@@ -1,0 +1,12 @@
+---
+title: "Mini Project 3"
+output:
+  html_document:
+    number_sections: false
+    toc: true
+---
+
+```{r child = "knitr_setup.Rmd"}
+```
+
+Coming Soon!

@@ -1,0 +1,48 @@
+---
+title: "title"
+author: "author"
+output:
+  html_document:
+    toc: no
+    toc_float: no
+    theme: flatly
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  warning = FALSE,
+  message = FALSE,
+  echo = FALSE,
+  comment = "#>",
+  fig.retina = 3,
+  fig.path = "figs/"
+)
+```
+
+Last week we saw how to hide code chunks using the `code_folding: hide` setting in the YAML. Another option is to hide all of the code chunks by default by setting `echo = FALSE` in the `setup` code chunk and then show all of the code in an appendix. Fortunately, this can be automatically added with a single chunk at the end of the document! For example:
+
+Let's say I had a code chunk like this:
+
+```{r}
+# View the first few rows of the data
+head(mtcars)
+```
+
+and then I made a chart like this:
+
+```{r scatterplot, fig.width=7, fig.height=4}
+# Make a scatterplot
+library(ggplot2)
+
+ggplot(mtcars) + 
+    geom_point(aes(x = mpg, y = hp))
+```
+
+I could then insert an appendix of all the code chunks in this document like this:
+
+# Appendix
+
+Below is all of the code used to generate this report
+
+```{r ref.label=knitr::all_labels(), echo=TRUE, eval=FALSE}
+```

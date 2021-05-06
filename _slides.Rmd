@@ -1,0 +1,40 @@
+
+```{r, echo=FALSE}
+root <- paste0("class/", params$class, "/")
+path_slides <- file.path("class", params$class, "index.html")
+path_pdf <- paste0(root, params$class, ".pdf")
+path_notes <- paste0(root, params$class, ".zip")
+```
+
+<div class = "row">
+<div class = "col-md-5">
+**KEYBOARD SHORTCUTS FOR SLIDES:**
+
+- Use <kbd>←</kbd> and <kbd>→</kbd> to navigate through the slides.
+- Use <kbd>f</kbd> to toggle full screen.
+- Use <kbd>o</kbd> to view an overview of all slides.
+- Use <kbd>h</kbd> to see a list of other shortcuts.
+
+</div>
+<div class = "row">
+<div class = "col-md-3">
+<div class="class-buttons">
+**SLIDES**
+
+<a href=`r path_slides` class="btn-slides" target="_blank"><i class="fas fa-external-link-alt"></i> View in new window</a>
+
+<a href=`r path_pdf` class="btn-slides"><i class="fas fa-file-pdf"></i> Download as PDF</a>
+
+</div></div>
+<div class = "col-md-3">
+<div class="class-buttons">
+**PRACTICE PROBLEMS**
+
+<a href=`r path_notes` class="btn-notes"><i class="fas fa-download"></i> Download zip file</a>
+
+</div></div>
+</div>
+
+```{r lexi-demo, echo=FALSE}
+xaringanExtra::embed_xaringan(url = path_slides, ratio = "16:9")
+```

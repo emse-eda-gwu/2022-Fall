@@ -1,0 +1,15 @@
+---
+title: "Trends"
+output:
+  html_document:
+    number_sections: false
+    toc: yes
+params:
+  due: "02 March, 11:59 pm"
+  purpose: 'The purpose of this assignment is to learn some of the technical details of how to create charts that highlight **trends**, which inherently involve changes in values over time.'
+---
+
+```{r child = "knitr_setup.Rmd"}
+```
+
+Coming soon!

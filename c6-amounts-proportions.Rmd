@@ -1,0 +1,14 @@
+---
+title: "Amounts & Proportions"
+output:
+  html_document:
+    number_sections: false
+    toc: no
+params:
+  class: "6-amounts-proportions"
+---
+
+```{r child = "knitr_setup.Rmd"}
+```
+
+Coming soon!

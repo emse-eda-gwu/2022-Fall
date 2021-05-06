@@ -1,0 +1,38 @@
+---
+title: "Course Software"
+output:
+  html_document:
+    number_sections: false
+    toc: no
+---
+
+```{r child = "knitr_setup.Rmd"}
+```
+
+This page lists all the software we'll be using in class.
+
+**You should install and set everything here _before_ the first day of class.**
+
+First, install / setup these tools:
+
+- [Slack](https://emse-eda-f22.slack.com): you should have received an email with a sign up link. You can also find this link on the Blackboard announcement.
+- Install the Slack app on your phone and **Turn notifications on!**
+- Some tools we'll use will require that you be on the GW network. You can do that by installing the "Cisco AnyConnect VPN Client" software and loggin in to GW's VPN. Here's how to do that:
+    - Install [Cisco AnyConnect VPN Client](https://my.gwu.edu/mod/downloads/?category=VPN)
+    - Follow [these instructions](https://gwu-myit.onbmc.com/dwp/app/#/knowledge/KBA00002611/rkm) to log on to the VPN with your GW NetID
+- [DataCamp](https://www.datacamp.com): This is a free resource being made available to you for extra practice. **You must use your @gwu.edu email for this to work** (not the @email.gwu.edu address). An invite link was also sent via email (and again can be found in the Blackboard announcement).
+
+Next, install the latest version of R and RStudio:
+
+- [Download and install R](https://cloud.r-project.org) (version 4.0.2 or higher)
+- [Download and install RStudio](https://rstudio.com/products/rstudio/download/) (Desktop version)
+
+**We will always work in RStudio**, so be careful to open RStudio and not the default R application that comes with R:
+
+<div style="width:200px">
+Open this   | Not this!
+:----------:|:----------:
+![](images/RStudio-Ball.png){ width=50 }  |  ![](images/Rlogo.png){ width=50 }
+</div>
+
+That's it - you're all set for class!

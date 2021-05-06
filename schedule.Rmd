@@ -1,0 +1,66 @@
+---
+title: "Course Schedule"
+output:
+  html_document:
+    number_sections: false
+    toc: no
+---
+
+```{r child = "knitr_setup.Rmd"}
+```
+
+```{r echo=FALSE}
+# Run to compute dates
+# https://www.gwu.edu/academic-calendar
+# Classes Begin                       = Monday, January 11
+# Martin Luther King Day (no classes) = Monday, January 18
+# Inauguration Day (no classes)       = Wednesday, January 20
+# President's Day (no classes)        = Monday, February 15
+# Spring Break (no classes)           = Monday, March 15 - Saturday, March 20
+# Make-Up Day                         = Tuesday, April 27
+# Last Day of Classes                 = Wednesday, April 28
+# Designated Monday                   = Thursday, April 29
+# Reading Day                         = Friday, April 30
+# Final Examinations                  = Monday, May 3 - Tuesday, May 11
+
+library(kableExtra)
+library(gsheet)
+
+# Setup some common values
+fa <- list(
+  quiz     = '[<i class="fas fa-edit"></i>]',
+  readings = '[<i class="fas fa-book-reader"></i>]',
+  class    = '[<i class="fas fa-laptop-code"></i>]',
+  project  = '[<i class="fas fa-pencil-ruler"></i>]'
+)
+
+# Make the schedule data frame
+url <- 'https://docs.google.com/spreadsheets/d/1-evqcb0kDPf33pG-MO71RrjVdXtcGjjLzT2tvpB7RcQ/edit?usp=sharing'
+quizUrl <- "https://edas21quiz"
+schedule <- gsheet2tbl(url) %>%
+  mutate(
+    date = format(date, format = "%b %d"),
+    quiz = ifelse(is.na(quiz), NA, paste0(
+      fa$quiz, "(", quizUrl, quiz, ".formr.org)")),
+    class = ifelse(is.na(class), "", paste0(fa$class, "(", class, ".html)")),
+    topics = ifelse(is.na(topics), paste0(
+      "**", title, "**"), paste0("**", title, "**<br>", topics)),
+    class = paste(class, topics, sep = " "),
+    assignments = ifelse(is.na(readings_name), NA, paste0(
+      fa$readings, "(", readings_url, ".html) ", readings_name, "<br>Due ",
+      readings_due)),
+    project = ifelse(is.na(project_name), NA, paste0(
+      fa$project, "(", project_url, ") ", project_name, "<br>Due ",
+      project_due))
+  )
+
+# Make the final schedule
+names(schedule) <- str_to_title(names(schedule))
+schedule %>%
+  rename(` ` = Project) %>%
+  select(Week, Date, Quiz, Class, Assignments, ` `) %>%
+  kable(format = 'html', escape = FALSE,
+        align = c('c', 'c', 'c', 'l', 'l', 'l')) %>%
+  kable_styling(full_width = F) %>%
+  column_spec(column = 4, width = '17em')
+```

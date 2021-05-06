@@ -1,0 +1,25 @@
+---
+title: "Course Prerequisites"
+output:
+  html_document:
+    number_sections: false
+    toc: no
+---
+
+```{r child = "knitr_setup.Rmd"}
+```
+
+Students should have taken [EMSE 4571: Intro to Programming for Analytics](https://p4a.seas.gwu.edu/2022-Spring/) prior to taking this course.
+
+For those who did not, I **strongly** suggest you go through all the lessons in this primer course:
+
+> [R for Analytics Primer](http://jhelvy.github.io/r4aPrimer/)
+
+After completing these lessons, you should be able to:
+
+ - Use RStudio to write basic R commands.
+ - Know the distinctions between different R operators and data types, including numeric, string, and logical data.
+ - Use **tidyverse** functions to wrangle and manipulate data in R.
+ - Use the **ggplot2** library to create plots in R.
+
+Also, it can be very helpful to see these skills applied in practice. Take a look at [this example](https://www.datacamp.com/community/tutorials/tidyverse-tutorial-r) of using Tidyverse tools to explore and visualize data on survivors aboard the Titantic. It's a good example of conducting an Exploratory Data Analysis to gain insights about a data set.

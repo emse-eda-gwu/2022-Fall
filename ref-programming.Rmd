@@ -1,0 +1,44 @@
+---
+title: "Programming in R"
+output:
+  html_document:
+    number_sections: false
+    toc: no
+---
+
+```{r child = "knitr_setup.Rmd"}
+```
+
+# Programming in R
+
+- [Last semester's course website :)](https://p4a.seas.gwu.edu/2022-Spring/)
+- Grolemund, Garrett. "Hands-On Programming with R"
+[[free online](https://rstudio-education.github.io/hopr/)],
+[[buy on amazon](https://www.amazon.com/gp/product/1449359019/)]
+- Peng, Roger D. "R Programming for Data Science"
+[[online - pay what you want](https://leanpub.com/rprogramming)]
+
+# Data Analysis in R
+
+- Grolemund, Garrett and Wickham, Hadley. "R for Data Science"
+[[free online](https://r4ds.had.co.nz/)],
+[[buy on amazon](https://www.amazon.com/Data-Science-Transform-Visualize-Model/dp/1491910399)]
+- Peng, Roger D. "Exploratory Data Analysis with R"
+[[online - pay what you want](https://leanpub.com/exdata)]
+- [16 HOWTO's](https://bookdown.org/lyzhang10/lzhang_r_tips_book/), by Lingyun Zhang
+
+# RMarkdown
+
+- [Andrew Heiss's Markdown guide](https://evalsp20.classes.andrewheiss.com/reference/markdown/)
+- [60 second markdown guide](https://commonmark.org/help/)
+- [10 minute markdown tutorial](https://commonmark.org/help/tutorial/)
+- [Markdown It](https://markdown-it.github.io): Quickly demo Markdown code.
+- [Table generator](http://www.tablesgenerator.com/): Create tables and get export code for multiple formats.
+- [CMU RMarkdown guide (very detailed)](http://www.stat.cmu.edu/~cshalizi/rmarkdown/)
+
+# RStudio "Cheatsheets"
+
+- [All cheatsheets](https://www.rstudio.com/resources/cheatsheets/)
+- [Data wrangling with the `dplyr` library](https://resources.rstudio.com/the-essentials-of-data-science/data-transformation)
+- [Data visualization with the `ggplot2` library](https://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf)
+- [RMarkdown](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf)

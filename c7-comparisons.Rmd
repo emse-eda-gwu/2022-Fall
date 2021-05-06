@@ -1,0 +1,14 @@
+---
+title: "Comparisons"
+output:
+  html_document:
+    number_sections: false
+    toc: no
+params:
+  class: "7-comparisons"
+---
+
+```{r child = "knitr_setup.Rmd"}
+```
+
+Coming soon!

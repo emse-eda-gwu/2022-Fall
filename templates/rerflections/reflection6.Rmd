@@ -1,0 +1,42 @@
+---
+title: "title"
+author: "author"
+output:
+  html_document:
+    toc: no
+    toc_float: no
+    theme: flatly
+    code_folding: hide
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  warning = FALSE,
+  message = FALSE,
+  comment = "#>",
+  fig.retina = 3,
+  fig.path = "figs/"
+)
+```
+
+Sometimes the person reading your report isn't someone who will understand all the code you used to make it. In these cases, you may want to hide the code chunks. One really convenient way to do that is to add `code_folding: hide` in the YAML settings. This adds buttons throughout your report so that the reader can choose to view the code or not. It makes for a nice, more polished report (p.s. this is the default setting on the project template you've been using). For example:
+
+Let's say I had a code chunk like this:
+
+```{r}
+# View the first few rows of the data
+head(mtcars)
+```
+
+and then I made a chart like this:
+
+```{r scatterplot, fig.width=7, fig.height=4}
+# Make a scatterplot
+library(ggplot2)
+
+ggplot(mtcars) + 
+    geom_point(aes(x = mpg, y = hp))
+```
+
+Now when I render the page I'll only see the code if I click on the button to view it! 
+

@@ -1,0 +1,14 @@
+---
+title: "Trends"
+output:
+  html_document:
+    number_sections: false
+    toc: no
+params:
+  class: "8-trends"
+---
+
+```{r child = "knitr_setup.Rmd"}
+```
+
+Coming soon!
