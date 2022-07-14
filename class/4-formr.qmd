@@ -1,0 +1,12 @@
+---
+title: "Intro to formr"
+params:
+  class: "4-formr"
+  logitrcars: FALSE
+  formr4conjoint: FALSE
+---
+
+```{r child = here::here("fragments", "setup.qmd")}
+```
+
+Coming soon!

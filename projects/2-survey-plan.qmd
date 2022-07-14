@@ -1,0 +1,14 @@
+---
+title: "Survey Plan"
+toc: true
+params:
+  number: 2
+  weight: '4%'
+  purpose: 'purpose'
+  assessment: 'Your survey plan will be assessed using [this rubric](project/survey_plan/rubric.html){target="_blank"}.'
+---
+
+```{r child = here::here("fragments", "setup.qmd")}
+```
+
+Coming soon!

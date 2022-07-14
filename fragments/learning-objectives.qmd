@@ -1,0 +1,8 @@
+Having successfully completed this course, students will be able to:
+
+- Import, wrangle, visualize, and export data in R.
+- Design surveys to obtain informative data about consumer preferences for product features.
+- Build and estimate discrete choice models.
+- Analyze consumer choice data to estimate consumer preferences for product features.
+- Design and create effective charts and presentations.
+- Communicate results in terms of design insights.

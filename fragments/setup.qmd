@@ -1,0 +1,41 @@
+
+```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
+library(knitr)
+library(here)
+library(tidyverse)
+library(fontawesome)
+library(cowplot)
+library(kableExtra)
+
+options(knitr.kable.NA = '')
+knitr::opts_chunk$set(
+    warning    = FALSE,
+    message    = FALSE,
+    comment    = "#>",
+    fig.width  = 6,
+    fig.height = 4,
+    fig.align  = "center",
+    fig.path   = "figs/",
+    fig.retina = 3
+)
+
+# Load class settings
+settings <- list(
+    semester = 'Fall 2022',
+    repo     = "https://github.com/emse-madd-gwu/2022-Fall",
+    site_url = "https://madd.seas.gwu.edu/2022-Fall/",
+    title    = "EMSE 6035: Marketing Analytics for Design Decisions - Fall 2022",
+    weekday  = "Wednesdays",
+    time     = "06:10PM - 08:40PM EST",
+    room     = 'Tompkins 302',
+    room_url = "https://acadtech.gwu.edu/location?id=355&campus=FB&type=building&selection=22",
+    schedule_url = 'https://docs.google.com/spreadsheets/d/1LfYPKSVrEjORiWW3i4bNYvFjUOmdaxDU5C_s7YMv5oU/edit?usp=sharing',
+    dates = "Aug. 29 - Dec. 12, 2022",
+    slack = "https://emse-p4a-s22.slack.com"
+)
+
+# Load custom functions
+get_schedule <- function() {
+    return(gsheet::gsheet2tbl('https://docs.google.com/spreadsheets/d/1LfYPKSVrEjORiWW3i4bNYvFjUOmdaxDU5C_s7YMv5oU/edit?usp=sharing'))
+}
+```

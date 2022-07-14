@@ -1,0 +1,72 @@
+---
+title: Course Schedule
+---
+
+```{r child = here::here("fragments", "setup.qmd")}
+```
+
+```{r echo=FALSE}
+# Setup some common values
+fa <- list(
+  assignment = '<i class="fas fa-book-reader"></i>',
+  class      = '<i class="fas fa-laptop-code"></i>',
+  project    = '<i class="fas fa-pencil-ruler"></i>'
+)
+
+# Make the schedule data frame
+schedule <- get_schedule() %>%
+  mutate(
+    date_raw = date,
+    date = format(date, format = "%b %d"),
+    assign_due = format(assign_due, format = "%b %d"),
+    project_due = format(project_due, format = "%b %d"),
+    # Replace NA values with ""
+    class_desc = ifelse(is.na(class_desc), "", class_desc),
+    project_desc = ifelse(is.na(project_desc), "", project_desc),
+    # Make projects column
+    project = ifelse(
+      is.na(project), NA,
+      paste0("<b>", project, "</b><br>", project_desc)),
+    # Build links
+    class = ifelse(
+      is.na(class_stub), NA,
+      paste0(
+          '<a href="c', class_n, "-", class_stub, '.html">',
+          fa$class, '</a><b> ', class_name, "</b><br> ", class_desc)),
+    assignments = ifelse(
+      is.na(assign_name), NA,
+      paste0(
+          '<a href="', "a", assign_n, "-", assign_stub, '.html">',
+          fa$assignment, '</a><b> ', assign_name, "</b><br>Due ",
+          assign_due)),
+    projects = ifelse(
+      is.na(project_name), NA,
+      paste0(
+          '<a href="', "p", project_n, "-", project_stub, '.html">',
+          fa$project, '</a><b> ', project_name, "</b><br>Due ",
+          project_due))
+  )
+
+highlight <- which(Sys.Date() > schedule$date_raw)
+```
+
+:::{.column-page}
+
+```{r echo=FALSE}
+# Make the final schedule
+names(schedule) <- str_to_title(names(schedule))
+schedule %>%
+  select(-Date_raw) %>% 
+  rename(` ` = Projects) %>%
+  select(Week, Date, Quiz, Class, Project, Assignments, ` `) %>%
+  kable(format = 'html', escape = FALSE,
+        align = c('c', 'c', 'c', 'l', 'l', 'l', 'l')) %>%
+  kable_styling(full_width = F, bootstrap_options = c("striped", "hover")) %>%
+  column_spec(column = 3, width = '5em') %>%
+  column_spec(column = 4, width = '18em') %>%
+  column_spec(column = 5, width = '15em') %>%
+  column_spec(column = 6, width = '12em') %>%
+  column_spec(column = 7, width = '12em') %>%
+  row_spec(highlight, background = "#e1e1e1")
+```
+:::

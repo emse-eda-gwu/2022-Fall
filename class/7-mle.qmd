@@ -1,0 +1,12 @@
+---
+title: "Optimization & MLE"
+params:
+  class: "7-mle"
+  logitrcars: TRUE
+  formr4conjoint: TRUE
+---
+
+```{r child = here::here("fragments", "setup.qmd")}
+```
+
+Coming soon!

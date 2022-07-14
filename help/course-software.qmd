@@ -1,0 +1,39 @@
+---
+title: "Course Software"
+output:
+  html_document:
+    number_sections: false
+    toc: no
+---
+
+```{r child = here::here("fragments", "setup.qmd")}
+```
+
+This page lists all the software we'll be using in class.
+
+> You should install and set everything here _before_ the first day of class.
+
+1. Install / setup these tools:
+
+- [Slack](https://emse-madd-f21.slack.com): You can find a sign up link on the announcement in Blackboard.
+- Install the Slack app on your phone and **Turn notifications on!**
+- Some tools we'll use will require that you be on the GW network. You can do that by installing the "Cisco AnyConnect VPN Client" software and loggin in to GW's VPN. Here's how to do that:
+    - Install [Cisco AnyConnect VPN Client](https://my.gwu.edu/mod/downloads/?category=VPN)
+    - Follow [these instructions](https://gwu-myit.onbmc.com/dwp/app/#/knowledge/KBA00002611/rkm) to log on to the VPN with your GW NetID
+
+2. Install the latest version of R and RStudio:
+
+- [Download and install R](https://cloud.r-project.org) (version 4.0.2 or higher)
+- [Download and install RStudio](https://rstudio.com/products/rstudio/download/) (Desktop version)
+
+**We will always work in RStudio**, so be careful to open RStudio and not the default R application that comes with R:
+
+<div style="width:200px">
+Open this   | Not this!
+:----------:|:----------:
+![](images/RStudio-Ball.png){ width=50 }  |  ![](images/Rlogo.png){ width=50 }
+</div>
+
+3. You'll need to install some R packages in RStudio that we will use throughout the semester. To do so, open RStudio then copy-paste [this code](https://raw.githubusercontent.com/emse-madd-gwu/examples/main/code/0-install.R) into the console and press Return. This will install all the packages listed in the file.
+
+That's it - you're all set for class!

@@ -1,0 +1,32 @@
+```{r echo=FALSE}
+library(tidyverse)
+library(fontawesome)
+
+due <- get_schedule() %>%
+  mutate(
+    assign_due = lead(date, 1) - 1,
+    assign_due = format(assign_due, format = "%B %d")) %>% 
+  filter(class_n == params$number) %>%
+  pull(assign_due) %>% 
+  paste0(" by 11:59pm")
+
+url_template <- paste0(
+  'https://madd.seas.gwu.edu/2022-Fall/templates/hw',
+  params$number, '.zip')
+```
+
+> **Due**: `r due`
+>
+> **Submit**: To submit this assignment, create a zip file of all the files in your R project folder for this assignment. Name the zip file ``r paste0('hw', params$number, '-netID.zip')``, replacing `netID` with your netID (e.g., ``r paste0('hw', params$number, '-jph.zip')``). Use [this link](`r params$submit`) to submit your file.
+>
+> **Weight**: This assignment is worth 3% of your final grade.
+>
+> **Purpose**: `r params$purpose`
+>
+> **Assessment**: This assignment is graded using a check system:
+>
+> - ✔+ (110%): Responses shows phenomenal thought and engagement with the course content. I will not assign these often.
+> - ✔ (100%): Responses are thoughtful, well-written, and show engagement with the course content. This is the expected level of performance.
+> - ✔− (50%): Responses are hastily composed, too short, and/or only cursorily engages with the course content. This grade signals that you need to improve next time. I will _hopefully_ not assign these often.
+>
+> Notice that this is essentially a pass/fail system. I'm not grading your writing ability and I'm not counting the number of words you write - I'm looking for thoughtful engagement.

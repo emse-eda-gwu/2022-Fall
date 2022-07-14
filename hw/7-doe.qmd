@@ -1,0 +1,11 @@
+---
+title: "Design of Experiment"
+params:
+  number: 7
+  purpose: "The purpose of this assignment is to introduce the concept of design of experiments and to understand how experiment design can impact the amount of information available about different model effects."
+---
+
+```{r child = here::here("fragments", "setup.qmd")}
+```
+
+Coming soon!

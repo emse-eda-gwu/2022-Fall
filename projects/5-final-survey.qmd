@@ -1,0 +1,14 @@
+---
+title: "Final Survey"
+toc: true
+params:
+  number: 5
+  weight: '5%'
+  purpose: 'purpose'
+  assessment: 'Your final survey will be assessed using [this rubric](project/final_survey/rubric.html){target="_blank"}.'
+---
+
+```{r child = here::here("fragments", "setup.qmd")}
+```
+
+Coming soon!

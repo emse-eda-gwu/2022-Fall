@@ -1,0 +1,8 @@
+---
+title: "About"
+---
+
+```{r child = here::here("fragments", "description.qmd")}
+```
+
+This course was first created by Dr. John Paul Helveston at the George Washington University for the Spring 2019 semester of EMSE 6035, which was previously called Marketing of Technology. See the [LICENSE](LICENSE.qmd) page for information about reusing and sharing content.

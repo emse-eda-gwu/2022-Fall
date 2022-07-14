@@ -1,0 +1,50 @@
+---
+title: "Project Overview"
+toc: true
+---
+
+```{r child = here::here("fragments", "setup.qmd")}
+```
+
+# Overview
+
+Throughout the semester, you will work in teams of 3-4 students towards a final project. The project will have three phases:
+
+1. Project proposal
+2. Pilot survey & analysis
+3. Final survey & analysis
+
+Teams will apply topics covered in class to develop quantitative models of consumer choice to inform design decisions for a novel product, technology, or policy. Each team will have somewhat different tasks and areas of emphasis, depending on the product selected; however, all projects will be expected to demonstrate mastery of the topics covered in class and to address the criteria and guidelines required for project assignments.
+
+**Summary of Deliverables**: To make the overall project more manageable, it is broken down into separate "milestone" deliverables due throughout the semester, starting with a proposal.
+
+<div style="width:600px">
+Item            | Weight towards<br>final grade | Due Date<br>(by 11:59pm)
+----------------|----------------------------|--------------------
+Project Proposal      | 7 %    | Sep. 26
+Survey Plan           | 4 %    | Oct. 05
+Pilot Survey          | 4 %    | Oct. 15
+Pilot Analysis        | 9 %    | Nov. 07
+Final Survey          | 5 %    | Nov. 19
+Final Analysis Report | 14 %   | Dec. 13
+Final Presentation    | 8 %    | Dec. 15
+</div>
+
+# Project Selection
+
+I want this project to be as useful for you and your future career as possible - you'll hopefully want to show off your final project in a portfolio or during job interviews. Accordingly, you get to choose the topic for your project, but it must meet certain guidelines.
+
+Projects must be selected during the first two weeks of class. Projects much be an emerging technology, product, or policy with a clearly identified market that has not yet been introduced into the mass market, such as a new invention from a research laboratory at GWU or a new product being explored by a firm. Students have the option to choose a sponsored project or propose their own project if it is approved by the instructor and meets the following criteria:
+
+- **Innovative / Emerging**: The proposed project involves a new product or technology with attributes (e.g. price, efficiency, reliability, size, performance, color, etc.) that may be competitive in the marketplace but for which actual market adoption is still uncertain.
+- **Well-Defined**: This course focuses on mathematical modeling to support design decision-making. There is not sufficient time in the course for conceptual design of a new product.
+- **Identified Target Market**: A target market has been identified for this new product or
+technology. Competing products in that market are known, and the attributes on which new market entrants compete can be identified. Representative potential customers can be identified for survey solicitation. If the new product or technology is a component of a larger product sold to a consumer market, students may assess the market implications for the final consumer product.
+- **Prior to Mass Commercialization**: The new product or technology has only recently or has not yet been introduced to the mass market.
+- **Moderate Scope and Complexity**: The product or technology should involve moderate complexity. For example, a non-differentiated commodity, such as sugar, is too simple, and a complex product involving many components and manufacturing operations, such as a vehicle, is too complex.
+- **Expertise**: If the product involves a new technology that requires specialized knowledge about its attributes, the team should have reliable access to experts who can supply the requisite knowledge.
+- **Decision Variables**: The product should have several non-trivial design decisions. For example, choosing between two materials or topologies, setting dimensions of a component, or selecting among a set of alternative component configurations are suitable design decisions. The models developed in the project will be used to support decision-making along such dimensions.
+
+# Teamwork
+
+The experience of working in teams on this project will serve as preparation for teamwork throughout your careers. Some teams may experience an imbalance in team member contributions, effort, or reliability. The instructor is available to provide advice and interact in resolving team inequity and conflict; however, students should view this as a learning experience. Such situations regularly occur in any career, and learning how to handle them is a valuable skill. If you experience challenges within your team, it is a good opportunity to develop strategies and figure out how you will address such challenges in the future. One common job interview question is, "Describe a time when you experienced difficulties working in a team or experienced a team failure. What did you do about it?" This is a good chance to build a strong answer to this question.

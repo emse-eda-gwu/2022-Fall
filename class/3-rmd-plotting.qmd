@@ -1,0 +1,12 @@
+---
+title: "RMarkdown & Plotting"
+params:
+  class: "3-rmd-plotting"
+  logitrcars: FALSE
+  formr4conjoint: FALSE
+---
+
+```{r child = here::here("fragments", "setup.qmd")}
+```
+
+Coming soon!

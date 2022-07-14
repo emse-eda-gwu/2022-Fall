@@ -1,0 +1,12 @@
+---
+title: "Exam Solutions"
+params:
+  class: "13-exam-solutions"
+  logitrcars: FALSE
+  formr4conjoint: FALSE
+---
+
+```{r child = here::here("fragments", "setup.qmd")}
+```
+
+Coming soon!

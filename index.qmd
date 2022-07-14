@@ -1,0 +1,36 @@
+---
+title: "EMSE 6035: Marketing Analytics for Design Decisions - Fall 2022"
+---
+
+```{r child = here::here("fragments", "setup.qmd")}
+```
+
+<div class = "row">
+
+<div class = "col-md-3">
+<img src="images/logo.png" width="200">
+</div>
+
+<div class = "col-md-9">
+
+**Department**: [Engineering Management and Systems Engineering](https://www.emse.seas.gwu.edu/) @ [GWU](https://www.gwu.edu/)
+
+**Credits**: 3
+
+**Description**:
+
+```{r child = here::here("fragments", "description.qmd")}
+```
+
+**Learning Objectives**:
+
+```{r child = here::here("fragments", "learning-objectives.qmd")}
+```
+
+**Prerequisites**:
+
+```{r child = here::here("fragments", "prerequisites.qmd")}
+```
+
+</div>
+</div>

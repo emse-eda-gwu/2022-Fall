@@ -1,0 +1,12 @@
+This course requires prior exposure to:
+
+- Probability theory
+- Multivariable calculus
+- Linear algebra
+- Regression
+
+Each of these concepts will be applied throughout the course, and no time will be spent reviewing the foundational elements of each concept.
+
+In addition, we will work in the [R programming language](https://www.r-project.org/) throughout the course, but no prior programming experience is required. We will spend the first three weeks going through exercises to get up to speed in R.
+
+Students are encouraged to complete [this self assessment](a0-self-assessment.qmd) prior to registering for the course to self-assess familiarity with these concepts.

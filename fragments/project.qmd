@@ -1,0 +1,17 @@
+```{r echo=FALSE}
+library(tidyverse)
+
+due <- get_schedule() %>%
+  mutate(project_due = format(project_due, format = "%b %d")) %>%
+  filter(project_n == params$number) %>%
+  pull(project_due)
+due <- paste0(due, " by 11:59pm")
+```
+
+> **Due**: `r due`
+>
+> **Weight**: This assignment is worth `r params$weight` of your final grade.
+>
+> **Purpose**: `r params$purpose`
+>
+> **Assessment**: `r params$assessment`

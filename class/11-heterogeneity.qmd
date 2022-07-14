@@ -1,0 +1,12 @@
+---
+title: "Heterogeneity"
+params:
+  class: "11-heterogeneity"
+  logitrcars: TRUE
+  formr4conjoint: FALSE
+---
+
+```{r child = here::here("fragments", "setup.qmd")}
+```
+
+Coming soon!

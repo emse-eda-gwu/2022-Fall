@@ -1,0 +1,10 @@
+---
+title: "Exam"
+params:
+  number: 10
+---
+
+```{r child = here::here("fragments", "setup.qmd")}
+```
+
+Coming soon!

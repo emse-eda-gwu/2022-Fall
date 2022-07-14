@@ -1,0 +1,12 @@
+---
+title: "WTP & Simulations"
+params:
+  class: "10-wtp-simulation"
+  logitrcars: TRUE
+  formr4conjoint: FALSE
+---
+
+```{r child = here::here("fragments", "setup.qmd")}
+```
+
+Coming soon!

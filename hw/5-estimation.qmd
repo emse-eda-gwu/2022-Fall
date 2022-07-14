@@ -1,0 +1,11 @@
+---
+title: "Estimation"
+params:
+  number: 5
+  purpose: "The purpose of this assignment is to introduce the concept of maximum likelihood estimation, which is the estimation approach we'll be using in class to estimate our choice models."
+---
+
+```{r child = here::here("fragments", "setup.qmd")}
+```
+
+Coming soon!

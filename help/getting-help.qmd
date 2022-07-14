@@ -1,0 +1,44 @@
+---
+title: "Getting Help"
+output: html_document
+---
+
+```{r child = here::here("fragments", "setup.qmd")}
+```
+
+# Slack
+
+All course communication will be managed through [Slack](https://emse-madd-f21.slack.com). A link to sign up for the course slack page can be found on the one (and only) announcement on Blackboard.
+
+Watch this 2-minute video to see what Slack is all about:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/812kbhp0WdY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+**You can use Slack to**:
+
+- Ask general questions.
+- Ask for help with an assignment.
+- Send direct, private messages to each other or the instructors (just like email...but better!)
+
+**Asking for help on Slack**:
+
+You can post questions on slack and receive quick responses. This also enables other students to see answers to common questions. Be specific - if your code has an error you don't understand, **include the code and the error message** in your question.
+
+# Office hours
+
+Please watch this video:
+
+<iframe src="https://player.vimeo.com/video/270014784" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen="">
+</iframe>
+
+Office hours are set times dedicated to all of you. This means that I will be in my office (wistfully) waiting for you to come by with whatever questions you have. This is the best and easiest way to find me outside of class and the best chance for discussing class material and concerns (or anything really). Please come by!
+
+This can be a difficult class - **do not suffer in silence!** Come talk to me!
+
+# Tutoring hours
+
+Similar to office hours, your class tutors will each hold a specific period of time each week dedicated to help you will course assignments. Please don't make your tutors sit and do emails for two hours - come by and ask for help!
+
+# Library Services
+
+While the University Library is not a stand in for TAs, you can schedule a consultation for general help with Coding, Programming, Data, Statistical, and GIS. See more at https://academiccommons.gwu.edu/writing-research-help

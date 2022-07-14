@@ -6,23 +6,23 @@ output:
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-```{r child = "knitr_setup.Rmd"}
+```{r child = here::here("fragments", "setup.qmd")}
 ```
 
-## EMSE 4572: Exploratory Data Analysis - Fall 2022 <a href='https://github.com/emse-eda-gwu/2022-Fall'><img src='images/eda_hex_sticker.png' align="right" height="139"/></a>
+## `r settings$title` <a href='`r settings$repo`'><img src='images/logo.png' align="right" height="139"/></a>
 
 <!-- badges: start -->
-![Render & Deploy Site](https://github.com/emse-eda-gwu/2022-Fall/workflows/Render%20&%20Deploy%20Site/badge.svg)
+![Render & Deploy Site](https://github.com/emse-madd-gwu/2022-Fall/workflows/Render%20&%20Deploy%20Site/badge.svg)
 [![License: CC-BY-SA 4.0](https://img.shields.io/badge/License-CC%20BY--SA-lightgrey)](https://creativecommons.org/licenses/by-sa/4.0/)
 <!-- badges: end -->
 
 ### Description
 
-```{r child = '_description.Rmd'}
+```{r child = here::here("fragments", "description.qmd")}
 ```
 
-For more details, please see the [course website](http://eda.seas.gwu.edu/2022-Fall/).
+For more details, please see the [course website](`r settings$site_url`).
 
 ### Acknowledgments
 
-This course was inspired by many other courses / resources that cover similar material - see the course [about page](http://eda.seas.gwu.edu/2022-Fall/about.html) for more details.
+This course was inspired by many other courses / resources that cover similar material - see the course [about page](`r paste0(settings$site_url, 'about.html')`) for more details.

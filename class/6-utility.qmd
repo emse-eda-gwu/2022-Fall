@@ -1,0 +1,12 @@
+---
+title: "Utility Models"
+params:
+  class: "6-utility"
+  logitrcars: TRUE
+  formr4conjoint: FALSE
+---
+
+```{r child = here::here("fragments", "setup.qmd")}
+```
+
+Coming soon!
