@@ -26,9 +26,9 @@ Please help us all stay safe so we can continue having in-person classes. Please
 
 ## GW Bulletin Description (short)
 
-Analyzing data to inform design decisions in an uncertain, competitive, market, topics include consumer choice modeling, programming in [R](https://www.r-project.org/), survey design, conjoint analysis, optimization market simulation, and professional communication skills. 
+Introduction to exploratory data analysis using the [R programming language](https://www.r-project.org/); data visualization, data cleaning, exploratory analysis, information communication, rmarkdown, reproducibility.
 
-## Longer Description
+## Unofficial Description
 
 ```{r child = here::here("fragments", "description.qmd")}
 ```
@@ -59,42 +59,48 @@ All texts and software for this course is freely available on the web. This incl
 
 ## Software
 
-Go to the [Course Software](ref-course-software.qmd) page for detailed instructions on how to install the software we'll be using. Here's a quick list:
+Go to the [Course Software](help/course-software.qmd) page for detailed instructions on how to install the software we'll be using. Here's a quick list:
 
 - R (version 4.1.0 or later), which can be downloaded from [The Comprehensive R Archive Network (CRAN)](https://cloud.r-project.org)
 - RStudio (Desktop Version), a free IDE for R, which can be downloaded from [RStudio](https://rstudio.com/products/rstudio/download/)
 - We'll be using [Slack](`r settings$slack`) for most communication.
 
+## Texts / Other Useful Resources
+
+Each week students will be responsible for completing assigned readings, most of which will come from these three books, which are available both free online and for purchase via the following links:
+
+- Healy, Kieran. "Data Visualization: A practical introduction" [[free online](http://socviz.co/)], [[buy on amazon](https://www.amazon.com/Data-Visualization-Introduction-Kieran-Healy/dp/0691181624)]
+- Grolemund, Garrett and Wickham, Hadley. "R for Data Science" [[free online](https://r4ds.had.co.nz/)], [[buy on amazon](https://www.amazon.com/Data-Science-Transform-Visualize-Model/dp/1491910399)]
+- Wilke, Claus O. "Fundamentals of Data Visualization" [[free online](https://serialmentor.com/dataviz/)], [[buy on amazon](https://www.amazon.com/Fundamentals-Data-Visualization-Informative-Compelling/dp/1492031089)]
+
 # Assignments
 
 ## Class Participation
 
-Regular class attendance is **essential**. Much of the class time will be spent doing exercises and working with your team on your project. Multiple unexcused absences, inappropriate or unprofessional behavior during class (such as monopolizing discussions or being rude or disruptive), not participating in classroom exercises, and not being prepared for class will result in poor performance in this class.
+Regular class attendance is **essential**. Much of the class time will be spent doing exercises and coding. Multiple absences, inappropriate or unprofessional behavior during class (such as monopolizing discussions or being rude or disruptive), not participating in classroom exercises, and not being prepared for class will result in poor performance in this class.
 
 ## Quizzes
 
-There will be 5 quizzes given about once every two weeks immediately at the beginning of class. Quizzes cover material presented in previous classes and assignments during the weeks since the most-recent quiz. Quizzes are **short** (~5 minutes) and are designed to identify areas where additional study is needed. **Quizzes are low-stakes** - your worst one is dropped, and the rest count for just 12% of your final grade. If you do poorly on one, use that as feedback on where you need additional improvement.
+There will be several quizzes given about once every two weeks immediately at the beginning of class. Quizzes cover material presented in previous classes and assignments during the weeks since the most-recent quiz. Quizzes are designed to be time-intensive, to test for fluency, and to demonstrate where additional study is needed. **Quizzes are low-stakes** - your worst one is dropped, and the rest count for just 15% of your final grade. If you do poorly on one, use that as feedback on where you need additional improvement.
 
 > **Why quiz at all?** Research shows that giving small quizzes throughout a class can dramatically help with *retention*. It's a phenomenon known as the "retrieval effect" - basically, you have to _practice_ remembering things, otherwise your brain won't remember them. The phenomenon and research on it is explained in detail in the book ["Make It Stick: The Science of Successful Learning,"](https://www.hup.harvard.edu/catalog.php?isbn=9780674729018) by Brown, Roediger, and McDaniel.
 
-## Assignments
+## Homework
 
-Each week, students will be assigned readings and exercises to prepare for the next class period. Students will need to submit reflections on these readings each week, which may involve answering some practice questions.
-These are graded using a check system:
+Students will be responsible for two types of assignments throughout the semester:
 
-- ✔+ (110%): Responses shows phenomenal thought and engagement with the course content. I will not assign these often.
-- ✔ (100%): Responses are thoughtful, well-written, and show engagement with the course content. This is the expected level of performance.
-- ✔− (50%): Responses are hastily composed, too short, and/or only cursorily engages with the course content. This grade signals that you need to improve next time. I will _hopefully_ not assign these often.
-
-Notice that this is essentially a pass/fail system. I'm not grading your writing ability and I'm not counting the number of words you write. I'm looking for thoughtful engagement, that's all.
+- **Reflections**: Each week, students will be assigned specific readings to prepare for the next class period. Students will need to submit reflections on these readings each week. Additional, optional assignments on [DataCamp](https://www.datacamp.com) will be available for extra practice.
+- **Mini Projects**: There will be three mini projects throughout the semester designed to provide hands-on experience with the material covered in class by working with and exploring real data sets and / or creating visualizations. While students may work with their peers on these assignments, each student must submit their own work. Credit for each assignment will be allocated according to a rubric provided in the assignment description.
 
 ## Final Project
 
-Throughout the semester, students will work in teams of 3-4 students towards a final project. The project is broken into multiple phases with key deliverables due throughout the semester. See the [Project Overview](p0-overview.qmd) page for more details.
+Throughout the semester, students will work in teams of 2-3 students towards a final project of an exploratory data analysis. At the end of the semester, each student will submit a report of their analysis in the form of an html web page and create a 5 to 10-minute video presentation of their results. To make the overall project more manageable, it will be broken down into several separate "milestone" deliverables due throughout the semester, including a proposal, progress report, presentation video, and final report.
 
-## Final Exam
+View the [final project assignment](project/0-overview.qmd) page for more details.
 
-The final exam is a take-home exam, and we will spend a portion of the last day of class going over the solutions together. 
+## Final Interview
+
+Rather than have a final exam, each student will have a 10-minute interview by the instructor. The interview will be focused on the final project the student worked and will contain questions related to concepts covered during the course. Students will be provided a list of questions and the grading rubric ahead of the interview.
 
 # Grading
 
@@ -163,7 +169,33 @@ The course instructors may choose to change the scales at their discretion. You 
 
 # Getting Help
 
-This class can be challenging - don't suffer in silence. Look at the ["Getting Help"](ref-getting-help.qmd) page for ways to get resources that can help you succeed.
+This class can be challenging - **do not suffer in silence!** We have lots of ways to get help.
+
+## Slack
+
+All course communication will be managed through [Slack](`r settings$slack`). A link to sign up for the course slack page can be found on the one (and only) announcement on Blackboard.
+
+**You can use Slack to**:
+
+- Ask general questions.
+- Ask for help with an assignment.
+- Send direct, private messages to each other or the instructors (just like email...but better!)
+
+**Asking for help on Slack**:
+
+You can post questions on slack and receive quick responses. This also enables other students to see answers to common questions. Be specific - if your code has an error you don't understand, **include the code and the error message** in your question.
+
+## Office hours
+
+Scheduling a time to answer questions is hard, so rather than hold regular office hours, you can use [this link](https://jhelvy.appointlet.com/b/professor-helveston) to schedule a zoom call with me most days of the week.
+
+## Tutoring hours
+
+Your class tutors will each hold a dedicated period of time each week for zoom tutoring hours. Please don't make your tutors sit and do emails for two hours - come by and ask for help!
+
+## Library Services
+
+While the University Library is not a stand in for TAs, you can schedule a consultation for general help with Coding, Programming, Data, Statistical, and GIS. See more at https://academiccommons.gwu.edu/writing-research-help
 
 # Course Policies
 
