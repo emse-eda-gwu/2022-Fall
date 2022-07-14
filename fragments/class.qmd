@@ -8,12 +8,14 @@ path_notes <- here::here("slides", params$class, paste0(params$class, ".zip"))
 ::: {.grid}
 
 ::: {.g-col-6}
+
 **KEYBOARD SHORTCUTS FOR SLIDES:**
 
 - Use <kbd>←</kbd> and <kbd>→</kbd> to navigate through the slides.
 - Use <kbd>f</kbd> to toggle full screen.
 - Use <kbd>o</kbd> to view an overview of all slides.
 - Use <kbd>h</kbd> to see a list of other shortcuts.
+
 :::
 
 ::: {.g-col-3}
@@ -38,14 +40,6 @@ path_notes <- here::here("slides", params$class, paste0(params$class, ".zip"))
 
 <a href=`r path_notes` class="btn-notes"><i class="fas fa-download"></i> Notes zip file</a>
 
-```{r, eval=params$logitrcars, echo=FALSE}
-knitr::asis_output('<a href="https://github.com/jhelvy/logitr-cars/archive/refs/heads/main.zip" class="btn-notes"><i class="fas fa-download"></i> logitr-cars</a>')
-```
-
-```{r, eval=params$formr4conjoint, echo=FALSE}
-knitr::asis_output('<a href="https://github.com/jhelvy/formr4conjoint/archive/refs/heads/master.zip" class="btn-notes"><i class="fas fa-download"></i> formr4conjoint</a>')
-```
-
 :::
 
 :::
@@ -55,5 +49,3 @@ knitr::asis_output('<a href="https://github.com/jhelvy/formr4conjoint/archive/re
 ```{r lexi-demo, echo=FALSE}
 xaringanExtra::embed_xaringan(url = path_slides, ratio = "16:9")
 ```
-
-

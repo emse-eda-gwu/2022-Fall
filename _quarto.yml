@@ -10,9 +10,9 @@ project:
 
 website:
   image: images/logo.png
-  site-url: https://madd.seas.gwu.edu/2022-Fall/
+  site-url: https://eda.seas.gwu.edu/2022-Fall/
   favicon: images/favicon.ico
-  repo-url: https://github.com/emse-madd-gwu/2022-Fall
+  repo-url: https://github.com/emse-eda-gwu/2022-Fall
   description: 'Course website for Fall 2022 semester of the EMSE course "Marketing Analytics for Design Decisions" at GWU'
   search: true
   open-graph: true
@@ -121,7 +121,7 @@ website:
             icon: chevron-expand
             href: help/other.qmd
       - icon: slack
-        href: https://emse-madd-f22.slack.com
+        href: https://emse-eda-f22.slack.com
     right:
     - icon: fas fa-bars
       menu:
@@ -132,14 +132,14 @@ website:
       - text: Contact
         href: mailto:jph@gwu.edu
       - icon: github
-        href: https://github.com/emse-madd-gwu/2022-Fall/
+        href: https://github.com/emse-eda-gwu/2022-Fall/
   page-footer:
     center:
-      - text: 'EMSE 6035: Marketing Analytics for Design Decisions (Fall 2022)<br><i class="far fa-calendar-alt"></i> Wednesdays | <i class="far fa-clock"></i> 6:10 - 8:40 PM | <a href="https://acadtech.gwu.edu/location?id=355&campus=FB&type=building&selection=22"><i class="fa fa-map-marker-alt"></i> Tompkins 302</a> | <a href="https://www.jhelvy.com"><i class="fas fa-user"></i> Dr. John Paul Helveston</a> | <a href="mailto:jph@gwu.edu"><i class="fas fa-envelope"></i> jph@gwu.edu</a>'
+      - text: 'EMSE 4572: Exploratory Data Analysis (Fall 2022)<br><i class="far fa-calendar-alt"></i> Wednesdays | <i class="far fa-clock"></i> 12:45 - 3:15 PM EST | <a href="https://acadtech.gwu.edu/location?id=373&campus=FB&type=building&selection=36"><i class="fa fa-map-marker-alt"></i> 1776 G St C-119</a> | <a href="https://www.jhelvy.com"><i class="fas fa-user"></i> Dr. John Paul Helveston</a> | <a href="mailto:jph@gwu.edu"><i class="fas fa-envelope"></i> jph@gwu.edu</a>'
 
 format:
   html:
-    theme: united
+    theme: cosmo
     css: styles.css
     anchor-sections: true
     smooth-scroll: true

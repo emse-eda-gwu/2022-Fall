@@ -1,9 +1,5 @@
 ---
 title: "R Markdown"
-output:
-  html_document:
-    number_sections: false
-    toc: no
 ---
 
 ```{r child = here::here("fragments", "setup.qmd")}

@@ -1,0 +1,52 @@
+---
+title: "title"
+author: "author"
+output:
+  html_document:
+    toc: no
+    toc_float: no
+    theme: flatly
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  warning = FALSE,
+  message = FALSE,
+  echo = FALSE,
+  comment = "#>",
+  fig.retina = 3,
+  fig.path = "figs/"
+)
+
+# install.packages(plotly)
+library(tidyverse)
+library(plotly)
+```
+
+# Reflection
+
+List the link to the article you read here:
+
+Put any notes you took as you read the article here:
+
+Answer these questions:
+
+- What was one main conclusion or point the author made?
+- Were any of the visualizations particularly effective in grabbing your attention and supporting that point?
+- Was there anything you could critique about the article or charts you saw?
+
+# Make a chart
+
+Make your static plot here:
+
+```{r}
+plot <-
+```
+
+# Make it interactive
+
+If you've installed the `plotly` library, your chart should magically turn into an interactive chart with this one function:
+
+```{r}
+ggplotly(plot)
+```

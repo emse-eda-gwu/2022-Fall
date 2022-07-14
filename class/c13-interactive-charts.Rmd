@@ -1,0 +1,14 @@
+---
+title: "Interactive Charts"
+output:
+  html_document:
+    number_sections: false
+    toc: no
+params:
+  class: "13-interactive-charts"
+---
+
+```{r child = "knitr_setup.Rmd"}
+```
+
+Coming soon!

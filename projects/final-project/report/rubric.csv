@@ -1,0 +1,19 @@
+order,category,label,rating,maxPoints,points,description
+1,organization,Organization & Formatting,Excellent,5,5,All formatting guidelines are followed; YAML is correct with all team members listed.
+1,organization,Organization & Formatting,Good,5,4,Most formatting guidelines are followed; YAML is correct with all team members listed.
+1,organization,Organization & Formatting,Needs work,5,3 / 2,Several or all formatting guidelines not followed; YAML contains elements that aren't updated from the template.
+2,researchQuestion,Research Question,Excellent,5,5,"Research question is clear, focused, concise, complex, and arguable."
+2,researchQuestion,Research Question,Good,5,4,"Research question is reasonably clear and focused, but may be too simple, too complex, or too verbose."
+2,researchQuestion,Research Question,Needs work,5,3 / 2,Research question is unclear and lacks focus; question is far too simple or overly complex.
+3,dataSources,Data Sources,Excellent,5,5,Data sources are clearly described with valid urls or citations used; validity of and concerns about data are discussed; data dictionaries included in appendix.
+3,dataSources,Data Sources,Good,5,4,Some data sources are not clearly described or urls / citations are missnig; validity of and concerns about data are minimally discussed; data dictionaries are in appendix.
+3,dataSources,Data Sources,Needs work,5,3 / 2,Data sources are poorly described or missing; description of validity of and concerns about data are poor or missing; no data dictionaries provided.
+4,analysis,Overall Analysis,Excellent,20,18 - 20,Analysis and exploration of data conducted to address research questions; narrative text effectively used to describe analysis and results; overall analysis tells a coherent story addressing research question.
+4,analysis,Overall Analysis,Good,20,15 - 17,"Analysis and exploration of data conducted mostly addresses research questions; text used to describe analysis and results, but writing quality is poor or not in a narrative format; overall analysis not fully coherent in addressing research question."
+4,analysis,Overall Analysis,Needs work,20,10 - 14,Analysis and exploration of data conducted does not address research questions; text poorly used or missing to describe analysis and results; overall analysis not coherent in addressing research question.
+5,visualizations,Visualizations,Excellent,30,27 - 30,Charts expertly demonstrate best practices of visual design; charts are functionally accurate and address research questions; appropriate chart types used for conveying key messages; annotations are appropriate; minimum of 3 charts met.
+5,visualizations,Visualizations,Good,30,22 - 26,"Charts generally demonstrate best practices of visual design; some elements are distracting or confusing; some annotations missing, incomplete, or inaccurate; minimum of 3 charts not met."
+5,visualizations,Visualizations,Needs work,30,15 - 21,Charts generally lack best practices of visual design; multiple confusing or unclear / distracting elements; unrelated to research question; minimum of 3 charts notmet.
+7,technical,Technical things,Excellent,5,5,All code runs without errors; all files included in the submitted .zip file; report is published on RPubs.
+7,technical,Technical things,Good,5,4,"Code has only one or two error, otherwise runs; all files included in the submitted .zip file; or report is not published on RPubs"
+7,technical,Technical things,Needs work,5,3 / 2,Code has multiple errors; submitted .zip file is missing components necessary to reproduce analysis; report not published on RPubs.

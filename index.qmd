@@ -1,5 +1,5 @@
 ---
-title: "EMSE 6035: Marketing Analytics for Design Decisions - Fall 2022"
+title: "EMSE 4572: Exploratory Data Analysis - Fall 2022"
 ---
 
 ```{r child = here::here("fragments", "setup.qmd")}

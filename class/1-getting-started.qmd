@@ -2,8 +2,6 @@
 title: "Getting Started"
 params:
   class: "1-getting-started"
-  logitrcars: FALSE
-  formr4conjoint: FALSE
 ---
 
 ```{r child = here::here("fragments", "setup.qmd")}

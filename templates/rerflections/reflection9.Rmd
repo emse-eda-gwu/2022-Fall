@@ -1,0 +1,36 @@
+---
+title: "title"
+author: "author"
+output:
+  html_document:
+    toc: no
+    toc_float: no
+    theme: flatly
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  warning = FALSE,
+  message = FALSE,
+  echo = FALSE,
+  comment = "#>",
+  fig.retina = 3,
+  fig.path = "figs/"
+)
+```
+
+When it comes to your final report, you certainly want to make sure you don't have any typos or misspelled words. But how can you check if you're not using Microsoft Word? Well, as you might expect, there's a [package](https://docs.ropensci.org/spelling/) for that!
+
+```{r}
+# Install it just once with:
+# install.packages("spelling")
+```
+
+If, for example, you want to spell check this very file, just open your RStudio project file and run this line in the console:
+
+```{r}
+spelling::spell_check_files("reflection11.Rmd")
+```
+
+You'll see a list of words that might be mispelled. For example, I just misspelled the word "misspelled" in the last sentence, and it should appear in the summary of misspelled words!
+

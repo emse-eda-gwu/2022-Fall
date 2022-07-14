@@ -11,7 +11,7 @@ due <- get_schedule() %>%
   paste0(" by 11:59pm")
 
 url_template <- paste0(
-  'https://madd.seas.gwu.edu/2022-Fall/templates/hw',
+  'https://eda.seas.gwu.edu/2022-Fall/templates/hw',
   params$number, '.zip')
 ```
 

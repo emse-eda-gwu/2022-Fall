@@ -1,8 +1,9 @@
 Having successfully completed this course, students will be able to:
 
-- Import, wrangle, visualize, and export data in R.
-- Design surveys to obtain informative data about consumer preferences for product features.
-- Build and estimate discrete choice models.
-- Analyze consumer choice data to estimate consumer preferences for product features.
-- Design and create effective charts and presentations.
-- Communicate results in terms of design insights.
+- Write a clear, focused, concise, complex, and arguable research question.
+- Import, manipulate, clean, visualize, and export data in R.
+- Wrangle data from its original format into a fit-for-purpose format.
+- Conduct a systematic exploratory data analysis (EDA) of different types of data.
+- Apply fundamental principles of visualizing information for exploratory analysis and communication.
+- Get data off the web and expose data, code, results on the web.
+- Generate fully reproducible reports that contain code, equations, visualizations, and narrative text.
