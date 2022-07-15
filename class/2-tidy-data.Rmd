@@ -1,11 +1,11 @@
 ---
-title: "Shiny Apps"
+title: "Getting Started"
 output:
   html_document:
     number_sections: false
     toc: no
 params:
-  class: "14-shiny-apps"
+  class: "1-getting-started"
 ---
 
 ```{r child = "knitr_setup.Rmd"}
