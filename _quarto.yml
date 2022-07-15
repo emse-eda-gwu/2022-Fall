@@ -13,7 +13,7 @@ website:
   site-url: https://eda.seas.gwu.edu/2022-Fall/
   favicon: images/favicon.ico
   repo-url: https://github.com/emse-eda-gwu/2022-Fall
-  description: 'Course website for Fall 2022 semester of the EMSE course "Marketing Analytics for Design Decisions" at GWU'
+  description: 'Course website for Fall 2022 semester of the EMSE course Exploratory Data Analysis at GWU'
   search: true
   open-graph: true
   twitter-card:
@@ -60,7 +60,6 @@ website:
         - text: "Dec 14: Final Presentations"
         - text: "Final Interviews"
           href: class/interviews.qmd
-
       - text: "Assignments"
         menu:
         - text: "Course Primer (optional)"
@@ -141,10 +140,10 @@ website:
       - text: Contact
         href: mailto:jph@gwu.edu
       - icon: github
-        href: https://github.com/emse-eda-gwu/2022-Fall/
+        href: https://github.com/emse-eda-gwu/2022-Fall
   page-footer:
     center:
-      - text: 'EMSE 4572: Exploratory Data Analysis (Fall 2022)<br><i class="far fa-calendar-alt"></i> Wednesdays | <i class="far fa-clock"></i> 12:45 - 3:15 PM EST | <a href="https://acadtech.gwu.edu/location?id=373&campus=FB&type=building&selection=36"><i class="fa fa-map-marker-alt"></i> 1776 G St C-119</a> | <a href="https://www.jhelvy.com"><i class="fas fa-user"></i> Dr. John Paul Helveston</a> | <a href="mailto:jph@gwu.edu"><i class="fas fa-envelope"></i> jph@gwu.edu</a>'
+      - text: 'EMSE 4572: Exploratory Data Analysis (Fall 2022)'<br><i class="far fa-calendar-alt"></i> Wednesdays | <i class="far fa-clock"></i> 12:45PM - 3:15PM EST | <a href="https://acadtech.gwu.edu/location?id=373&campus=FB&type=building&selection=36"><i class="fa fa-map-marker-alt"></i> 1776 G St C-119</a> | <a href="https://www.jhelvy.com"><i class="fas fa-user"></i> Dr. John Paul Helveston</a> | <a href="mailto:jph@gwu.edu"><i class="fas fa-envelope"></i> jph@gwu.edu</a>'
 
 format:
   html:
@@ -154,5 +153,4 @@ format:
     smooth-scroll: true
     link-external-newwindow: true
     include-in-header: "_includes/header.html"
-
 

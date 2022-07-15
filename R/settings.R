@@ -24,7 +24,7 @@ settings <- list(
     semester = 'Fall 2022',
     repo     = "https://github.com/emse-eda-gwu/2022-Fall",
     site_url = "https://eda.seas.gwu.edu/2022-Fall/",
-    title    = "EMSE 4572: Exploratory Data Analysis - Fall 2022",
+    title    = "EMSE 4572: Exploratory Data Analysis (Fall 2022)",
     weekday  = "Wednesdays",
     time     = "12:45PM - 3:15PM EST",
     room     = '1776 G St C-119',

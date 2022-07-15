@@ -4,7 +4,7 @@ source(here::here("R", "settings.R"))
 schedule <- get_schedule()
 
 # Starting content string
-start <- 
+start <- paste0(
 'project:
   type: website
   output-dir: _site
@@ -17,10 +17,10 @@ start <-
 
 website:
   image: images/logo.png
-  site-url: https://eda.seas.gwu.edu/2022-Fall/
+  site-url: ', settings$site_url, '
   favicon: images/favicon.ico
-  repo-url: https://github.com/emse-eda-gwu/2022-Fall
-  description: \'Course website for Fall 2022 semester of the EMSE course "Marketing Analytics for Design Decisions" at GWU\'
+  repo-url: ', settings$repo, '
+  description: \'Course website for ', settings$semester, ' semester of the EMSE course Exploratory Data Analysis at GWU\'
   search: true
   open-graph: true
   twitter-card:
@@ -36,6 +36,7 @@ website:
         href: schedule.qmd
       - text: Class
         menu:'
+)
 
 # Class class string
 class <- schedule %>% 
@@ -57,6 +58,8 @@ class <- c(
           href: class/interviews.qmd
 ')
 class <- paste0(class, collapse = "")
+# Remove last "\n"
+class <- str_sub(class[length(class)], 1, -2)
 
 # Assignment string
 assignment <- schedule %>%
@@ -79,8 +82,6 @@ assignment <- schedule %>%
         assignment = paste(text, href, sep = "\n")
     )
 assignment <- assignment$assignment
-# Remove last "\n"
-assignment[length(assignment)] <- str_sub(assignment[length(assignment)], 1, -2)
 # Insert primer assignment
 assignment <- c(
 '        - text: "Course Primer (optional)"
@@ -89,6 +90,8 @@ assignment <- c(
     assignment
 )
 assignment <- paste0(assignment, collapse = "")
+# Remove last "\n"
+assignment <- str_sub(assignment[length(assignment)], 1, -2)
 
 # Mini projects string
 mini <- schedule %>%
@@ -105,10 +108,10 @@ mini <- schedule %>%
         mini = paste(text, href, sep = "\n")
     )
 mini <- mini$mini
-# Remove last "\n"
-mini[length(mini)] <- str_sub(mini[length(mini)], 1, -2)
 mini <- paste0(mini, collapse = "")
-
+# Remove last "\n"
+mini <- str_sub(mini[length(mini)], 1, -2)
+    
 # Final projects string
 final <- schedule %>%
     filter(!is.na(project_final)) %>% 
@@ -124,8 +127,6 @@ final <- schedule %>%
         final = paste(text, href, sep = "\n")
     )
 final <- final$final
-# Remove last "\n"
-final[length(final)] <- str_sub(final[length(final)], 1, -2)
 # Insert project overview
 final <- c(
     '        - text: "Project Overview"
@@ -134,6 +135,8 @@ final <- c(
     final
 )
 final <- paste0(final, collapse = "")
+# Remove last "\n"
+final <- str_sub(final[length(final)], 1, -2)
 
 # Help string 
 help <- 
@@ -159,9 +162,9 @@ help <-
           href: help/other.qmd'
 
 # End content string
-end <- 
+end <- paste0(
 '      - icon: slack
-        href: https://emse-eda-f22.slack.com
+        href: ', settings$slack, '
     right:
     - icon: fas fa-bars
       menu:
@@ -172,10 +175,10 @@ end <-
       - text: Contact
         href: mailto:jph@gwu.edu
       - icon: github
-        href: https://github.com/emse-eda-gwu/2022-Fall/
+        href: ', settings$repo, '
   page-footer:
     center:
-      - text: \'EMSE 4572: Exploratory Data Analysis (Fall 2022)<br><i class="far fa-calendar-alt"></i> Wednesdays | <i class="far fa-clock"></i> 12:45 - 3:15 PM EST | <a href="https://acadtech.gwu.edu/location?id=373&campus=FB&type=building&selection=36"><i class="fa fa-map-marker-alt"></i> 1776 G St C-119</a> | <a href="https://www.jhelvy.com"><i class="fas fa-user"></i> Dr. John Paul Helveston</a> | <a href="mailto:jph@gwu.edu"><i class="fas fa-envelope"></i> jph@gwu.edu</a>\'
+      - text: \'', settings$title, '\'<br><i class="far fa-calendar-alt"></i> ', settings$weekday, ' | <i class="far fa-clock"></i> ', settings$time, ' | <a href="', settings$room_url, '"><i class="fa fa-map-marker-alt"></i> ', settings$room, '</a> | <a href="https://www.jhelvy.com"><i class="fas fa-user"></i> Dr. John Paul Helveston</a> | <a href="mailto:jph@gwu.edu"><i class="fas fa-envelope"></i> jph@gwu.edu</a>\'
 
 format:
   html:
@@ -184,8 +187,8 @@ format:
     anchor-sections: true
     smooth-scroll: true
     link-external-newwindow: true
-    include-in-header: "_includes/header.html"
-'
+    include-in-header: "_includes/header.html"'
+)
 
 # Combine
 yml <- c(
@@ -209,4 +212,3 @@ yml <- c(
 fileConn <- file("_quarto.yml")
 writeLines(yml, fileConn)
 close(fileConn)
-
