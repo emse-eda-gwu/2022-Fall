@@ -1,0 +1,40 @@
+# Load libraries and options
+library(knitr)
+library(here)
+library(tidyverse)
+library(fontawesome)
+library(cowplot)
+library(kableExtra)
+
+options(dplyr.width = Inf)
+options(knitr.kable.NA = '')
+knitr::opts_chunk$set(
+    warning    = FALSE,
+    message    = FALSE,
+    comment    = "#>",
+    fig.width  = 6,
+    fig.height = 4,
+    fig.align  = "center",
+    fig.path   = "figs/",
+    fig.retina = 3
+)
+
+# Load class settings
+settings <- list(
+    semester = 'Fall 2022',
+    repo     = "https://github.com/emse-eda-gwu/2022-Fall",
+    site_url = "https://eda.seas.gwu.edu/2022-Fall/",
+    title    = "EMSE 4572: Exploratory Data Analysis - Fall 2022",
+    weekday  = "Wednesdays",
+    time     = "12:45PM - 3:15PM EST",
+    room     = '1776 G St C-119',
+    room_url = "https://acadtech.gwu.edu/location?id=373&campus=FB&type=building&selection=36",
+    schedule_url = 'https://docs.google.com/spreadsheets/d/1heQ9ylgQ8Ok2MjIAGPRy8kdMnnyojuQFGxek9oFXF9Y/edit?usp=sharing',
+    dates = "Aug. 29 - Dec. 12, 2022",
+    slack = "https://emse-eda-f22.slack.com"
+)
+
+# Load custom functions
+get_schedule <- function() {
+    return(gsheet::gsheet2tbl(settings$schedule_url))
+}

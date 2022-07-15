@@ -3,7 +3,7 @@ project:
   output-dir: _site
   preview:
     port: 5896
-    browser: false
+    browser: true
   render:
     - "*.qmd"
     - "!fragments/"
@@ -29,97 +29,106 @@ website:
         href: schedule.qmd
       - text: Class
         menu:
-          - text: "Aug 29: Getting Started"
-            href: class/1-getting-started.qmd
-          - text: "Sep 08: Data Wrangling"
-            href: class/2-data-wrangling.qmd
-          - text: "Sep 15: RMarkdown & Plotting"
-            href: class/3-rmd-plotting.qmd
-          - text: "Sep 22: Intro to formr"
-            href: class/4-formr.qmd
-          - text: "Oct 06: Conjoint Questions"
-            href: class/5-conjoint-questions.qmd
-          - text: "Oct 13: Utility Models"
-            href: class/6-utility.qmd
-          - text: "Oct 20: Optimization & MLE"
-            href: class/7-mle.qmd
-          - text: "Oct 27: Uncertainty"
-            href: class/8-uncertainty.qmd
-          - text: "Nov 03: DOE & Power Analysis"
-            href: class/9-doe.qmd
-          - text: "Nov 10: WTP & Simulations"
-            href: class/10-wtp-simulation.qmd
-          - text: "Nov 17: Heterogeneity"
-            href: class/11-heterogeneity.qmd
-          - text: "Dec 01: Exam Review & Final Analysis Overview"
-            href: class/12-review.qmd
-          - text: "Dec 08: Exam Solutions"
-            href: class/13-exam-solutions.qmd
+        - text: "Aug 31: Getting Started"
+          href: class/1-getting-started.qmd
+        - text: "Sep 07: Tidy Data"
+          href: class/2-tidy-data.qmd
+        - text: "Sep 14: Cleaning Data"
+          href: class/3-cleaning-data.qmd
+        - text: "Sep 21: Centrality & Variability"
+          href: class/4-centrality-variability.qmd
+        - text: "Sep 28: Correlation"
+          href: class/5-correlation.qmd
+        - text: "Oct 05: Visualizing Information"
+          href: class/6-visualizing-information.qmd
+        - text: "Oct 12: Amounts & Proportions"
+          href: class/7-amounts-proportions.qmd
+        - text: "Oct 19: Comparisons"
+          href: class/8-comparisons.qmd
+        - text: "Oct 26: Trends"
+          href: class/9-trends.qmd
+        - text: "Nov 02: Polishing Charts"
+          href: class/10-polishing-charts.qmd
+        - text: "Nov 09: Maps"
+          href: class/11-maps.qmd
+        - text: "Nov 16: No Class - Team Meetings"
+        - text: "Nov 23: Thanksgiving - no class"
+        - text: "Nov 30: Interactive Charts"
+          href: class/12-interactive-charts.qmd
+        - text: "Dec 07: Communicating Results"
+          href: class/13-communicating-results.qmd
+        - text: "Dec 14: Final Presentations"
+        - text: "Final Interviews"
+          href: class/interviews.qmd
+
       - text: "Assignments"
         menu:
-          - text: Self Assessment (optional)
-            href: hw/0-self-assessment.qmd
-          - text: "Sep 01: Data Wrangling (Due 09/07)"
-            href: hw/1-data-wrangling.qmd
-          - text: "Sep 08: Plotting (Due 09/14)"
-            href: hw/2-plotting.qmd
-          - text: "Sep 15: formr (Due 09/21)"
-            href: hw/3-formr.qmd
-          - text: "Oct 06: Utility Models (Due 10/12)"
-            href: hw/4-utility-models.qmd
-          - text: "Oct 13: Estimation (Due 10/19)"
-            href: hw/5-estimation.qmd
-          - text: "Oct 20: Uncertainty (Due 10/26)"
-            href: hw/6-uncertainty.qmd
-          - text: "Oct 27: Design of Experiment (Due 11/02)"
-            href: hw/7-doe.qmd
-          - text: "Nov 03: WTP & Simulations (Due 11/09)"
-            href: hw/8-wtp-simulation.qmd
-          - text: "Nov 10: Heterogeneity (Due 11/16)"
-            href: hw/9-heterogeneity.qmd
-          - text: "Dec 01: Exam (Due 12/05)"
-            href: hw/10-exam.qmd
-      - text: Project
+        - text: "Course Primer (optional)"
+          href: hw/0-course-primer.qmd
+        - text: "Aug 31: Tidy Data (Due 09/06)"
+          href: hw/1-tidy-data.qmd
+        - text: "Sep 07: Cleaning Data (Due 09/13)"
+          href: hw/2-cleaning-data.qmd
+        - text: "Sep 14: Centrality & Variability (Due 09/20)"
+          href: hw/3-centrality-variability.qmd
+        - text: "Sep 21: Correlation (Due 09/27)"
+          href: hw/4-correlation.qmd
+        - text: "Sep 28: Visualizing Information (Due 10/04)"
+          href: hw/5-visualizing-information.qmd
+        - text: "Oct 05: Amounts & Proportions (Due 10/11)"
+          href: hw/6-amounts-proportions.qmd
+        - text: "Oct 12: Comparisons (Due 10/18)"
+          href: hw/7-comparisons.qmd
+        - text: "Oct 19: Trends (Due 10/25)"
+          href: hw/8-trends.qmd
+        - text: "Oct 26: Polishing Charts (Due 11/01)"
+          href: hw/9-polishing-charts.qmd
+        - text: "Nov 02: Maps (Due 11/08)"
+          href: hw/10-maps.qmd
+        - text: "Nov 23: Interactive Charts (Due 11/29)"
+          href: hw/11-interactive-charts.qmd
+        - text: "Nov 30: Communicating Results (Due 12/06)"
+          href: hw/12-communicating-results.qmd
+      - text: "Mini Projects"
         menu:
-          - text: Project Overview
-            href: projects/0-overview.qmd
-          - text: Project Proposal (Due 09/26)
-            href: projects/1-proposal.qmd
-          - text: Survey Plan (Due 10/05)
-            href: projects/2-survey-plan.qmd
-          - text: Pilot Survey (Due 10/15)
-            href: projects/3-pilot-survey.qmd
-          - text: Pilot Analysis (Due 11/07)
-            href: projects/4-pilot-analysis.qmd
-          - text: Final Survey (Due 11/14)
-            href: projects/5-final-survey.qmd
-          - text: Final Analysis (Due 12/13)
-            href: projects/6-final-analysis.qmd
-          - text: Final Presentation (Due 12/15)
-            href: projects/7-final-presentation.qmd
+        - text: "Data Cleaning (Due 09/27)"
+          href: project-mini/1-data-cleaning.qmd
+        - text: "Exploring Data (Due 10/11)"
+          href: project-mini/2-exploring-data.qmd
+        - text: "Re-design (Due 11/01)"
+          href: project-mini/3-re-design.qmd
+      - text: "Final Project"
+        menu:
+        - text: "Project Overview"
+          href: project-final/0-overview.qmd
+        - text: Proposal (Due 10/04)
+          href: project-final/1-proposal.qmd
+        - text: Progress Report (Due 11/08)
+          href: project-final/2-progress-report.qmd
+        - text: Final Report (Due 12/11)
+          href: project-final/3-final-report.qmd
+        - text: Final Presentation (Due 12/13)
+          href: project-final/4-presentation.qmd
       - text: Help
         menu:
-          - text: Schedule a call w/Prof. Helveston
-            icon: person
-            href: help/https://jhelvy.appointlet.com/b/professor-helveston
-          - text: Course Software
-            icon: hdd
-            href: help/course-software.qmd
-          - text: Getting Help
-            icon: question-circle
-            href: help/getting-help.qmd
-          - text: Visualizing Data
-            icon: bar-chart
-            href: help/visualizing-data.qmd
-          - text: Programming in R
-            icon: terminal
-            href: help/programming.qmd
-          - text: R Markdown
-            icon: pen
-            href: help/rmarkdown.qmd
-          - text: Other
-            icon: chevron-expand
-            href: help/other.qmd
+        - text: Schedule a call w/Prof. Helveston
+          href: help/https://jhelvy.appointlet.com/b/professor-helveston
+        - text: Course Software
+          href: help/course-software.qmd
+        - text: Getting Help
+          href: help/getting-help.qmd
+        - text: Example Projects
+          href: help/example-projects.qmd
+        - text: Finding Data
+          href: help/finding-data.qmd
+        - text: Visualizing Data
+          href: help/visualizing-data.qmd
+        - text: Programming in R
+          href: help/programming.qmd
+        - text: R Markdown
+          href: help/rmarkdown.qmd
+        - text: Other
+          href: help/other.qmd
       - icon: slack
         href: https://emse-eda-f22.slack.com
     right:
@@ -145,3 +154,5 @@ format:
     smooth-scroll: true
     link-external-newwindow: true
     include-in-header: "_includes/header.html"
+
+
