@@ -14,71 +14,53 @@ fa <- list(
   project    = '<i class="fas fa-pencil-ruler"></i>'
 )
 
-# Get the main schedule
-schedule <- get_schedule()
-
-# Make assignments column
-assignments <- schedule %>% 
-  filter(assignment == 1) %>% 
-  mutate(
-    n = row_number(),
-    due = format(lead(date, 1) - 1, format = "%b %d"),
-    name = lead(name, 1),
-    name = ifelse(is.na(name), "", name),
-    link = paste0(n, "-", lead(stub, 1)), 
-  ) %>% 
-  filter(!is.na(due)) %>% 
-  mutate(
-    assignments = paste0(
-      '<a href="hw/', link, '.html">',
-      fa$assignment, '</a><b> ', name, "</b><br>Due ", due)
-  ) %>% 
-  select(week, assignments)
-
-# Everything else
-final <- schedule %>%
+# Make the schedule data frame
+schedule <- get_schedule() %>% 
   mutate(
     date_raw = date,
     date = format(date, format = "%b %d"),
-    project_due = format(project_due, format = "%b %d"),
-    # Replace NA values with ""
-    description = ifelse(is.na(description), "", description),
-    # Make projects column
-    project_mini = ifelse(
-      is.na(project_mini), NA,
-      paste0("<b>", project_mini, "</b><br>Due ", project_due)),
-    project_final = ifelse(
-      is.na(project_final), NA,
-      paste0("<b>", project_final, "</b><br>Due ", project_due)),
     # Build links
     class = ifelse(
       is.na(stub), paste0("<b>", name, "</b>"),
       paste0(
-          '<a href="c', n, "-", stub, '.html">',
-          fa$class, '</a><b> ', name, "</b><br> ", description))
-    # projects = ifelse(
-    #   is.na(project_name), NA,
-    #   paste0(
-    #       '<a href="', "p", project_n, "-", project_stub, '.html">',
-    #       fa$project, '</a><b> ', project_name, "</b><br>Due ",
-    #       project_due))
-  ) %>% 
-  left_join(assignments, by = "week")
+          '<a href="class/', class_stub, '.html">',
+          fa$class, '</a><b> ', name, "</b><br> ", class_description)),
+    assignments = ifelse(is.na(assign_due), NA, 
+        paste0(
+        '<a href="hw/', assign_stub, '.html">',
+        fa$assignment, '</a><b> ', assign_name, "</b><br>Due: ", assign_due)),
+    mini = ifelse(
+      is.na(project_mini), NA,
+      paste0(
+          '<a href="project-mini/', mini_stub, '.html">',
+        fa$project, '</a><b> ', mini_name, "</b><br>Due: ", mini_due)),
+    final = ifelse(
+      is.na(project_final), NA,
+      paste0(
+          '<a href="project-final/', final_stub, '.html">',
+        fa$project, '</a><b> ', final_name, "</b><br>Due: ", final_due))
+  )
 
-highlight <- which(Sys.Date() > final$date_raw)
+highlight <- which(Sys.Date() > schedule$date_raw)
 ```
 
 :::{.column-page}
 
 ```{r echo=FALSE}
 # Make the final schedule
-names(final) <- str_to_title(names(final))
-final %>%
+names(schedule) <- str_to_title(names(schedule))
+schedule %>%
   select(-Date_raw) %>% 
-  # rename(` ` = Projects) %>%
-  select(Week, Date, Quiz, Class, Assignments) %>%
+  rename(
+      `Mini Projects` = Mini,
+      `Final Projects` = Final
+  ) %>%
+  select(
+      Week, Date, Quiz, Class, Assignments, `Mini Projects`, 
+      `Final Projects`
+  ) %>%
   kable(format = 'html', escape = FALSE,
-        align = c('c', 'c', 'c', 'l', 'l')) %>%
+        align = c('c', 'c', 'c', 'l', 'l', 'l', 'l')) %>%
   kable_styling(full_width = F, bootstrap_options = c("striped", "hover")) %>%
   column_spec(column = 3, width = '5em') %>%
   column_spec(column = 4, width = '18em') %>%
