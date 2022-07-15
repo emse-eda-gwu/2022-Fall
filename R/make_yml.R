@@ -178,7 +178,7 @@ end <- paste0(
         href: ', settings$repo, '
   page-footer:
     center:
-      - text: \'', settings$title, '\'<br><i class="far fa-calendar-alt"></i> ', settings$weekday, ' | <i class="far fa-clock"></i> ', settings$time, ' | <a href="', settings$room_url, '"><i class="fa fa-map-marker-alt"></i> ', settings$room, '</a> | <a href="https://www.jhelvy.com"><i class="fas fa-user"></i> Dr. John Paul Helveston</a> | <a href="mailto:jph@gwu.edu"><i class="fas fa-envelope"></i> jph@gwu.edu</a>\'
+      - text: \'', settings$title, '<br><i class="far fa-calendar-alt"></i> ', settings$weekday, ' | <i class="far fa-clock"></i> ', settings$time, ' | <a href="', settings$room_url, '"><i class="fa fa-map-marker-alt"></i> ', settings$room, '</a> | <a href="https://www.jhelvy.com"><i class="fas fa-user"></i> Dr. John Paul Helveston</a> | <a href="mailto:jph@gwu.edu"><i class="fas fa-envelope"></i> jph@gwu.edu</a>\'
 
 format:
   html:

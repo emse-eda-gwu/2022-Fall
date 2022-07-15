@@ -143,7 +143,7 @@ website:
         href: https://github.com/emse-eda-gwu/2022-Fall
   page-footer:
     center:
-      - text: 'EMSE 4572: Exploratory Data Analysis (Fall 2022)'<br><i class="far fa-calendar-alt"></i> Wednesdays | <i class="far fa-clock"></i> 12:45PM - 3:15PM EST | <a href="https://acadtech.gwu.edu/location?id=373&campus=FB&type=building&selection=36"><i class="fa fa-map-marker-alt"></i> 1776 G St C-119</a> | <a href="https://www.jhelvy.com"><i class="fas fa-user"></i> Dr. John Paul Helveston</a> | <a href="mailto:jph@gwu.edu"><i class="fas fa-envelope"></i> jph@gwu.edu</a>'
+      - text: 'EMSE 4572: Exploratory Data Analysis (Fall 2022)<br><i class="far fa-calendar-alt"></i> Wednesdays | <i class="far fa-clock"></i> 12:45PM - 3:15PM EST | <a href="https://acadtech.gwu.edu/location?id=373&campus=FB&type=building&selection=36"><i class="fa fa-map-marker-alt"></i> 1776 G St C-119</a> | <a href="https://www.jhelvy.com"><i class="fas fa-user"></i> Dr. John Paul Helveston</a> | <a href="mailto:jph@gwu.edu"><i class="fas fa-envelope"></i> jph@gwu.edu</a>'
 
 format:
   html:
