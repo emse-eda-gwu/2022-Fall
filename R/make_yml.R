@@ -45,7 +45,7 @@ class <- schedule %>%
             '        - text: "', format(date, "%b %d"), ": ", name, '"' 
         ), 
         href = paste0(
-            "          href: ", "class/", n, "-", stub, ".qmd\n"
+            "          href: ", "class/", class_stub, ".qmd\n"
         ),
         href = ifelse(is.na(stub), "", href), 
         class = paste(text, href, sep = "\n")
@@ -63,22 +63,16 @@ class <- str_sub(class[length(class)], 1, -2)
 
 # Assignment string
 assignment <- schedule %>%
+    filter(!is.na(assign_due)) %>% 
     mutate(
-        date = lag(date, 1), 
-        due = format(date + 6, "%m/%d")
-    ) %>% 
-    filter(!is.na(date)) %>% 
-    filter(!is.na(stub)) %>% 
-    mutate(
-        n = row_number(),
         text = paste0(
             '        - text: "', format(date, "%b %d"), ": ", name,
-            " (Due ", due, ')"'
+            " (Due ", assign_due, ')"'
         ), 
         href = paste0(
-            "          href: ", "hw/", n, "-", stub, ".qmd\n"
+            "          href: ", "hw/", assign_stub, ".qmd\n"
         ),
-        href = ifelse(is.na(stub), "", href), 
+        href = ifelse(is.na(assign_stub), "", href), 
         assignment = paste(text, href, sep = "\n")
     )
 assignment <- assignment$assignment
@@ -97,13 +91,11 @@ assignment <- str_sub(assignment[length(assignment)], 1, -2)
 mini <- schedule %>%
     filter(!is.na(project_mini)) %>% 
     mutate(
-        n = row_number(),
-        due = format(as.Date(project_due), "%m/%d"),
         text = paste0(
-            '        - text: "', project_mini, " (Due ", due, ')"'
+            '        - text: "', mini_name, " (Due ", mini_due, ')"'
         ), 
         href = paste0(
-            "          href: ", "project-mini/", n, "-", project_stub, ".qmd\n"
+            "          href: ", "project-mini/", mini_stub, ".qmd\n"
         ),
         mini = paste(text, href, sep = "\n")
     )
@@ -116,13 +108,11 @@ mini <- str_sub(mini[length(mini)], 1, -2)
 final <- schedule %>%
     filter(!is.na(project_final)) %>% 
     mutate(
-        n = row_number(),
-        due = format(as.Date(project_due), "%m/%d"),
         text = paste0(
-            "        - text: ", project_final, " (Due ", due, ")"
+            "        - text: ", final_name, " (Due ", final_due, ")"
         ), 
         href = paste0(
-            "          href: ", "project-final/", n, "-", project_stub, ".qmd\n"
+            "          href: ", "project-final/", final_stub, ".qmd\n"
         ),
         final = paste(text, href, sep = "\n")
     )

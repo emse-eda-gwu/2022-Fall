@@ -52,11 +52,12 @@ website:
         - text: "Nov 09: Maps"
           href: class/11-maps.qmd
         - text: "Nov 16: No Class - Team Meetings"
+          href: class/12-meetings.qmd
         - text: "Nov 23: Thanksgiving - no class"
         - text: "Nov 30: Interactive Charts"
-          href: class/12-interactive-charts.qmd
+          href: class/13-interactive-charts.qmd
         - text: "Dec 07: Communicating Results"
-          href: class/13-communicating-results.qmd
+          href: class/14-communicating-results.qmd
         - text: "Dec 14: Final Presentations"
         - text: "Final Interviews"
           href: class/interviews.qmd
@@ -64,49 +65,49 @@ website:
         menu:
         - text: "Course Primer (optional)"
           href: hw/0-course-primer.qmd
-        - text: "Aug 31: Tidy Data (Due 09/06)"
+        - text: "Aug 31: Getting Started (Due Sep 06)"
           href: hw/1-tidy-data.qmd
-        - text: "Sep 07: Cleaning Data (Due 09/13)"
+        - text: "Sep 07: Tidy Data (Due Sep 13)"
           href: hw/2-cleaning-data.qmd
-        - text: "Sep 14: Centrality & Variability (Due 09/20)"
+        - text: "Sep 14: Cleaning Data (Due Sep 20)"
           href: hw/3-centrality-variability.qmd
-        - text: "Sep 21: Correlation (Due 09/27)"
+        - text: "Sep 21: Centrality & Variability (Due Sep 27)"
           href: hw/4-correlation.qmd
-        - text: "Sep 28: Visualizing Information (Due 10/04)"
+        - text: "Sep 28: Correlation (Due Oct 04)"
           href: hw/5-visualizing-information.qmd
-        - text: "Oct 05: Amounts & Proportions (Due 10/11)"
+        - text: "Oct 05: Visualizing Information (Due Oct 11)"
           href: hw/6-amounts-proportions.qmd
-        - text: "Oct 12: Comparisons (Due 10/18)"
+        - text: "Oct 12: Amounts & Proportions (Due Oct 18)"
           href: hw/7-comparisons.qmd
-        - text: "Oct 19: Trends (Due 10/25)"
+        - text: "Oct 19: Comparisons (Due Oct 25)"
           href: hw/8-trends.qmd
-        - text: "Oct 26: Polishing Charts (Due 11/01)"
+        - text: "Oct 26: Trends (Due Nov 01)"
           href: hw/9-polishing-charts.qmd
-        - text: "Nov 02: Maps (Due 11/08)"
+        - text: "Nov 02: Polishing Charts (Due Nov 08)"
           href: hw/10-maps.qmd
-        - text: "Nov 23: Interactive Charts (Due 11/29)"
+        - text: "Nov 09: Maps (Due Nov 29)"
           href: hw/11-interactive-charts.qmd
-        - text: "Nov 30: Communicating Results (Due 12/06)"
+        - text: "Nov 30: Interactive Charts (Due Dec 06)"
           href: hw/12-communicating-results.qmd
       - text: "Mini Projects"
         menu:
-        - text: "Data Cleaning (Due 09/27)"
+        - text: "Data Cleaning (Due Sep 27)"
           href: project-mini/1-data-cleaning.qmd
-        - text: "Exploring Data (Due 10/11)"
+        - text: "Exploring Data (Due Oct 11)"
           href: project-mini/2-exploring-data.qmd
-        - text: "Re-design (Due 11/01)"
+        - text: "Re-design (Due Nov 01)"
           href: project-mini/3-re-design.qmd
       - text: "Final Project"
         menu:
         - text: "Project Overview"
           href: project-final/0-overview.qmd
-        - text: Proposal (Due 10/04)
+        - text: Proposal (Due Oct 04)
           href: project-final/1-proposal.qmd
-        - text: Progress Report (Due 11/08)
+        - text: Progress Report (Due Nov 08)
           href: project-final/2-progress-report.qmd
-        - text: Final Report (Due 12/11)
+        - text: Final Report (Due Dec 11)
           href: project-final/3-final-report.qmd
-        - text: Final Presentation (Due 12/13)
+        - text: Final Presentation (Due Dec 13)
           href: project-final/4-presentation.qmd
       - text: Help
         menu:
