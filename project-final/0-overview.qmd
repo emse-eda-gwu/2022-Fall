@@ -1,50 +1,40 @@
 ---
-title: "Project Overview"
+title: Project Overview
 toc: true
+toc-title: Table of contents
+toc-location: left
 ---
 
 ```{r child = here::here("fragments", "setup.qmd")}
 ```
 
-# Overview
+For your final project, you will take a dataset, explore it, tinker with it, and tell a nuanced story about it using at least three key charts. I want this project to be as useful for you and your future career as possible - you'll hopefully want to show off your final project in a portfolio or during job interviews. Accordingly, you get to choose what data you will use for your project. Choose whatever one you are most interested in or will have the most fun with.
 
-Throughout the semester, you will work in teams of 3-4 students towards a final project. The project will have three phases:
+> Check out [these examples](ref-example-analyses.html) of other exploratory data analyses for inspiration
 
-1. Project proposal
-2. Pilot survey & analysis
-3. Final survey & analysis
+For the final project, you will:
 
-Teams will apply topics covered in class to develop quantitative models of consumer choice to inform design decisions for a novel product, technology, or policy. Each team will have somewhat different tasks and areas of emphasis, depending on the product selected; however, all projects will be expected to demonstrate mastery of the topics covered in class and to address the criteria and guidelines required for project assignments.
+- Write a research question.
+- Conduct an exploratory data analysis of one or more data sources to address your research question.
+- Create visualizations to effectively communicate the results of your analysis using the principles of information visualization covered in this course.
+- Document your entire analysis in a reproducible format, including a detailed curation of the data you used as well as your analysis and results.
 
-**Summary of Deliverables**: To make the overall project more manageable, it is broken down into separate "milestone" deliverables due throughout the semester, starting with a proposal.
+**Purpose**: The skills covered in this course are rooted in design rules and principles rather than formulas and equations. As such, the _application_ of these principles to a real data problem is one of the best ways to learn and assess mastery of these skills. I guarantee you one day you will need to apply these principles to communicate an idea to colleagues, so let's make sure you have at least one chance to practice before the [stakes are higher](https://p4a.seas.gwu.edu/2020-Fall/L11.1-data-analysis-prelude.html).
 
-<div style="width:600px">
+**Skills & Knowledge**: Your final project should illustrate your ability to transform raw data into insights by making the non-visible visible, showing clear trends or patterns, and / or identifying outliers or missing information. The specific skills involved in achieving this goal include all of the course [learning objectives](index.html).
+
+**Teams**: Your final project will be a team project made up of 2 to 3 classmates of your choosing. Teams will be finalized at the time of submitting your proposal. Graduate students taking the course must work on individual projects.
+
+**Summary of Deliverables**: To make the overall project more manageable, it is broken down into separate "milestone" deliverables due throughout the semester, starting with a proposal due just before spring break.
+
+<div style="width:500px">
+
 Item            | Weight towards<br>final grade | Due Date<br>(by 11:59pm)
 ----------------|----------------------------|--------------------
-Project Proposal      | 7 %    | Sep. 26
-Survey Plan           | 4 %    | Oct. 05
-Pilot Survey          | 4 %    | Oct. 15
-Pilot Analysis        | 9 %    | Nov. 07
-Final Survey          | 5 %    | Nov. 19
-Final Analysis Report | 14 %   | Dec. 13
-Final Presentation    | 8 %    | Dec. 15
+Proposal        | 10 %  | TBD
+Progress Report | 10 %  | TBD
+Final Report    | 15 %  | TBD
+Presentation    | 10 %  | TBD
+Interview       | 10 %  | Exam week
+
 </div>
-
-# Project Selection
-
-I want this project to be as useful for you and your future career as possible - you'll hopefully want to show off your final project in a portfolio or during job interviews. Accordingly, you get to choose the topic for your project, but it must meet certain guidelines.
-
-Projects must be selected during the first two weeks of class. Projects much be an emerging technology, product, or policy with a clearly identified market that has not yet been introduced into the mass market, such as a new invention from a research laboratory at GWU or a new product being explored by a firm. Students have the option to choose a sponsored project or propose their own project if it is approved by the instructor and meets the following criteria:
-
-- **Innovative / Emerging**: The proposed project involves a new product or technology with attributes (e.g. price, efficiency, reliability, size, performance, color, etc.) that may be competitive in the marketplace but for which actual market adoption is still uncertain.
-- **Well-Defined**: This course focuses on mathematical modeling to support design decision-making. There is not sufficient time in the course for conceptual design of a new product.
-- **Identified Target Market**: A target market has been identified for this new product or
-technology. Competing products in that market are known, and the attributes on which new market entrants compete can be identified. Representative potential customers can be identified for survey solicitation. If the new product or technology is a component of a larger product sold to a consumer market, students may assess the market implications for the final consumer product.
-- **Prior to Mass Commercialization**: The new product or technology has only recently or has not yet been introduced to the mass market.
-- **Moderate Scope and Complexity**: The product or technology should involve moderate complexity. For example, a non-differentiated commodity, such as sugar, is too simple, and a complex product involving many components and manufacturing operations, such as a vehicle, is too complex.
-- **Expertise**: If the product involves a new technology that requires specialized knowledge about its attributes, the team should have reliable access to experts who can supply the requisite knowledge.
-- **Decision Variables**: The product should have several non-trivial design decisions. For example, choosing between two materials or topologies, setting dimensions of a component, or selecting among a set of alternative component configurations are suitable design decisions. The models developed in the project will be used to support decision-making along such dimensions.
-
-# Teamwork
-
-The experience of working in teams on this project will serve as preparation for teamwork throughout your careers. Some teams may experience an imbalance in team member contributions, effort, or reliability. The instructor is available to provide advice and interact in resolving team inequity and conflict; however, students should view this as a learning experience. Such situations regularly occur in any career, and learning how to handle them is a valuable skill. If you experience challenges within your team, it is a good opportunity to develop strategies and figure out how you will address such challenges in the future. One common job interview question is, "Describe a time when you experienced difficulties working in a team or experienced a team failure. What did you do about it?" This is a good chance to build a strong answer to this question.

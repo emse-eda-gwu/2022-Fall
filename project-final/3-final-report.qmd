@@ -1,11 +1,13 @@
 ---
-title: "Project Proposal"
+title: Final Report
 toc: true
+toc-title: Table of contents
+toc-location: left
 params:
   number: 1
   weight: '7%'
   purpose: 'purpose'
-  assessment: 'Your proposal will be assessed using [this rubric](project/proposal/rubric.html){target="_blank"}.'
+  assessment: 'Your report will be assessed using [this rubric](rubrics/final-report/rubric.html){target="_blank"}.'
 ---
 
 ```{r child = here::here("fragments", "setup.qmd")}
