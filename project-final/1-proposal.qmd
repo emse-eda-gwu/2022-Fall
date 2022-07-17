@@ -3,9 +3,50 @@ title: Project Proposal
 toc: true
 toc-title: Table of contents
 toc-location: left
+params:
+  number: 1
+  weight: '10%'
+  purpose: 'purpose'
+  assessment: 'Your proposal will be assessed using [this rubric](rubrics/proposal/rubric.html){target="_blank"}.'
 ---
 
 ```{r child = here::here("fragments", "setup.qmd")}
 ```
 
-Coming soon!
+Write a proposal of an exploratory data analysis that you plan to conduct for your final project. The instructors will review and grade your proposal and provide feedback upon returning from spring break. If your proposal is approved, you are done and can move on towards the next project task. In some cases, the instructors may ask you to submit a revised proposal, most likely by focusing / adjusting the proposal scope and / or research question. Below is a list of specific items your proposal should include.
+
+## 1. Get organized
+
+Download and unzip [this template](templates/project_template.zip) for your proposal report. Open the `project.Rproj` file and write your proposal in the `report.Rmd` file. The template comes with some text and code explaining how to use it - should should delete this code as it is only for explanatory purposes. Be sure to adjust the content in the YAML:
+
+- Write your project title in the `title` field (and provide a subtitle if you wish, or delete the `subtitle` field).
+ - In the `author` field, list the names of all teammates, e.g. `author: Luke Skywalker, Leia Organa, and Han Solo`.
+
+## 2. Write a research question
+
+State a clear research question. Follow [these guidelines](https://writingcenter.gmu.edu/guides/how-to-write-a-research-question). Your question should be:
+
+- **Clear**: it provides enough specifics that your audience can easily understand its purpose without needing additional explanation.
+- **Focused**: it is narrow enough that it can be addressed thoroughly with the data available and within the limits of the final project report.
+- **Concise**: it is expressed in the fewest possible words.
+- **Complex**: it is not answerable with a simple "yes" or "no," but rather requires synthesis and analysis of data.
+- **Arguable**: its potential answers are open to debate rather than accepted facts.
+
+## 3. Discuss your data sources
+
+Discuss the data source(s) you plan to use for your analysis. Follow these guidelines:
+
+- If you have already identified the source(s), describe them and include urls and / or references to the sources. - If you have not identified a source yet, describe the data you _hope_ to use, and give at least one plausible source that may have the data (regardless of whether the source makes it available or not).
+- Discuss the validity of the source(s). For each data source, is the data the _original_ data, or has it been pre-processed by someone else? How was the original data collected and by whom? If you do not yet have a source, discuss what concerns you have about a plausible source that might have the data.
+
+## 4. Describe anticipated results
+
+- Choose two variables that you expect to find in your data that are relevant to your research question.
+- Regardless of whether those variables actually exist, describe how you would _expect_ each to be distributed (e.g. unimodal, multimodel, tightly-group, widely-spread, etc.). For example, you might expect the price of gasoline over a particular period to be rather tightly-grouped around a mean, whereas the stock price of a particular company might vary much more widely over the same period.
+- Describe two relationships you expect to find among variables in your data (again, regardless of whether they actually exist in your data). For example, you might expect sales of hybrid vehicles to increase when gas prices increase; in this case, I am expecting that hybrid vehicle sales and gasoline prices are positively correlated.
+- Describe at least two charts that you expect will help you visualize the relationships that you expect to find. For example, a scatterplot of gasoline prices and hybrid vehicle sales over a particular time period might be useful for visualizing the level of correlation between these two variables.
+- Discuss how your expectations about the variables you chose will help inform you about your research question.
+
+## 5. Knit and submit
+
+Click the "knit" button to compile your `.Rmd` file into a html web page, then create a zip file of everything in your R Project folder. Go to the "Assignment Submission" page on Blackboard and submit your zip file under "Final Project: Proposal". **Only one person from your team should submit the report.**

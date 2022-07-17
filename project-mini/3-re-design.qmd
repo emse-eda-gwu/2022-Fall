@@ -1,0 +1,16 @@
+---
+title: "Mini Project 1: Data Viz Re-Design"
+toc: true
+toc-title: Table of contents
+toc-location: left
+params:
+  number: 1
+  weight: '10%'
+  purpose: 'purpose'
+  assessment: 'Your project will be assessed using [this rubric](rubrics/mini-3/rubric.html){target="_blank"}.'
+---
+
+```{r child = here::here("fragments", "setup.qmd")}
+```
+
+Coming soon!
