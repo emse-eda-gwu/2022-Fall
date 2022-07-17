@@ -13,26 +13,12 @@ License: CC-BY-SA
 Encoding: UTF-8
 Imports:
     cowplot,
-    devtools,
-    emo,
     fontawesome,
-    ggrepel,
-    gsheet,
     here,
-    janitor,
     kableExtra,
     knitr,
-    metathis,
-    remotes,
     rmarkdown,
-    tidyverse,
-    viridis,
-    xaringanExtra,
-    yaml
+    tidyverse
 Remotes:
-    hadley/emo,
-    rstudio/fontawesome,
     haozhu233/kableExtra,
-    r-lib/remotes,
-    rstudio/rmarkdown,
-    gadenbuie/xaringanExtra
+    r-lib/remotes
