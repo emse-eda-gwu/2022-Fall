@@ -1,6 +1,8 @@
 ---
 title: Syllabus
 toc: true
+toc-title: Table of contents
+toc-location: left
 ---
 
 ```{r child = here::here("fragments", "setup.qmd")}
@@ -301,24 +303,27 @@ Academic dishonesty is defined as cheating of any kind, including misrepresentin
 
 In addition to the formal code of academic integrity, the instructor expects that students will treat this course with the level of professionalism required in the workplace. Remember that real firms are sponsoring student projects throughout the semester; in a workplace setting, these firms would be paying clients for the analyses being conducted. This course prepares students to succeed in the workplace, and maintaining a high degree of professionalism is expected.
 
-# Super Heros
+# Cute Animals
 
-<div class = "row">
+::: {.grid}
 
-<div class = "col-md-4">
-<img src="images/prof_x.gif">
-</div>
+::: {.g-col-4}
 
-<div class = "col-md-8">
+<img src="images/penguin.gif" width=100%>
 
-Once you have read this entire syllabus and viewed the [course schedule](schedule.qmd), please send me a picture of your favorite super hero in a direct message on Slack.
+:::
+
+::: {.g-col-8}
+
+Once you have read this entire syllabus and viewed the [course schedule](schedule.qmd), please send me a picture of a cute animal in a direct message on Slack.
 
 For real.
 
 Brownie points if it's animated.
 
-</div>
-</div>
+:::
+
+:::
 
 ---
 
