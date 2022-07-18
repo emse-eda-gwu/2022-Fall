@@ -15,6 +15,7 @@ Imports:
     cowplot,
     fontawesome,
     here,
+    gsheet,
     kableExtra,
     knitr,
     quarto,
