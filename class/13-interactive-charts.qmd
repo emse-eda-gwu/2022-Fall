@@ -1,0 +1,10 @@
+---
+title: "Interactive Charts"
+params:
+  class: "13-interactive-charts"
+---
+
+```{r child = here::here("fragments", "setup.qmd")}
+```
+
+Coming soon!

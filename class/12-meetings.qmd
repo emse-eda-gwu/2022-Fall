@@ -1,0 +1,10 @@
+---
+title: "Team Meetings"
+params:
+  class: "12-meetings"
+---
+
+```{r child = here::here("fragments", "setup.qmd")}
+```
+
+Coming soon!

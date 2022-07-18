@@ -1,0 +1,10 @@
+---
+title: "Communicating Results"
+params:
+  class: "14-communicating-results"
+---
+
+```{r child = here::here("fragments", "setup.qmd")}
+```
+
+Coming soon!

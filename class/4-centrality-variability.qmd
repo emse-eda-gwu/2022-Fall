@@ -1,0 +1,10 @@
+---
+title: "Centrality & Variability"
+params:
+  class: "4-centrality-variability"
+---
+
+```{r child = here::here("fragments", "setup.qmd")}
+```
+
+Coming soon!

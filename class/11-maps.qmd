@@ -1,0 +1,10 @@
+---
+title: "Maps"
+params:
+  class: "11-maps"
+---
+
+```{r child = here::here("fragments", "setup.qmd")}
+```
+
+Coming soon!

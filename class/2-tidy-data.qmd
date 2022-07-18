@@ -1,0 +1,10 @@
+---
+title: "Tidy Dat"
+params:
+  class: "2-tidy-data"
+---
+
+```{r child = here::here("fragments", "setup.qmd")}
+```
+
+Coming soon!

@@ -1,0 +1,10 @@
+---
+title: "Comparisons"
+params:
+  class: "8-comparisons"
+---
+
+```{r child = here::here("fragments", "setup.qmd")}
+```
+
+Coming soon!

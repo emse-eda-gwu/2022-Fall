@@ -1,0 +1,10 @@
+---
+title: "Visualizing Information"
+params:
+  class: "6-visualizing-information"
+---
+
+```{r child = here::here("fragments", "setup.qmd")}
+```
+
+Coming soon!

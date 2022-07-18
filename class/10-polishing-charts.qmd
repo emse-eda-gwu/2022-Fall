@@ -1,0 +1,10 @@
+---
+title: "Polishing Charts"
+params:
+  class: "10-polishing-charts"
+---
+
+```{r child = here::here("fragments", "setup.qmd")}
+```
+
+Coming soon!

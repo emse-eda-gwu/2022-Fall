@@ -1,0 +1,10 @@
+---
+title: "Correlation"
+params:
+  class: "5-correlation"
+---
+
+```{r child = here::here("fragments", "setup.qmd")}
+```
+
+Coming soon!

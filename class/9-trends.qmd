@@ -1,0 +1,10 @@
+---
+title: "Trends"
+params:
+  class: "9-trends"
+---
+
+```{r child = here::here("fragments", "setup.qmd")}
+```
+
+Coming soon!
