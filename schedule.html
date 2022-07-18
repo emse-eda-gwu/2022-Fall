@@ -1,1057 +1,664 @@
 <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
-<html>
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.32">
 
-<head>
-
-<meta charset="utf-8" />
-<meta name="generator" content="pandoc" />
-<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
-
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>Course Schedule</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
 
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
-<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
-<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
-<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
-<style>h1 {font-size: 34px;}
-       h1.title {font-size: 38px;}
-       h2 {font-size: 30px;}
-       h3 {font-size: 24px;}
-       h4 {font-size: 18px;}
-       h5 {font-size: 16px;}
-       h6 {font-size: 12px;}
-       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
-       pre:not([class]) { background-color: white }</style>
-<script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
-<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
-<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
-<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
-<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./images/favicon.ico" rel="icon">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
 <link rel="icon" href="images/favicon.ico">
 <script src="https://kit.fontawesome.com/1392a7030f.js" crossorigin="anonymous"></script>
-<style type="text/css">
 
-/* Text */
-
-h1{
-  padding-top: 10px;
-  padding-bottom: 10px;
-  line-height: 60px;
-}
-h2{
-  padding-top: 10px;
-  padding-bottom: 10px;
-  line-height: 50px;
-}
-h3{
-  padding-top: 10px;
-  padding-bottom: 10px;
-  line-height: 40px;
-}
-body {
-  font-size: 16px;
-  line-height: 26px;
-}
-blockquote{
-  background-color: #ecf0f1;
-  padding: 20px;
-  border-color: #2780e3;
-  border-radius: 5px;
-}
-blockquote h3 {
-  margin-top: 0px;
-}
-
-/* Images */
-
-img {
-  padding-bottom: 10px;
-}
-
-/* Tables */
-
-table {
-  border-collapse: collapse;
-  margin-bottom:10px;
-}
-thead {
-  border-top: solid #DCDCDC;
-  border-bottom: solid #DCDCDC;
-}
-tr.odd {
-  background-color: #F8F8F8;
-}
-tr:first-child {
-  border-top: solid #DCDCDC;
-}
-tr:last-child {
-  border-bottom: solid #DCDCDC;
-}
-
-.class-buttons {
-  text-align: center;
-}
-
-.btn-slides {
-  background-color: #007bff;
-  color: #fff;
-  font-weight: bold;
-  font-size: 16px;
-  border-radius: 10px; /* Rounded edges */
-  text-align: center;
-  text-decoration: none;
-  box-sizing: border-box;
-  display: inline-block;
-  vertical-align: middle;
-  cursor: pointer;
-  user-select: none;
-  padding: .9rem;
-  line-height: .5;
-  border-radius: .3rem;
-}
-
-.btn-notes {
-  background-color: #000000;
-  color: #fff;
-  font-weight: bold;
-  font-size: 16px;
-  border-radius: 10px; /* Rounded edges */
-  text-align: center;
-  text-decoration: none;
-  box-sizing: border-box;
-  display: inline-block;
-  vertical-align: middle;
-  cursor: pointer;
-  user-select: none;
-  padding: .9rem;
-  line-height: .5;
-  border-radius: .3rem;
-}
-
-</style>
-
-<style type="text/css">
-  code{white-space: pre-wrap;}
-  span.smallcaps{font-variant: small-caps;}
-  span.underline{text-decoration: underline;}
-  div.column{display: inline-block; vertical-align: top; width: 50%;}
-  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-  ul.task-list{list-style: none;}
-    </style>
-
-<style type="text/css">code{white-space: pre;}</style>
-<script type="text/javascript">
-if (window.hljs) {
-  hljs.configure({languages: []});
-  hljs.initHighlightingOnLoad();
-  if (document.readyState && document.readyState === "complete") {
-    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
-  }
-}
-</script>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 
 
-
-
-
-
-
-
-<style type = "text/css">
-.main-container {
-  max-width: 940px;
-  margin-left: auto;
-  margin-right: auto;
-}
-img {
-  max-width:100%;
-}
-.tabbed-pane {
-  padding-top: 12px;
-}
-.html-widget {
-  margin-bottom: 20px;
-}
-button.code-folding-btn:focus {
-  outline: none;
-}
-summary {
-  display: list-item;
-}
-pre code {
-  padding: 0;
-}
-</style>
-
-
-<style type="text/css">
-.dropdown-submenu {
-  position: relative;
-}
-.dropdown-submenu>.dropdown-menu {
-  top: 0;
-  left: 100%;
-  margin-top: -6px;
-  margin-left: -1px;
-  border-radius: 0 6px 6px 6px;
-}
-.dropdown-submenu:hover>.dropdown-menu {
-  display: block;
-}
-.dropdown-submenu>a:after {
-  display: block;
-  content: " ";
-  float: right;
-  width: 0;
-  height: 0;
-  border-color: transparent;
-  border-style: solid;
-  border-width: 5px 0 5px 5px;
-  border-left-color: #cccccc;
-  margin-top: 5px;
-  margin-right: -10px;
-}
-.dropdown-submenu:hover>a:after {
-  border-left-color: #adb5bd;
-}
-.dropdown-submenu.pull-left {
-  float: none;
-}
-.dropdown-submenu.pull-left>.dropdown-menu {
-  left: -100%;
-  margin-left: 10px;
-  border-radius: 6px 0 6px 6px;
-}
-</style>
-
-<script type="text/javascript">
-// manage active state of menu based on current page
-$(document).ready(function () {
-  // active menu anchor
-  href = window.location.pathname
-  href = href.substr(href.lastIndexOf('/') + 1)
-  if (href === "")
-    href = "index.html";
-  var menuAnchor = $('a[href="' + href + '"]');
-
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
-
-  // Navbar adjustments
-  var navHeight = $(".navbar").first().height() + 15;
-  var style = document.createElement('style');
-  var pt = "padding-top: " + navHeight + "px; ";
-  var mt = "margin-top: -" + navHeight + "px; ";
-  var css = "";
-  // offset scroll position for anchor links (for fixed navbar)
-  for (var i = 1; i <= 6; i++) {
-    css += ".section h" + i + "{ " + pt + mt + "}\n";
-  }
-  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
-  document.head.appendChild(style);
-});
-</script>
-
-<!-- tabsets -->
-
-<style type="text/css">
-.tabset-dropdown > .nav-tabs {
-  display: inline-table;
-  max-height: 500px;
-  min-height: 44px;
-  overflow-y: auto;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-}
-
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
-  font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
-  font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
-}
-
-.tabset-dropdown > .nav-tabs > li.active {
-  display: block;
-}
-
-.tabset-dropdown > .nav-tabs > li > a,
-.tabset-dropdown > .nav-tabs > li > a:focus,
-.tabset-dropdown > .nav-tabs > li > a:hover {
-  border: none;
-  display: inline-block;
-  border-radius: 4px;
-  background-color: transparent;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
-  display: block;
-  float: none;
-}
-
-.tabset-dropdown > .nav-tabs > li {
-  display: none;
-}
-</style>
-
-<!-- code folding -->
-
-
-
-
+<link rel="stylesheet" href="styles.css">
+<meta property="og:title" content="Course Schedule">
+<meta name="twitter:title" content="Course Schedule">
+<meta name="twitter:card" content="summary">
 </head>
 
-<body>
+<body class="nav-fixed fullcontent">
 
-
-<div class="container-fluid main-container">
-
-
-
-
-<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="index.html"></a>
-    </div>
-    <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html">Home</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./syllabus.html">Syllabus</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./schedule.html" aria-current="page">Schedule</a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-class" role="button" data-bs-toggle="dropdown" aria-expanded="false">Class</a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-class">    
         <li>
-  <a href="index.html">
-    <span class="fas fa-home"></span>
-     
+    <a class="dropdown-item" href="./class/1-getting-started.html">
+ <span class="dropdown-text">Aug 31: Getting Started</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./class/2-tidy-data.html">
+ <span class="dropdown-text">Sep 07: Tidy Data</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./class/3-cleaning-data.html">
+ <span class="dropdown-text">Sep 14: Cleaning Data</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./class/4-centrality-variability.html">
+ <span class="dropdown-text">Sep 21: Centrality &amp; Variability</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./class/5-correlation.html">
+ <span class="dropdown-text">Sep 28: Correlation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./class/6-visualizing-information.html">
+ <span class="dropdown-text">Oct 05: Visualizing Information</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./class/7-amounts-proportions.html">
+ <span class="dropdown-text">Oct 12: Amounts &amp; Proportions</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./class/8-comparisons.html">
+ <span class="dropdown-text">Oct 19: Comparisons</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./class/9-trends.html">
+ <span class="dropdown-text">Oct 26: Trends</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./class/10-polishing-charts.html">
+ <span class="dropdown-text">Nov 02: Polishing Charts</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./class/11-maps.html">
+ <span class="dropdown-text">Nov 09: Maps</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./class/12-meetings.html">
+ <span class="dropdown-text">Nov 16: No Class - Team Meetings</span></a>
+  </li>  
+        <li class="dropdown-header">Nov 23: Thanksgiving - no class</li>
+        <li>
+    <a class="dropdown-item" href="./class/13-interactive-charts.html">
+ <span class="dropdown-text">Nov 30: Interactive Charts</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./class/14-communicating-results.html">
+ <span class="dropdown-text">Dec 07: Communicating Results</span></a>
+  </li>  
+        <li class="dropdown-header">Dec 14: Final Presentations</li>
+        <li>
+    <a class="dropdown-item" href="./class/interviews.html">
+ <span class="dropdown-text">Final Interviews</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-assignments" role="button" data-bs-toggle="dropdown" aria-expanded="false">Assignments</a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-assignments">    
+        <li>
+    <a class="dropdown-item" href="./hw/0-course-primer.html">
+ <span class="dropdown-text">Course Primer (optional)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./hw/1-tidy-data.html">
+ <span class="dropdown-text">Aug 31: Tidy Data (Due Sep 06)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./hw/2-cleaning-data.html">
+ <span class="dropdown-text">Sep 07: Cleaning Data (Due Sep 13)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./hw/3-centrality-variability.html">
+ <span class="dropdown-text">Sep 14: Centrality &amp; Variability (Due Sep 20)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./hw/4-correlation.html">
+ <span class="dropdown-text">Sep 21: Correlation (Due Sep 27)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./hw/5-visualizing-information.html">
+ <span class="dropdown-text">Sep 28: Visualizing Information (Due Oct 04)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./hw/6-amounts-proportions.html">
+ <span class="dropdown-text">Oct 05: Amounts &amp; Proportions (Due Oct 11)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./hw/7-comparisons.html">
+ <span class="dropdown-text">Oct 12: Comparisons (Due Oct 18)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./hw/8-trends.html">
+ <span class="dropdown-text">Oct 19: Trends (Due Oct 25)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./hw/9-polishing-charts.html">
+ <span class="dropdown-text">Oct 26: Polishing Charts (Due Nov 01)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./hw/10-maps.html">
+ <span class="dropdown-text">Nov 02: Maps (Due Nov 08)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./hw/11-interactive-charts.html">
+ <span class="dropdown-text">Nov 09: Interactive Charts (Due Nov 29)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./hw/12-communicating-results.html">
+ <span class="dropdown-text">Nov 30: Communicating Results (Due Dec 06)</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-mini-projects" role="button" data-bs-toggle="dropdown" aria-expanded="false">Mini Projects</a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-mini-projects">    
+        <li>
+    <a class="dropdown-item" href="./project-mini/1-data-cleaning.html">
+ <span class="dropdown-text">Data Cleaning (Due Sep 27)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./project-mini/2-exploring-data.html">
+ <span class="dropdown-text">Exploring Data (Due Oct 11)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./project-mini/3-re-design.html">
+ <span class="dropdown-text">Re-design (Due Nov 01)</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-final-project" role="button" data-bs-toggle="dropdown" aria-expanded="false">Final Project</a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-final-project">    
+        <li>
+    <a class="dropdown-item" href="./project-final/0-overview.html">
+ <span class="dropdown-text">Project Overview</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./project-final/1-proposal.html">
+ <span class="dropdown-text">Proposal (Due Sep 27)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./project-final/2-progress-report.html">
+ <span class="dropdown-text">Progress Report (Due Nov 01)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./project-final/3-final-report.html">
+ <span class="dropdown-text">Final Report (Due Dec 11)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./project-final/4-presentation.html">
+ <span class="dropdown-text">Final Presentation (Due Dec 13)</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-help" role="button" data-bs-toggle="dropdown" aria-expanded="false">Help</a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-help">    
+        <li>
+    <a class="dropdown-item" href="https://jhelvy.appointlet.com/b/professor-helveston">
+ <span class="dropdown-text">Schedule a call w/Prof.&nbsp;Helveston</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./help/course-software.html">
+ <span class="dropdown-text">Course Software</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./help/getting-help.html">
+ <span class="dropdown-text">Getting Help</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./help/example-projects.html">
+ <span class="dropdown-text">Example Projects</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./help/finding-data.qmd">
+ <span class="dropdown-text">Finding Data</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./help/visualizing-data.html">
+ <span class="dropdown-text">Visualizing Data</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./help/programming.html">
+ <span class="dropdown-text">Programming in R</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./help/rmarkdown.html">
+ <span class="dropdown-text">R Markdown</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./help/other.html">
+ <span class="dropdown-text">Other</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://emse-eda-f22.slack.com"><i class="bi bi-slack" role="img">
+</i> 
+ </a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-bi-fas-fa-bars" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+      <i class="bi bi-fas fa-bars" role="img">
+</i> 
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-bi-fas-fa-bars">    
+        <li>
+    <a class="dropdown-item" href="./about.html">
+ <span class="dropdown-text">About</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./LICENSE.html">
+ <span class="dropdown-text">License</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="mailto:jph@gwu.edu">
+ <span class="dropdown-text">Contact</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://github.com/emse-eda-gwu/2022-Fall"><i class="bi bi-github" role="img">
+</i> 
+ <span class="dropdown-text"></span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
     
-  </a>
-</li>
-<li>
-  <a href="syllabus.html">
-    <span class="fa fa-map"></span>
-     
-    Syllabus
-  </a>
-</li>
-<li>
-  <a href="schedule.html">
-    <span class="fa fa-calendar-alt"></span>
-     
-    Schedule
-  </a>
-</li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="fas fa-laptop-code"></span>
-     
-    Class
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="c1-getting-started.html">Jan 13: Getting Started</a>
-    </li>
-    <li class="dropdown-header">Jan 20: No Class - Inauguration</li>
-    <li>
-      <a href="c3-centrality-variability.html">Jan 27: Centrality &amp; Variability</a>
-    </li>
-    <li>
-      <a href="c4-correlation.html">Feb 03: Correlation</a>
-    </li>
-    <li>
-      <a href="c5-visualizing-information.html">Feb 10: Visualizing Information</a>
-    </li>
-    <li>
-      <a href="c6-amounts-proportions.html">Feb 17: Amounts &amp; Proportions</a>
-    </li>
-    <li>
-      <a href="c7-comparisons.html">Feb 24: Comparisons</a>
-    </li>
-    <li>
-      <a href="c8-trends.html">Mar 03: Trends</a>
-    </li>
-    <li>
-      <a href="c9-cleaning-data.html">Mar 10: Cleaning Data</a>
-    </li>
-    <li class="dropdown-header">Mar 17: No Class - Spring Break</li>
-    <li>
-      <a href="c11-polishing-charts.html">Mar 24: Polishing Charts</a>
-    </li>
-    <li>
-      <a href="c12-maps.html">Mar 31: Maps</a>
-    </li>
-    <li>
-      <a href="c13-interactive-charts.html">Apr 07: Interactive Charts</a>
-    </li>
-    <li>
-      <a href="c14-shiny-apps.html">Apr 14: Shiny Apps</a>
-    </li>
-    <li class="dropdown-header">Apr 21: No Class - Team Meetings</li>
-    <li>
-      <a href="c16-communicating-results.html">Apr 28: Communicating Results</a>
-    </li>
-  </ul>
-</li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="fas fa-book-reader"></span>
-     
-    Readings
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="r1-centrality-variability.html">Jan 13: Centrality &amp; Variability (Due 01/26)</a>
-    </li>
-    <li>
-      <a href="r3-correlation.html">Jan 27: Correlation (Due 02/02)</a>
-    </li>
-    <li>
-      <a href="r4-visualizing-information.html">Feb 03: Visualizing Information (Due 02/09)</a>
-    </li>
-    <li>
-      <a href="r5-amounts-proportions.html">Feb 10: Amounts &amp; Proportions (Due 02/16)</a>
-    </li>
-    <li>
-      <a href="r6-comparisons.html">Feb 17: Comparisons (Due 02/23)</a>
-    </li>
-    <li>
-      <a href="r7-trends.html">Feb 24: Trends (Due 03/02)</a>
-    </li>
-    <li>
-      <a href="r8-cleaning-data.html">Mar 03: Cleaning Data (Due 03/09)</a>
-    </li>
-    <li>
-      <a href="r9-polishing-charts.html">Mar 10: Polishing Charts (Due 03/23)</a>
-    </li>
-    <li>
-      <a href="r11-maps.html">Mar 24: Maps (Due 03/30)</a>
-    </li>
-    <li>
-      <a href="r12-interactive-charts.html">Mar 31: Interactive Charts (Due 04/06)</a>
-    </li>
-    <li>
-      <a href="r13-shiny-apps.html">Apr 07: Shiny Apps (Due 04/13)</a>
-    </li>
-    <li>
-      <a href="r14-communicating-results.html">Apr 14: Communicating Results (Due 04/27)</a>
-    </li>
-  </ul>
-</li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="fas fa-pencil-ruler"></span>
-     
-    Projects
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="a-course-prereqs.html">Course Prerequisites (optional)</a>
-    </li>
-    <li>
-      <a href="a-mini-project-1.html">Mini Project 1 (Due 02/16)</a>
-    </li>
-    <li>
-      <a href="a-mini-project-2.html">Mini Project 2 (Due 03/09)</a>
-    </li>
-    <li>
-      <a href="a-mini-project-3.html">Mini Project 3 (Due 04/06)</a>
-    </li>
-    <li>
-      <a href="a-project.html">Final Project</a>
-    </li>
-  </ul>
-</li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="fa fa-bookmark"></span>
-     
-    References
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="ref-example-analyses.html">
-        <span class="fas fa-lightbulb"></span>
-         
-        Example Analyses
-      </a>
-    </li>
-    <li>
-      <a href="ref-course-software.html">
-        <span class="fas fa-hdd"></span>
-         
-        Course Software
-      </a>
-    </li>
-    <li>
-      <a href="ref-getting-help.html">
-        <span class="fas fa-question-circle"></span>
-         
-        Getting Help
-      </a>
-    </li>
-    <li>
-      <a href="ref-finding-data.html">
-        <span class="fa fa-database"></span>
-         
-        Finding Data
-      </a>
-    </li>
-    <li>
-      <a href="ref-visualizing-data.html">
-        <span class="fas fa-chart-bar"></span>
-         
-        Visualizing Data
-      </a>
-    </li>
-    <li>
-      <a href="ref-programming.html">
-        <span class="fas fa-terminal"></span>
-         
-        Programming in R
-      </a>
-    </li>
-    <li>
-      <a href="ref-rmarkdown.html">
-        <span class="fas fa-feather-alt"></span>
-         
-        R Markdown
-      </a>
-    </li>
-    <li>
-      <a href="ref-other.html">
-        <span class="fas fa-expand"></span>
-         
-        Other
-      </a>
-    </li>
-  </ul>
-</li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="fas fa-tools"></span>
-     
-    Tools
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="https://emse-eda-f22.slack.com">
-        <span class="fab fa-slack"></span>
-         
-        Slack
-      </a>
-    </li>
-    <li>
-      <a href="https://rstudio.seas.gwu.edu/">
-        <span class="fab fa-r-project"></span>
-         
-        RStudio Server
-      </a>
-    </li>
-    <li>
-      <a href="https://jhelvy.appointlet.com/b/professor-helveston">
-        <span class="fas fa-user-clock"></span>
-         
-        Schedule a meeting w/Prof. Helveston
-      </a>
-    </li>
-  </ul>
-</li>
-<li>
-  <a href="http://eda.seas.gwu.edu/showcase-2022-fall.html">Showcase</a>
-</li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="fas fa-bars"></span>
-     
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="about.html">
-        <span class="fas fa-info-circle"></span>
-         
-        About
-      </a>
-    </li>
-    <li>
-      <a href="LICENSE.html">
-        <span class="fas fa-gavel"></span>
-         
-        License
-      </a>
-    </li>
-    <li>
-      <a href="mailto:jph@gwu.edu">
-        <span class="fas fa-envelope"></span>
-         
-        Contact
-      </a>
-    </li>
-    <li>
-      <a href="https://github.com/emse-eda-gwu/2022-Fall/">
-        <span class="fab fa-github"></span>
-         
-        Source files
-      </a>
-    </li>
-  </ul>
-</li>
-      </ul>
-    </div><!--/.nav-collapse -->
-  </div><!--/.container -->
-</div><!--/.navbar -->
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
 
-<div id="header">
-
-
-
-<h1 class="title toc-ignore">Course Schedule</h1>
-
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Course Schedule</h1>
 </div>
 
 
-<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
-<thead>
-<tr>
-<th style="text-align:center;">
-Week
-</th>
-<th style="text-align:center;">
-Date
-</th>
-<th style="text-align:center;">
-Quiz
-</th>
-<th style="text-align:left;">
-Class
-</th>
-<th style="text-align:left;">
-Assignments
-</th>
-<th style="text-align:left;">
-</th>
-</tr>
-</thead>
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<div class="cell">
+
+</div>
+<div class="cell" data-layout-align="center">
+
+</div>
+<div class="column-page">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+
+<table class="table table-striped table-hover" style="width: auto !important; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:center;"> Week </th>
+   <th style="text-align:center;"> Date </th>
+   <th style="text-align:center;"> Quiz </th>
+   <th style="text-align:left;"> Class </th>
+   <th style="text-align:left;"> Assignments </th>
+   <th style="text-align:left;"> Mini Projects </th>
+   <th style="text-align:left;"> Final Projects </th>
+  </tr>
+ </thead>
 <tbody>
-<tr>
-<td style="text-align:center;">
-1
-</td>
-<td style="text-align:center;">
-Jan 13
-</td>
-<td style="text-align:center;">
-</td>
-<td style="text-align:left;width: 17em; ">
-<a href="c1-getting-started.html"><i class="fas fa-laptop-code"></i></a> <strong>Getting Started</strong><br>Class orientation; workflow; importing data; data provenance; tidy data; writing a research question
-</td>
-<td style="text-align:left;">
-<a href="r1-centrality-variability.html"><i class="fas fa-book-reader"></i></a> Centrality &amp; Variability<br>Due 01/26
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-2
-</td>
-<td style="text-align:center;">
-Jan 20
-</td>
-<td style="text-align:center;">
-</td>
-<td style="text-align:left;width: 17em; ">
-<strong>No Class - Inauguration Day</strong>
-</td>
-<td style="text-align:left;">
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-3
-</td>
-<td style="text-align:center;">
-Jan 27
-</td>
-<td style="text-align:center;">
-</td>
-<td style="text-align:left;width: 17em; ">
-<a href="c3-centrality-variability.html"><i class="fas fa-laptop-code"></i></a> <strong>Centrality &amp; Variability</strong><br>Data types &amp; scales; centrality &amp; spread; variation &amp; covariation; plot types
-</td>
-<td style="text-align:left;">
-<a href="r3-correlation.html"><i class="fas fa-book-reader"></i></a> Correlation<br>Due 02/02
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-4
-</td>
-<td style="text-align:center;">
-Feb 03
-</td>
-<td style="text-align:center;">
-</td>
-<td style="text-align:left;width: 17em; ">
-<a href="c4-correlation.html"><i class="fas fa-laptop-code"></i></a> <strong>Correlation</strong><br>Correlation metrics; outliers; visualizing correlations; linear models
-</td>
-<td style="text-align:left;">
-<a href="r4-visualizing-information.html"><i class="fas fa-book-reader"></i></a> Visualizing Information<br>Due 02/09
-</td>
-<td style="text-align:left;">
-<a href="a-mini-project-1.html"><i class="fas fa-pencil-ruler"></i></a> <strong>Mini Project 1</strong>: <br>Exploring Data<br>Due 02/16
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-5
-</td>
-<td style="text-align:center;">
-Feb 10
-</td>
-<td style="text-align:center;">
-<a href="https://edas21quiz1.formr.org"><i class="fas fa-edit"></i></a>
-</td>
-<td style="text-align:left;width: 17em; ">
-<a href="c5-visualizing-information.html"><i class="fas fa-laptop-code"></i></a> <strong>Visualizing Information</strong><br>Psychology of graphical perception; preattentive attributes; ugly, bad, &amp; wrong charts; chart design best practices
-</td>
-<td style="text-align:left;">
-<a href="r5-amounts-proportions.html"><i class="fas fa-book-reader"></i></a> Amounts &amp; Proportions<br>Due 02/16
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-6
-</td>
-<td style="text-align:center;">
-Feb 17
-</td>
-<td style="text-align:center;">
-</td>
-<td style="text-align:left;width: 17em; ">
-<a href="c6-amounts-proportions.html"><i class="fas fa-laptop-code"></i></a> <strong>Amounts &amp; Proportions</strong><br>Manipulating factors; plotting amounts with bars, dots, and lollipops; parts of whole
-</td>
-<td style="text-align:left;">
-<a href="r6-comparisons.html"><i class="fas fa-book-reader"></i></a> Comparisons<br>Due 02/23
-</td>
-<td style="text-align:left;">
-<a href="a-mini-project-2.html"><i class="fas fa-pencil-ruler"></i></a> <strong>Mini Project 2</strong>: <br>Re-design<br>Due 03/09
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-7
-</td>
-<td style="text-align:center;">
-Feb 24
-</td>
-<td style="text-align:center;">
-<a href="https://edas21quiz2.formr.org"><i class="fas fa-edit"></i></a>
-</td>
-<td style="text-align:left;width: 17em; ">
-<a href="c7-comparisons.html"><i class="fas fa-laptop-code"></i></a> <strong>Comparisons</strong><br>Facets; reference lines; dumbbells; slopes; distributions
-</td>
-<td style="text-align:left;">
-<a href="r7-trends.html"><i class="fas fa-book-reader"></i></a> Trends<br>Due 03/02
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-8
-</td>
-<td style="text-align:center;">
-Mar 03
-</td>
-<td style="text-align:center;">
-</td>
-<td style="text-align:left;width: 17em; ">
-<a href="c8-trends.html"><i class="fas fa-laptop-code"></i></a> <strong>Trends</strong><br>Line charts; heat maps; animation
-</td>
-<td style="text-align:left;">
-<a href="r8-cleaning-data.html"><i class="fas fa-book-reader"></i></a> Cleaning Data<br>Due 03/09
-</td>
-<td style="text-align:left;">
-<a href="a-project.html#Proposal"><i class="fas fa-pencil-ruler"></i></a> <strong>Final Project</strong>: <br>Proposal<br>Due 03/12
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-9
-</td>
-<td style="text-align:center;">
-Mar 10
-</td>
-<td style="text-align:center;">
-<a href="https://edas21quiz3.formr.org"><i class="fas fa-edit"></i></a>
-</td>
-<td style="text-align:left;width: 17em; ">
-<a href="c9-cleaning-data.html"><i class="fas fa-laptop-code"></i></a> <strong>Cleaning Data</strong><br>Joins; reshaping data; date type data; dealing with messy Excel files
-</td>
-<td style="text-align:left;">
-<a href="r9-polishing-charts.html"><i class="fas fa-book-reader"></i></a> Polishing Charts<br>Due 03/23
-</td>
-<td style="text-align:left;">
-<a href="a-mini-project-3.html"><i class="fas fa-pencil-ruler"></i></a> <strong>Mini Project 3</strong>: <br>Mini Analysis<br>Due 04/06
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-10
-</td>
-<td style="text-align:center;">
-Mar 17
-</td>
-<td style="text-align:center;">
-</td>
-<td style="text-align:left;width: 17em; ">
-<strong>No Class - Spring Break</strong>
-</td>
-<td style="text-align:left;">
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-11
-</td>
-<td style="text-align:center;">
-Mar 24
-</td>
-<td style="text-align:center;">
-</td>
-<td style="text-align:left;width: 17em; ">
-<a href="c11-polishing-charts.html"><i class="fas fa-laptop-code"></i></a> <strong>Polishing Charts</strong><br>Colors; annotations; scales; themes; multi-panel figures
-</td>
-<td style="text-align:left;">
-<a href="r11-maps.html"><i class="fas fa-book-reader"></i></a> Maps<br>Due 03/30
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-12
-</td>
-<td style="text-align:center;">
-Mar 31
-</td>
-<td style="text-align:center;">
-<a href="https://edas21quiz4.formr.org"><i class="fas fa-edit"></i></a>
-</td>
-<td style="text-align:left;width: 17em; ">
-<a href="c12-maps.html"><i class="fas fa-laptop-code"></i></a> <strong>Maps</strong><br>Maps in ggplot; mapping data to maps; projections
-</td>
-<td style="text-align:left;">
-<a href="r12-interactive-charts.html"><i class="fas fa-book-reader"></i></a> Interactive Charts<br>Due 04/06
-</td>
-<td style="text-align:left;">
-<a href="a-project.html#Progress_Report"><i class="fas fa-pencil-ruler"></i></a> <strong>Final Project</strong>: <br>Progress Report<br>Due 04/16
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-13
-</td>
-<td style="text-align:center;">
-Apr 07
-</td>
-<td style="text-align:center;">
-</td>
-<td style="text-align:left;width: 17em; ">
-<a href="c13-interactive-charts.html"><i class="fas fa-laptop-code"></i></a> <strong>Interactive Charts</strong><br>Plotly; leaflet
-</td>
-<td style="text-align:left;">
-<a href="r13-shiny-apps.html"><i class="fas fa-book-reader"></i></a> Shiny Apps<br>Due 04/13
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-14
-</td>
-<td style="text-align:center;">
-Apr 14
-</td>
-<td style="text-align:center;">
-<a href="https://edas21quiz5.formr.org"><i class="fas fa-edit"></i></a>
-</td>
-<td style="text-align:left;width: 17em; ">
-<a href="c14-shiny-apps.html"><i class="fas fa-laptop-code"></i></a> <strong>Shiny Apps</strong><br>Interactive apps; dashboards
-</td>
-<td style="text-align:left;">
-<a href="r14-communicating-results.html"><i class="fas fa-book-reader"></i></a> Communicating Results<br>Due 04/27
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-15
-</td>
-<td style="text-align:center;">
-Apr 21
-</td>
-<td style="text-align:center;">
-</td>
-<td style="text-align:left;width: 17em; ">
-<strong>No Class - Project Time!</strong><br>Team meetings with Prof. Helveston
-</td>
-<td style="text-align:left;">
-</td>
-<td style="text-align:left;">
-<a href="a-project.html#Final_Report"><i class="fas fa-pencil-ruler"></i></a> <strong>Final Project</strong>: <br>Final Report<br>Due 05/02
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-16
-</td>
-<td style="text-align:center;">
-Apr 28
-</td>
-<td style="text-align:center;">
-</td>
-<td style="text-align:left;width: 17em; ">
-<a href="c16-communicating-results.html"><i class="fas fa-laptop-code"></i></a> <strong>Communicating Results</strong><br>Telling stories; slide design; giving a talk
-</td>
-<td style="text-align:left;">
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-17
-</td>
-<td style="text-align:center;">
-May 05
-</td>
-<td style="text-align:center;">
-</td>
-<td style="text-align:left;width: 17em; ">
-<strong>Project Presentations &amp; Interviews!</strong>
-</td>
-<td style="text-align:left;">
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
+  <tr>
+   <td style="text-align:center;"> 1 </td>
+   <td style="text-align:center;"> Aug 31 </td>
+   <td style="text-align:center;width: 5em; ">  </td>
+   <td style="text-align:left;width: 18em; "> <a href="class/1-getting-started.html"><i class="fas fa-laptop-code"></i></a><b> Getting Started</b><br> Class orientation; workflow; importing data; data wrangling &amp; plotting refresher </td>
+   <td style="text-align:left;width: 15em; "> <a href="hw/1-tidy-data.html"><i class="fas fa-book-reader"></i></a><b> Tidy Data</b><br>Due: Sep 06 </td>
+   <td style="text-align:left;">  </td>
+   <td style="text-align:left;">  </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> 2 </td>
+   <td style="text-align:center;"> Sep 07 </td>
+   <td style="text-align:center;width: 5em; ">  </td>
+   <td style="text-align:left;width: 18em; "> <a href="class/2-tidy-data.html"><i class="fas fa-laptop-code"></i></a><b> Tidy Data</b><br> Tidy data; data provenance; writing a research question </td>
+   <td style="text-align:left;width: 15em; "> <a href="hw/2-cleaning-data.html"><i class="fas fa-book-reader"></i></a><b> Cleaning Data</b><br>Due: Sep 13 </td>
+   <td style="text-align:left;">  </td>
+   <td style="text-align:left;">  </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> 3 </td>
+   <td style="text-align:center;"> Sep 14 </td>
+   <td style="text-align:center;width: 5em; ">  </td>
+   <td style="text-align:left;width: 18em; "> <a href="class/3-cleaning-data.html"><i class="fas fa-laptop-code"></i></a><b> Cleaning Data</b><br> Joins; reshaping data; date type data; dealing with messy Excel files </td>
+   <td style="text-align:left;width: 15em; "> <a href="hw/3-centrality-variability.html"><i class="fas fa-book-reader"></i></a><b> Centrality &amp; Variability</b><br>Due: Sep 20 </td>
+   <td style="text-align:left;"> <a href="project-mini/1-data-cleaning.html"><i class="fas fa-pencil-ruler"></i></a><b> Data Cleaning</b><br>Due: Sep 27 </td>
+   <td style="text-align:left;"> <a href="project-final/1-proposal.html"><i class="fas fa-pencil-ruler"></i></a><b> Proposal</b><br>Due: Sep 27 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> 4 </td>
+   <td style="text-align:center;"> Sep 21 </td>
+   <td style="text-align:center;width: 5em; ">  </td>
+   <td style="text-align:left;width: 18em; "> <a href="class/4-centrality-variability.html"><i class="fas fa-laptop-code"></i></a><b> Centrality &amp; Variability</b><br> Data types &amp; scales; centrality &amp; spread; variation &amp; covariation; plot types </td>
+   <td style="text-align:left;width: 15em; "> <a href="hw/4-correlation.html"><i class="fas fa-book-reader"></i></a><b> Correlation</b><br>Due: Sep 27 </td>
+   <td style="text-align:left;">  </td>
+   <td style="text-align:left;">  </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> 5 </td>
+   <td style="text-align:center;"> Sep 28 </td>
+   <td style="text-align:center;width: 5em; ">  </td>
+   <td style="text-align:left;width: 18em; "> <a href="class/5-correlation.html"><i class="fas fa-laptop-code"></i></a><b> Correlation</b><br> Correlation metrics; outliers; visualizing correlations; linear models </td>
+   <td style="text-align:left;width: 15em; "> <a href="hw/5-visualizing-information.html"><i class="fas fa-book-reader"></i></a><b> Visualizing Information</b><br>Due: Oct 04 </td>
+   <td style="text-align:left;"> <a href="project-mini/2-exploring-data.html"><i class="fas fa-pencil-ruler"></i></a><b> Exploring Data</b><br>Due: Oct 11 </td>
+   <td style="text-align:left;">  </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> 6 </td>
+   <td style="text-align:center;"> Oct 05 </td>
+   <td style="text-align:center;width: 5em; ">  </td>
+   <td style="text-align:left;width: 18em; "> <a href="class/6-visualizing-information.html"><i class="fas fa-laptop-code"></i></a><b> Visualizing Information</b><br> Psychology of graphical perception; preattentive attributes; ugly, bad, &amp; wrong charts; chart design best practices </td>
+   <td style="text-align:left;width: 15em; "> <a href="hw/6-amounts-proportions.html"><i class="fas fa-book-reader"></i></a><b> Amounts &amp; Proportions</b><br>Due: Oct 11 </td>
+   <td style="text-align:left;">  </td>
+   <td style="text-align:left;">  </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> 7 </td>
+   <td style="text-align:center;"> Oct 12 </td>
+   <td style="text-align:center;width: 5em; ">  </td>
+   <td style="text-align:left;width: 18em; "> <a href="class/7-amounts-proportions.html"><i class="fas fa-laptop-code"></i></a><b> Amounts &amp; Proportions</b><br> Manipulating factors; plotting amounts with bars, dots, and lollipops; parts of whole </td>
+   <td style="text-align:left;width: 15em; "> <a href="hw/7-comparisons.html"><i class="fas fa-book-reader"></i></a><b> Comparisons</b><br>Due: Oct 18 </td>
+   <td style="text-align:left;">  </td>
+   <td style="text-align:left;">  </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> 8 </td>
+   <td style="text-align:center;"> Oct 19 </td>
+   <td style="text-align:center;width: 5em; ">  </td>
+   <td style="text-align:left;width: 18em; "> <a href="class/8-comparisons.html"><i class="fas fa-laptop-code"></i></a><b> Comparisons</b><br> Facets; reference lines; dumbbells; slopes; distributions </td>
+   <td style="text-align:left;width: 15em; "> <a href="hw/8-trends.html"><i class="fas fa-book-reader"></i></a><b> Trends</b><br>Due: Oct 25 </td>
+   <td style="text-align:left;"> <a href="project-mini/3-re-design.html"><i class="fas fa-pencil-ruler"></i></a><b> Re-design</b><br>Due: Nov 01 </td>
+   <td style="text-align:left;"> <a href="project-final/2-progress-report.html"><i class="fas fa-pencil-ruler"></i></a><b> Progress Report</b><br>Due: Nov 01 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> 9 </td>
+   <td style="text-align:center;"> Oct 26 </td>
+   <td style="text-align:center;width: 5em; ">  </td>
+   <td style="text-align:left;width: 18em; "> <a href="class/9-trends.html"><i class="fas fa-laptop-code"></i></a><b> Trends</b><br> Line charts; heat maps; animation </td>
+   <td style="text-align:left;width: 15em; "> <a href="hw/9-polishing-charts.html"><i class="fas fa-book-reader"></i></a><b> Polishing Charts</b><br>Due: Nov 01 </td>
+   <td style="text-align:left;">  </td>
+   <td style="text-align:left;">  </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> 10 </td>
+   <td style="text-align:center;"> Nov 02 </td>
+   <td style="text-align:center;width: 5em; ">  </td>
+   <td style="text-align:left;width: 18em; "> <a href="class/10-polishing-charts.html"><i class="fas fa-laptop-code"></i></a><b> Polishing Charts</b><br> Colors; annotations; scales; themes; multi-panel figures </td>
+   <td style="text-align:left;width: 15em; "> <a href="hw/10-maps.html"><i class="fas fa-book-reader"></i></a><b> Maps</b><br>Due: Nov 08 </td>
+   <td style="text-align:left;">  </td>
+   <td style="text-align:left;">  </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> 11 </td>
+   <td style="text-align:center;"> Nov 09 </td>
+   <td style="text-align:center;width: 5em; ">  </td>
+   <td style="text-align:left;width: 18em; "> <a href="class/11-maps.html"><i class="fas fa-laptop-code"></i></a><b> Maps</b><br> Maps in ggplot; mapping data to maps; projections </td>
+   <td style="text-align:left;width: 15em; "> <a href="hw/11-interactive-charts.html"><i class="fas fa-book-reader"></i></a><b> Interactive Charts</b><br>Due: Nov 29 </td>
+   <td style="text-align:left;">  </td>
+   <td style="text-align:left;">  </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> 12 </td>
+   <td style="text-align:center;"> Nov 16 </td>
+   <td style="text-align:center;width: 5em; ">  </td>
+   <td style="text-align:left;width: 18em; "> <a href="class/12-meetings.html"><i class="fas fa-laptop-code"></i></a><b> No Class - Team Meetings</b><br> Team meetings with Prof. Helveston </td>
+   <td style="text-align:left;width: 15em; ">  </td>
+   <td style="text-align:left;">  </td>
+   <td style="text-align:left;">  </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> 13 </td>
+   <td style="text-align:center;"> Nov 23 </td>
+   <td style="text-align:center;width: 5em; ">  </td>
+   <td style="text-align:left;width: 18em; "> <b>Thanksgiving - no class</b> </td>
+   <td style="text-align:left;width: 15em; ">  </td>
+   <td style="text-align:left;">  </td>
+   <td style="text-align:left;">  </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> 14 </td>
+   <td style="text-align:center;"> Nov 30 </td>
+   <td style="text-align:center;width: 5em; ">  </td>
+   <td style="text-align:left;width: 18em; "> <a href="class/13-interactive-charts.html"><i class="fas fa-laptop-code"></i></a><b> Interactive Charts</b><br> Plotly; leaflet </td>
+   <td style="text-align:left;width: 15em; "> <a href="hw/12-communicating-results.html"><i class="fas fa-book-reader"></i></a><b> Communicating Results</b><br>Due: Dec 06 </td>
+   <td style="text-align:left;">  </td>
+   <td style="text-align:left;"> <a href="project-final/3-final-report.html"><i class="fas fa-pencil-ruler"></i></a><b> Final Report</b><br>Due: Dec 11 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> 15 </td>
+   <td style="text-align:center;"> Dec 07 </td>
+   <td style="text-align:center;width: 5em; ">  </td>
+   <td style="text-align:left;width: 18em; "> <a href="class/14-communicating-results.html"><i class="fas fa-laptop-code"></i></a><b> Communicating Results</b><br> Telling stories; slide design; giving a talk </td>
+   <td style="text-align:left;width: 15em; ">  </td>
+   <td style="text-align:left;">  </td>
+   <td style="text-align:left;"> <a href="project-final/4-presentation.html"><i class="fas fa-pencil-ruler"></i></a><b> Final Presentation</b><br>Due: Dec 13 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> 16 </td>
+   <td style="text-align:center;"> Dec 14 </td>
+   <td style="text-align:center;width: 5em; ">  </td>
+   <td style="text-align:left;width: 18em; "> <b>Final Presentations</b> </td>
+   <td style="text-align:left;width: 15em; ">  </td>
+   <td style="text-align:left;">  </td>
+   <td style="text-align:left;">  </td>
+  </tr>
 </tbody>
 </table>
 
-
-<hr>
-
-<div>
-<center>
-    EMSE 4572: Exploratory Data Analysis (Fall 2022)
-    <br>
-    <i class="far fa-calendar-alt"></i> Wednesdays |
-    <i class="far fa-clock"></i> 12:45 - 3:15 PM |
-    <a href="https://www.jhelvy.com"><i class="fas fa-user"></i> Dr. John Paul Helveston</a> |
-    <a href="mailto:jph@gwu.edu"><i class="fas fa-envelope"></i> jph@gwu.edu</a> |
-    <a href="https://github.com/emse-eda-gwu/2022-Fall"><i class="fab fa-github"></i></a>
-    <br>
-    <a href="LICENSE.html">LICENSE: CC-BY-SA <i class="fab fa-creative-commons"></i><i class="fab fa-creative-commons-by"></i><i class="fab fa-creative-commons-sa"></i></a>
-</center>
+</div>
+</div>
 </div>
 
-<!-- Add function to open links to external links in new tab, from: -->
-<!-- https://yihui.name/en/2018/09/target-blank/ -->
-
-<script src="js/external-link.js"></script>
 
 
-
-</div>
-
-<script>
-
-// add bootstrap table styles to pandoc tables
-function bootstrapStylePandocTables() {
-  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
-}
-$(document).ready(function () {
-  bootstrapStylePandocTables();
-});
-
-
-</script>
-
-<!-- tabsets -->
-
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-
-$(document).ready(function () {
-  $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open');
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
   });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp(/https:\/\/github\.com\/emse-eda-gwu\/2022-Fall/);
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+    var links = window.document.querySelectorAll('a:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+      }
+    }
 });
 </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+      <div class="nav-footer-center">
+        <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+ EMSE 4572: Exploratory Data Analysis (Fall 2022)<br><i class="far fa-calendar-alt"></i> Wednesdays | <i class="far fa-clock"></i> 12:45PM - 3:15PM EST | <a href="https://acadtech.gwu.edu/location?id=373&amp;campus=FB&amp;type=building&amp;selection=36"><i class="fa fa-map-marker-alt"></i> 1776 G St C-119</a> | <a href="https://www.jhelvy.com"><i class="fas fa-user"></i> Dr. John Paul Helveston</a> | <a href="mailto:jph@gwu.edu"><i class="fas fa-envelope"></i> jph@gwu.edu</a>
+  </li>  
+</ul>
+      </div>
+  </div>
+</footer>
 
-<!-- code folding -->
 
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
-
-</body>
-</html>
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

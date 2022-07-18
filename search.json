@@ -1,0 +1,625 @@
+[
+  {
+    "objectID": "LICENSE.html",
+    "href": "LICENSE.html",
+    "title": "Licensing and copyright information",
+    "section": "",
+    "text": "Courses / workshops\n\n\n\nName\nAuthor(s)\nLinks\n\n\n\n\nSTAT 545\nU. of British Columbia\ncourse; GitHub\n\n\nPatrick Meyer’s Youtube lectures\nProf. Patrick Meyer\nplaylists\n\n\nAndrew Heiss’s data viz courses\nAndrew Heiss\nMPA 635, more here\n\n\nIntro. to Data Visualization, Fall 2018\nPeter Aldhous\ncourse site\n\n\n\n\n\nBooks\n\n\n\nName\nAuthor(s)\nLinks\n\n\n\n\nR for Data Science\nGarrett Grolemund & Hadley Wickham\nonline book; GitHub; purchase\n\n\nData Visualization: A practical introduction\nKieran Healy\nonline book; GitHub; purchase\n\n\nFundamentals of Data Visualization\nClaus O. Wilke\nonline book; purchase"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "This course was inspired by many other courses / resources that cover similar material. In addition to my own developed material, I have also modified material from other courses and workshops - a full list of sources can be found in the LICENSE page.\nThis course was originally created by Dr. John Paul Helveston at the George Washington University for the Spring 2020 semester."
+  },
+  {
+    "objectID": "class/1-getting-started.html",
+    "href": "class/1-getting-started.html",
+    "title": "Getting Started",
+    "section": "",
+    "text": "Coming soon!"
+  },
+  {
+    "objectID": "class/10-polishing-charts.html",
+    "href": "class/10-polishing-charts.html",
+    "title": "Polishing Charts",
+    "section": "",
+    "text": "Coming soon!"
+  },
+  {
+    "objectID": "class/11-maps.html",
+    "href": "class/11-maps.html",
+    "title": "Maps",
+    "section": "",
+    "text": "Coming soon!"
+  },
+  {
+    "objectID": "class/12-meetings.html",
+    "href": "class/12-meetings.html",
+    "title": "Team Meetings",
+    "section": "",
+    "text": "Coming soon!"
+  },
+  {
+    "objectID": "class/13-interactive-charts.html",
+    "href": "class/13-interactive-charts.html",
+    "title": "Interactive Charts",
+    "section": "",
+    "text": "Coming soon!"
+  },
+  {
+    "objectID": "class/14-communicating-results.html",
+    "href": "class/14-communicating-results.html",
+    "title": "Communicating Results",
+    "section": "",
+    "text": "Coming soon!"
+  },
+  {
+    "objectID": "class/2-tidy-data.html",
+    "href": "class/2-tidy-data.html",
+    "title": "Tidy Data",
+    "section": "",
+    "text": "Coming soon!"
+  },
+  {
+    "objectID": "class/3-cleaning-data.html",
+    "href": "class/3-cleaning-data.html",
+    "title": "Cleaning Data",
+    "section": "",
+    "text": "Coming soon!"
+  },
+  {
+    "objectID": "class/4-centrality-variability.html",
+    "href": "class/4-centrality-variability.html",
+    "title": "Centrality & Variability",
+    "section": "",
+    "text": "Coming soon!"
+  },
+  {
+    "objectID": "class/5-correlation.html",
+    "href": "class/5-correlation.html",
+    "title": "Correlation",
+    "section": "",
+    "text": "Coming soon!"
+  },
+  {
+    "objectID": "class/6-visualizing-information.html",
+    "href": "class/6-visualizing-information.html",
+    "title": "Visualizing Information",
+    "section": "",
+    "text": "Coming soon!"
+  },
+  {
+    "objectID": "class/7-amounts-proportions.html",
+    "href": "class/7-amounts-proportions.html",
+    "title": "Amounts & Proportions",
+    "section": "",
+    "text": "Coming soon!"
+  },
+  {
+    "objectID": "class/8-comparisons.html",
+    "href": "class/8-comparisons.html",
+    "title": "Comparisons",
+    "section": "",
+    "text": "Coming soon!"
+  },
+  {
+    "objectID": "class/9-trends.html",
+    "href": "class/9-trends.html",
+    "title": "Trends",
+    "section": "",
+    "text": "Coming soon!"
+  },
+  {
+    "objectID": "class/interviews.html",
+    "href": "class/interviews.html",
+    "title": "Final Interviews",
+    "section": "",
+    "text": "Coming soon!"
+  },
+  {
+    "objectID": "help/course-software.html",
+    "href": "help/course-software.html",
+    "title": "Course Software",
+    "section": "",
+    "text": "This page lists all the software we’ll be using in class.\n\nYou should install and set everything here before the first day of class.\n\n\nInstall / setup these tools:\n\n\nSlack: You can find a sign up link on the announcement in Blackboard.\nInstall the Slack app on your phone and Turn notifications on!\n\n\nInstall the latest version of R and RStudio:\n\n\nDownload and install R (version 4.0.2 or higher)\nDownload and install RStudio (Desktop version)\n\nWe will always work in RStudio, so be careful to open RStudio and not the default R application that comes with R:\n\n\n\n\n\n\n\n\nOpen this\nNot this!\n\n\n\n\n\n\n\n\n\n\n\nSign up for RStudio cloud (the free version). It’s basically the same thing as RStudio, but accessible via a web browser. If things aren’t working on your computer, this is a great backup to quickly get back to working in R!\n\nThat’s it - you’re all set for class!"
+  },
+  {
+    "objectID": "help/example-projects.html",
+    "href": "help/example-projects.html",
+    "title": "Example Analyses",
+    "section": "",
+    "text": "As inspiration for your final projects, check out these prior exploratory data analyses."
+  },
+  {
+    "objectID": "help/example-projects.html#spring-2021-showcase",
+    "href": "help/example-projects.html#spring-2021-showcase",
+    "title": "Example Analyses",
+    "section": "Spring 2021 Showcase",
+    "text": "Spring 2021 Showcase\nProjects from the spring 2021 semester of this class."
+  },
+  {
+    "objectID": "help/example-projects.html#spring-2020-showcase",
+    "href": "help/example-projects.html#spring-2020-showcase",
+    "title": "Example Analyses",
+    "section": "Spring 2020 Showcase",
+    "text": "Spring 2020 Showcase\nProjects from the spring 2020 semester of this class."
+  },
+  {
+    "objectID": "help/example-projects.html#survivors-of-the-titantic",
+    "href": "help/example-projects.html#survivors-of-the-titantic",
+    "title": "Example Analyses",
+    "section": "Survivors of the Titantic",
+    "text": "Survivors of the Titantic\nA great overview of getting started with the tidyverse."
+  },
+  {
+    "objectID": "help/example-projects.html#is-usain-bolt-really-the-fastest-man-on-earth",
+    "href": "help/example-projects.html#is-usain-bolt-really-the-fastest-man-on-earth",
+    "title": "Example Analyses",
+    "section": "Is Usain Bolt really the fastest man on earth?",
+    "text": "Is Usain Bolt really the fastest man on earth?\nby Anindya Mozumdar. This analysis uses some statistical modeling (which won’t cover), but the use of visualizations alone are effective for addressing the research questions posed."
+  },
+  {
+    "objectID": "help/example-projects.html#f1-racing-data-analysis",
+    "href": "help/example-projects.html#f1-racing-data-analysis",
+    "title": "Example Analyses",
+    "section": "F1 racing data analysis",
+    "text": "F1 racing data analysis\nby Jonathan Bouchet. This is an extensive exploratory data analysis of a variety of data on races, drivers, and constructors across the history of Formula 1 racing. This would probably be overkill for a course project, but sections of it (e.g. section 3 on the races, or sections 4 and 5 together on the drivers and constructors) would make a nice project. It involves mutliple data sets, some not-so-simple data cleaning, and a wide variety of nice visualizations."
+  },
+  {
+    "objectID": "help/example-projects.html#increasing-intensity-of-strong-atlantic-hurricanes",
+    "href": "help/example-projects.html#increasing-intensity-of-strong-atlantic-hurricanes",
+    "title": "Example Analyses",
+    "section": "Increasing Intensity of Strong Atlantic Hurricanes",
+    "text": "Increasing Intensity of Strong Atlantic Hurricanes\nby James B. Elsner. This is a short analysis with the goal of validating the predictions of this study published in Nature in 2008, which predicted that Atlantic tropical cyclones would continue to get stronger on average over time. While this analysis is too short to be considered adequate for a final project, it is still a good example of good data source documentation and one effective visualization. An expanded inquiry into the questions addressed here would make a good course project."
+  },
+  {
+    "objectID": "help/example-projects.html#death-reality-vs-reported",
+    "href": "help/example-projects.html#death-reality-vs-reported",
+    "title": "Example Analyses",
+    "section": "Death: Reality vs Reported",
+    "text": "Death: Reality vs Reported\nby Owen Shen. This is an interesting original analysis in which the author collected the data himself. The analysis compares whether the proportion of actual causes of death is consistent with the proportion of death causes that the media reports. This analysis also uses some interactive graphics so that the reader can view different versions of the same plot, such as scrolling through the plot over time."
+  },
+  {
+    "objectID": "help/example-projects.html#are-first-babies-more-likely-to-be-late",
+    "href": "help/example-projects.html#are-first-babies-more-likely-to-be-late",
+    "title": "Example Analyses",
+    "section": "Are first babies more likely to be late?",
+    "text": "Are first babies more likely to be late?\nby Allen Downey. This is another relatively short analysis, but the author does a good job of documenting his data sources, stating the assumptions he makes, and also describes what data were dropped from the analysis (i.e. babies born via C-section)."
+  },
+  {
+    "objectID": "help/example-projects.html#w.e.b.-du-bois-the-exhibit-of-american-negroes",
+    "href": "help/example-projects.html#w.e.b.-du-bois-the-exhibit-of-american-negroes",
+    "title": "Example Analyses",
+    "section": "W.E.B. Du Bois’ “The Exhibit of American Negroes”",
+    "text": "W.E.B. Du Bois’ “The Exhibit of American Negroes”\nIn 1900, W.E.B. Du Bois presented “The Exhibit of American Negroes” at the Exposition Universelle in Paris. Du Bois described the exhibition as “Thirty-two charts, 500 photographs, and numerous maps and plans form the basis of this exhibit. The charts are in two sets, one illustrating conditions in the entire United States and the other conditions in the typical State of Georgia.” The charts in his exhibition are staggeringly powerful. This six-part series published in Nightingale displays and discusses many of his impressive visualizations. You can also purchase a book on the portraits on Amazon."
+  },
+  {
+    "objectID": "help/example-projects.html#minards-napoleon-march-map",
+    "href": "help/example-projects.html#minards-napoleon-march-map",
+    "title": "Example Analyses",
+    "section": "Minard’s Napoleon March Map",
+    "text": "Minard’s Napoleon March Map\nThe “Napoleon March Map” by Charles Joseph Minard is widely viewed as one of the greatest data visualizations of all time. The chart depicts Napoleon’s disastrous campaign to conquer Moscow. Having started with around 470,000 soldiers, he returned with just 10,000. The width of the line represents the total number of soldiers and the color represents the direction (yellow for towards Moscow, black for the return trip)."
+  },
+  {
+    "objectID": "help/example-projects.html#tableaus-top-10-goat-data-visualizations",
+    "href": "help/example-projects.html#tableaus-top-10-goat-data-visualizations",
+    "title": "Example Analyses",
+    "section": "Tableau’s Top 10 GOAT Data Visualizations",
+    "text": "Tableau’s Top 10 GOAT Data Visualizations\nIt’s hard to say which data visualizations are the “Greatest Of All Time,” but Tableau put together a pretty excellent collection for their top 10 list."
+  },
+  {
+    "objectID": "help/getting-help.html",
+    "href": "help/getting-help.html",
+    "title": "Getting Help",
+    "section": "",
+    "text": "Slack\nAll course communication will be managed through Slack. A link to sign up for the course slack page can be found on the one (and only) announcement on Blackboard.\nWatch this 2-minute video to see what Slack is all about:\n\n\nYou can use Slack to:\n\nAsk general questions.\nAsk for help with an assignment.\nSend direct, private messages to each other or the instructors (just like email…but better!)\n\nAsking for help on Slack:\nYou can post questions on slack and receive quick responses. This also enables other students to see answers to common questions. Be specific - if your code has an error you don’t understand, include the code and the error message in your question.\n\n\nOffice hours\nOffice hours are set times dedicated to all of you. This means that I will be in my office (wistfully) waiting for you to come by with whatever questions you have. This is the best and easiest way to find me outside of class and the best chance for discussing class material and concerns (or anything really). Please come by!\nThis can be a difficult class - do not suffer in silence! Come talk to me!\n\n\nTutoring hours\nSimilar to office hours, your class tutors will each hold a specific period of time each week dedicated to help you will course assignments. Please don’t make your tutors sit and do emails for two hours - come by and ask for help!\n\n\nLibrary Services\nWhile the University Library is not a stand in for TAs, you can schedule a consultation for general help with Coding, Programming, Data, Statistical, and GIS. See more at https://academiccommons.gwu.edu/writing-research-help"
+  },
+  {
+    "objectID": "help/other.html",
+    "href": "help/other.html",
+    "title": "Other",
+    "section": "",
+    "text": "Helpful Tutorials\n\nRStudio Primers\nTidyverse in R\nTransitioning from Excel to R\n\n\n\nInspiration\n\nAn Incomplete List of Females in Data Visualization, by Stephanie Evergreen\nThe Links Between Open Science and Star Wars\n\n\n\nGiving talks\nYou will all have to give a presentation at some point - make sure you start it right: “How to start a speech”\n\n\nWhen all else fails…\nYou will inevitably run into problems; things won’t work the way you expect, and you’ll get lots of confusing error messages. When this happens, many turn to the following tried and true problem-solving approaches:"
+  },
+  {
+    "objectID": "help/programming.html",
+    "href": "help/programming.html",
+    "title": "Programming in R",
+    "section": "",
+    "text": "Programming in R\n\nProgramming for Analytics course website\nGrolemund, Garrett. “Hands-On Programming with R” [free online], [buy on amazon]\nPeng, Roger D. “R Programming for Data Science” [online - pay what you want]\n\n\n\nData Analysis in R\n\nGrolemund, Garrett and Wickham, Hadley. “R for Data Science” [free online], [buy on amazon]\nPeng, Roger D. “Exploratory Data Analysis with R” [online - pay what you want]\n16 HOWTO’s, by Lingyun Zhang\n\n\n\nRMarkdown\n\nAndrew Heiss’s Markdown guide\n60 second markdown guide\n10 minute markdown tutorial\nMarkdown It: Quickly demo Markdown code.\nTable generator: Create tables and get export code for multiple formats.\nCMU RMarkdown guide (very detailed)\n\n\n\nRStudio “Cheatsheets”\n\nAll cheatsheets\nData wrangling with the dplyr library\nData visualization with the ggplot2 library\nRMarkdown"
+  },
+  {
+    "objectID": "help/rmarkdown.html",
+    "href": "help/rmarkdown.html",
+    "title": "R Markdown",
+    "section": "",
+    "text": "The most comprehensive resource on working with R Markdown is the Definitive Guide.\nFor a quick reference guide that you can print out, check out the Rstudio Rmarkdown cheatsheet.\nHere are some useful tools for learning and working with R Markdown:\n\n60 second markdown guide\n10 minute markdown tutorial\nMarkdown It: Quickly demo Markdown code\nTable generator: Create tables and get export code for multiple formats\nCMU RMarkdown guide (detailed)\n\nFinally, here are a few more links for help with specific issues / customization:\n\nImages and image sizing\nPimp my RMD: a guide for lots of cool features and customization options\nRStudio R Markdown documentation\nProducing html documents from .R scripts using knitr::spin\nAdvanced RMD tips and tricks"
+  },
+  {
+    "objectID": "help/visualizing-data.html",
+    "href": "help/visualizing-data.html",
+    "title": "Visualizing Data",
+    "section": "",
+    "text": "Principles of data visualization\n\nHealy, Kieran. “Data Visualization: A practical introduction” [free online], [buy on amazon]\nWilke, Claus O. “Fundamentals of Data Visualization” [free online], [buy on amazon]\nVideo: How Humans See Data, by John Rauser. This is probably the best overviews I’ve seen on how to exploit the psychology of how our brains interpret images to make effective visualizations.\n\n\n\nChoosing the right chart\nYou will want to choose different chart types depending on the relationship or message you want to convey. Fortunately, we live in the future and awesome people have created wonderful tools to help you find the most appropriate graph for your data. Take a look through some of these resources - these will come in handy when you start working on your final project:\n\n Stephen Few’s Graph Selection Matrix\nThe Data Visualisation Catalogue\nData-to-Viz\nR Graph Gallery\nVisual Vocabulary\nThe Data Viz Project\n\n\n\nMaking plots with ggplot2\n\nThe R Graph Catalog: 124 examples (with code) for making common ggplots.\nThe ggplot2 Extensions gallery: 64 registered libraries that extend the functionality of ggplot2.\nTop 50 ggplot2 visualizations\nR Cookbook for ggplot2\nRStudio ggplot2 Cheatsheet\nTidyverse ggplot2 reference guide\nggThemeAssist: Package for customizing plot themes and layout\n16 HOWTO’s, by Lingyun Zhang - super useful for making specific types of charts\n\n\n\nPolishing ggplot2 plots\n\nggplot2: Elegant Graphics for Data Analysis\nFollow good design rules\n\n\n\nChoosing colors\n\nColor wheel tool\nggplot2 book chapter 12\nR graph gallery\nCoolors.co - super nice color palette generator\n\n\n\nAnimating ggplot2 plots\n\nAnimate your ggplots with gganimate\nHow to make a bar chart race"
+  },
+  {
+    "objectID": "hw/0-course-primer.html#this-assignment-is-optional",
+    "href": "hw/0-course-primer.html#this-assignment-is-optional",
+    "title": "Course Primer",
+    "section": "This assignment is optional",
+    "text": "This assignment is optional\nStudents should have taken EMSE 4574: Intro to Programming for Analytics prior to taking this course.\nFor those who did not, I strongly suggest you go through all the lessons in this primer course:\n\nR for Analytics Primer\n\nAfter completing these lessons, you should be able to:\n\nUse RStudio to write basic R commands.\nKnow the distinctions between different R operators and data types, including numeric, string, and logical data.\nUse tidyverse functions to wrangle and manipulate data in R.\nUse the ggplot2 library to create plots in R.\n\nAlso, it can be very helpful to see these skills applied in practice. Take a look at this example of using Tidyverse tools to explore and visualize data on survivors aboard the Titantic. It’s a good example of conducting an Exploratory Data Analysis to gain insights about a data set."
+  },
+  {
+    "objectID": "hw/1-tidy-data.html",
+    "href": "hw/1-tidy-data.html",
+    "title": "Tidy Data",
+    "section": "",
+    "text": "Coming soon!"
+  },
+  {
+    "objectID": "hw/10-maps.html",
+    "href": "hw/10-maps.html",
+    "title": "Maps",
+    "section": "",
+    "text": "Coming soon!"
+  },
+  {
+    "objectID": "hw/11-interactive-charts.html",
+    "href": "hw/11-interactive-charts.html",
+    "title": "Interactive Charts",
+    "section": "",
+    "text": "Coming soon!"
+  },
+  {
+    "objectID": "hw/12-communicating-results.html",
+    "href": "hw/12-communicating-results.html",
+    "title": "Communicating Results",
+    "section": "",
+    "text": "Coming soon!"
+  },
+  {
+    "objectID": "hw/2-cleaning-data.html",
+    "href": "hw/2-cleaning-data.html",
+    "title": "Cleaning Data",
+    "section": "",
+    "text": "Coming soon!"
+  },
+  {
+    "objectID": "hw/3-centrality-variability.html",
+    "href": "hw/3-centrality-variability.html",
+    "title": "Centrality & Variability",
+    "section": "",
+    "text": "Coming soon!"
+  },
+  {
+    "objectID": "hw/4-correlation.html",
+    "href": "hw/4-correlation.html",
+    "title": "Correlation",
+    "section": "",
+    "text": "Coming soon!"
+  },
+  {
+    "objectID": "hw/5-visualizing-information.html",
+    "href": "hw/5-visualizing-information.html",
+    "title": "Visualizing Information",
+    "section": "",
+    "text": "Coming soon!"
+  },
+  {
+    "objectID": "hw/6-amounts-proportions.html",
+    "href": "hw/6-amounts-proportions.html",
+    "title": "Amounts & Proportions",
+    "section": "",
+    "text": "Coming soon!"
+  },
+  {
+    "objectID": "hw/7-comparisons.html",
+    "href": "hw/7-comparisons.html",
+    "title": "Comparisons",
+    "section": "",
+    "text": "Coming soon!"
+  },
+  {
+    "objectID": "hw/8-trends.html",
+    "href": "hw/8-trends.html",
+    "title": "Trends",
+    "section": "",
+    "text": "Coming soon!"
+  },
+  {
+    "objectID": "hw/9-polishing-charts.html",
+    "href": "hw/9-polishing-charts.html",
+    "title": "Polishing Charts",
+    "section": "",
+    "text": "Coming soon!"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "EMSE 4572: Exploratory Data Analysis - Fall 2022",
+    "section": "",
+    "text": "Department: Engineering Management and Systems Engineering @ GWU\nCredits: 3\nDescription:\nThis course provides students with a foundation in exploring data using the R programming language. Students will learn how to source, manage, transform, and explore a wide variety of data types. Students will also master the fundamental concepts for visualizing and communicating information contained in raw data, including the human psychology of visual information processing. All analyses will be conducted to support reproducibility from raw data to results using RMarkdown. Teaching will involve interactive lectures with plenty of class time spent working on examples and coding. Students will be assessed through in-class quizzes, reading reflections, and exploratory projects. Throughout the semester, students will work on a research project of their own design to demonstrate mastery of the course’s topics. At the end of the semester, students will submit a final, reproducible report of their project along with a 10-minute video presentation of their findings.\nLearning Objectives:\nHaving successfully completed this course, students will be able to:\n\nWrite a clear, focused, concise, complex, and arguable research question.\nImport, manipulate, clean, visualize, and export data in R.\nWrangle data from its original format into a fit-for-purpose format.\nConduct a systematic exploratory data analysis (EDA) of different types of data.\nApply fundamental principles of visualizing information for exploratory analysis and communication.\nGet data off the web and expose data, code, results on the web.\nGenerate fully reproducible reports that contain code, equations, visualizations, and narrative text.\n\nPrerequisites:\nStudents should have taken EMSE 4571: Intro to Programming for Analytics or have experience working with data in at least one programming language. If you’re not sure whether you have the necessary prerequisite skills, you can try and get up to speed by completing this optional course primer assignment before class starts. Once class starts, it may be difficult to keep up without this background, and it may be more beneficial to wait and take this course next year after taking Programming for Analytics."
+  },
+  {
+    "objectID": "project-final/0-overview.html",
+    "href": "project-final/0-overview.html",
+    "title": "Project Overview",
+    "section": "",
+    "text": "For your final project, you will take a dataset, explore it, tinker with it, and tell a nuanced story about it using at least three key charts. I want this project to be as useful for you and your future career as possible - you’ll hopefully want to show off your final project in a portfolio or during job interviews. Accordingly, you get to choose what data you will use for your project. Choose whatever one you are most interested in or will have the most fun with.\n\nCheck out these examples of other exploratory data analyses for inspiration\n\nFor the final project, you will:\n\nWrite a research question.\nConduct an exploratory data analysis of one or more data sources to address your research question.\nCreate visualizations to effectively communicate the results of your analysis using the principles of information visualization covered in this course.\nDocument your entire analysis in a reproducible format, including a detailed curation of the data you used as well as your analysis and results.\n\nPurpose: The skills covered in this course are rooted in design rules and principles rather than formulas and equations. As such, the application of these principles to a real data problem is one of the best ways to learn and assess mastery of these skills. I guarantee you one day you will need to apply these principles to communicate an idea to colleagues, so let’s make sure you have at least one chance to practice before the stakes are higher.\nSkills & Knowledge: Your final project should illustrate your ability to transform raw data into insights by making the non-visible visible, showing clear trends or patterns, and / or identifying outliers or missing information. The specific skills involved in achieving this goal include all of the course learning objectives.\nTeams: Your final project will be a team project made up of 2 to 3 classmates of your choosing. Teams will be finalized at the time of submitting your proposal. Graduate students taking the course must work on individual projects.\nSummary of Deliverables: To make the overall project more manageable, it is broken down into separate “milestone” deliverables due throughout the semester, starting with a proposal due just before spring break.\n\n\n\n\n\n\n\n\n\nItem\nWeight towardsfinal grade\nDue Date(by 11:59pm)\n\n\n\n\nProposal\n10 %\nTBD\n\n\nProgress Report\n10 %\nTBD\n\n\nFinal Report\n15 %\nTBD\n\n\nPresentation\n10 %\nTBD\n\n\nInterview\n10 %\nExam week"
+  },
+  {
+    "objectID": "project-final/1-proposal.html",
+    "href": "project-final/1-proposal.html",
+    "title": "Project Proposal",
+    "section": "",
+    "text": "Write a proposal of an exploratory data analysis that you plan to conduct for your final project. The instructors will review and grade your proposal and provide feedback upon returning from spring break. If your proposal is approved, you are done and can move on towards the next project task. In some cases, the instructors may ask you to submit a revised proposal, most likely by focusing / adjusting the proposal scope and / or research question. Below is a list of specific items your proposal should include."
+  },
+  {
+    "objectID": "project-final/1-proposal.html#get-organized",
+    "href": "project-final/1-proposal.html#get-organized",
+    "title": "Project Proposal",
+    "section": "1. Get organized",
+    "text": "1. Get organized\nDownload and unzip this template for your proposal report. Open the project.Rproj file and write your proposal in the report.Rmd file. The template comes with some text and code explaining how to use it - should should delete this code as it is only for explanatory purposes. Be sure to adjust the content in the YAML:\n\nWrite your project title in the title field (and provide a subtitle if you wish, or delete the subtitle field).\nIn the author field, list the names of all teammates, e.g. author: Luke Skywalker, Leia Organa, and Han Solo."
+  },
+  {
+    "objectID": "project-final/1-proposal.html#write-a-research-question",
+    "href": "project-final/1-proposal.html#write-a-research-question",
+    "title": "Project Proposal",
+    "section": "2. Write a research question",
+    "text": "2. Write a research question\nState a clear research question. Follow these guidelines. Your question should be:\n\nClear: it provides enough specifics that your audience can easily understand its purpose without needing additional explanation.\nFocused: it is narrow enough that it can be addressed thoroughly with the data available and within the limits of the final project report.\nConcise: it is expressed in the fewest possible words.\nComplex: it is not answerable with a simple “yes” or “no,” but rather requires synthesis and analysis of data.\nArguable: its potential answers are open to debate rather than accepted facts."
+  },
+  {
+    "objectID": "project-final/1-proposal.html#discuss-your-data-sources",
+    "href": "project-final/1-proposal.html#discuss-your-data-sources",
+    "title": "Project Proposal",
+    "section": "3. Discuss your data sources",
+    "text": "3. Discuss your data sources\nDiscuss the data source(s) you plan to use for your analysis. Follow these guidelines:\n\nIf you have already identified the source(s), describe them and include urls and / or references to the sources. - If you have not identified a source yet, describe the data you hope to use, and give at least one plausible source that may have the data (regardless of whether the source makes it available or not).\nDiscuss the validity of the source(s). For each data source, is the data the original data, or has it been pre-processed by someone else? How was the original data collected and by whom? If you do not yet have a source, discuss what concerns you have about a plausible source that might have the data."
+  },
+  {
+    "objectID": "project-final/1-proposal.html#describe-anticipated-results",
+    "href": "project-final/1-proposal.html#describe-anticipated-results",
+    "title": "Project Proposal",
+    "section": "4. Describe anticipated results",
+    "text": "4. Describe anticipated results\n\nChoose two variables that you expect to find in your data that are relevant to your research question.\nRegardless of whether those variables actually exist, describe how you would expect each to be distributed (e.g. unimodal, multimodel, tightly-group, widely-spread, etc.). For example, you might expect the price of gasoline over a particular period to be rather tightly-grouped around a mean, whereas the stock price of a particular company might vary much more widely over the same period.\nDescribe two relationships you expect to find among variables in your data (again, regardless of whether they actually exist in your data). For example, you might expect sales of hybrid vehicles to increase when gas prices increase; in this case, I am expecting that hybrid vehicle sales and gasoline prices are positively correlated.\nDescribe at least two charts that you expect will help you visualize the relationships that you expect to find. For example, a scatterplot of gasoline prices and hybrid vehicle sales over a particular time period might be useful for visualizing the level of correlation between these two variables.\nDiscuss how your expectations about the variables you chose will help inform you about your research question."
+  },
+  {
+    "objectID": "project-final/1-proposal.html#knit-and-submit",
+    "href": "project-final/1-proposal.html#knit-and-submit",
+    "title": "Project Proposal",
+    "section": "5. Knit and submit",
+    "text": "5. Knit and submit\nClick the “knit” button to compile your .Rmd file into a html web page, then create a zip file of everything in your R Project folder. Go to the “Assignment Submission” page on Blackboard and submit your zip file under “Final Project: Proposal”. Only one person from your team should submit the report."
+  },
+  {
+    "objectID": "project-final/2-progress-report.html",
+    "href": "project-final/2-progress-report.html",
+    "title": "Progress Report",
+    "section": "",
+    "text": "Coming soon!"
+  },
+  {
+    "objectID": "project-final/3-final-report.html",
+    "href": "project-final/3-final-report.html",
+    "title": "Final Report",
+    "section": "",
+    "text": "Coming soon!"
+  },
+  {
+    "objectID": "project-final/4-presentation.html",
+    "href": "project-final/4-presentation.html",
+    "title": "Final Presentation",
+    "section": "",
+    "text": "Coming soon!"
+  },
+  {
+    "objectID": "project-mini/1-data-cleaning.html",
+    "href": "project-mini/1-data-cleaning.html",
+    "title": "Mini Project 1: Data Cleaning",
+    "section": "",
+    "text": "Coming soon!"
+  },
+  {
+    "objectID": "project-mini/2-exploring-data.html",
+    "href": "project-mini/2-exploring-data.html",
+    "title": "Mini Project 2: Exploring Data",
+    "section": "",
+    "text": "Coming soon!"
+  },
+  {
+    "objectID": "project-mini/3-re-design.html",
+    "href": "project-mini/3-re-design.html",
+    "title": "Mini Project 3: Data Viz Re-Design",
+    "section": "",
+    "text": "Coming soon!"
+  },
+  {
+    "objectID": "schedule.html",
+    "href": "schedule.html",
+    "title": "Course Schedule",
+    "section": "",
+    "text": "Week \n    Date \n    Quiz \n    Class \n    Assignments \n    Mini Projects \n    Final Projects \n  \n \n\n  \n    1 \n    Aug 31 \n     \n     Getting Started Class orientation; workflow; importing data; data wrangling & plotting refresher \n     Tidy DataDue: Sep 06 \n     \n     \n  \n  \n    2 \n    Sep 07 \n     \n     Tidy Data Tidy data; data provenance; writing a research question \n     Cleaning DataDue: Sep 13 \n     \n     \n  \n  \n    3 \n    Sep 14 \n     \n     Cleaning Data Joins; reshaping data; date type data; dealing with messy Excel files \n     Centrality & VariabilityDue: Sep 20 \n     Data CleaningDue: Sep 27 \n     ProposalDue: Sep 27 \n  \n  \n    4 \n    Sep 21 \n     \n     Centrality & Variability Data types & scales; centrality & spread; variation & covariation; plot types \n     CorrelationDue: Sep 27 \n     \n     \n  \n  \n    5 \n    Sep 28 \n     \n     Correlation Correlation metrics; outliers; visualizing correlations; linear models \n     Visualizing InformationDue: Oct 04 \n     Exploring DataDue: Oct 11 \n     \n  \n  \n    6 \n    Oct 05 \n     \n     Visualizing Information Psychology of graphical perception; preattentive attributes; ugly, bad, & wrong charts; chart design best practices \n     Amounts & ProportionsDue: Oct 11 \n     \n     \n  \n  \n    7 \n    Oct 12 \n     \n     Amounts & Proportions Manipulating factors; plotting amounts with bars, dots, and lollipops; parts of whole \n     ComparisonsDue: Oct 18 \n     \n     \n  \n  \n    8 \n    Oct 19 \n     \n     Comparisons Facets; reference lines; dumbbells; slopes; distributions \n     TrendsDue: Oct 25 \n     Re-designDue: Nov 01 \n     Progress ReportDue: Nov 01 \n  \n  \n    9 \n    Oct 26 \n     \n     Trends Line charts; heat maps; animation \n     Polishing ChartsDue: Nov 01 \n     \n     \n  \n  \n    10 \n    Nov 02 \n     \n     Polishing Charts Colors; annotations; scales; themes; multi-panel figures \n     MapsDue: Nov 08 \n     \n     \n  \n  \n    11 \n    Nov 09 \n     \n     Maps Maps in ggplot; mapping data to maps; projections \n     Interactive ChartsDue: Nov 29 \n     \n     \n  \n  \n    12 \n    Nov 16 \n     \n     No Class - Team Meetings Team meetings with Prof. Helveston \n     \n     \n     \n  \n  \n    13 \n    Nov 23 \n     \n    Thanksgiving - no class \n     \n     \n     \n  \n  \n    14 \n    Nov 30 \n     \n     Interactive Charts Plotly; leaflet \n     Communicating ResultsDue: Dec 06 \n     \n     Final ReportDue: Dec 11 \n  \n  \n    15 \n    Dec 07 \n     \n     Communicating Results Telling stories; slide design; giving a talk \n     \n     \n     Final PresentationDue: Dec 13 \n  \n  \n    16 \n    Dec 14 \n     \n    Final Presentations"
+  },
+  {
+    "objectID": "syllabus.html#gw-bulletin-description-short",
+    "href": "syllabus.html#gw-bulletin-description-short",
+    "title": "Syllabus",
+    "section": "GW Bulletin Description (short)",
+    "text": "GW Bulletin Description (short)\nIntroduction to exploratory data analysis using the R programming language; data visualization, data cleaning, exploratory analysis, information communication, rmarkdown, reproducibility."
+  },
+  {
+    "objectID": "syllabus.html#unofficial-description",
+    "href": "syllabus.html#unofficial-description",
+    "title": "Syllabus",
+    "section": "Unofficial Description",
+    "text": "Unofficial Description\nThis course provides students with a foundation in exploring data using the R programming language. Students will learn how to source, manage, transform, and explore a wide variety of data types. Students will also master the fundamental concepts for visualizing and communicating information contained in raw data, including the human psychology of visual information processing. All analyses will be conducted to support reproducibility from raw data to results using RMarkdown. Teaching will involve interactive lectures with plenty of class time spent working on examples and coding. Students will be assessed through in-class quizzes, reading reflections, and exploratory projects. Throughout the semester, students will work on a research project of their own design to demonstrate mastery of the course’s topics. At the end of the semester, students will submit a final, reproducible report of their project along with a 10-minute video presentation of their findings."
+  },
+  {
+    "objectID": "syllabus.html#prerequisites",
+    "href": "syllabus.html#prerequisites",
+    "title": "Syllabus",
+    "section": "Prerequisites",
+    "text": "Prerequisites\nStudents should have taken EMSE 4571: Intro to Programming for Analytics or have experience working with data in at least one programming language. If you’re not sure whether you have the necessary prerequisite skills, you can try and get up to speed by completing this optional course primer assignment before class starts. Once class starts, it may be difficult to keep up without this background, and it may be more beneficial to wait and take this course next year after taking Programming for Analytics."
+  },
+  {
+    "objectID": "syllabus.html#software",
+    "href": "syllabus.html#software",
+    "title": "Syllabus",
+    "section": "Software",
+    "text": "Software\nGo to the Course Software page for detailed instructions on how to install the software we’ll be using. Here’s a quick list:\n\nR (version 4.1.0 or later), which can be downloaded from The Comprehensive R Archive Network (CRAN)\nRStudio (Desktop Version), a free IDE for R, which can be downloaded from RStudio\nWe’ll be using Slack for most communication."
+  },
+  {
+    "objectID": "syllabus.html#texts-other-useful-resources",
+    "href": "syllabus.html#texts-other-useful-resources",
+    "title": "Syllabus",
+    "section": "Texts / Other Useful Resources",
+    "text": "Texts / Other Useful Resources\nEach week students will be responsible for completing assigned readings, most of which will come from these three books, which are available both free online and for purchase via the following links:\n\nHealy, Kieran. “Data Visualization: A practical introduction” [free online], [buy on amazon]\nGrolemund, Garrett and Wickham, Hadley. “R for Data Science” [free online], [buy on amazon]\nWilke, Claus O. “Fundamentals of Data Visualization” [free online], [buy on amazon]"
+  },
+  {
+    "objectID": "syllabus.html#class-participation",
+    "href": "syllabus.html#class-participation",
+    "title": "Syllabus",
+    "section": "Class Participation",
+    "text": "Class Participation\nRegular class attendance is essential. Much of the class time will be spent doing exercises and coding. Multiple absences, inappropriate or unprofessional behavior during class (such as monopolizing discussions or being rude or disruptive), not participating in classroom exercises, and not being prepared for class will result in poor performance in this class."
+  },
+  {
+    "objectID": "syllabus.html#quizzes",
+    "href": "syllabus.html#quizzes",
+    "title": "Syllabus",
+    "section": "Quizzes",
+    "text": "Quizzes\nThere will be several quizzes given about once every two weeks immediately at the beginning of class. Quizzes cover material presented in previous classes and assignments during the weeks since the most-recent quiz. Quizzes are designed to be time-intensive, to test for fluency, and to demonstrate where additional study is needed. Quizzes are low-stakes - your worst one is dropped, and the rest count for just 15% of your final grade. If you do poorly on one, use that as feedback on where you need additional improvement.\n\nWhy quiz at all? Research shows that giving small quizzes throughout a class can dramatically help with retention. It’s a phenomenon known as the “retrieval effect” - basically, you have to practice remembering things, otherwise your brain won’t remember them. The phenomenon and research on it is explained in detail in the book “Make It Stick: The Science of Successful Learning,” by Brown, Roediger, and McDaniel."
+  },
+  {
+    "objectID": "syllabus.html#homework",
+    "href": "syllabus.html#homework",
+    "title": "Syllabus",
+    "section": "Homework",
+    "text": "Homework\nStudents will be responsible for two types of assignments throughout the semester:\n\nWeekly Assignments: Each week, students will be assigned specific readings and exercises to prepare for the next class period. Students will need to submit responses that include a thoughtful reflection on these concepts each week.\nMini Projects: There will be three mini projects throughout the semester designed to provide hands-on experience with the material covered in class by working with and exploring real data sets and / or creating visualizations. While students may work with their peers on these assignments, each student must submit their own work. Credit for each assignment will be allocated according to a rubric provided in the assignment description."
+  },
+  {
+    "objectID": "syllabus.html#final-project",
+    "href": "syllabus.html#final-project",
+    "title": "Syllabus",
+    "section": "Final Project",
+    "text": "Final Project\nThroughout the semester, students will work in teams of 2-3 students towards a final project of an exploratory data analysis. At the end of the semester, each student will submit a report of their analysis in the form of an html web page and create a 5 to 10-minute video presentation of their results. To make the overall project more manageable, it will be broken down into several separate “milestone” deliverables due throughout the semester, including a proposal, progress report, presentation video, and final report.\nView the final project overview page for more details."
+  },
+  {
+    "objectID": "syllabus.html#final-interview",
+    "href": "syllabus.html#final-interview",
+    "title": "Syllabus",
+    "section": "Final Interview",
+    "text": "Final Interview\nRather than have a final exam, each student will have a 10-minute interview by the instructor. The interview will be focused on the final project the student worked and will contain questions related to concepts covered during the course. Students will be provided a list of questions and the grading rubric ahead of the interview."
+  },
+  {
+    "objectID": "syllabus.html#category-breakdown",
+    "href": "syllabus.html#category-breakdown",
+    "title": "Syllabus",
+    "section": "Category Breakdown",
+    "text": "Category Breakdown\nFinal grades will be calculated as follows:\n\n\n\n\n\n\n\n\n\nItem\nWeight\nNotes\n\n\n\n\nWeekly HW\n12 %\n\n\n\nQuizzes\n8 %\n5 quizzes, lowest dropped\n\n\nMini Project 1\n8 %\nIndividual assignments\n\n\nMini Project 2\n8 %\n\n\n\nMini Project 3\n8 %\n\n\n\nFinal Project: Proposal\n9 %\nTeams of 2-3 students\n\n\nFinal Project: Progress Report\n12 %\n\n\n\nFinal Project: Report\n16 %\n\n\n\nFinal Project: Presentation\n9 %\n\n\n\nFinal Interview\n10 %\nIndividual interview\n\n\n\n\nHere’s a visual breakdown by category:"
+  },
+  {
+    "objectID": "syllabus.html#grading-scale",
+    "href": "syllabus.html#grading-scale",
+    "title": "Syllabus",
+    "section": "Grading Scale",
+    "text": "Grading Scale\n\n\n\n\nGrade\nRange\nGrade\nRange\n\n\n\n\nA\n94 - 100%\nC\n74 - 76.99%\n\n\nA-\n90 - 93.99%\nC-\n70 - 73.99%\n\n\nB+\n87 - 89.99%\nD+\n67 - 69.99%\n\n\nB\n84 - 86.99%\nD\n64 - 66.99%\n\n\nB-\n80 - 83.99%\nD-\n60 - 63.99%\n\n\nC+\n77 - 79.99%\nF\n< 60%\n\n\n\n\nThe course instructors may choose to change the scales at their discretion. You are guaranteed that your letter grade will never become worse as a result of changing scales."
+  },
+  {
+    "objectID": "syllabus.html#slack",
+    "href": "syllabus.html#slack",
+    "title": "Syllabus",
+    "section": "Slack",
+    "text": "Slack\nAll course communication will be managed through Slack. A link to sign up for the course slack page can be found on the one (and only) announcement on Blackboard.\nYou can use Slack to:\n\nAsk general questions.\nAsk for help with an assignment.\nSend direct, private messages to each other or the instructors (just like email…but better!)\n\nAsking for help on Slack:\nYou can post questions on slack and receive quick responses. This also enables other students to see answers to common questions. Be specific - if your code has an error you don’t understand, include the code and the error message in your question."
+  },
+  {
+    "objectID": "syllabus.html#office-hours",
+    "href": "syllabus.html#office-hours",
+    "title": "Syllabus",
+    "section": "Office hours",
+    "text": "Office hours\nScheduling a time to answer questions is hard, so rather than hold regular office hours, you can use this link to schedule a zoom call with me most days of the week."
+  },
+  {
+    "objectID": "syllabus.html#tutoring-hours",
+    "href": "syllabus.html#tutoring-hours",
+    "title": "Syllabus",
+    "section": "Tutoring hours",
+    "text": "Tutoring hours\nYour class tutors will each hold a dedicated period of time each week for zoom tutoring hours. Please don’t make your tutors sit and do emails for two hours - come by and ask for help!"
+  },
+  {
+    "objectID": "syllabus.html#library-services",
+    "href": "syllabus.html#library-services",
+    "title": "Syllabus",
+    "section": "Library Services",
+    "text": "Library Services\nWhile the University Library is not a stand in for TAs, you can schedule a consultation for general help with Coding, Programming, Data, Statistical, and GIS. See more at https://academiccommons.gwu.edu/writing-research-help"
+  },
+  {
+    "objectID": "syllabus.html#tldr",
+    "href": "syllabus.html#tldr",
+    "title": "Syllabus",
+    "section": "tl;dr",
+    "text": "tl;dr\n\nBE NICE. BE HONEST. DON’T CHEAT.\nYou get 5 late days - use them however you want, but you can’t use more than 2 late days on any one assignment.\nIf you’re not sure about something, talk with me and we’ll figure it out."
+  },
+  {
+    "objectID": "syllabus.html#late-policy",
+    "href": "syllabus.html#late-policy",
+    "title": "Syllabus",
+    "section": "Late Policy",
+    "text": "Late Policy\nEach students is allowed 5 late homework submission days - use them however you want, no questions asked. No more than 2 days can be applied toward a single assignment. Late days are meant to cover illness, family emergencies, and religious holidays. Assignments submitted more than 2 days after the due date will not be graded. In extreme circumstances, contact the instructor."
+  },
+  {
+    "objectID": "syllabus.html#cheating",
+    "href": "syllabus.html#cheating",
+    "title": "Syllabus",
+    "section": "Cheating",
+    "text": "Cheating\nCheating results in a penalty on the first offense, and failing the course on the second offense. Cheating on assignments can include:\n\nCopying or stealing any amount of code from someone currently in the class or someone who has taken the class before.\nNOTE: Copying is never okay, whether the code is provided electronically, visually, audibly, or on paper.\nProviding code you have written for an assignment to anyone else in the class.\nFinding code online and using it in the assignment. One exception: you may use code from the course website.\nPutting code solutions from the course assignments online.\nReceiving code-level assistance from any person not associated with the course.\nGetting someone else to write the assignment code for you.\nAsking questions about the assignments on any online services outside of the course office hours / Slack.\n\nCheating on quizzes, assignments, or the final project can include:\n\nReferring to any external resources while completing the assignment (phones, notes, etc.).\nCopying part of an answer off of another student’s paper, even if it is very small.\nUsing solutions provided by students who previously took the course.\n\n\nPenalties\nViolations will be reported to the Office of Student Rights & Responsibilities. Penalties are decided by the course instructors, and can vary based on the severity of the offense. Possible penalties include:\n\nReceiving a 0 on the assignment/quiz in question.\nReceiving a full letter grade deduction in the course.\nAutomatically failing the course.\n\nDepending on the student’s prior academic history, violations may also be accompanied by a letter to the Dean of Student Affairs, again at the instructors’ discretion. This can lead to university-level penalties, such as being suspended or expelled."
+  },
+  {
+    "objectID": "syllabus.html#children-in-class",
+    "href": "syllabus.html#children-in-class",
+    "title": "Syllabus",
+    "section": "Children in class",
+    "text": "Children in class\n\n\nI applaud all of you who attend school with children! It is difficult to balance academic, work, and family commitments, and I want you to succeed. Here are my policies regarding children in class:\n\nAll breastfeeding babies are welcome in class as often as necessary.\nNon-nursing babies and older children are welcome whenever alternate arrangements cannot be made. As a parent of young children, I understand that babysitters fall through, partners have conflicting schedules, children get sick, and other issues arise that leave parents with few other options.\nIn cases where children come to class, I invite parents/caregivers to sit close to the door so as to more easily excuse yourself to attend to your child’s needs. Non-parents in the class: please reserve seats near the door for your parenting classmates.\nAll students are expected to join with me in creating a welcoming environment that is respectful of your classmates who bring children to class.\n\nI understand that sleep deprivation and exhaustion are among the most difficult aspects of parenting young children. The struggle of balancing school, work, childcare, and graduate school is tiring, and I will do my best to accommodate any such issues while maintaining the same high expectations for all students enrolled in the class. Please do not hesitate to contact me with any questions or concerns."
+  },
+  {
+    "objectID": "syllabus.html#laurens-promise",
+    "href": "syllabus.html#laurens-promise",
+    "title": "Syllabus",
+    "section": "Lauren’s Promise",
+    "text": "Lauren’s Promise\n\n\nI will listen and believe you if someone is threatening you.\nLauren McCluskey, a 21-year-old honors student athlete, was murdered on October 22, 2018 by a man she briefly dated on the University of Utah campus. We must all take action to ensure that this never happens again.\nIf you are in immediate danger, call 911 or GWU police at 202-994-6111 (GWPD).\nIf you are experiencing sexual assault, domestic violence, or stalking, if you report it to me I will listen and connect you to resources or call GWU’s Counseling and Psychological Services (202-994-5300).\nAny form of sexual harassment or violence will not be excused or tolerated at GWU. GWU has instituted procedures to respond to violations of these laws and standards, programs aimed at the prevention of such conduct, and intervention on behalf of the victims. GWU Police officers will treat victims of sexual assault, domestic violence, and stalking with respect and dignity. Advocates on campus and in the community can help with victims’ physical and emotional health, reporting options, and academic concerns."
+  },
+  {
+    "objectID": "syllabus.html#use-of-course-materials",
+    "href": "syllabus.html#use-of-course-materials",
+    "title": "Syllabus",
+    "section": "Use of Course Materials",
+    "text": "Use of Course Materials\nAll course materials available on the course website are developed open source - you are welcome to post and share them following the licensing guidelines listed in the license page.\nHowever, all solutions to assignments and quizzes are proprietary. Don’t post them online or try to sell them - this is a violation of the student code of conduct."
+  },
+  {
+    "objectID": "syllabus.html#what-to-do-if-the-instructor-does-not-arrive",
+    "href": "syllabus.html#what-to-do-if-the-instructor-does-not-arrive",
+    "title": "Syllabus",
+    "section": "What To Do if the Instructor Does Not Arrive",
+    "text": "What To Do if the Instructor Does Not Arrive\nWait 20 minutes, after that you’re free to leave. One member of the class should be selected to notify the EMSE Department of the Instructor’s absence by calling the EMSE Department 202-994-4892 on next business day."
+  },
+  {
+    "objectID": "syllabus.html#university-policy-on-religious-holidays",
+    "href": "syllabus.html#university-policy-on-religious-holidays",
+    "title": "Syllabus",
+    "section": "University Policy on Religious Holidays",
+    "text": "University Policy on Religious Holidays\nIn accordance with University Policy, students should notify faculty during the first week of the semester of their intention to be absent from class on their day(s) of religious observance. Official university policy here: https://students.gwu.edu/accommodations-religious-holidays\n\nStudents should notify faculty during the first week of the semester of their intention to be absent from class on their day(s) of religious observance.\nFaculty should extend to these students the courtesy of absence without penalty on such occasions, including permission to make up examinations.\nFaculty who intend to observe a religious holiday should arrange at the beginning of the semester to reschedule missed classes or to make other provisions for their course-related activities."
+  },
+  {
+    "objectID": "syllabus.html#support-for-students-outside-the-classroom",
+    "href": "syllabus.html#support-for-students-outside-the-classroom",
+    "title": "Syllabus",
+    "section": "Support for Students Outside the Classroom",
+    "text": "Support for Students Outside the Classroom\nDisability Support Services (DSS): Any student who may need an accommodation based on the potential impact of a disability should contact the Disability Support Services office at 202-994-8250 in the Rome Hall, Suite 102, to establish eligibility and to coordinate reasonable accommodations. For additional information please refer to: https://disabilitysupport.gwu.edu/\nMental Health Services (202-994-5300): The University’s Mental Health Services offers 24/7 assistance and referral to address students’ personal, social, career, and study skills problems. Services for students include: crisis and emergency mental health consultations confidential assessment, counseling services (individual and small group), and referrals. https://healthcenter.gwu.edu/counseling-and-psychological-services"
+  },
+  {
+    "objectID": "syllabus.html#academic-integrity-code",
+    "href": "syllabus.html#academic-integrity-code",
+    "title": "Syllabus",
+    "section": "Academic Integrity Code",
+    "text": "Academic Integrity Code\nAcademic dishonesty is defined as cheating of any kind, including misrepresenting one’s own work, taking credit for the work of others without crediting them and without appropriate authorization, and the fabrication of information. For the remainder of the code, see: https://studentconduct.gwu.edu/code-academic-integrity\nIn addition to the formal code of academic integrity, the instructor expects that students will treat this course with the level of professionalism required in the workplace. Remember that real firms are sponsoring student projects throughout the semester; in a workplace setting, these firms would be paying clients for the analyses being conducted. This course prepares students to succeed in the workplace, and maintaining a high degree of professionalism is expected."
+  }
+]
