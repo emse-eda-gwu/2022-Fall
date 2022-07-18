@@ -10,6 +10,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: r-lib/actions/setup-r@master
       - uses: r-lib/actions/setup-pandoc@master
+      - uses: quarto-dev/quarto-actions/setup@v2
       - name: Query dependencies
         run: |
           options(download.file.method = "libcurl")
