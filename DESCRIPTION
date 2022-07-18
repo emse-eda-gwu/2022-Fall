@@ -21,4 +21,5 @@ Imports:
     quarto,
     rmarkdown,
     rvest,
-    tidyverse
+    tidyverse,
+    viridis
