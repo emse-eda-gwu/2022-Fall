@@ -1,15 +1,11 @@
 ---
 title: "Cleaning Data"
-output:
-  html_document:
-    number_sections: false
-    toc: yes
 params:
-  due: "09 March, 11:59 pm"
+  number: 2
   purpose: 'The purpose of this assignment is learn some techniques for dealing with messy data. Most of the time, the raw data you get is in the wrong format and variables are not properly coded, so you will need to "clean" the data before starting any analysis. Other times the data will be split into two or more data sets, and you will need to "join" them together into a single data frame.'
 ---
 
-```{r child = "knitr_setup.Rmd"}
+```{r child = here::here("fragments", "setup.qmd")}
 ```
 
 Coming soon!

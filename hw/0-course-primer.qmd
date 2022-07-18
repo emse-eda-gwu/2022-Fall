@@ -7,7 +7,7 @@ title: "Course Primer"
 
 ## This assignment is optional
 
-Students should have taken [EMSE 4574: Intro to Programming for Analytics](https://p4a.seas.gwu.edu/2020-Fall/) prior to taking this course.
+Students should have taken [EMSE 4574: Intro to Programming for Analytics](https://p4a.seas.gwu.edu/) prior to taking this course.
 
 For those who did not, I **strongly** suggest you go through all the lessons in this primer course:
 

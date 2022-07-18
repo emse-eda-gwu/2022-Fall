@@ -66,7 +66,7 @@ assignment <- schedule %>%
     filter(!is.na(assign_due)) %>% 
     mutate(
         text = paste0(
-            '        - text: "', format(date, "%b %d"), ": ", name,
+            '        - text: "', format(date, "%b %d"), ": ", assign_name,
             " (Due ", assign_due, ')"'
         ), 
         href = paste0(

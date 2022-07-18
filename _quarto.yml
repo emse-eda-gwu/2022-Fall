@@ -65,29 +65,29 @@ website:
         menu:
         - text: "Course Primer (optional)"
           href: hw/0-course-primer.qmd
-        - text: "Aug 31: Getting Started (Due Sep 06)"
+        - text: "Aug 31: Tidy Data (Due Sep 06)"
           href: hw/1-tidy-data.qmd
-        - text: "Sep 07: Tidy Data (Due Sep 13)"
+        - text: "Sep 07: Cleaning Data (Due Sep 13)"
           href: hw/2-cleaning-data.qmd
-        - text: "Sep 14: Cleaning Data (Due Sep 20)"
+        - text: "Sep 14: Centrality & Variability (Due Sep 20)"
           href: hw/3-centrality-variability.qmd
-        - text: "Sep 21: Centrality & Variability (Due Sep 27)"
+        - text: "Sep 21: Correlation (Due Sep 27)"
           href: hw/4-correlation.qmd
-        - text: "Sep 28: Correlation (Due Oct 04)"
+        - text: "Sep 28: Visualizing Information (Due Oct 04)"
           href: hw/5-visualizing-information.qmd
-        - text: "Oct 05: Visualizing Information (Due Oct 11)"
+        - text: "Oct 05: Amounts & Proportions (Due Oct 11)"
           href: hw/6-amounts-proportions.qmd
-        - text: "Oct 12: Amounts & Proportions (Due Oct 18)"
+        - text: "Oct 12: Comparisons (Due Oct 18)"
           href: hw/7-comparisons.qmd
-        - text: "Oct 19: Comparisons (Due Oct 25)"
+        - text: "Oct 19: Trends (Due Oct 25)"
           href: hw/8-trends.qmd
-        - text: "Oct 26: Trends (Due Nov 01)"
+        - text: "Oct 26: Polishing Charts (Due Nov 01)"
           href: hw/9-polishing-charts.qmd
-        - text: "Nov 02: Polishing Charts (Due Nov 08)"
+        - text: "Nov 02: Maps (Due Nov 08)"
           href: hw/10-maps.qmd
-        - text: "Nov 09: Maps (Due Nov 29)"
+        - text: "Nov 09: Interactive Charts (Due Nov 29)"
           href: hw/11-interactive-charts.qmd
-        - text: "Nov 30: Interactive Charts (Due Dec 06)"
+        - text: "Nov 30: Communicating Results (Due Dec 06)"
           href: hw/12-communicating-results.qmd
       - text: "Mini Projects"
         menu:
@@ -154,3 +154,4 @@ format:
     smooth-scroll: true
     link-external-newwindow: true
     include-in-header: "_includes/header.html"
+
