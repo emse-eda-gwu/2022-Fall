@@ -1,12 +1,11 @@
+name: Render and Deploy Quarto Site
 on:
   push:
-    branches: [main, master]
-
-name: Render & Deploy Site
+  pull_request:
 
 jobs:
-  build:
-    runs-on: macOS-latest
+  quarto-render-and-deploy:
+    runs-on: ubuntu-latest
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
     steps:
@@ -37,14 +36,12 @@ jobs:
           install.packages("pkgdown", type = "binary")
         shell: Rscript {0}
 
-      - name: Render Site
-        run: |
-          quarto::quarto_render()
-        shell: Rscript {0}
+      - name: "Install Quarto and render"
+        uses: pommevilla/quarto-render@main
 
-      - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@releases/v3
+      - name: "Deploy to gh-pages"
+        uses: peaceiris/actions-gh-pages@v3
+        if: github.ref == 'refs/heads/main'
         with:
-          ACCESS_TOKEN: ${{ secrets.GH_PAT }}
-          BRANCH: gh-pages # The branch the action should deploy to.
-          FOLDER: _site # The folder the action should deploy.
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_site
