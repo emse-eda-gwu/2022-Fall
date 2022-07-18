@@ -59,8 +59,8 @@ get_schedule <- function() {
         mutate(
             mini_n = row_number(),
             mini_name = project_mini,
-            mini_due = format(as.Date(project_due), format = "%b %d"),
-            mini_stub = paste0(mini_n, "-", project_stub)
+            mini_due = format(as.Date(project_due_mini), format = "%b %d"),
+            mini_stub = paste0(mini_n, "-", project_stub_mini)
         ) %>% 
         select(week, starts_with("mini_"))
     
@@ -69,8 +69,8 @@ get_schedule <- function() {
         mutate(
             final_n = row_number(),
             final_name = project_final,
-            final_due = format(as.Date(project_due), format = "%b %d"),
-            final_stub = paste0(final_n, "-", project_stub)
+            final_due = format(as.Date(project_due_final), format = "%b %d"),
+            final_stub = paste0(final_n, "-", project_stub_final)
         ) %>% 
         select(week, starts_with("final_"))
 
