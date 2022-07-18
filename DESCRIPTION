@@ -17,6 +17,7 @@ Imports:
     here,
     kableExtra,
     knitr,
+    quarto,
     rmarkdown,
     tidyverse
 Remotes:
