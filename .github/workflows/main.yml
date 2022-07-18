@@ -36,12 +36,15 @@ jobs:
           install.packages("pkgdown", type = "binary")
         shell: Rscript {0}
 
-      - name: "Install Quarto and render"
-        uses: pommevilla/quarto-render@main
-
-      - name: "Deploy to gh-pages"
-        uses: peaceiris/actions-gh-pages@v3
-        if: github.ref == 'refs/heads/main'
+      - name: Render Quarto Project
+        uses: quarto-dev/quarto-actions/render@v2
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./_site
+          to: html
+          path: source-folder
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
+          ACCESS_TOKEN: ${{ secrets.GH_PAT }}
+          BRANCH: gh-pages # The branch the action should deploy to.
+          FOLDER: _site # The folder the action should deploy.
