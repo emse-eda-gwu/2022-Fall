@@ -19,6 +19,7 @@ Imports:
     knitr,
     quarto,
     rmarkdown,
+    rvest,
     tidyverse
 Remotes:
     haozhu233/kableExtra,
