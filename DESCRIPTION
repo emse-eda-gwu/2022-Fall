@@ -21,6 +21,3 @@ Imports:
     rmarkdown,
     rvest,
     tidyverse
-Remotes:
-    haozhu233/kableExtra,
-    r-lib/remotes
