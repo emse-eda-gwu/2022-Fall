@@ -1,6 +1,8 @@
 ---
 title: "Getting Help"
-output: html_document
+toc: true
+toc-title: Table of contents
+toc-location: left
 ---
 
 ```{r child = here::here("fragments", "setup.qmd")}

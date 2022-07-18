@@ -1,15 +1,11 @@
 ---
 title: "Amounts & Proportions"
-output:
-  html_document:
-    number_sections: false
-    toc: yes
 params:
-  due: "16 February, 11:59 pm"
+  number: 6
   purpose: 'learn some of the technical details of how to write code to create "good" information visualizations that follow the design principles we discussed last week. We will focus on graphing **amounts** and **proportions**.'
 ---
 
-```{r child = "knitr_setup.Rmd"}
+```{r child = here::here("fragments", "setup.qmd")}
 ```
 
 Coming soon!

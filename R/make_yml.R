@@ -133,7 +133,7 @@ help <-
 '      - text: Help
         menu:
         - text: Schedule a call w/Prof. Helveston
-          href: help/https://jhelvy.appointlet.com/b/professor-helveston
+          href: https://jhelvy.appointlet.com/b/professor-helveston
         - text: Course Software
           href: help/course-software.qmd
         - text: Getting Help

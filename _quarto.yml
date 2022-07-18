@@ -101,9 +101,9 @@ website:
         menu:
         - text: "Project Overview"
           href: project-final/0-overview.qmd
-        - text: Proposal (Due Oct 04)
+        - text: Proposal (Due Sep 27)
           href: project-final/1-proposal.qmd
-        - text: Progress Report (Due Nov 08)
+        - text: Progress Report (Due Nov 01)
           href: project-final/2-progress-report.qmd
         - text: Final Report (Due Dec 11)
           href: project-final/3-final-report.qmd
@@ -112,7 +112,7 @@ website:
       - text: Help
         menu:
         - text: Schedule a call w/Prof. Helveston
-          href: help/https://jhelvy.appointlet.com/b/professor-helveston
+          href: https://jhelvy.appointlet.com/b/professor-helveston
         - text: Course Software
           href: help/course-software.qmd
         - text: Getting Help

@@ -1,15 +1,11 @@
 ---
 title: "Polishing Charts"
-output:
-  html_document:
-    number_sections: false
-    toc: yes
 params:
-  due: "23 March, 11:59 pm"
+  number: 9
   purpose: 'The purpose of this assignment is to learn some techniques for adding "polish" to your charts. We will start choosing colors and fonts more carefully, and we will also annotate our charts with informative text.'
 ---
 
-```{r child = "knitr_setup.Rmd"}
+```{r child = here::here("fragments", "setup.qmd")}
 ```
 
 Coming soon!

@@ -1,15 +1,11 @@
 ---
 title: "Comparisons"
-output:
-  html_document:
-    number_sections: false
-    toc: yes
 params:
-  due: "23 February, 11:59 pm"
+  number: 7
   purpose: 'The purpose of this assignment is to learn some of the technical details of how to create charts for **comparing values** to one another and / or to a benchmark.'
 ---
 
-```{r child = "knitr_setup.Rmd"}
+```{r child = here::here("fragments", "setup.qmd")}
 ```
 
 Coming soon!

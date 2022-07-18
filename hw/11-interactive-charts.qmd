@@ -1,15 +1,11 @@
 ---
 title: "Interactive Charts"
-output:
-  html_document:
-    number_sections: false
-    toc: yes
 params:
-  due: "06 April, 11:59 pm"
+  number: 11
   purpose: 'The purpose of this assignment is to introduce you to the concept of allowing the reader to directly interact with your data. Interactive charts are an entirely different class of data visualizations made possible by advances in computing and other languages like html and javascript.'
 ---
 
-```{r child = "knitr_setup.Rmd"}
+```{r child = here::here("fragments", "setup.qmd")}
 ```
 
 Coming soon!

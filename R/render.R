@@ -1,6 +1,9 @@
 library(quarto)
 library(renderthis)
 
+# Render the yml 
+source(here::here('R', 'make_yml.R'))
+
 # Render slides 
 # parts <- c(
 #     'storytelling',

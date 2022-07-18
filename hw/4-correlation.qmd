@@ -1,15 +1,11 @@
 ---
 title: "Correlation"
-output:
-  html_document:
-    number_sections: false
-    toc: yes
 params:
-  due: "02 February, 11:59 pm"
+  number: 4
   purpose: 'The purpose of this assignment is to learn some methods to recognize and measure the correlation between two variables as well as how to find a "line of best fit" between them.'
 ---
 
-```{r child = "knitr_setup.Rmd"}
+```{r child = here::here("fragments", "setup.qmd")}
 ```
 
 Coming soon!

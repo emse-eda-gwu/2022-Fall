@@ -1,15 +1,11 @@
 ---
 title: "Maps"
-output:
-  html_document:
-    number_sections: false
-    toc: yes
 params:
-  due: "30 March, 11:59 pm"
+  number: 10
   purpose: 'The purpose of this assignment is to learn some techniques for creating a special type of chart: maps. We will look at different types of maps and how to work with different types of geospatial data.'
 ---
 
-```{r child = "knitr_setup.Rmd"}
+```{r child = here::here("fragments", "setup.qmd")}
 ```
 
 Coming soon!

@@ -1,5 +1,8 @@
 ---
 title: "R Markdown"
+toc: true
+toc-title: Table of contents
+toc-location: left
 ---
 
 ```{r child = here::here("fragments", "setup.qmd")}

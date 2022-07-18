@@ -1,12 +1,11 @@
 ---
 title: "Example Analyses"
-output:
-  html_document:
-    number_sections: false
-    toc: no
+toc: true
+toc-title: Table of contents
+toc-location: left
 ---
 
-```{r child = "knitr_setup.Rmd"}
+```{r child = here::here("fragments", "setup.qmd")}
 ```
 
 As inspiration for your final projects, check out these prior exploratory data analyses.

@@ -1,9 +1,11 @@
 ---
 title: "Finding Data"
-output: html_document
+toc: true
+toc-title: Table of contents
+toc-location: left
 ---
 
-```{r child = "knitr_setup.Rmd"}
+```{r child = here::here("fragments", "setup.qmd")}
 ```
 
 The world is full of data, but sometimes finding it can be difficult. As a starting point, GW libraries has an excellent set of [Research Guides](https://libguides.gwu.edu/) that can be helpful. Depending on your research question, searching Google can also lead to good sources.
