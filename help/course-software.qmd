@@ -24,7 +24,7 @@ This page lists all the software we'll be using in class.
 <div style="width:200px">
 Open this   | Not this!
 :----------:|:----------:
-![](images/rstudio_ball.png){ width=50 }  |  ![](images/Rlogo.png){ width=50 }
+![](images/rstudio-ball.png){ width=50 }  |  ![](images/Rlogo.png){ width=50 }
 </div>
 
 3. Sign up for [RStudio cloud](https://rstudio.cloud/plans/free) (the free version). It's basically the same thing as RStudio, but accessible via a web browser. If things aren't working on your computer, this is a great backup to quickly get back to working in R!

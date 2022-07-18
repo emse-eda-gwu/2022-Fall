@@ -91,14 +91,14 @@ There will be several quizzes given about once every two weeks immediately at th
 
 Students will be responsible for two types of assignments throughout the semester:
 
-- **Reflections**: Each week, students will be assigned specific readings to prepare for the next class period. Students will need to submit reflections on these readings each week. Additional, optional assignments on [DataCamp](https://www.datacamp.com) will be available for extra practice.
+- **Weekly Assignments**: Each week, students will be assigned specific readings and exercises to prepare for the next class period. Students will need to submit responses that include a thoughtful reflection on these concepts each week.
 - **Mini Projects**: There will be three mini projects throughout the semester designed to provide hands-on experience with the material covered in class by working with and exploring real data sets and / or creating visualizations. While students may work with their peers on these assignments, each student must submit their own work. Credit for each assignment will be allocated according to a rubric provided in the assignment description.
 
 ## Final Project
 
 Throughout the semester, students will work in teams of 2-3 students towards a final project of an exploratory data analysis. At the end of the semester, each student will submit a report of their analysis in the form of an html web page and create a 5 to 10-minute video presentation of their results. To make the overall project more manageable, it will be broken down into several separate "milestone" deliverables due throughout the semester, including a proposal, progress report, presentation video, and final report.
 
-View the [final project assignment](project/0-overview.qmd) page for more details.
+View the [final project overview](project-final/0-overview.qmd) page for more details.
 
 ## Final Interview
 
@@ -111,18 +111,20 @@ Rather than have a final exam, each student will have a 10-minute interview by t
 Final grades will be calculated as follows:
 
 <div style="width:550px">
-Item                  | Weight | Notes
-----------------------|--------|-------------------------------------
-Reflections           | 27 %   | Weekly assignment (9 x 3%)
-Quizzes               | 12 %   | 5 quizzes, lowest dropped
-Project Proposal      | 7 %    | Teams of 3-4 students
-Survey Plan           | 4 %    |
-Pilot Survey          | 4 %    |
-Pilot Analysis        | 9 %    |
-Final Survey          | 5 %    |
-Final Analysis Report | 14 %   |
-Final Presentation    | 8 %    |
-Final Exam            | 10 %   | Take home exam
+
+Item                           | Weight | Notes
+-------------------------------|--------|-------------------------------------
+Weekly HW                      | 12 %   |
+Quizzes                        | 8 %    | 5 quizzes, lowest dropped
+Mini Project 1                 | 8 %    | Individual assignments
+Mini Project 2                 | 8 %    |
+Mini Project 3                 | 8 %    |
+Final Project: Proposal        | 9 %    | Teams of 2-3 students
+Final Project: Progress Report | 12 %   |
+Final Project: Report          | 16 %   |
+Final Project: Presentation    | 9 %    |
+Final Interview                | 10 %   | Individual interview
+
 </div>
 
 Here's a visual breakdown by category:
@@ -133,8 +135,8 @@ library(ggrepel)
 
 df <- data.frame(
     category = c(
-      'Reflections', 'Quizzes', 'Project', 'Exam'),
-    percent = c(27, 12, 51, 10)) %>%
+      'Weekly HW', 'Quizzes', 'Mini Projects', 'Final Project',  'Interview'),
+    percent = c(6, 12, 27, 45, 10)) %>%
     arrange(desc(percent)) %>%
     mutate(
       cumpercent = cumsum(percent),
@@ -144,8 +146,13 @@ df <- data.frame(
 ggplot(df) +
     geom_col(aes(x = "", y = percent, fill = category),
              width = 1.1, alpha = 0.8) +
-    geom_label(data = df,
+    geom_label(data = filter(df, category %in% c(
+               'Mini Projects', 'Final Project')),
                aes(x = "", y = label_y, label = category)) +
+    geom_label_repel(data = filter(df, category %in% c(
+                     'Quizzes', 'Interview', 'Weekly HW')),
+                     aes(x = "", y = label_y, label = category),
+                     direction = 'y', label.padding = 0.25, segment.size = 0) +
     coord_flip() +
     scale_y_continuous(expand = expansion(mult = c(0, 0.05))) +
     scale_fill_viridis(discrete = TRUE) +
