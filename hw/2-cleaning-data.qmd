@@ -5,7 +5,8 @@ params:
   purpose: 'The purpose of this assignment is learn some techniques for dealing with messy data. Most of the time, the raw data you get is in the wrong format and variables are not properly coded, so you will need to "clean" the data before starting any analysis. Other times the data will be split into two or more data sets, and you will need to "join" them together into a single data frame.'
 ---
 
-```{r child = here::here("fragments", "setup.qmd")}
+```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
+source(here::here("R", "settings.R"))
 ```
 
 Coming soon!

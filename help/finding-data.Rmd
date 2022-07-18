@@ -5,7 +5,8 @@ toc-title: Table of contents
 toc-location: left
 ---
 
-```{r child = here::here("fragments", "setup.qmd")}
+```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
+source(here::here("R", "settings.R"))
 ```
 
 The world is full of data, but sometimes finding it can be difficult. As a starting point, GW libraries has an excellent set of [Research Guides](https://libguides.gwu.edu/) that can be helpful. Depending on your research question, searching Google can also lead to good sources.

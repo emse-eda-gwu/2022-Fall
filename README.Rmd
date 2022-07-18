@@ -6,7 +6,8 @@ output:
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-```{r child = here::here("fragments", "setup.qmd")}
+```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
+source(here::here("R", "settings.R"))
 ```
 
 ## `r settings$title` <a href='`r settings$repo`'><img src='images/logo.png' align="right" height="139"/></a>

@@ -5,7 +5,8 @@ params:
   purpose: "The purpose of this assignment is to develop some basic strategies for exploring data sets to gain a greater understanding of the variable types, their centrality, and their variability."
 ---
 
-```{r child = here::here("fragments", "setup.qmd")}
+```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
+source(here::here("R", "settings.R"))
 ```
 
 Coming soon!

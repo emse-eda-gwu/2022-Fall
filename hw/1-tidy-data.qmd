@@ -5,7 +5,8 @@ params:
   purpose: 'The purpose of this assignment is to introduce yourself to the "tidy data" concept and to practice modifying data frames between long and wide formats in R.'
 ---
 
-```{r child = here::here("fragments", "setup.qmd")}
+```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
+source(here::here("R", "settings.R"))
 ```
 
 Coming soon!

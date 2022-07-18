@@ -5,7 +5,8 @@ params:
   purpose: 'The purpose of this assignment is to learn some techniques for adding "polish" to your charts. We will start choosing colors and fonts more carefully, and we will also annotate our charts with informative text.'
 ---
 
-```{r child = here::here("fragments", "setup.qmd")}
+```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
+source(here::here("R", "settings.R"))
 ```
 
 Coming soon!

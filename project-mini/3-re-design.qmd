@@ -10,7 +10,8 @@ params:
   assessment: 'Your project will be assessed using [this rubric](rubrics/mini-3/rubric.html){target="_blank"}.'
 ---
 
-```{r child = here::here("fragments", "setup.qmd")}
+```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
+source(here::here("R", "settings.R"))
 ```
 
 Coming soon!

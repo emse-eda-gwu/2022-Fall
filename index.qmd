@@ -2,7 +2,8 @@
 title: "EMSE 4572: Exploratory Data Analysis - Fall 2022"
 ---
 
-```{r child = here::here("fragments", "setup.qmd")}
+```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
+source(here::here("R", "settings.R"))
 ```
 
 <div class = "row">
