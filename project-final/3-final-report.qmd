@@ -10,8 +10,4 @@ params:
   assessment: 'Your report will be assessed using [this rubric](rubrics/final-report/rubric.html){target="_blank"}.'
 ---
 
-```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
-source(here::here("R", "settings.R"))
-```
-
 Coming soon!

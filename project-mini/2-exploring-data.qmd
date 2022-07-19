@@ -10,8 +10,5 @@ params:
   assessment: 'Your project will be assessed using [this rubric](rubrics/mini-2/rubric.html){target="_blank"}.'
 ---
 
-```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
-source(here::here("R", "settings.R"))
-```
 
 Coming soon!

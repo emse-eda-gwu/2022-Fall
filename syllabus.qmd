@@ -14,11 +14,11 @@ source(here::here("R", "settings.R"))
 <div style="width:600px">
 Instructor | Course
 ---|---
-<i class="fas fa-user"></i> John Paul Helveston | <i class="far fa-calendar"></i> `r settings$weekday`
-<i class="fas fa-university"></i> Science & Engineering Hall, 2830 | <i class="fa fa-map-marker-alt"></i> [`r settings$room`](`r settings$room_url`)
-<i class="fas fa-phone"></i> +1 (202) 994-7173 | <i class="far fa-calendar-alt"></i> `r settings$dates`
-<i class="fas fa-envelope"></i> [jpg@gwu.edu](mailto:jph@gwu.edu) | <i class="far fa-clock"></i> `r settings$time`
-<i class="fab fa-twitter"></i> [\@JohnHelveston](https://twitter.com/JohnHelveston) | <i class="fab fa-slack"></i> [Slack](`r settings$slack`)
+<i class="fas fa-user"></i> John Paul Helveston | <i class="far fa-calendar"></i> {{< var weekday >}}
+<i class="fas fa-university"></i> Science & Engineering Hall, 2830 | <i class="fa fa-map-marker-alt"></i> [{{< var room >}}]({{< var room_url >}})
+<i class="fas fa-phone"></i> +1 (202) 994-7173 | <i class="far fa-calendar-alt"></i> {{< var dates >}}
+<i class="fas fa-envelope"></i> [jpg@gwu.edu](mailto:jph@gwu.edu) | <i class="far fa-clock"></i> {{< var time >}}
+<i class="fab fa-twitter"></i> [\@JohnHelveston](https://twitter.com/JohnHelveston) | <i class="fab fa-slack"></i> [Slack]({{< var slack >}})
 </div>
 
 # COVID-19 Precautions
@@ -66,7 +66,7 @@ Go to the [Course Software](help/course-software.qmd) page for detailed instruct
 
 - R (version 4.1.0 or later), which can be downloaded from [The Comprehensive R Archive Network (CRAN)](https://cloud.r-project.org)
 - RStudio (Desktop Version), a free IDE for R, which can be downloaded from [RStudio](https://rstudio.com/products/rstudio/download/)
-- We'll be using [Slack](`r settings$slack`) for most communication.
+- We'll be using [Slack]({{< var slack >}}) for most communication.
 
 ## Texts / Other Useful Resources
 
@@ -183,7 +183,7 @@ This class can be challenging - **do not suffer in silence!** We have lots of wa
 
 ## Slack
 
-All course communication will be managed through [Slack](`r settings$slack`). A link to sign up for the course slack page can be found on the one (and only) announcement on Blackboard.
+All course communication will be managed through [Slack]({{< var slack >}}). A link to sign up for the course slack page can be found on the one (and only) announcement on Blackboard.
 
 **You can use Slack to**:
 

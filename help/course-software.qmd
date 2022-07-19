@@ -5,17 +5,13 @@ toc-title: Table of contents
 toc-location: left
 ---
 
-```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
-source(here::here("R", "settings.R"))
-```
-
 This page lists all the software we'll be using in class.
 
 > You should install and set everything here _before_ the first day of class.
 
 1. Install / setup these tools:
 
-- [Slack](`r settings$slack`): You can find a sign up link on the announcement in Blackboard.
+- [Slack]({{< var slack >}}): You can find a sign up link on the announcement in Blackboard.
 - Install the Slack app on your phone and **Turn notifications on!**
 
 2. Install the latest version of R and RStudio:

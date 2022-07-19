@@ -2,10 +2,6 @@
 title: "Course Primer"
 ---
 
-```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
-source(here::here("R", "settings.R"))
-```
-
 ## This assignment is optional
 
 Students should have taken [EMSE 4574: Intro to Programming for Analytics](https://p4a.seas.gwu.edu/) prior to taking this course.

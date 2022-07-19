@@ -4,7 +4,7 @@ source(here::here("R", "settings.R"))
 schedule <- get_schedule()
 
 # Starting content string
-start <- paste0(
+start <-
 'project:
   type: website
   output-dir: _site
@@ -16,15 +16,24 @@ start <- paste0(
     - "!fragments/"
 
 website:
+  title: "EMSE 4572"
   image: images/logo.png
-  site-url: ', settings$site_url, '
+  site-url: "{{< var site_url >}}"
   favicon: images/favicon.ico
-  repo-url: ', settings$repo, '
-  description: \'Course website for ', settings$semester, ' semester of the EMSE course Exploratory Data Analysis at GWU\'
-  search: true
-  open-graph: true
+  repo-url: "{{< var repo >}}"
+  description: \'Course website for {{< var semester >}} semester of the EMSE course Exploratory Data Analysis at GWU\'
+  search:
+    location: navbar
+    type: overlay
+    copy-button: true
+  open-graph:
+    locale: es_ES
+    site-name: https://eda.seas.gwu.edu/
   twitter-card:
+    creator: "@johnhelveston"
     site: "@johnhelveston"
+    image: "images/logo-square.png"
+    card-style: summary
   navbar:
     background: primary
     left:
@@ -36,7 +45,6 @@ website:
         href: schedule.qmd
       - text: Class
         menu:'
-)
 
 # Class class string
 class <- schedule %>% 
@@ -152,9 +160,9 @@ help <-
           href: help/other.qmd'
 
 # End content string
-end <- paste0(
+end <-
 '      - icon: slack
-        href: ', settings$slack, '
+        href: "{{< var slack >}}"
     right:
     - icon: fas fa-bars
       menu:
@@ -165,10 +173,10 @@ end <- paste0(
       - text: Contact
         href: mailto:jph@gwu.edu
       - icon: github
-        href: ', settings$repo, '
+        href: "{{< var repo >}}"
   page-footer:
     center:
-      - text: \'', settings$title, '<br><i class="far fa-calendar-alt"></i> ', settings$weekday, ' | <i class="far fa-clock"></i> ', settings$time, ' | <a href="', settings$room_url, '"><i class="fa fa-map-marker-alt"></i> ', settings$room, '</a> | <a href="https://www.jhelvy.com"><i class="fas fa-user"></i> Dr. John Paul Helveston</a> | <a href="mailto:jph@gwu.edu"><i class="fas fa-envelope"></i> jph@gwu.edu</a>\'
+      - text: \'{{< var title >}} <br><i class="far fa-calendar-alt"></i> {{< var weekday >}} | <i class="far fa-clock"></i> {{< var time >}} | <a href="{{< var room_url >}}"><i class="fa fa-map-marker-alt"></i> {{< var room >}}</a> | <a href="https://www.jhelvy.com"><i class="fas fa-user"></i> Dr. John Paul Helveston</a> | <a href="mailto:jph@gwu.edu"><i class="fas fa-envelope"></i> jph@gwu.edu</a> | <a href="{{< var repo >}}"><i class="fab fa-github"></i></a>\'
 
 format:
   html:
@@ -178,7 +186,6 @@ format:
     smooth-scroll: true
     link-external-newwindow: true
     include-in-header: "_includes/header.html"'
-)
 
 # Combine
 yml <- c(

@@ -5,13 +5,9 @@ toc-title: Table of contents
 toc-location: left
 ---
 
-```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
-source(here::here("R", "settings.R"))
-```
-
 # Slack
 
-All course communication will be managed through [Slack](https://emse-eda-f22.slack.com). A link to sign up for the course slack page can be found on the one (and only) announcement on Blackboard.
+All course communication will be managed through [Slack]({{< var slack >}}). A link to sign up for the course slack page can be found on the one (and only) announcement on Blackboard.
 
 Watch this 2-minute video to see what Slack is all about:
 

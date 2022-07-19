@@ -10,10 +10,6 @@ params:
   assessment: 'Your proposal will be assessed using [this rubric](rubrics/proposal/rubric.html){target="_blank"}.'
 ---
 
-```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
-source(here::here("R", "settings.R"))
-```
-
 Write a proposal of an exploratory data analysis that you plan to conduct for your final project. The instructors will review and grade your proposal and provide feedback upon returning from spring break. If your proposal is approved, you are done and can move on towards the next project task. In some cases, the instructors may ask you to submit a revised proposal, most likely by focusing / adjusting the proposal scope and / or research question. Below is a list of specific items your proposal should include.
 
 ## 1. Get organized
