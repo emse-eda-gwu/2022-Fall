@@ -1,18 +1,20 @@
 ---
-title: "EMSE 4572: Exploratory Data Analysis - Fall 2022"
+title: "EMSE 4572: Exploratory Data Analysis (Fall 2022)"
 ---
 
 ```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
 source(here::here("R", "settings.R"))
 ```
 
-<div class = "row">
+::: {.grid}
 
-<div class = "col-md-3">
+::: {.g-col-3}
+
 <img src="images/logo.png" width="200">
-</div>
 
-<div class = "col-md-9">
+:::
+
+::: {.g-col-9}
 
 **Department**: [Engineering Management and Systems Engineering](https://www.emse.seas.gwu.edu/) @ [GWU](https://www.gwu.edu/)
 
@@ -33,5 +35,6 @@ source(here::here("R", "settings.R"))
 ```{r child = here::here("fragments", "prerequisites.qmd")}
 ```
 
-</div>
-</div>
+:::
+
+:::

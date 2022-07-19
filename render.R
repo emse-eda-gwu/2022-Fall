@@ -1,12 +1,6 @@
 library(quarto)
 library(renderthis)
 
-# Render readme
-rmarkdown::render(input = 'README.Rmd', output_format = 'github_document')
-
-# Render the yml 
-source(here::here('R', 'make_yml.R'))
-
 # Render slides 
 # parts <- c(
 #     'storytelling',
