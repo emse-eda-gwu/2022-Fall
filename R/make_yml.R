@@ -164,7 +164,7 @@ end <-
 '      - icon: slack
         href: "{{< var slack >}}"
     right:
-    - icon: fas fa-bars
+    - icon: list
       menu:
       - text: About
         href: about.qmd
