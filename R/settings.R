@@ -19,26 +19,12 @@ knitr::opts_chunk$set(
     fig.retina = 3
 )
 
-# Load class settings
-settings <- list(
-    semester = 'Fall 2022',
-    repo     = "https://github.com/emse-eda-gwu/2022-Fall",
-    site_url = "https://eda.seas.gwu.edu/2022-Fall/",
-    title    = "EMSE 4572: Exploratory Data Analysis (Fall 2022)",
-    weekday  = "Wednesdays",
-    time     = "12:45PM - 3:15PM EST",
-    room     = '1776 G St C-119',
-    room_url = "https://acadtech.gwu.edu/location?id=373&campus=FB&type=building&selection=36",
-    schedule_url = 'https://docs.google.com/spreadsheets/d/1heQ9ylgQ8Ok2MjIAGPRy8kdMnnyojuQFGxek9oFXF9Y/edit?usp=sharing',
-    dates = "Aug. 29 - Dec. 12, 2022",
-    slack = "https://emse-eda-f22.slack.com"
-)
-
 # Load custom functions
 get_schedule <- function() {
     
     # Get raw schedule
-    schedule <- gsheet::gsheet2tbl(settings$schedule_url)
+    schedule_url <- 'https://docs.google.com/spreadsheets/d/1heQ9ylgQ8Ok2MjIAGPRy8kdMnnyojuQFGxek9oFXF9Y/edit?usp=sharing'
+    schedule <- gsheet::gsheet2tbl(schedule_url)
     
     # Make assignment vars
     assignments <- schedule %>% 

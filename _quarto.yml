@@ -9,19 +9,19 @@ project:
     - "!fragments/"
 
 website:
-  title: "EMSE 4572"
+  title: "{{< var number >}}"
   image: images/logo.png
   site-url: "{{< var site_url >}}"
   favicon: images/favicon.ico
   repo-url: "{{< var repo >}}"
-  description: 'Course website for {{< var semester >}} semester of the EMSE course Exploratory Data Analysis at GWU'
+  description: 'Course website for {{< var semester >}} semester of the EMSE course {{< var name >}} at GWU'
   search:
     location: navbar
     type: overlay
     copy-button: true
   open-graph:
     locale: es_ES
-    site-name: https://eda.seas.gwu.edu/
+    site-name: "{{< var root_url >}}"
   twitter-card:
     creator: "@johnhelveston"
     site: "@johnhelveston"
