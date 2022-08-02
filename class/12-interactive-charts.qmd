@@ -1,7 +1,7 @@
 ---
-title: "Team Meetings"
+title: "Interactive Charts"
 params:
-  class: "12-meetings"
+  class: "12-interactive-charts"
 ---
 
 ```{r setup, echo=FALSE, message=FALSE, warning=FALSE}

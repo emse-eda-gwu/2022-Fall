@@ -13,7 +13,8 @@ website:
   image: images/logo.png
   site-url: "{{< var site_url >}}"
   favicon: images/favicon.ico
-  repo-url: "{{< var repo >}}"
+  repo-url: https://github.com/emse-eda-gwu/2022-Fall
+  repo-actions: [edit, issue]
   description: 'Course website for {{< var semester >}} semester of the EMSE course {{< var name >}} at GWU'
   search:
     location: navbar
@@ -60,11 +61,10 @@ website:
           href: class/10-polishing-charts.qmd
         - text: "Nov 09: Maps"
           href: class/11-maps.qmd
-        - text: "Nov 16: No Class - Team Meetings"
-          href: class/12-meetings.qmd
+          href: class/12-interactive-charts.qmd
         - text: "Nov 23: Thanksgiving - no class"
-        - text: "Nov 30: Interactive Charts"
-          href: class/13-interactive-charts.qmd
+        - text: "Nov 30: Shiny Apps"
+          href: class/13-shiny-apps.qmd
         - text: "Dec 07: Communicating Results"
           href: class/14-communicating-results.qmd
         - text: "Dec 14: Final Presentations"
@@ -94,9 +94,9 @@ website:
           href: hw/9-polishing-charts.qmd
         - text: "Nov 02: Maps (Due Nov 08)"
           href: hw/10-maps.qmd
-        - text: "Nov 09: Interactive Charts (Due Nov 29)"
+        - text: "Nov 09: Interactive Charts (Due Nov 15)"
           href: hw/11-interactive-charts.qmd
-        - text: "Nov 30: Communicating Results (Due Dec 06)"
+        - text: "Nov 16: Communicating Results (Due Dec 06)"
           href: hw/12-communicating-results.qmd
       - text: "Mini Projects"
         menu:

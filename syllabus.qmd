@@ -1,8 +1,7 @@
 ---
 title: Syllabus
 toc: true
-toc-title: Table of contents
-toc-location: left
+toc-location: right
 ---
 
 ```{r setup, echo=FALSE, message=FALSE, warning=FALSE}

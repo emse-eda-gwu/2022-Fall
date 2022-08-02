@@ -20,7 +20,8 @@ website:
   image: images/logo.png
   site-url: "{{< var site_url >}}"
   favicon: images/favicon.ico
-  repo-url: "{{< var repo >}}"
+  repo-url: https://github.com/emse-eda-gwu/2022-Fall
+  repo-actions: [edit, issue]
   description: \'Course website for {{< var semester >}} semester of the EMSE course {{< var name >}} at GWU\'
   search:
     location: navbar

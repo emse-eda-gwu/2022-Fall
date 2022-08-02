@@ -41,10 +41,12 @@ schedule <- get_schedule() %>%
         fa$project, '</a><b> ', final_name, "</b><br>Due: ", final_due))
   )
 
+# Set highlighting based on current week
 highlight <- which(Sys.Date() > schedule$date_raw)
 ```
 
 :::{.column-page}
+
 
 ```{r echo=FALSE}
 # Make the final schedule
@@ -66,9 +68,8 @@ schedule %>%
   column_spec(column = 3, width = '5em') %>%
   column_spec(column = 4, width = '18em') %>%
   column_spec(column = 5, width = '15em') %>%
-  # column_spec(column = 6, width = '10em') %>%
-  # column_spec(column = 7, width = '12em') %>%
-  row_spec(highlight, background = "#e1e1e1")
+  row_spec(highlight, background = "#e1e1e1") 
 ```
 
 :::
+

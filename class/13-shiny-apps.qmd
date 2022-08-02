@@ -1,7 +1,7 @@
 ---
-title: "Interactive Charts"
+title: "Team Meetings"
 params:
-  class: "13-interactive-charts"
+  class: "13-shiny-apps"
 ---
 
 ```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
