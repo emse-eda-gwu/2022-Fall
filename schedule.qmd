@@ -17,25 +17,23 @@ fa <- list(
 # Make the schedule data frame
 schedule <- get_schedule() %>% 
   mutate(
-    date_raw = date,
-    date = format(date, format = "%b %d"),
     # Build links
     class = ifelse(
-      is.na(stub), paste0("<b>", name, "</b>"),
+      is.na(class_stub), paste0("<b>", name, "</b>"),
       paste0(
           '<a href="class/', class_stub, '.html">',
-          fa$class, '</a><b> ', name, "</b><br> ", class_description)),
+          fa$class, '</a><b> ', class_name, "</b><br> ", class_description)),
     assignments = ifelse(is.na(assign_due), NA, 
         paste0(
         '<a href="hw/', assign_stub, '.html">',
         fa$assignment, '</a><b> ', assign_name, "</b><br>Due: ", assign_due)),
     mini = ifelse(
-      is.na(project_mini), NA,
+      is.na(mini_name), NA,
       paste0(
           '<a href="project-mini/', mini_stub, '.html">',
         fa$project, '</a><b> ', mini_name, "</b><br>Due: ", mini_due)),
     final = ifelse(
-      is.na(project_final), NA,
+      is.na(final_name), NA,
       paste0(
           '<a href="project-final/', final_stub, '.html">',
         fa$project, '</a><b> ', final_name, "</b><br>Due: ", final_due))

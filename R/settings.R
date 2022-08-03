@@ -69,8 +69,6 @@ get_schedule <- function() {
     # Class vars
     class <- df %>%
         mutate(
-            date_raw = date,
-            date = format(date, format = "%b %d"),
             # Replace NA values with ""
             class_description = ifelse(
                 is.na(class_description), "", class_description),
@@ -80,6 +78,11 @@ get_schedule <- function() {
     
     # Final schedule data frame
     schedule <- df %>% 
+        select(week, date, theme, quiz) %>% 
+        mutate(
+            date_raw = date,
+            date = format(date, format = "%b %d")
+        ) %>% 
         left_join(class, by = "week") %>% 
         left_join(assignments, by = "week") %>% 
         left_join(mini, by = "week") %>% 
