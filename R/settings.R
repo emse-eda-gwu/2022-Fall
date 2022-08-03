@@ -24,54 +24,62 @@ get_schedule <- function() {
     
     # Get raw schedule
     schedule_url <- 'https://docs.google.com/spreadsheets/d/1heQ9ylgQ8Ok2MjIAGPRy8kdMnnyojuQFGxek9oFXF9Y/edit?usp=sharing'
-    schedule <- gsheet::gsheet2tbl(schedule_url)
-    
-    # Make assignment vars
-    assignments <- schedule %>% 
-        filter(assignment == 1) %>% 
+    df <- gsheet::gsheet2tbl(schedule_url) %>% 
         mutate(
-            assign_n = row_number(),
-            assign_due = format(lead(date, 1) - 1, format = "%b %d"),
-            assign_name = lead(name, 1),
-            assign_name = ifelse(is.na(assign_name), "", assign_name),
-            assign_stub = paste0(assign_n, "-", lead(stub, 1)), 
-        ) %>% 
-        filter(!is.na(assign_due)) %>% 
+            class_stub = str_to_lower(class_name), 
+            class_stub = str_replace_all(class_stub, " & ", "-"),
+            class_stub = str_replace_all(class_stub, " ", "-"),
+            assign_stub = str_to_lower(assign_name), 
+            assign_stub = str_replace_all(assign_stub, " & ", "-"),
+            assign_stub = str_replace_all(assign_stub, " ", "-"),
+            mini_stub = str_to_lower(mini_name), 
+            mini_stub = str_replace_all(mini_stub, " & ", "-"),
+            mini_stub = str_replace_all(mini_stub, " ", "-"),
+            final_stub = str_to_lower(final_name), 
+            final_stub = str_replace_all(final_stub, " & ", "-"),
+            final_stub = str_replace_all(final_stub, " ", "-"),
+        )
+    
+    # Weekly assignment vars
+    assignments <- df %>% 
+        filter(!is.na(assign_name)) %>% 
+        mutate(assign_due = format(assign_due, format = "%b %d")) %>% 
         select(week, starts_with("assign_"))
     
-    # Make project vars
-    mini <- schedule %>%
-        filter(!is.na(project_mini)) %>% 
+    # Mini project vars
+    mini <- df %>%
+        filter(!is.na(mini_name)) %>% 
         mutate(
             mini_n = row_number(),
-            mini_name = project_mini,
-            mini_due = format(as.Date(project_due_mini), format = "%b %d"),
-            mini_stub = paste0(mini_n, "-", project_stub_mini)
+            mini_due = format(as.Date(mini_due), format = "%b %d"),
+            mini_stub = paste0(mini_n, "-", mini_stub)
         ) %>% 
         select(week, starts_with("mini_"))
     
-    final <- schedule %>%
-        filter(!is.na(project_final)) %>% 
+    # Final project vars
+    final <- df %>%
+        filter(!is.na(final_name)) %>% 
         mutate(
             final_n = row_number(),
-            final_name = project_final,
-            final_due = format(as.Date(project_due_final), format = "%b %d"),
-            final_stub = paste0(final_n, "-", project_stub_final)
+            final_due = format(as.Date(final_due), format = "%b %d"),
+            final_stub = paste0(final_n, "-", final_stub)
         ) %>% 
         select(week, starts_with("final_"))
 
     # Class vars
-    class <- schedule %>%
+    class <- df %>%
         mutate(
             date_raw = date,
             date = format(date, format = "%b %d"),
             # Replace NA values with ""
-            class_description = ifelse(is.na(description), "", description),
-            class_stub = ifelse(is.na(stub), "", paste0(n, "-", stub))
+            class_description = ifelse(
+                is.na(class_description), "", class_description),
+            class_stub = paste0(class_n, "-", class_stub)
         ) %>% 
         select(week, starts_with("class_"))
     
-    schedule <- schedule %>% 
+    # Final schedule data frame
+    schedule <- df %>% 
         left_join(class, by = "week") %>% 
         left_join(assignments, by = "week") %>% 
         left_join(mini, by = "week") %>% 
