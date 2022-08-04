@@ -61,6 +61,7 @@ website:
           href: class/10-polishing-charts.qmd
         - text: "Nov 09: Maps"
           href: class/11-maps.qmd
+        - text: "Nov 16: Interactive Charts"
           href: class/12-interactive-charts.qmd
         - text: "Nov 23: Thanksgiving - no class"
         - text: "Nov 30: Shiny Apps"
