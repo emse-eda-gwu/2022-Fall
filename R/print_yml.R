@@ -1,54 +1,10 @@
 # Load class settings & functions
 source(here::here("R", "settings.R"))
 
-schedule <- get_schedule()
-
-# Starting content string
-start <-
-'project:
-  type: website
-  output-dir: _site
-  preview:
-    port: 5896
-    browser: true
-  render:
-    - "*.qmd"
-    - "!fragments/"
-
-website:
-  title: "{{< var number >}}"
-  image: images/logo.png
-  site-url: "{{< var site_url >}}"
-  favicon: images/favicon.ico
-  repo-url: https://github.com/emse-eda-gwu/2022-Fall
-  repo-actions: [edit, issue]
-  description: \'Course website for {{< var semester >}} semester of the EMSE course {{< var name >}} at GWU\'
-  search:
-    location: navbar
-    type: overlay
-    copy-button: true
-  open-graph:
-    locale: es_ES
-    site-name: "{{< var root_url >}}"
-  twitter-card:
-    creator: "@johnhelveston"
-    site: "@johnhelveston"
-    image: "images/logo-square.png"
-    card-style: summary
-  navbar:
-    background: primary
-    left:
-      - text: Home
-        href: index.qmd
-      - text: Syllabus
-        href: syllabus.qmd
-      - text: "Schedule"
-        href: schedule.qmd
-      - text: Class
-        menu:'
+df <- get_schedule()
 
 # Class class string
-class <- schedule %>% 
+class <- df %>% 
     mutate(
         text = paste0(
             '        - text: "', format(date, "%b %d"), ": ", name, '"' 
