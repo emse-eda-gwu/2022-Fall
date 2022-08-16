@@ -19,6 +19,14 @@ knitr::opts_chunk$set(
     fig.retina = 3
 )
 
+clean_schedule_name <- function(x) {
+    x <- x %>%
+        str_to_lower() %>%
+        str_replace_all(" & ", "-") %>%
+        str_replace_all(" ", "-")
+    return(x)
+}
+
 # Load custom functions
 get_schedule <- function() {
     
@@ -26,18 +34,10 @@ get_schedule <- function() {
     schedule_url <- 'https://docs.google.com/spreadsheets/d/1heQ9ylgQ8Ok2MjIAGPRy8kdMnnyojuQFGxek9oFXF9Y/edit?usp=sharing'
     df <- gsheet::gsheet2tbl(schedule_url) %>% 
         mutate(
-            class_stub = str_to_lower(class_name), 
-            class_stub = str_replace_all(class_stub, " & ", "-"),
-            class_stub = str_replace_all(class_stub, " ", "-"),
-            assign_stub = str_to_lower(assign_name), 
-            assign_stub = str_replace_all(assign_stub, " & ", "-"),
-            assign_stub = str_replace_all(assign_stub, " ", "-"),
-            mini_stub = str_to_lower(mini_name), 
-            mini_stub = str_replace_all(mini_stub, " & ", "-"),
-            mini_stub = str_replace_all(mini_stub, " ", "-"),
-            final_stub = str_to_lower(final_name), 
-            final_stub = str_replace_all(final_stub, " & ", "-"),
-            final_stub = str_replace_all(final_stub, " ", "-"),
+            class_stub  = clean_schedule_name(class_name),
+            assign_stub = clean_schedule_name(assign_name),
+            mini_stub   = clean_schedule_name(mini_name),
+            final_stub  = clean_schedule_name(final_name)
         )
     
     # Weekly assignment vars

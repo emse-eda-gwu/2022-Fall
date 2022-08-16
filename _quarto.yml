@@ -9,20 +9,20 @@ project:
     - "!fragments/"
 
 website:
-  title: "{{< var number >}}"
+  title: EMSE 4572
   image: images/logo.png
-  site-url: "{{< var site_url >}}"
+  site-url: https://eda.seas.gwu.edu/2022-Fall/
   favicon: images/favicon.ico
   repo-url: https://github.com/emse-eda-gwu/2022-Fall
   repo-actions: [edit, issue]
-  description: 'Course website for {{< var semester >}} semester of the EMSE course {{< var name >}} at GWU'
+  description: 'Course website for Fall 2022 semester of the EMSE course "Exploratory Data Analysis" at GWU'
   search:
     location: navbar
     type: overlay
     copy-button: true
   open-graph:
     locale: es_ES
-    site-name: "{{< var root_url >}}"
+    site-name: https://eda.seas.gwu.edu/
   twitter-card:
     creator: "@johnhelveston"
     site: "@johnhelveston"
@@ -141,7 +141,7 @@ website:
         - text: Other
           href: help/other.qmd
       - icon: slack
-        href: "{{< var slack >}}"
+        href: https://emse-eda-f22.slack.com
     right:
     - icon: list
       menu:
@@ -152,7 +152,7 @@ website:
       - text: Contact
         href: mailto:jph@gwu.edu
       - icon: github
-        href: "{{< var repo >}}"
+        href: https://github.com/emse-eda-gwu/2022-Fall
   page-footer:
     center:
       - text: '© 2021 John Paul Helveston <a href="LICENSE.html"><i class="fab fa-creative-commons"></i><i class="fab fa-creative-commons-by"></i><i class="fab fa-creative-commons-sa"></i></a><br><i class="far fa-calendar-alt"></i> {{< var weekday >}} | <i class="far fa-clock"></i> {{< var time >}} | <a href="{{< var room_url >}}"><i class="fa fa-map-marker-alt"></i> {{< var room >}}</a> | <a href="https://www.jhelvy.com"><i class="fas fa-user"></i> Dr. John Paul Helveston</a> | <a href="mailto:jph@gwu.edu"><i class="fas fa-envelope"></i> jph@gwu.edu</a> | <a href="{{< var repo >}}"><i class="fab fa-github"></i></a>'
