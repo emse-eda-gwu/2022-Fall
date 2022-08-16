@@ -69,6 +69,7 @@ website:
         - text: "Dec 07: Communicating Results"
           href: class/14-communicating-results.qmd
         - text: "Dec 14: Final Presentations"
+          href: class/15-final-presentations.qmd
         - text: "Final Interviews"
           href: class/interviews.qmd
       - text: "Assignments"
@@ -97,7 +98,7 @@ website:
           href: hw/10-maps.qmd
         - text: "Nov 09: Interactive Charts (Due Nov 15)"
           href: hw/11-interactive-charts.qmd
-        - text: "Nov 16: Communicating Results (Due Dec 06)"
+        - text: "Nov 30: Communicating Results (Due Dec 06)"
           href: hw/12-communicating-results.qmd
       - text: "Mini Projects"
         menu:
@@ -118,7 +119,7 @@ website:
         - text: Final Report (Due Dec 11)
           href: project-final/3-final-report.qmd
         - text: Final Presentation (Due Dec 13)
-          href: project-final/4-presentation.qmd
+          href: project-final/4-final-presentation.qmd
       - text: Help
         menu:
         - text: Schedule a call w/Prof. Helveston
