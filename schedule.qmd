@@ -25,7 +25,7 @@ schedule <- get_schedule() %>%
           fa$class, '</a><b> ', class_name, "</b><br> ", class_description)),
     assignments = ifelse(is.na(assign_due), NA, 
         paste0(
-        '<a href="hw/', assign_stub, '.html">',
+        '<a href="hw/', assign_n, "-", assign_stub, '.html">',
         fa$assignment, '</a><b> ', assign_name, "</b><br>Due: ", assign_due)),
     mini = ifelse(
       is.na(mini_name), NA,
@@ -40,7 +40,7 @@ schedule <- get_schedule() %>%
   )
 
 # Set highlighting based on current week
-highlight <- which(Sys.Date() > schedule$date_raw)
+highlight <- which(Sys.Date() > schedule$date)
 ```
 
 :::{.column-page}
@@ -50,7 +50,6 @@ highlight <- which(Sys.Date() > schedule$date_raw)
 # Make the final schedule
 names(schedule) <- str_to_title(names(schedule))
 schedule %>%
-  select(-Date_raw) %>% 
   rename(
       `Mini Projects` = Mini,
       `Final Projects` = Final,
