@@ -19,7 +19,7 @@ schedule <- get_schedule() %>%
   mutate(
     # Build links
     class = ifelse(
-      is.na(class_stub), paste0("<b>", name, "</b>"),
+      is.na(class_stub), paste0("<b>", class_name, "</b>"),
       paste0(
           '<a href="class/', class_stub, '.html">',
           fa$class, '</a><b> ', class_name, "</b><br> ", class_description)),
