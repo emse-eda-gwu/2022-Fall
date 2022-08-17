@@ -2,198 +2,198 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://github.com/emse-eda-gwu/2022-Fall/LICENSE.html</loc>
-    <lastmod>2022-08-17T18:03:08.642Z</lastmod>
+    <lastmod>2022-08-17T18:44:43.808Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/emse-eda-gwu/2022-Fall/about.html</loc>
-    <lastmod>2022-08-17T18:03:12.898Z</lastmod>
+    <lastmod>2022-08-17T18:44:47.750Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/emse-eda-gwu/2022-Fall/class/1-getting-started.html</loc>
-    <lastmod>2022-08-17T18:03:24.394Z</lastmod>
+    <lastmod>2022-08-17T18:44:52.879Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/emse-eda-gwu/2022-Fall/class/10-polishing-charts.html</loc>
-    <lastmod>2022-08-17T18:03:28.327Z</lastmod>
+    <lastmod>2022-08-17T18:44:56.586Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/emse-eda-gwu/2022-Fall/class/11-maps.html</loc>
-    <lastmod>2022-08-17T18:03:39.289Z</lastmod>
+    <lastmod>2022-08-17T18:45:00.795Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/emse-eda-gwu/2022-Fall/class/12-interactive-charts.html</loc>
-    <lastmod>2022-08-17T18:03:45.992Z</lastmod>
+    <lastmod>2022-08-17T18:45:04.468Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/emse-eda-gwu/2022-Fall/class/13-shiny-apps.html</loc>
-    <lastmod>2022-08-17T18:04:24.618Z</lastmod>
+    <lastmod>2022-08-17T18:45:08.090Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/emse-eda-gwu/2022-Fall/class/14-communicating-results.html</loc>
-    <lastmod>2022-08-17T18:04:30.385Z</lastmod>
+    <lastmod>2022-08-17T18:45:11.778Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/emse-eda-gwu/2022-Fall/class/2-tidy-data.html</loc>
-    <lastmod>2022-08-17T18:04:36.758Z</lastmod>
+    <lastmod>2022-08-17T18:45:15.198Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/emse-eda-gwu/2022-Fall/class/3-cleaning-data.html</loc>
-    <lastmod>2022-08-17T18:04:43.808Z</lastmod>
+    <lastmod>2022-08-17T18:45:19.089Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/emse-eda-gwu/2022-Fall/class/4-centrality-variability.html</loc>
-    <lastmod>2022-08-17T18:04:50.207Z</lastmod>
+    <lastmod>2022-08-17T18:45:23.163Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/emse-eda-gwu/2022-Fall/class/5-correlation.html</loc>
-    <lastmod>2022-08-17T18:04:56.575Z</lastmod>
+    <lastmod>2022-08-17T18:45:26.875Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/emse-eda-gwu/2022-Fall/class/6-visualizing-information.html</loc>
-    <lastmod>2022-08-17T18:05:00.261Z</lastmod>
+    <lastmod>2022-08-17T18:45:30.611Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/emse-eda-gwu/2022-Fall/class/7-amounts-proportions.html</loc>
-    <lastmod>2022-08-17T18:05:03.865Z</lastmod>
+    <lastmod>2022-08-17T18:45:34.837Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/emse-eda-gwu/2022-Fall/class/8-comparisons.html</loc>
-    <lastmod>2022-08-17T18:05:08.020Z</lastmod>
+    <lastmod>2022-08-17T18:45:38.745Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/emse-eda-gwu/2022-Fall/class/9-trends.html</loc>
-    <lastmod>2022-08-17T18:05:11.702Z</lastmod>
+    <lastmod>2022-08-17T18:45:42.472Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/emse-eda-gwu/2022-Fall/class/interviews.html</loc>
-    <lastmod>2022-08-17T18:05:15.436Z</lastmod>
+    <lastmod>2022-08-17T18:45:47.004Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/emse-eda-gwu/2022-Fall/help/course-software.html</loc>
-    <lastmod>2022-08-17T18:05:16.256Z</lastmod>
+    <lastmod>2022-08-17T18:45:47.673Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/emse-eda-gwu/2022-Fall/help/example-projects.html</loc>
-    <lastmod>2022-08-17T18:05:17.355Z</lastmod>
+    <lastmod>2022-08-17T18:45:48.329Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/emse-eda-gwu/2022-Fall/help/finding-data.html</loc>
-    <lastmod>2022-08-17T18:05:18.157Z</lastmod>
+    <lastmod>2022-08-17T18:45:48.995Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/emse-eda-gwu/2022-Fall/help/getting-help.html</loc>
-    <lastmod>2022-08-17T18:05:18.818Z</lastmod>
+    <lastmod>2022-08-17T18:45:49.719Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/emse-eda-gwu/2022-Fall/help/other.html</loc>
-    <lastmod>2022-08-17T18:05:23.379Z</lastmod>
+    <lastmod>2022-08-17T18:45:53.379Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/emse-eda-gwu/2022-Fall/help/programming.html</loc>
-    <lastmod>2022-08-17T18:05:28.131Z</lastmod>
+    <lastmod>2022-08-17T18:46:00.017Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/emse-eda-gwu/2022-Fall/help/rmarkdown.html</loc>
-    <lastmod>2022-08-17T18:05:32.569Z</lastmod>
+    <lastmod>2022-08-17T18:46:05.352Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/emse-eda-gwu/2022-Fall/help/visualizing-data.html</loc>
-    <lastmod>2022-08-17T18:05:36.296Z</lastmod>
+    <lastmod>2022-08-17T18:46:09.842Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/emse-eda-gwu/2022-Fall/hw/0-course-primer.html</loc>
-    <lastmod>2022-08-17T18:05:37.002Z</lastmod>
+    <lastmod>2022-08-17T18:46:10.579Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/emse-eda-gwu/2022-Fall/hw/1-tidy-data.html</loc>
-    <lastmod>2022-08-17T18:05:40.885Z</lastmod>
+    <lastmod>2022-08-17T18:46:14.088Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/emse-eda-gwu/2022-Fall/hw/10-maps.html</loc>
-    <lastmod>2022-08-17T18:05:45.085Z</lastmod>
+    <lastmod>2022-08-17T18:46:17.623Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/emse-eda-gwu/2022-Fall/hw/11-interactive-charts.html</loc>
-    <lastmod>2022-08-17T18:05:48.787Z</lastmod>
+    <lastmod>2022-08-17T18:46:21.231Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/emse-eda-gwu/2022-Fall/hw/12-communicating-results.html</loc>
-    <lastmod>2022-08-17T18:05:53.634Z</lastmod>
+    <lastmod>2022-08-17T18:46:24.711Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/emse-eda-gwu/2022-Fall/hw/2-cleaning-data.html</loc>
-    <lastmod>2022-08-17T18:05:57.691Z</lastmod>
+    <lastmod>2022-08-17T18:46:28.539Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/emse-eda-gwu/2022-Fall/hw/3-centrality-variability.html</loc>
-    <lastmod>2022-08-17T18:06:01.501Z</lastmod>
+    <lastmod>2022-08-17T18:46:32.267Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/emse-eda-gwu/2022-Fall/hw/4-correlation.html</loc>
-    <lastmod>2022-08-17T18:06:05.430Z</lastmod>
+    <lastmod>2022-08-17T18:46:36.134Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/emse-eda-gwu/2022-Fall/hw/5-visualizing-information.html</loc>
-    <lastmod>2022-08-17T18:06:09.716Z</lastmod>
+    <lastmod>2022-08-17T18:46:39.839Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/emse-eda-gwu/2022-Fall/hw/6-amounts-proportions.html</loc>
-    <lastmod>2022-08-17T18:06:13.482Z</lastmod>
+    <lastmod>2022-08-17T18:46:44.070Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/emse-eda-gwu/2022-Fall/hw/7-comparisons.html</loc>
-    <lastmod>2022-08-17T18:06:17.091Z</lastmod>
+    <lastmod>2022-08-17T18:46:49.743Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/emse-eda-gwu/2022-Fall/hw/8-trends.html</loc>
-    <lastmod>2022-08-17T18:06:20.776Z</lastmod>
+    <lastmod>2022-08-17T18:46:56.222Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/emse-eda-gwu/2022-Fall/hw/9-polishing-charts.html</loc>
-    <lastmod>2022-08-17T18:06:24.231Z</lastmod>
+    <lastmod>2022-08-17T18:47:00.593Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/emse-eda-gwu/2022-Fall/index.html</loc>
-    <lastmod>2022-08-17T18:06:26.692Z</lastmod>
+    <lastmod>2022-08-17T18:47:02.652Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/emse-eda-gwu/2022-Fall/project-final/0-overview.html</loc>
-    <lastmod>2022-08-17T18:06:27.429Z</lastmod>
+    <lastmod>2022-08-17T18:47:03.756Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/emse-eda-gwu/2022-Fall/project-final/1-proposal.html</loc>
-    <lastmod>2022-08-17T18:06:28.143Z</lastmod>
+    <lastmod>2022-08-17T18:47:04.606Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/emse-eda-gwu/2022-Fall/project-final/2-progress-report.html</loc>
-    <lastmod>2022-08-17T18:06:28.760Z</lastmod>
+    <lastmod>2022-08-17T18:47:05.402Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/emse-eda-gwu/2022-Fall/project-final/3-final-report.html</loc>
-    <lastmod>2022-08-17T18:06:29.562Z</lastmod>
+    <lastmod>2022-08-17T18:47:06.118Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/emse-eda-gwu/2022-Fall/project-final/4-final-presentation.html</loc>
-    <lastmod>2022-08-17T18:06:30.374Z</lastmod>
+    <lastmod>2022-08-17T18:47:06.820Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/emse-eda-gwu/2022-Fall/project-mini/1-data-cleaning.html</loc>
-    <lastmod>2022-08-17T18:06:31.017Z</lastmod>
+    <lastmod>2022-08-17T18:47:07.478Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/emse-eda-gwu/2022-Fall/project-mini/2-exploring-data.html</loc>
-    <lastmod>2022-08-17T18:06:31.578Z</lastmod>
+    <lastmod>2022-08-17T18:47:08.215Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/emse-eda-gwu/2022-Fall/project-mini/3-re-design.html</loc>
-    <lastmod>2022-08-17T18:06:32.161Z</lastmod>
+    <lastmod>2022-08-17T18:47:08.957Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/emse-eda-gwu/2022-Fall/schedule.html</loc>
-    <lastmod>2022-08-17T18:06:37.386Z</lastmod>
+    <lastmod>2022-08-17T18:47:15.106Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/emse-eda-gwu/2022-Fall/syllabus.html</loc>
-    <lastmod>2022-08-17T18:06:43.826Z</lastmod>
+    <lastmod>2022-08-17T18:47:21.620Z</lastmod>
   </url>
 </urlset>
