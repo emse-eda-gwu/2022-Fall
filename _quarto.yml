@@ -123,22 +123,31 @@ website:
       - text: Help
         menu:
         - text: Schedule a call w/Prof. Helveston
-          href: https://jhelvy.appointlet.com/b/professor-helveston
-        - text: Course Software
-          href: help/course-software.qmd
-        - text: Getting Help
-          href: help/getting-help.qmd
+          icon: person
+          href: help/https://jhelvy.appointlet.com/b/professor-helveston
         - text: Example Projects
+          icon: file-earmark-medical
           href: help/example-projects.qmd
         - text: Finding Data
+          icon: search
           href: help/finding-data.qmd
+        - text: Course Software
+          icon: hdd
+          href: help/course-software.qmd
+        - text: Getting Help
+          icon: question-circle
+          href: help/getting-help.qmd
         - text: Visualizing Data
+          icon: bar-chart
           href: help/visualizing-data.qmd
         - text: Programming in R
+          icon: terminal
           href: help/programming.qmd
         - text: R Markdown
+          icon: pen
           href: help/rmarkdown.qmd
         - text: Other
+          icon: chevron-expand
           href: help/other.qmd
       - icon: slack
         href: https://emse-eda-f22.slack.com
