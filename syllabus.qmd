@@ -310,19 +310,19 @@ Academic dishonesty is defined as cheating of any kind, including misrepresentin
 
 In addition to the formal code of academic integrity, the instructor expects that students will treat this course with the level of professionalism required in the workplace. Remember that real firms are sponsoring student projects throughout the semester; in a workplace setting, these firms would be paying clients for the analyses being conducted. This course prepares students to succeed in the workplace, and maintaining a high degree of professionalism is expected.
 
-# Cute Animals
+# Super Heros
 
 ::: {.grid}
 
 ::: {.g-col-4}
 
-<img src="images/penguin.gif" width=100%>
+<img src="images/prof_x.gif" width=100%>
 
 :::
 
 ::: {.g-col-8}
 
-Once you have read this entire syllabus and viewed the [course schedule](schedule.qmd), please send me a picture of a cute animal in a direct message on Slack.
+Once you have read this entire syllabus and viewed the [course schedule](schedule.qmd), please send me a picture of your favorite super hero in a direct message on Slack.
 
 For real.
 
