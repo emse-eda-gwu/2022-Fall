@@ -1,5 +1,6 @@
 # Install packages from CRAN - only need to do this once!
 install.packages(c(
+    'Cairo',
     'DT',
     'GGally',
     'HistData',
