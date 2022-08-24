@@ -164,7 +164,7 @@ website:
         href: https://github.com/emse-eda-gwu/2022-Fall
   page-footer:
     center:
-      - text: '© 2021 John Paul Helveston <a href="LICENSE.html"><i class="fab fa-creative-commons"></i><i class="fab fa-creative-commons-by"></i><i class="fab fa-creative-commons-sa"></i></a><br><i class="far fa-calendar-alt"></i> {{< var weekday >}} | <i class="far fa-clock"></i> {{< var time >}} | <a href="{{< var room_url >}}"><i class="fa fa-map-marker-alt"></i> {{< var room >}}</a> | <a href="https://www.jhelvy.com"><i class="fas fa-user"></i> Dr. John Paul Helveston</a> | <a href="mailto:jph@gwu.edu"><i class="fas fa-envelope"></i> jph@gwu.edu</a> | <a href="{{< var repo >}}"><i class="fab fa-github"></i></a>'
+      - text: '© 2021 John Paul Helveston <a href="LICENSE.html"><i class="fab fa-creative-commons"></i><i class="fab fa-creative-commons-by"></i><i class="fab fa-creative-commons-sa"></i></a><br><i class="far fa-calendar-alt"></i> {{< var weekday >}} | <i class="far fa-clock"></i> {{< var time >}} | <a href="{{< var room_url >}}"><i class="fa fa-map-marker-alt"></i> {{< var room >}}</a> | <a href="https://www.jhelvy.com"><i class="fas fa-user"></i> Dr. John Paul Helveston</a> | <a href="mailto:{{< var email >}}"><i class="fas fa-envelope"></i> {{< var email >}}</a> | <a href="{{< var repo >}}"><i class="fab fa-github"></i></a>'
 
 format:
   html:
@@ -172,6 +172,7 @@ format:
     css: styles.css
     anchor-sections: true
     smooth-scroll: true
-    link-external-filter: (?:http:|https:)\/\/www\.eda\.seas\.edu\/custom
+    ink-external-newwindow: true
+    link-external-filter: (?:http:|https:)\/\/www\.eda\.seas\.gwu\.edu\/
     include-in-header: "_includes/header.html"
 

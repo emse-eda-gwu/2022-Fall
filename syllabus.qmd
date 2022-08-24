@@ -16,7 +16,7 @@ Instructor | Course
 <i class="fas fa-user"></i> John Paul Helveston | <i class="far fa-calendar"></i> {{< var weekday >}}
 <i class="fas fa-university"></i> Science & Engineering Hall, 2830 | <i class="fa fa-map-marker-alt"></i> [{{< var room >}}]({{< var room_url >}})
 <i class="fas fa-phone"></i> +1 (202) 994-7173 | <i class="far fa-calendar-alt"></i> {{< var dates >}}
-<i class="fas fa-envelope"></i> [jpg@gwu.edu](mailto:jph@gwu.edu) | <i class="far fa-clock"></i> {{< var time >}}
+<i class="fas fa-envelope"></i> [{{< var email >}}](mailto:{{< var email >}}) | <i class="far fa-clock"></i> {{< var time >}}
 <i class="fab fa-twitter"></i> [\@JohnHelveston](https://twitter.com/JohnHelveston) | <i class="fab fa-slack"></i> [Slack]({{< var slack >}})
 </div>
 
