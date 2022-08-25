@@ -172,7 +172,6 @@ format:
     css: styles.css
     anchor-sections: true
     smooth-scroll: true
-    link-external-newwindow: true
-    link-external-filter: ^(?:http:|https:)\/\/www\.eda\.seas\.gwu\.edu\/2022\-Fall\/custom
+    link-external-newwindow: false
     include-in-header: "_includes/header.html"
 
