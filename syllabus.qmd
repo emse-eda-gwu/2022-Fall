@@ -65,7 +65,7 @@ Go to the [Course Software](help/course-software.qmd) page for detailed instruct
 
 - R (version 4.1.0 or later), which can be downloaded from [The Comprehensive R Archive Network (CRAN)](https://cloud.r-project.org)
 - RStudio (Desktop Version), a free IDE for R, which can be downloaded from [RStudio](https://rstudio.com/products/rstudio/download/)
-- We'll be using [Slack]({{< var slack >}}) for most communication.
+- We'll be using [Slack]({{< var slack >}}){target="_blank"} for most communication.
 
 ## Texts / Other Useful Resources
 
@@ -182,7 +182,7 @@ This class can be challenging - **do not suffer in silence!** We have lots of wa
 
 ## Slack
 
-All course communication will be managed through [Slack]({{< var slack >}}). A link to sign up for the course slack page can be found on the one (and only) announcement on Blackboard.
+All course communication will be managed through [Slack]({{< var slack >}}){target="_blank"}. A link to sign up for the course slack page can be found on the one (and only) announcement on Blackboard.
 
 **You can use Slack to**:
 
