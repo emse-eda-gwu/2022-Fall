@@ -24,6 +24,10 @@ Instructor | Course
 
 Please help us all stay safe so we can continue having in-person classes. Please wear a mask in class, and wash your hands often. If you're sick, stay home and send me a message, we'll work it out. Let's work together on this folks.
 
+# Remote attendance / class recording
+
+You should plan to attend class in person. I will only open a zoom for virtual attendance on an individual case-by-case basis for specific excusable absences (e.g. illness, family matters, etc.). Lectures will **not** be recorded. In-person attendance is critical as we will spend a lot of time working on problems and writing code during class. If you have any questions or need special accommodations, send me a message on slack and we can discuss.
+
 # Course Description
 
 ## GW Bulletin Description (short)
