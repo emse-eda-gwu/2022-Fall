@@ -155,12 +155,16 @@ website:
     - icon: list
       menu:
       - text: About
+        icon: question-circle
         href: about.qmd
       - text: License
+        icon: award
         href: LICENSE.qmd
       - text: Contact
+        icon: envelope
         href: mailto:jph@gwu.edu
-      - icon: github
+      - text: Source files
+        icon: github
         href: https://github.com/emse-eda-gwu/2022-Fall
   page-footer:
     center:
