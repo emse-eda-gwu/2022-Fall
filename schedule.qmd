@@ -56,14 +56,13 @@ schedule %>%
       `Weekly HW` = Assignments
   ) %>%
   select(
-      Week, Date, Class, `Weekly HW`, `Mini Projects`,
+      Week, Date = Date_md, Class, `Weekly HW`, `Mini Projects`,
       `Final Projects`
   ) %>%
   kable(format = 'html', escape = FALSE,
         align = c('c', 'c', 'l', 'l', 'l', 'l')) %>%
   kable_styling(full_width = F, bootstrap_options = c("striped", "hover")) %>%
-  column_spec(column = 3, width = '18em') %>%
-  column_spec(column = 4, width = '15em') %>%
+  column_spec(column = 3, width = '19em') %>%
   row_spec(highlight, background = "#e1e1e1") 
 ```
 
