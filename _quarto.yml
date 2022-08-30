@@ -7,6 +7,15 @@ project:
   render:
     - "*.qmd"
     - "!fragments/"
+  resources:
+    - "class"
+    - "content"
+    - "project-mini"
+    - "project-final"
+    - "rubrics"
+    - "slides"
+    - "data"
+    - "templates"
 
 website:
   title: EMSE 4572
@@ -176,6 +185,6 @@ format:
     css: styles.css
     anchor-sections: true
     smooth-scroll: true
-    link-external-newwindow: false
+    link-external-newwindow: true
     include-in-header: "_includes/header.html"
 
