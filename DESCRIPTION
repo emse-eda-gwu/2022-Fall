@@ -23,4 +23,5 @@ Imports:
     rmarkdown,
     rvest,
     tidyverse,
+    xaringanExtra,
     viridis
