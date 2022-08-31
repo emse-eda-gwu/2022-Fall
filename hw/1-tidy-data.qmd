@@ -9,4 +9,29 @@ params:
 source(here::here("R", "settings.R"))
 ```
 
-Coming soon!
+```{r child = here::here("fragments", "hw.qmd")}
+```
+
+# 1. Software
+
+If you haven't yet, go to the [Course Software](../help/course-software.html) page and install all the software we'll need for this course. You'll need these tools for this assignment.
+
+# 2. Getting Organized
+
+Download and edit [this template](`r url_template`) when working through this assignment.
+
+# 3. Readings & Exercises
+
+Unzip the template folder (make sure you unzip it!), then open the .Rproj file to open RStudio. Open the `hw1.Rmd` file, take notes, and write some example code as you go through the following readings / exercises:
+
+1. **Getting Familiar with the Course**: Follow [Snoop's advice](https://www.youtube.com/watch?v=Tnlaokj1opA) and read the entire [Course Syllabus](../syllabus.html) (actually read the whole thing). Then review the [schedule](../schedule.html) and make sure to note important upcoming deadlines.
+2. **Getting Familiar with Tidy Data**: Read [this tidyverse article](https://tidyr.tidyverse.org/articles/tidy-data.html) explaining the concept of tidy data.
+3. **Practice Rehaping Messy Data**: Go to [this page](https://cfss.uchicago.edu/notes/tidy-exercise/) and try loading at least one of the example data sets shown. Then try rehaping the data into a tidy format.
+
+# 4. Reflect 
+
+Reflect on what you've learned while going through these readings and exercises. Is there anything that jumped out at you? Anything you found particularly interesting or confusing? Write at least a paragraph in your `hw1.Rmd` file.
+
+# 5. Submit
+
+To submit this assignment, create a zip file of all the files in your R project folder for this assignment. Name the zip file ``r paste0('hw', params$number, '-netID.zip')``, replacing `netID` with your netID (e.g., ``r paste0('hw', params$number, '-jph.zip')``). Then copy that zip file into the "submissions" folder in your Box folder created for this class (the Box folder is named your GW netID).
