@@ -1,0 +1,11 @@
+---
+title: "Visualizing Information"
+params:
+  class: "6-visualizing-information"
+---
+
+```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
+source(here::here("R", "settings.R"))
+```
+
+Coming soon!

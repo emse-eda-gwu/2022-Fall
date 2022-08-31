@@ -1,0 +1,11 @@
+
+class: inverse, middle
+
+# Week `r rmarkdown::metadata$week`: .fancy[`r rmarkdown::metadata$title`]
+
+## 1. Course Goal
+## 2. Course Introduction
+## 3. .orange[Break: Install Stuff]
+## 4. Workflow & Reading In Data
+## 5. Wrangling Data
+## 6. Visualizing Data

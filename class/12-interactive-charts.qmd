@@ -1,0 +1,11 @@
+---
+title: "Interactive Charts"
+params:
+  class: "12-interactive-charts"
+---
+
+```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
+source(here::here("R", "settings.R"))
+```
+
+Coming soon!

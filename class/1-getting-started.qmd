@@ -1,0 +1,13 @@
+---
+title: "Getting Started"
+params:
+  class: "1-getting-started"
+---
+
+```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
+source(here::here("R", "settings.R"))
+```
+
+```{r child = here::here("fragments", "class.qmd")}
+```
+

@@ -1,0 +1,244 @@
+---
+title: "Getting Started"
+subtitle: "EMSE 4575: Exploratory Data Analysis"
+output: html_document
+---
+
+```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(here)
+library(readxl)
+knitr::opts_chunk$set(
+    warning = FALSE,
+    message = FALSE,
+    fig.path = "figs/",
+    fig.width = 7.252,
+    fig.height = 4,
+    comment = "#>",
+    fig.retina = 3
+)
+```
+
+```{r libraries, echo=FALSE}
+# If you don't have these packages installed, run these lines to do so:
+# install.packages('tidyverse')
+# install.packages('here')
+# install.packages('readxl')
+
+# Load libraries
+library(tidyverse)
+library(here)
+library(readxl)
+```
+
+
+# Importing Data
+
+Write code to import the following data files from the "data" folder:
+
+- `lotr_words.csv`
+- `north_america_bear_killings.txt`
+- `uspto_clean_energy_patents.xlsx`
+
+```{r}
+lotrPath <- here('data', 'lotr_words.csv')
+lotr <- read_csv(lotrPath)
+
+bearPath <- here('data', 'north_america_bear_killings.txt')
+bears <- read.table(bearPath, header = TRUE)
+
+usptoPath <- here('data', 'uspto_clean_energy_patents.xlsx')
+patents <- read_excel(usptoPath, sheet = "Figure 6-45", skip = 3)
+```
+
+
+# Data Wrangling
+
+## Quickly previewing a data frame
+
+Some quick practice viewing pieces of data frames.
+
+```{r}
+# Extract rows and columns using df[row, col]
+lotr[1,] # First row
+lotr[,1] # First column
+
+# Extract whole columns using df$name
+lotr$Race
+lotr$Film
+
+# Get the dimensions
+nrow(lotr)  # number of rows
+ncol(lotr)  # number of columns
+dim(lotr)   # numbers of rows, columns
+
+# View dataset in new tab
+view(lotr) # This is "read-only" so you can't corrupt the data :)
+
+# View data types of each column
+glimpse(lotr)
+```
+
+## Practice summarizing data frames
+
+Read in a data set:
+
+```{r}
+data <- read_csv(here('data', 'data.csv'))
+```
+
+How many rows and columns are in the data frame?
+
+```{r}
+dim(data)
+```
+
+What type of data is each column? (Just look, don't need to type out the answer)
+
+```{r}
+glimpse(data)
+```
+
+Preview the different columns - what do you think this data is about? What might one row represent?
+
+```{r}
+glimpse(data)
+```
+
+How many unique airlines are in the data frame? 
+
+```{r}
+length(unique(data$carrier))
+```
+
+What is the shortest and longest air time for any one flight in the data frame?
+
+```{r}
+max(data$air_time, na.rm = TRUE)
+min(data$air_time, na.rm = TRUE)
+```
+
+## Data wrangling practice
+
+Read in the `data.csv` file in the "data" folder:
+
+```{r, eval=FALSE}
+data <- read_csv(here('data', 'data.csv'))
+```
+
+Now answer these questions:
+
+Create a new data frame, `flights_fall`, that contains only flights that departed in the fall semester.
+
+```{r}
+flights_fall <- data %>% 
+    filter(month >= 8)
+```
+
+Create a new data frame, `flights_dc`, that contains only flights that flew to DC airports (Reagan or Dulles).
+
+```{r}
+flights_dc <- data %>% 
+    filter(dest %in% c('DCA', 'IAD'))
+
+flights_dc <- data %>% 
+    filter(dest == 'DCA' | dest == 'IAD') # Same result
+```
+
+Create a new data frame, `flights_dc_carrier`, that contains only flights that flew to DC airports (Reagan or Dulles) and only the columns about the month and airline.
+
+```{r}
+flights_dc_carrier <- data %>% 
+    filter(dest %in% c('DCA', 'IAD')) %>% 
+    select(month, carrier)
+```
+
+How many unique airlines were flying to DC airports in July?
+
+```{r}
+flights_dc_carrier %>% 
+    filter(month == 7) %>% 
+    distinct(carrier)
+
+# Alternative solution
+df_july <- flights_dc_carrier %>% 
+    filter(month == 7) 
+length(unique(df_july$carrier))
+```
+
+Create a new variable, `speed`, in miles per hour using the `time` (minutes) and `distance` (miles) variables. 
+
+```{r}
+data <- data %>% 
+    mutate(speed = distance / (air_time / 60)) %>% 
+    arrange(desc(speed))
+head(data)
+```
+
+Which flight flew the fastest?
+
+```{r}
+# Flight 1613
+```
+
+Remove rows that have `NA` for `air_time` and re-arrange the resulting data frame based on the longest air time and longest flight distance.
+
+```{r}
+data %>% 
+    filter(!is.na(air_time)) %>% 
+    arrange(desc(air_time), desc(distance))
+```
+
+# Data Visualization
+
+```{r}
+mpg %>% 
+  ggplot() +
+  geom_smooth(aes(x = displ, y = hwy, color = drv))
+```
+
+```{r}
+mpg %>% 
+  count(class, drv) %>% 
+  ggplot() +
+  geom_col(aes(x = drv, y = n, fill = class), width = 0.7)
+```
+
+```{r}
+mpg %>% 
+  ggplot(aes(x = displ, y = hwy)) +
+  geom_point(aes(color = class)) + 
+  geom_smooth(se = FALSE)
+```
+
+## Extra practice 
+
+```{r, fig.height=5, fig.width=7}
+lotr %>%
+  ggplot() +
+  geom_col(aes(x = word_count, y = film, fill = gender)) +
+  labs(
+    x     = "Number of words spoken by characters",
+    y     = 'Film',
+    fill  = "Gender of character",
+    title = "Male characters had far more speakings roles in the LOTR series films"
+  ) +
+  theme_bw()
+```
+
+```{r, fig.height=4, fig.width=6}
+mpg %>%
+    mutate(manufacturer = str_to_title(manufacturer)) %>%
+    group_by(manufacturer) %>%
+    summarise(mean_hwy = mean(hwy)) %>%
+    ggplot() +
+    geom_col(
+      aes(x = mean_hwy, y = reorder(manufacturer, mean_hwy)), 
+      width = 0.9) +
+    labs(
+      x = 'Highway fuel economy (mpg)',
+      y = 'Vehicle manufacturer', 
+      title = 'Mean fuel economy by automaker'
+    ) + 
+    theme_minimal()
+```

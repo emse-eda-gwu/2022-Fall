@@ -1,0 +1,13 @@
+---
+title: "Mini Project 3: Data Viz Re-Design"
+toc: true
+toc-title: Table of contents
+toc-location: left
+params:
+  number: 3
+  weight: '8%'
+  purpose: 'purpose'
+  assessment: 'Your project will be assessed using [this rubric](rubrics/mini-3/rubric.html){target="_blank"}.'
+---
+
+Coming soon!

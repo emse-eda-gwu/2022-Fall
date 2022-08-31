@@ -1,0 +1,11 @@
+---
+title: "Cleaning Data"
+params:
+  class: "3-cleaning-data"
+---
+
+```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
+source(here::here("R", "settings.R"))
+```
+
+Coming soon!

@@ -1,0 +1,14 @@
+---
+title: "Mini Project 2: Exploring Data"
+toc: true
+toc-title: Table of contents
+toc-location: left
+params:
+  number: 2
+  weight: '8%'
+  purpose: 'purpose'
+  assessment: 'Your project will be assessed using [this rubric](rubrics/mini-2/rubric.html){target="_blank"}.'
+---
+
+
+Coming soon!

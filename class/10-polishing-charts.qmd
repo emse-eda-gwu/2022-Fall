@@ -1,0 +1,11 @@
+---
+title: "Polishing Charts"
+params:
+  class: "10-polishing-charts"
+---
+
+```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
+source(here::here("R", "settings.R"))
+```
+
+Coming soon!

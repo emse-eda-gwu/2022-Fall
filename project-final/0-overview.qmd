@@ -1,0 +1,36 @@
+---
+title: Project Overview
+toc: true
+toc-title: Table of contents
+toc-location: left
+---
+
+For your final project, you will take a dataset, explore it, tinker with it, and tell a nuanced story about it using at least three key charts. I want this project to be as useful for you and your future career as possible - you'll hopefully want to show off your final project in a portfolio or during job interviews. Accordingly, you get to choose what data you will use for your project. Choose whatever one you are most interested in or will have the most fun with.
+
+> Check out [these examples](ref-example-analyses.html) of other exploratory data analyses for inspiration
+
+For the final project, you will:
+
+- Write a research question.
+- Conduct an exploratory data analysis of one or more data sources to address your research question.
+- Create visualizations to effectively communicate the results of your analysis using the principles of information visualization covered in this course.
+- Document your entire analysis in a reproducible format, including a detailed curation of the data you used as well as your analysis and results.
+
+**Purpose**: The skills covered in this course are rooted in design rules and principles rather than formulas and equations. As such, the _application_ of these principles to a real data problem is one of the best ways to learn and assess mastery of these skills. I guarantee you one day you will need to apply these principles to communicate an idea to colleagues, so let's make sure you have at least one chance to practice before the [stakes are higher](https://p4a.seas.gwu.edu/2020-Fall/L11.1-data-analysis-prelude.html).
+
+**Skills & Knowledge**: Your final project should illustrate your ability to transform raw data into insights by making the non-visible visible, showing clear trends or patterns, and / or identifying outliers or missing information. The specific skills involved in achieving this goal include all of the course [learning objectives](index.html).
+
+**Teams**: Your final project will be a team project made up of 2 to 3 classmates of your choosing. Teams will be finalized at the time of submitting your proposal. Graduate students taking the course must work on individual projects.
+
+**Summary of Deliverables**: To make the overall project more manageable, it is broken down into separate "milestone" deliverables due throughout the semester, starting with a proposal due just before spring break.
+
+<div style="width:500px">
+
+Item            | Weight towards<br>final grade | Due Date<br>(by 11:59pm)
+----------------|----------------------------|--------------------
+Proposal        | 9 %   | Sep 27
+Progress Report | 12 %  | Nov 1
+Final Report    | 16 %  | Dec 11
+Presentation    | 9 %   | Dec 13
+
+</div>

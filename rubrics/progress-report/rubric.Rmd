@@ -1,0 +1,36 @@
+---
+title: ""
+output: html_document
+---
+
+```{r setup, include=FALSE, warning=FALSE, message=FALSE}
+# Load options and libraries
+library(tidyverse)
+library(knitr)
+library(kableExtra)
+knitr::opts_chunk$set(
+    comment = "#>",
+    warning = FALSE,
+    message = FALSE,
+    fig.path = "figs/"
+)
+rubric <- read_csv("rubric.csv") %>%
+  mutate(description = paste0("<b>", points, '</b><br>', description)) %>%
+  select(-points) %>%
+  spread(key = rating, value = description) %>%
+  select(-category) %>%
+  rename(Category = label) %>% 
+  arrange(order) %>% 
+  select(-order)
+```
+
+### Rubric: Final Project Progress Report
+#### EMSE 4575: Exploratory Data Analysis, Spring 2021
+#### `r sum(rubric$maxPoints)` Total Points
+
+```{r, echo=FALSE}
+rubric %>%
+  select(-maxPoints) %>%
+  kable(format = 'html', escape = FALSE) %>%
+  kable_styling(bootstrap_options = "striped")
+```

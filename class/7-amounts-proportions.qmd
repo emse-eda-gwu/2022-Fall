@@ -1,0 +1,11 @@
+---
+title: "Amounts & Proportions"
+params:
+  class: "7-amounts-proportions"
+---
+
+```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
+source(here::here("R", "settings.R"))
+```
+
+Coming soon!

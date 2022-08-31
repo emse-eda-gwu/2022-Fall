@@ -1,0 +1,11 @@
+---
+title: "Comparisons"
+params:
+  class: "8-comparisons"
+---
+
+```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
+source(here::here("R", "settings.R"))
+```
+
+Coming soon!

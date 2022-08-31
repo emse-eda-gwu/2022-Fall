@@ -1,0 +1,11 @@
+---
+title: "Centrality & Variability"
+params:
+  class: "4-centrality-variability"
+---
+
+```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
+source(here::here("R", "settings.R"))
+```
+
+Coming soon!
