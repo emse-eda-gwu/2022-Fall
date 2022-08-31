@@ -1,0 +1,27 @@
+---
+title: "title"
+author: "author"
+output:
+  html_document:
+    toc: no
+    toc_float: no
+    theme: flatly
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  warning = FALSE,
+  message = FALSE,
+  comment = "#>",
+  fig.retina = 3,
+  fig.path = "figs/"
+)
+```
+
+In this week's reflection, you should include a code chunk to reproduce a chart from one of the readings. You can modify the chart dimensions and layout by changing the chunk settings. For example, consider the following chunk:
+
+```{r plotName, out.width="70%", fig.height=4, fig.width=7, fig.align="center"}
+# Insert plot code
+```
+
+In the above chunk, the `fig.height` and `fig.width` parameters change the height and width of the plot (in inches). The `out.width` parameter changes the _scale_ of the image (same dimensions, but scaled larger or smaller). The `fig.align` parameter determines how the figure will be aligned on the page ("left", "center", or "right"). Finally, whatever you put for `plotName` will be used to save the .png image that gets saved in the `figs/` folder.

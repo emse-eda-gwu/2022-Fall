@@ -1,0 +1,32 @@
+---
+title: "title"
+author: "author"
+output:
+  html_document:
+    toc: no
+    toc_float: no
+    theme: flatly
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  warning = FALSE,
+  message = FALSE,
+  echo = FALSE,
+  comment = "#>",
+  fig.retina = 3,
+  fig.path = "figs/"
+)
+```
+
+Did you know you can insert a caption under your figures? Just add the `fig.cap` parameter in your chunk settings, like this:
+
+```{r my-plot, fig.align="center", fig.width=6, fig.height=6, fig.cap="Figure: This is a super important caption."}
+library(tidyverse)
+
+mpg %>%
+  ggplot( aes(x=reorder(class, hwy), y=hwy, fill=class)) +
+    geom_boxplot() +
+    xlab("class") +
+    theme(legend.position="none")
+```
