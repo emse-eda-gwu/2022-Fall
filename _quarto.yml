@@ -8,14 +8,14 @@ project:
     - "*.qmd"
     - "!fragments/"
   resources:
-    - "class"
-    - "content"
-    - "project-mini"
-    - "project-final"
-    - "rubrics"
-    - "slides"
-    - "data"
-    - "templates"
+    - "class/"
+    - "content/"
+    - "project-mini/"
+    - "project-final/"
+    - "rubrics/"
+    - "slides/"
+    - "data/"
+    - "templates/"
 
 website:
   title: EMSE 4572
