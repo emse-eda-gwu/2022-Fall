@@ -1,8 +1,8 @@
 
 ```{r, echo=FALSE}
-path_slides <- here::here("slides", params$class, "index.html")
-path_pdf <- here::here("slides", params$class, paste0(params$class, ".pdf"))
-path_notes <- here::here("slides", params$class, paste0(params$class, ".zip"))
+path_slides <- file.path(params$class, "index.html")
+path_pdf <- file.path(params$class, paste0(params$class, ".pdf"))
+path_notes <- file.path(params$class, paste0(params$class, ".zip"))
 ```
 
 ::: {.grid}
