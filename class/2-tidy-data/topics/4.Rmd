@@ -1,0 +1,9 @@
+
+class: inverse, middle
+
+# Week `r rmarkdown::metadata$week`: .fancy[`r rmarkdown::metadata$title`]
+
+## 1. Tidy Data
+## 2. Tidy Data & ggplot
+## 3. Data Provenance & Curation
+## 4. Writing a Research Question
