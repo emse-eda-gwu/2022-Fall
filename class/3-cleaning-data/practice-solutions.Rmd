@@ -1,0 +1,225 @@
+---
+title: "Cleaning Data"
+subtitle: "EMSE 4575: Exploratory Data Analysis"
+date: March 10, 2021
+week: 9
+output: html_document
+---
+
+```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
+# install.packages('lubridate')
+# install.packages('janitor')
+
+library(knitr)
+library(tidyverse)
+library(cowplot)
+library(readxl)
+library(lubridate)
+library(janitor)
+library(here)
+
+knitr::opts_chunk$set(
+    warning = FALSE,
+    message = FALSE,
+    fig.retina = 3)
+dplyr.width = Inf
+
+# Load all the data sets:
+wildlife_impacts <- read_csv(here::here('data', 'wildlife_impacts.csv'))
+milk_production <- read_csv(here::here('data', 'milk_production.csv'))
+
+# Abbreviations data, from: https://www.50states.com/abbreviations.htm
+state_abbs <- tibble::tribble(
+                  ~state_name,              ~state_abb,
+                     "Alabama",             "AL",
+                      "Alaska",             "AK",
+                     "Arizona",             "AZ",
+                    "Arkansas",             "AR",
+                  "California",             "CA",
+                    "Colorado",             "CO",
+                 "Connecticut",             "CT",
+                    "Delaware",             "DE",
+                     "Florida",             "FL",
+                     "Georgia",             "GA",
+                      "Hawaii",             "HI",
+                       "Idaho",             "ID",
+                    "Illinois",             "IL",
+                     "Indiana",             "IN",
+                        "Iowa",             "IA",
+                      "Kansas",             "KS",
+                    "Kentucky",             "KY",
+                   "Louisiana",             "LA",
+                       "Maine",             "ME",
+                    "Maryland",             "MD",
+               "Massachusetts",             "MA",
+                    "Michigan",             "MI",
+                   "Minnesota",             "MN",
+                 "Mississippi",             "MS",
+                    "Missouri",             "MO",
+                     "Montana",             "MT",
+                    "Nebraska",             "NE",
+                      "Nevada",             "NV",
+               "New Hampshire",             "NH",
+                  "New Jersey",             "NJ",
+                  "New Mexico",             "NM",
+                    "New York",             "NY",
+              "North Carolina",             "NC",
+                "North Dakota",             "ND",
+                        "Ohio",             "OH",
+                    "Oklahoma",             "OK",
+                      "Oregon",             "OR",
+                "Pennsylvania",             "PA",
+                "Rhode Island",             "RI",
+              "South Carolina",             "SC",
+                "South Dakota",             "SD",
+                   "Tennessee",             "TN",
+                       "Texas",             "TX",
+                        "Utah",             "UT",
+                     "Vermont",             "VT",
+                    "Virginia",             "VA",
+                  "Washington",             "WA",
+               "West Virginia",             "WV",
+                   "Wisconsin",             "WI",
+                     "Wyoming",             "WY",
+        "District of Columbia",             "DC",
+            "Marshall Islands",             "MH",
+         "Armed Forces Africa",             "AE",
+       "Armed Forces Americas",             "AA",
+         "Armed Forces Canada",             "AE",
+         "Armed Forces Europe",             "AE",
+    "Armed Forces Middle East",             "AE",
+        "Armed Forces Pacific",             "AP"
+)
+```
+
+# 1. Joins
+
+1) Create a data frame called `state_data` by joining the data frames `states_abbs` and `milk_production` and then selecting the variables `region`, `state_name`, `state_abb`. **Hint**: Use the `distinct()` function to drop repeated rows.
+
+```{r}
+# Approach 1 - keeps 8 extra states
+state_data <- state_abbs %>%
+    left_join(milk_production, by = c('state_name' = 'state')) %>%
+    select(region, state_name, state_abb) %>%
+    distinct()
+
+# Approach 2
+state_data <- milk_production %>%
+    left_join(state_abbs, by = c('state' = 'state_name')) %>%
+    select(region, state_name = state, state_abb) %>%
+    distinct()
+
+dim(state_data)
+head(state_data)
+```
+
+2) Create the data frame `wildlife_impacts2` by joining the `state_data` data frame to the `wildlife_impacts` data frame, adding the variables `region` and `state_name`.
+
+```{r}
+# Approach 1
+wildlife_impacts2 <- state_data %>%
+    right_join(wildlife_impacts, by = c('state_abb' = 'state')) %>%
+    mutate(state_abb = ifelse(state_abb == 'N/A', NA, state_abb))
+
+# Approach 2
+wildlife_impacts2 <- wildlife_impacts %>%
+    left_join(state_data, by = c('state' = 'state_abb')) %>%
+    rename(state_abb = state) %>%
+    mutate(state_abb = ifelse(state_abb == 'N/A', NA, state_abb))
+
+glimpse(wildlife_impacts2)
+```
+
+# 2. Re-naming and re-typing variables
+
+Read in the `hot_dog_winners.xlsx` file and adjust the variable names and types to match those shown on the screen.
+
+**Approach 1**: This coerces the "dogs_eaten" variables to be numbers, so any number with a "*" symbol turns into a `NA` value.
+
+```{r}
+hot_dogs <- read_excel(
+    here::here('data', 'hot_dog_winners.xlsx'),
+    col_types = c(
+        'numeric', 'text', 'numeric', 'text',
+        'text', 'numeric', 'text')
+    ) %>%
+    clean_names() %>%
+    select(
+        year,
+        competitor.mens   = mens,
+        competitor.womens = womens,
+        dogs_eaten.mens   = dogs_eaten_3,
+        dogs_eaten.womens = dogs_eaten_6,
+        country.mens      = country_4,
+        country.womens    = country_7)
+
+glimpse(hot_dogs)
+```
+
+**Approach 2**: To avoid creating `NA`s with the "dogs_eaten" variables, you can skip using the `col_types` argument and just convert the variable types later using `mutate()`.
+```{r}
+hot_dogs <- read_excel(
+    here::here('data', 'hot_dog_winners.xlsx')) %>%
+    clean_names() %>%
+    select(
+        year,
+        competitor.mens   = mens,
+        competitor.womens = womens,
+        dogs_eaten.mens   = dogs_eaten_3,
+        dogs_eaten.womens = dogs_eaten_6,
+        country.mens      = country_4,
+        country.womens    = country_7) %>%
+    mutate(
+        dogs_eaten.mens   = parse_number(dogs_eaten.mens),
+        dogs_eaten.womens = parse_number(dogs_eaten.womens),
+        year              = as.numeric(year))
+
+glimpse(hot_dogs)
+```
+
+# 3. Recoding variables
+
+1) Use `case_when()` to modify the `phase_of_flt` variable in the `wildlife_impacts` data:
+
+- The values `'approach'`, `'arrival'`, `'descent'`, and `'landing roll'` should be merged into a single value called `'arrival'`.
+- The values `'climb'`, `'departure'`,  and `'take-off run'` should be merged into a single value called `'departure'`.
+- All other values should be called `'other'`.
+
+```{r}
+arrival_names <- c('approach', 'arrival', 'descent', 'landing roll')
+departure_names <- c('climb', 'departure', 'take-off run')
+
+wildlife_impacts <- wildlife_impacts %>%
+    mutate(
+        phase_of_flt = str_to_lower(phase_of_flt),
+        phase_of_flt = case_when(
+            phase_of_flt %in% arrival_names ~ 'arrival',
+            phase_of_flt %in% departure_names ~ 'departure',
+            TRUE ~ 'other'
+        )
+    )
+```
+
+2) Use the **lubridate** package to create a new variable, `weekday_name`, from the `incident_date` variable in the `wildlife_impacts` data.
+
+```{r}
+wildlife_impacts <- wildlife_impacts %>%
+    mutate(weekday_name = wday(incident_date, label = TRUE))
+```
+
+3) Use `weekday_name` and `phase_of_flt` to make this plot of "arrival" and "departure" impacts from **Feb. 2016**.
+
+```{r, echo=FALSE, fig.width=9, fig.height=4.5, fig.align='center'}
+wildlife_impacts %>%
+    filter(incident_year == 2016,
+           incident_month == 3) %>%
+    mutate(phase_of_flt = str_to_title(phase_of_flt)) %>%
+    count(weekday_name, phase_of_flt) %>%
+    ggplot() +
+    geom_col(aes(x = weekday_name, y = n), width = 0.8) +
+    facet_wrap(~phase_of_flt, nrow = 1) +
+    theme_minimal_hgrid() +
+    labs(x = 'Day of the week',
+         y = 'Number of incidents',
+         title = 'Impacts by day of the week & phase of flight in March, 2016')
+```
