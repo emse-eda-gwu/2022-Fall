@@ -182,6 +182,10 @@ C+     | 77 - 79.99% | F     | < 60%
 
 The course instructors may choose to change the scales at their discretion. You are guaranteed that your letter grade will never become worse as a result of changing scales.
 
+## Rounding
+
+**I do not round final grades**. Rather, I grade generously throughout the semester. For example, if you give a quiz your best shot and completely fail it, you will likely get a 50% instead of a 0%. The 50% is for trying (if you simply don't take it, you'll get a 0%). As a result, I will not modify or round your final score, even if you're very close to a different letter grade (e.g., a 93.98 is an "A-" and will not be rounded up to an "A").
+
 # Getting Help
 
 This class can be challenging - **do not suffer in silence!** We have lots of ways to get help.
