@@ -74,6 +74,7 @@ meta() %>%
 # Read in data sets for class
 milk_production <- read_csv(here('data', 'milk_production.csv'))
 fed_spend_long <- read_csv(here('data', 'fed_spend_long.csv'))
+fed_spend <- fed_spend_long
 fed_spend_wide <- read_csv(here('data', 'fed_spend_wide.csv'))
 tb_cases <- read_csv(here('data', 'tb_cases.csv'))
 lotr_words <- read_csv(here('data', 'lotr_words.csv'))
@@ -115,25 +116,67 @@ class: middle, inverse
 
 ---
 
-# .center[Names, Values, and Observations]
+## .center[Federal R&D Spending by Department]
 
-- Variable **Name**: The name of something you can measure
-- Variable **Value**: One instance of a measured variable
-- **Observation**: A set of associated measurements across multiple variables
-
---
-
-.code100[
-
-```{r}
-head(fed_spend_long)
+```{r, echo=FALSE}
+head(fed_spend_wide)
 ```
-
-]
 
 ---
 
-# "Long" format data
+## .center[Federal R&D Spending by Department]
+
+.leftcol60[.code70[
+
+# "Wide" format
+
+```{r, echo=FALSE}
+head(fed_spend_wide)
+```
+
+]]
+
+--
+
+.rightcol40[.code70[
+
+# "Long" format
+
+```{r, echo=FALSE}
+head(fed_spend_long)
+```
+
+]]
+
+---
+
+## .center[Federal R&D Spending by Department]
+
+.leftcol60[.code70[
+
+# "Wide" format
+
+```{r, echo=FALSE}
+head(fed_spend_wide)
+dim(fed_spend_wide)
+```
+
+]]
+
+.rightcol40[.code70[
+
+# "Long" format
+
+```{r, echo=FALSE}
+head(fed_spend_long)
+dim(fed_spend_long)
+```
+
+]]
+
+---
+
+# .center[Tidy data = "Long" format]
 
 - Each **variable** has its own **column**
 - Each **observation** has its own **row**
@@ -146,7 +189,7 @@ head(fed_spend_long)
 
 .leftcol[
 
-# "Long" format data
+# Tidy data 
 
 - Each **variable** has its own **column**
 - Each **observation** has its own **row**
@@ -182,18 +225,18 @@ head(fed_spend_long)
 # "Wide" format
 
 ```{r, echo=FALSE}
-head(select(fed_spend_wide, year:HHS))
+head(fed_spend_wide)
 ```
 
 ]]
 
 ---
 
-.center[.font130[**"Long" format: variable names describe the values below them**]]
+# .center[**Do the names describe the values?**]
 
 .leftcol40[.code70[
 
-## "Long" format
+## **Yes**: "Long" format
 
 ```{r, echo=FALSE}
 head(fed_spend_long)
@@ -203,7 +246,7 @@ head(fed_spend_long)
 
 .rightcol60[.code70[
 
-## "Wide" format
+## **No**: "Wide" format
 
 ```{r, echo=FALSE}
 head(select(fed_spend_wide, year:HHS))
@@ -241,18 +284,17 @@ lotr_words
 
 **Description**: Word counts in LOTR trilogy
 
-.code60[
 ```{r, echo=FALSE}
 lotr_words %>% 
     pivot_longer(
         cols = Female:Male, 
         names_to = "Gender", 
         values_to = "Word_Count"
-    )
+    ) %>% 
+    head(15)
 ```
-]
----
 
+---
 
 class: inverse, center, middle
 
@@ -262,10 +304,30 @@ class: inverse, center, middle
 
 ---
 
+background-color: #fff
+
+.leftcol40[
+
+# Reshaping data 
+
+## `pivot_longer()`<br>`pivot_wider()`
+
+]
+
+.rightcol60[
+
+<center>
+<img src="images/tidyr-pivoting.gif" width=530>
+</center>
+
+]
+
+---
+
 ## .center[From "long" to "wide" with `pivot_wider()`]
 
 <center>
-<img src="images/tidy-spread.png" width=600>
+<img src="images/tidy-wider.png" width=600>
 </center>
 
 ---
@@ -282,17 +344,13 @@ head(fed_spend_long)
 
 .rightcol55[
 
-```{r, eval=FALSE}
+```{r}
 fed_spend_wide <- fed_spend_long %>%
-    pivot_wider( #<<
+    pivot_wider(
         names_from = department,  #<<
         values_from = rd_budget_mil) #<<
 
 head(fed_spend_wide)
-```
-
-```{r, echo=FALSE}
-head(select(fed_spend_wide, year:EPA))
 ```
 
 ]
@@ -302,7 +360,7 @@ head(select(fed_spend_wide, year:EPA))
 ## .center[From "wide" to "long" with `pivot_longer()`]
 
 <center>
-<img src="images/tidy-gather.png" width=600>
+<img src="images/tidy-longer.png" width=600>
 </center>
 
 ---
@@ -312,7 +370,7 @@ head(select(fed_spend_wide, year:EPA))
 .leftcol45[
 
 ```{r}
-names(fed_spend_wide)
+head(fed_spend_wide)
 ```
 
 ]
@@ -321,10 +379,10 @@ names(fed_spend_wide)
 
 ```{r}
 fed_spend_long <- fed_spend_wide %>%
-    pivot_longer( #<<
-        cols = DHS:VA, #<<
+    pivot_longer( 
         names_to = "department", #<<
-        values_to = "rd_budget_mil") #<<
+        values_to = "rd_budget_mil", #<< 
+        cols = DOD:Other) #<<
 
 head(fed_spend_long)
 ```
@@ -348,9 +406,9 @@ names(fed_spend_wide)
 ```{r}
 fed_spend_long <- fed_spend_wide %>%
     pivot_longer(
-        cols = -year, #<<
-        names_to = "department",
-        values_to = "rd_budget_mil")
+        names_to = "department", 
+        values_to = "rd_budget_mil",
+        cols = -year) #<<
 
 head(fed_spend_long)
 ```
@@ -363,16 +421,16 @@ class: inverse
 
 ```{r, echo=FALSE}
 countdown(
-    minutes = 15,
-    warn_when = 15,
+    minutes      = 15,
+    warn_when    = 15,
     update_every = 1,
-    top = 0,
-    right = 0,
-    font_size = '2em'
+    top          = 0,
+    right        = 0,
+    font_size    = '2em'
 )
 ```
 
-# Your turn: Long <--> Wide
+# Your turn: Reshaping Data
 
 Open the `practice.Rmd` file. 
 
@@ -385,6 +443,11 @@ Now modify the format of each:
 
 - If the data are in "wide" format, convert it to "long" with `pivot_longer()`
 - If the data are in "long" format, convert it to "wide" with `pivot_wider()`
+
+---
+
+```{r child="topics/2.Rmd"}
+```
 
 ---
 
@@ -414,15 +477,9 @@ background-size: contain
 
 ---
 
-class: center
-background-image: url("images/horst_tidydata_4.jpg")
-background-size: contain
+# Tidy data wrangling
 
----
-
-# Some tidy examples: data wrangling
-
-Compute the total R&D spending by department in each year
+Compute the total R&D spending in each year
 
 ```{r}
 head(fed_spend_wide)
@@ -430,11 +487,11 @@ head(fed_spend_wide)
 
 ---
 
-# Some tidy examples: data wrangling
+# Tidy data wrangling
 
-Compute the total R&D spending by department in each year
+Compute the total R&D spending in each year
 
-Approach 1:
+**Approach 1**: Create new `total` by adding each variable
 
 ```{r}
 fed_spend_wide %>%
@@ -444,39 +501,139 @@ fed_spend_wide %>%
 
 ---
 
-# Some tidy examples: data wrangling
+# Tidy data wrangling
 
 Compute the total R&D spending by department in each year
 
-Approach 2: Reshape first
+**Approach 2**: Reshape first, then summarise
+
+.leftcol[
 
 ```{r}
-fed_spend_wide %>%
+fed_spend_long <- fed_spend_wide %>%
     pivot_longer(
-        cols = -year, #<<
-        names_to = "department",
-        values_to = "rd_budget_mil") %>%
-    group_by(year) %>%
-    summarise(total = sum(rd_budget_mil))
-```
+        names_to = "department", 
+        values_to = "rd_budget_mil",
+        cols = -year) 
 
----
-
-# Some tidy examples: plotting
-
-Make a bar chart of total R&D spending by agency
-
-.leftcol45[
-
-```{r}
 head(fed_spend_long)
 ```
 
 ]
 
-.rightcol55[
+--
 
-```{r fed-spend-bars, fig.width=6, fig.height=3.3}
+.rightcol[
+
+```{r}
+fed_spend_long %>%
+    group_by(year) %>%
+    summarise(total = sum(rd_budget_mil))
+```
+
+]
+
+---
+
+# Tidy data wrangling
+
+Compute the total R&D spending by department in each year
+
+**Approach 2**: Reshape first, then summarise
+
+.leftcol[
+
+```{r}
+total <- fed_spend_wide %>%
+    pivot_longer(
+        names_to = "department", 
+        values_to = "rd_budget_mil",
+        cols = -year) %>% 
+    group_by(year) %>%
+    summarise(total = sum(rd_budget_mil))
+```
+
+]
+
+.rightcol[
+
+```{r}
+head(total)
+```
+
+]
+
+---
+
+class: inverse
+
+```{r, echo=FALSE}
+countdown(
+    minutes      = 15,
+    warn_when    = 15,
+    update_every = 1,
+    top          = 0,
+    right        = 0,
+    font_size    = '2em'
+)
+```
+
+# Your turn: Tidy Data Wrangling
+
+Open the `practice.Rmd` file. 
+
+Run the code chunk to read in the following two data files:
+
+- `gapminder.csv`: Life expectancy in different countries over time
+- `gdp.csv`: GDP of different countries over time
+
+Now creating the following summary data frames:
+
+- Mean life expectancy each year.
+- Mean GDP each year.
+
+---
+
+class: inverse, center
+
+# .fancy[Break]
+
+```{r, echo=FALSE}
+countdown(
+    minutes      = 5,
+    warn_when    = 30,
+    update_every = 1,
+    left         = 0, right = 0, top = 1, bottom = 0,
+    margin       = "5%",
+    font_size    = "8em"
+)
+```
+
+---
+
+```{r child="topics/3.Rmd"}
+```
+
+---
+
+# Tidy data vizualization
+
+Make a bar chart of total R&D spending by agency
+
+.leftcol55[
+
+```{r}
+head(fed_spend_wide)
+```
+
+]
+
+.rightcol45[
+
+```{r}
+#| label: fed-spend-bars
+#| echo: false
+
 ggplot(fed_spend_long) +
   geom_col(aes(x = rd_budget_mil, y = reorder(department, rd_budget_mil)), #<<
            width = 0.7, alpha = 0.8) +
@@ -489,16 +646,87 @@ ggplot(fed_spend_long) +
 
 ---
 
+# Tidy data vizualization
+
+Make a bar chart of total R&D spending by agency
+
+.leftcol55[
+
+```{r}
+#| error: true
+#| fig-show: hide
+
+ggplot(fed_spend_wide) +
+  geom_col(aes(x = rd_budget_mil, y = department)) + #<<
+  theme_bw() +
+  labs(
+      x = "R&D Spending ($Millions)",
+      y = "Federal Agency"
+  )
+```
+
+]
+
+.rightcol45[
+
+```{r}
+#| ref.label: fed-spend-bars
+#| fig.align: center
+#| echo: false
+```
+
+]
+
+---
+
+# Tidy data vizualization
+
+Make a bar chart of total R&D spending by agency
+
+.leftcol55[
+
+```{r}
+#| error: true
+#| fig-show: hide
+
+fed_spend_wide %>%
+    pivot_longer( #<<
+        names_to = "department", #<<
+        values_to = "rd_budget_mil", #<<
+        cols = -year) %>% #<<
+  ggplot() +
+  geom_col(aes(x = rd_budget_mil, y = department)) +
+  theme_bw() +
+  labs(
+      x = "R&D Spending ($Millions)",
+      y = "Federal Agency"
+  )
+```
+
+]
+
+.rightcol45[
+
+```{r}
+#| ref.label: fed-spend-bars
+#| fig.align: center
+#| echo: false
+```
+
+]
+
+---
+
 class: inverse
 
 ```{r, echo=FALSE}
 countdown(
-    minutes = 20,
-    warn_when = 15,
+    minutes      = 15,
+    warn_when    = 15,
     update_every = 1,
-    top = 0,
-    right = 0,
-    font_size = '2em'
+    top          = 0,
+    right        = 0,
+    font_size    = '2em'
 )
 ```
 
@@ -507,21 +735,10 @@ countdown(
 
 
 
+
 ---
 
-class: inverse, center
-
-# .fancy[Break]
-
-```{r, echo=FALSE}
-countdown(
-    minutes = 5,
-    warn_when = 30,
-    update_every = 1,
-    left = 0, right = 0, top = 1, bottom = 0,
-    margin = "5%",
-    font_size = "8em"
-)
+```{r child="topics/4.Rmd"}
 ```
 
 ---
@@ -571,12 +788,14 @@ Whenever you download data, you should **at a minimum** record the following:
 class: inverse
 
 ```{r, echo=FALSE}
-countdown(minutes = 10,
-          warn_when = 30,
-          update_every = 1,
-          top = 0,
-          right = 0,
-          font_size = '2em')
+countdown(
+    minutes      = 10,
+    warn_when    = 15,
+    update_every = 1,
+    top          = 0,
+    right        = 0,
+    font_size    = '2em'
+)
 ```
 
 # Your turn
@@ -595,20 +814,10 @@ Go to the above sites and add the following information to the "data/README.md" 
 - A short description of the data and how they were collected.
 - A dictionary for the data (hint: the site might already have this!).
 
-
-
-
-
-
-
-
-
-
 ---
 
-class: center, middle, inverse
-
-# Start thinking about research questions
+```{r child="topics/5.Rmd"}
+```
 
 ---
 

@@ -21,9 +21,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-# Practice 1 - Long <--> Wide Data
-
-# In Class Question 1: Long <--> Wide
+# Practice 1: Reshaping Data
 
 Run the code chunk to read in the following two data files:
 
@@ -31,8 +29,22 @@ Run the code chunk to read in the following two data files:
 - `milk_production.csv`: Data on milk production by state
 
 ```{r}
-milk_production <- read_csv(here('data', 'milk_production.csv'))
-pv_cells <- read_csv(here('data', 'pv_cells.csv'))
+milk_production <- read_csv(here::here('data', 'milk_production.csv'))
+pv_cells <- read_excel(
+    here::here('data', 'pv_cell_production.xlsx'), 
+    sheet = 'Cell Prod by Country', 
+    skip = 2
+) %>% 
+    filter(!is.na(Year)) %>% 
+    # Need to convert a few columns so the data types match
+    mutate(
+        China = as.numeric(China),
+        Taiwan = as.numeric(Taiwan),
+        Malaysia = as.numeric(Malaysia),
+        Germany = as.numeric(Germany),
+        `South Korea` = as.numeric(`South Korea`),
+        Others = as.numeric(Others)
+    )
 ```
 
 Now modify the format of each:
@@ -53,14 +65,58 @@ pv_cells_long <- pv_cells %>%
     pivot_longer(
         cols = China:World,
         names_to = "country",
-        values_to = "numCells")
+        values_to = "numCells") %>% 
+    # Remove the "World" rows as it's a total (not a country)
+    filter(country != "World")
 
 # Could also do this
 pv_cells_long <- pv_cells %>%
     pivot_longer(
         cols = -Year,
         names_to = "country",
-        values_to = "numCells")
+        values_to = "numCells") %>% 
+    # Remove the "World" rows as it's a total (not a country)
+    filter(country != "World")
 
 head(pv_cells_long)
+```
+
+# Practice 2: Tidy Data Wrangling
+
+Run the code chunk to read in the following two data files:
+
+- `gapminder.csv`: Life expectancy in different countries over time
+- `gdp.csv`: GDP of different countries over time
+
+```{r}
+gapminder <- read_csv(here::here('data', 'gapminder.csv'))
+gdp <- read_csv(here::here('data', 'gdp.csv'))
+```
+
+Now creating the following summary data frames:
+
+- Mean life expectancy each year.
+- Mean GDP each year.
+
+```{r}
+gapminder %>% 
+    pivot_longer(
+        names_to = "country", 
+        values_to = "life_exp", 
+        cols = -year
+    ) %>% 
+    group_by(year) %>% 
+    summarise(mean_life_exp = mean(life_exp))
+```
+
+```{r}
+gdp %>% 
+    pivot_longer(
+        names_to = "year", 
+        values_to = "gdp", 
+        cols = -country
+    ) %>% 
+    filter(!is.na(gdp)) %>% 
+    group_by(year) %>% 
+    summarise(mean_gdp = mean(gdp))
 ```

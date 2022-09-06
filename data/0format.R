@@ -4,6 +4,19 @@ library(janitor)
 library(lubridate)
 options(dplyr.width = Inf)
 
+# Gapminder data ------------------------------
+
+gapminder <- read_csv(here::here("data", "gapminder.csv"))
+
+gapminder_wide <- gapminder %>% 
+    select(year, country, lifeExp) %>% 
+    pivot_wider(
+        names_from = country, 
+        values_from = lifeExp
+    )
+
+write_csv(gapminder_wide, here::here("data", "gapminder_wide.csv"))
+
 # Federal R&D Spending ------------------------------
 
 fed_spend <- read_csv(here::here("data", "fed_spend_orig.csv"))
