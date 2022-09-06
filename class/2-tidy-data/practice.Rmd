@@ -21,18 +21,32 @@ knitr::opts_chunk$set(
 )
 ```
 
-# Practice 1 - Long <--> Wide Data
 
-# In Class Question 1: Long <--> Wide
 
-Write code to read in the following two files:
+# Practice 1: Reshaping Data
 
-- `pv_cells.csv`: Data on solar photovoltaic cell production by country
+Run the code chunk to read in the following two data files:
+
+- `pv_cell_production.xlsx`: Data on solar photovoltaic cell production by country
 - `milk_production.csv`: Data on milk production by state
 
 ```{r}
-milk_production <- read_csv(here('data', 'milk_production.csv'))
-pv_cells <- read_csv(here('data', 'pv_cells.csv'))
+milk_production <- read_csv(here::here('data', 'milk_production.csv'))
+pv_cells <- read_excel(
+    here::here('data', 'pv_cell_production.xlsx'),
+    sheet = 'Cell Prod by Country',
+    skip = 2
+) %>%
+    filter(!is.na(Year)) %>%
+    # Need to convert a few columns so the data types match
+    mutate(
+        China = as.numeric(China),
+        Taiwan = as.numeric(Taiwan),
+        Malaysia = as.numeric(Malaysia),
+        Germany = as.numeric(Germany),
+        `South Korea` = as.numeric(`South Korea`),
+        Others = as.numeric(Others)
+    )
 ```
 
 Now modify the format of each:
@@ -41,26 +55,48 @@ Now modify the format of each:
 - If the data are in "long" format, convert it to "wide" with `pivot_wider()`
 
 ```{r}
-# milk_production is in long format - convert to wide
-milk_wide <- milk_production %>%
-    pivot_wider(
-        names_from = state,
-        values_from = milk_produced)
-head(milk_wide)
+# Write code here
+```
 
-# pv_cells is in wide format - convert to long
-pv_cells_long <- pv_cells %>%
-    pivot_longer(
-        cols = China:World,
-        names_to = "country",
-        values_to = "numCells")
 
-# Could also do this
-pv_cells_long <- pv_cells %>%
-    pivot_longer(
-        cols = -Year,
-        names_to = "country",
-        values_to = "numCells")
 
-head(pv_cells_long)
+# Practice 2: Tidy Data Wrangling
+
+Run the code chunk to read in the following two data files:
+
+- `gapminder.csv`: Life expectancy in different countries over time
+- `gdp.csv`: GDP of different countries over time
+
+```{r}
+gapminder <- read_csv(here::here('data', 'gapminder.csv'))
+gdp <- read_csv(here::here('data', 'gdp.csv'))
+```
+
+Now convert the data into a tidy (long) structure, then create the following summary data frames:
+
+- Mean life expectancy in each year.
+- Mean GDP in each year.
+
+```{r}
+# Write code here
+```
+
+
+
+# Practice 3: Tidy Data Visualization
+
+Run the code chunk to read in the following two data files:
+
+- `lotr_words.csv`: Word counts by character in the LOTR films
+- `fed_spending.csv`: Federal R&D spending by department
+
+```{r}
+lotr <- read_csv(here::here('data', 'lotr_words.csv'))
+fed_spending <- read_csv(here::here('data', 'fed_spend_wide.csv'))
+```
+
+Now convert the data into a tidy (long) structure, then create the following charts
+
+```{r}
+# Write code here
 ```
