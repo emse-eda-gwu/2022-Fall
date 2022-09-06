@@ -587,10 +587,10 @@ Run the code chunk to read in the following two data files:
 - `gapminder.csv`: Life expectancy in different countries over time
 - `gdp.csv`: GDP of different countries over time
 
-Now creating the following summary data frames:
+Now convert the data into a tidy (long) structure, then create the following summary data frames:
 
-- Mean life expectancy each year.
-- Mean GDP each year.
+- Mean life expectancy in each year.
+- Mean GDP in each year.
 
 ---
 
@@ -730,11 +730,58 @@ countdown(
 )
 ```
 
-# Your turn: Reshaping data for plotting
+# Your turn: Tidy Data Visualization
 
+Run the code chunk to read in the two data files, then convert the data into a tidy (long) structure to create the following charts:
 
+.leftcol[
 
+```{r, echo=FALSE}
+lotr <- read_csv(here::here('data', 'lotr_words.csv'))
+fed_spending <- read_csv(here::here('data', 'fed_spend_wide.csv'))
 
+lotr %>% 
+    pivot_longer(
+        cols = Female:Male, 
+        names_to = "gender", 
+        values_to = "word_count"
+    ) %>% 
+    ggplot() +
+    geom_col(aes(x = word_count, y = Film, fill = gender)) +
+    labs(
+        x     = "Number of words spoken by characters",
+        y     = 'Film',
+        fill  = "Gender of character",
+        title = "Male characters had far more speakings\nroles in the LOTR series films"
+    ) +
+    theme_bw()
+```
+
+]
+
+.rightcol[
+
+```{r, echo=FALSE}
+fed_spending %>%
+    pivot_longer( 
+        names_to = "department",
+        values_to = "rd_budget_mil",
+        cols = DOD:Other
+    ) %>% 
+    group_by(year) %>%
+    summarise(total = sum(rd_budget_mil)) %>% 
+    ggplot(aes(x = year, y = total)) +
+    geom_line() +
+    geom_point() + 
+    labs(
+        x     = "Year",
+        y     = 'R&D Spending ($ M)',
+        title = "Total U.S. federal R&D spending over time"
+    ) +
+    theme_bw()
+```
+
+]
 
 ---
 
