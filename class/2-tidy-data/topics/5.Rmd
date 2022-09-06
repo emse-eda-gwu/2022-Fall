@@ -10,4 +10,4 @@ class: inverse, middle
 
 ## 3. Tidy Data Visualization
 ## 4. Data Provenance & Curation
-## 5. Writing a Research Question
+## 5. .orange[Writing a Research Question]
