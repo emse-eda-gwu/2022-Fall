@@ -72,14 +72,15 @@ meta() %>%
   )
 
 # Read in data sets for class
+tb_cases <- read_csv(here('data', 'tb_cases.csv'))
 milk_production <- read_csv(here('data', 'milk_production.csv'))
 fed_spend_long <- read_csv(here('data', 'fed_spend_long.csv'))
 fed_spend <- fed_spend_long
 fed_spend_wide <- read_csv(here('data', 'fed_spend_wide.csv'))
-tb_cases <- read_csv(here('data', 'tb_cases.csv'))
 lotr_words <- read_csv(here('data', 'lotr_words.csv'))
-xlsxPath <- here('data', 'pv_cell_production.xlsx')
-pv_cells <- read_excel(xlsxPath, sheet = 'Cell Prod by Country', skip = 2) %>%
+pv_cells <- read_excel(
+    here('data', 'pv_cell_production.xlsx'),
+    sheet = 'Cell Prod by Country', skip = 2) %>%
   mutate(Year = as.numeric(Year)) %>% 
   filter(!is.na(Year)) 
 ```
@@ -436,7 +437,7 @@ Open the `practice.Rmd` file.
 
 Run the code chunk to read in the following two data files:
 
-- `pv_cells.csv`: Data on solar photovoltaic cell production by country
+- `pv_cell_production.xlsx`: Data on solar photovoltaic cell production by country
 - `milk_production.csv`: Data on milk production by state
 
 Now modify the format of each:
@@ -807,11 +808,13 @@ fed_spending %>%
 
 - Is this data accurate?
 - Can you explain your results?
-- Is this the _right_ data to answer your question?
+- Is this the right data to answer your question?
 
 --
 
-**Reproducibility**: The data source is the start of the reproducibility chain.
+**Reproducibility**:
+
+- I should be able to fully replicate your results from your raw data and code.
 
 ---
 
@@ -849,9 +852,9 @@ countdown(
 
 Documentation in the "data/README.md" file is missing for the following data sets:
 
-- wildlife_impacts.csv: [source](https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-07-23) (Breakout Rooms 1 & 2)
-- north_america_bear_killings.txt: [source](https://data.world/makeovermonday/2019w21) (Breakout Rooms 3 & 4)
-- uspto_clean_energy_patents.xlsx: [source](https://www.nsf.gov/statistics/2018/nsb20181/report/sections/industry-technology-and-the-global-marketplace/global-trends-in-sustainable-energy-research-and-technologies) (Breakout Rooms 5 & 6)
+- wildlife_impacts.csv: [source](https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-07-23)
+- north_america_bear_killings.txt: [source](https://data.world/makeovermonday/2019w21)
+- uspto_clean_energy_patents.xlsx: [source](https://www.nsf.gov/statistics/2018/nsb20181/report/sections/industry-technology-and-the-global-marketplace/global-trends-in-sustainable-energy-research-and-technologies)
 
 Go to the above sites and add the following information to the "data/README.md" file:
 
@@ -904,10 +907,23 @@ Follow [these guidelines](https://writingcenter.gmu.edu/guides/how-to-write-a-re
 
 --
 
-**Improved question: How are online users experiencing or addressing privacy issues on such social networking sites as Facebook and Twitter?**
+**Improved question: How are online users experiencing or addressing privacy issues on social networking sites such as Facebook and Twitter?**
 
 - Specifies the sites (Facebook and Twitter), type of harm (privacy issues), and who is harmed (online users).
 
---
+---
 
-**Other good examples**: See the [Example Projects Page](https://eda.seas.gwu.edu/2021-Spring/ref-example-analyses.html) page
+# Writing a research question
+
+**Example from previous classes**: 
+
+- [Genders in the Workforce](https://eda.seas.gwu.edu/showcase/2021-Spring/gender_pay_gap.html): How has the US gender wage gap changed over time for different occupations and age groups?
+- [NFL Suspensions](https://eda.seas.gwu.edu/showcase/2021-Spring/nfl_suspensions.html): What factors contribute to the severity of disciplinary actions towards NFL players from 2002-2014?
+
+**Other good examples**: See the [Example Projects Page](https://eda.seas.gwu.edu/2022-Fall/help/example-projects.html) page
+
+---
+
+class: inverse, middle, center
+
+# Use [this link](https://docs.google.com/spreadsheets/d/1JdgZWdnPPidLa809Tjos0nU7F4pgeogpsWPKzRxMzjo/edit?usp=sharing) to start forming teams
