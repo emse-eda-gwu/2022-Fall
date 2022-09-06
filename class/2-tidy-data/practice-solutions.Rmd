@@ -21,6 +21,8 @@ knitr::opts_chunk$set(
 )
 ```
 
+
+
 # Practice 1: Reshaping Data
 
 Run the code chunk to read in the following two data files:
@@ -81,6 +83,8 @@ pv_cells_long <- pv_cells %>%
 head(pv_cells_long)
 ```
 
+
+
 # Practice 2: Tidy Data Wrangling
 
 Run the code chunk to read in the following two data files:
@@ -93,10 +97,10 @@ gapminder <- read_csv(here::here('data', 'gapminder.csv'))
 gdp <- read_csv(here::here('data', 'gdp.csv'))
 ```
 
-Now creating the following summary data frames:
+Now convert the data into a tidy (long) structure, then create the following summary data frames:
 
-- Mean life expectancy each year.
-- Mean GDP each year.
+- Mean life expectancy in each year.
+- Mean GDP in each year.
 
 ```{r}
 gapminder %>% 
@@ -119,4 +123,58 @@ gdp %>%
     filter(!is.na(gdp)) %>% 
     group_by(year) %>% 
     summarise(mean_gdp = mean(gdp))
+```
+
+
+
+# Practice 3: Tidy Data Visualization
+
+Run the code chunk to read in the following two data files:
+
+- `lotr_words.csv`: Word counts by character in the LOTR films
+- `fed_spending.csv`: Federal R&D spending by department
+
+```{r}
+lotr <- read_csv(here::here('data', 'lotr_words.csv'))
+fed_spending <- read_csv(here::here('data', 'fed_spend_wide.csv'))
+```
+
+Now convert the data into a tidy (long) structure, then create the following charts
+
+```{r}
+lotr %>% 
+    pivot_longer(
+        cols = Female:Male, 
+        names_to = "gender", 
+        values_to = "word_count"
+    ) %>% 
+    ggplot() +
+    geom_col(aes(x = word_count, y = Film, fill = gender)) +
+    labs(
+        x     = "Number of words spoken by characters",
+        y     = 'Film',
+        fill  = "Gender of character",
+        title = "Male characters had far more speakings\nroles in the LOTR series films"
+    ) +
+    theme_bw()
+```
+
+```{r}
+fed_spending %>%
+    pivot_longer( 
+        names_to = "department",
+        values_to = "rd_budget_mil",
+        cols = DOD:Other
+    ) %>% 
+    group_by(year) %>%
+    summarise(total = sum(rd_budget_mil)) %>% 
+    ggplot(aes(x = year, y = total)) +
+    geom_line() +
+    geom_point() + 
+    labs(
+        x     = "Year",
+        y     = 'R&D Spending ($ M)',
+        title = "Total U.S. federal R&D spending over time"
+    ) +
+    theme_bw()
 ```
