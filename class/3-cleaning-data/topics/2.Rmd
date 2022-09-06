@@ -1,0 +1,14 @@
+
+class: inverse, middle
+
+# Week `r rmarkdown::metadata$week`: .fancy[`r rmarkdown::metadata$title`]
+
+### 1. Merging datasets with joins
+### 2. .orange[Are your variables the right _type_?]
+### 3. Are your variables the right _name_?
+
+### BREAK
+
+### 4. Re-coding variables
+### 5. Dates
+### 6. Dealing with messy Excel files
