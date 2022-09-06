@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Tidy Data</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="John Paul Helveston" />
+    <meta name="date" content="2022-09-07" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/tile-view/tile-view.css" rel="stylesheet" />
+    <script src="libs/tile-view/tile-view.js"></script>
+    <link href="libs/panelset/panelset.css" rel="stylesheet" />
+    <script src="libs/panelset/panelset.js"></script>
+    <script src="libs/clipboard/clipboard.min.js"></script>
+    <link href="libs/xaringanExtra-clipboard/xaringanExtra-clipboard.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-clipboard/xaringanExtra-clipboard.js"></script>
+    <script>window.xaringanExtraClipboard(null, {"button":"Copy Code","success":"Copied!","error":"Press Ctrl+C to Copy"})</script>
+    <link href="libs/shareon/shareon.min.css" rel="stylesheet" />
+    <script src="libs/shareon/shareon.min.js"></script>
+    <link href="libs/xaringanExtra-shareagain/shareagain.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-shareagain/shareagain.js"></script>
+    <link href="libs/xaringanExtra-extra-styles/xaringanExtra-extra-styles.css" rel="stylesheet" />
+    <meta name="description" content="EMSE 4575: Exploratory Data Analysis"/>
+    <meta name="generator" content="xaringan and remark.js"/>
+    <meta name="github-repo" content="emse-eda-gwu/2022-Fall"/>
+    <meta name="twitter:title" content="Tidy Data"/>
+    <meta name="twitter:description" content="EMSE 4575: Exploratory Data Analysis"/>
+    <meta name="twitter:url" content="https://eda.seas.gwu.edu/2022-Fall/"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:creator" content="@johnhelveston"/>
+    <meta name="twitter:site" content="@johnhelveston"/>
+    <meta property="og:title" content="Tidy Data"/>
+    <meta property="og:description" content="EMSE 4575: Exploratory Data Analysis"/>
+    <meta property="og:url" content="https://eda.seas.gwu.edu/2022-Fall/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="article:author" content="John Paul Helveston"/>
+    <link href="libs/countdown/countdown.css" rel="stylesheet" />
+    <script src="libs/countdown/countdown.js"></script>
+    <link rel="stylesheet" href="css/lexis.css" type="text/css" />
+    <link rel="stylesheet" href="css/lexis-fonts.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+class: middle, inverse
+
+.leftcol30[
+
+&lt;center&gt;
+&lt;img src="https://raw.githubusercontent.com/emse-eda-gwu/2022-Fall/master/images/logo.png" width=250&gt;
+&lt;/center&gt;
+
+]
+
+.rightcol70[
+
+# Week 2: .fancy[Tidy Data]
+
+### <svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:white;overflow:visible;position:relative;"><path d="M243.4 2.587C251.4-.8625 260.6-.8625 268.6 2.587L492.6 98.59C506.6 104.6 514.4 119.6 511.3 134.4C508.3 149.3 495.2 159.1 479.1 160V168C479.1 181.3 469.3 192 455.1 192H55.1C42.74 192 31.1 181.3 31.1 168V160C16.81 159.1 3.708 149.3 .6528 134.4C-2.402 119.6 5.429 104.6 19.39 98.59L243.4 2.587zM256 128C273.7 128 288 113.7 288 96C288 78.33 273.7 64 256 64C238.3 64 224 78.33 224 96C224 113.7 238.3 128 256 128zM127.1 416H167.1V224H231.1V416H280V224H344V416H384V224H448V420.3C448.6 420.6 449.2 420.1 449.8 421.4L497.8 453.4C509.5 461.2 514.7 475.8 510.6 489.3C506.5 502.8 494.1 512 480 512H31.1C17.9 512 5.458 502.8 1.372 489.3C-2.715 475.8 2.515 461.2 14.25 453.4L62.25 421.4C62.82 420.1 63.41 420.6 63.1 420.3V224H127.1V416z"/></svg> EMSE 4575: Exploratory Data Analysis
+### <svg aria-hidden="true" role="img" viewBox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:white;overflow:visible;position:relative;"><path d="M224 256c70.7 0 128-57.31 128-128s-57.3-128-128-128C153.3 0 96 57.31 96 128S153.3 256 224 256zM274.7 304H173.3C77.61 304 0 381.6 0 477.3c0 19.14 15.52 34.67 34.66 34.67h378.7C432.5 512 448 496.5 448 477.3C448 381.6 370.4 304 274.7 304z"/></svg> John Paul Helveston
+### <svg aria-hidden="true" role="img" viewBox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:white;overflow:visible;position:relative;"><path d="M96 32C96 14.33 110.3 0 128 0C145.7 0 160 14.33 160 32V64H288V32C288 14.33 302.3 0 320 0C337.7 0 352 14.33 352 32V64H400C426.5 64 448 85.49 448 112V160H0V112C0 85.49 21.49 64 48 64H96V32zM448 464C448 490.5 426.5 512 400 512H48C21.49 512 0 490.5 0 464V192H448V464z"/></svg> September 07, 2022
+
+]
+
+---
+
+
+
+class: inverse, middle
+
+# Week 2: .fancy[Tidy Data]
+
+## 1. Tidy Data
+## 2. Tidy Data &amp; ggplot
+## 3. Data Provenance &amp; Curation
+## 4. Writing a Research Question
+
+---
+
+
+
+class: inverse, middle
+
+# Week 2: .fancy[Tidy Data]
+
+## 1. Tidy Data
+## 2. Tidy Data &amp; ggplot
+## 3. Data Provenance &amp; Curation
+## 4. Writing a Research Question
+
+---
+
+# .center[Names, Values, and Observations]
+
+- Variable **Name**: The name of something you can measure
+- Variable **Value**: One instance of a measured variable
+- **Observation**: A set of associated measurements across multiple variables
+
+--
+
+.code100[
+
+
+```r
+head(fed_spend_long)
+```
+
+```
+#&gt; # A tibble: 6 × 3
+#&gt;   department  year rd_budget_mil
+#&gt;   &lt;chr&gt;      &lt;dbl&gt;         &lt;dbl&gt;
+#&gt; 1 DOD         1976         35696
+#&gt; 2 NASA        1976         12513
+#&gt; 3 DOE         1976         10882
+#&gt; 4 HHS         1976          9226
+#&gt; 5 NIH         1976          8025
+#&gt; 6 NSF         1976          2372
+```
+
+]
+
+---
+
+# "Long" format data
+
+- Each **variable** has its own **column**
+- Each **observation** has its own **row**
+
+&lt;center&gt;
+&lt;img src="images/tidy-data.png" width = "1000"&gt;
+&lt;/center&gt;
+
+---
+
+.leftcol[
+
+# "Long" format data
+
+- Each **variable** has its own **column**
+- Each **observation** has its own **row**
+
+]
+
+.rightcol[
+
+
+```
+#&gt; # A tibble: 6 × 3
+#&gt;   department  year rd_budget_mil
+#&gt;   &lt;chr&gt;      &lt;dbl&gt;         &lt;dbl&gt;
+#&gt; 1 DOD         1976         35696
+#&gt; 2 NASA        1976         12513
+#&gt; 3 DOE         1976         10882
+#&gt; 4 HHS         1976          9226
+#&gt; 5 NIH         1976          8025
+#&gt; 6 NSF         1976          2372
+```
+
+]
+
+&lt;center&gt;
+&lt;img src="images/tidy-data.png" width = "1000"&gt;
+&lt;/center&gt;
+
+---
+
+.leftcol40[.code70[
+
+# "Long" format
+
+
+```
+#&gt; # A tibble: 6 × 3
+#&gt;   department  year rd_budget_mil
+#&gt;   &lt;chr&gt;      &lt;dbl&gt;         &lt;dbl&gt;
+#&gt; 1 DOD         1976         35696
+#&gt; 2 NASA        1976         12513
+#&gt; 3 DOE         1976         10882
+#&gt; 4 HHS         1976          9226
+#&gt; 5 NIH         1976          8025
+#&gt; 6 NSF         1976          2372
+```
+
+]]
+
+.rightcol60[.code70[
+
+# "Wide" format
+
+
+```
+#&gt; # A tibble: 6 × 8
+#&gt;    year   DHS   DOC   DOD   DOE   DOT   EPA   HHS
+#&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+#&gt; 1  1976     0   819 35696 10882  1142   968  9226
+#&gt; 2  1977     0   837 37967 13741  1095   966  9507
+#&gt; 3  1978     0   871 37022 15663  1156  1175 10533
+#&gt; 4  1979     0   952 37174 15612  1004  1102 10127
+#&gt; 5  1980     0   945 37005 15226  1048   903 10045
+#&gt; 6  1981     0   829 41737 14798   978   901  9644
+```
+
+]]
+
+---
+
+.center[.font130[**"Long" format: variable names describe the values below them**]]
+
+.leftcol40[.code70[
+
+## "Long" format
+
+
+```
+#&gt; # A tibble: 6 × 3
+#&gt;   department  year rd_budget_mil
+#&gt;   &lt;chr&gt;      &lt;dbl&gt;         &lt;dbl&gt;
+#&gt; 1 DOD         1976         35696
+#&gt; 2 NASA        1976         12513
+#&gt; 3 DOE         1976         10882
+#&gt; 4 HHS         1976          9226
+#&gt; 5 NIH         1976          8025
+#&gt; 6 NSF         1976          2372
+```
+
+]]
+
+.rightcol60[.code70[
+
+## "Wide" format
+
+
+```
+#&gt; # A tibble: 6 × 8
+#&gt;    year   DHS   DOC   DOD   DOE   DOT   EPA   HHS
+#&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+#&gt; 1  1976     0   819 35696 10882  1142   968  9226
+#&gt; 2  1977     0   837 37967 13741  1095   966  9507
+#&gt; 3  1978     0   871 37022 15663  1156  1175 10533
+#&gt; 4  1979     0   952 37174 15612  1004  1102 10127
+#&gt; 5  1980     0   945 37005 15226  1048   903 10045
+#&gt; 6  1981     0   829 41737 14798   978   901  9644
+```
+
+]]
+
+---
+
+# **Quick practice 1**: "long" or "wide" format? 
+
+**Description**: Tuberculosis cases in various countries
+
+.code100[
+
+```
+#&gt; # A tibble: 6 × 4
+#&gt;   country      year  cases population
+#&gt;   &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;
+#&gt; 1 Afghanistan  1999    745   19987071
+#&gt; 2 Afghanistan  2000   2666   20595360
+#&gt; 3 Brazil       1999  37737  172006362
+#&gt; 4 Brazil       2000  80488  174504898
+#&gt; 5 China        1999 212258 1272915272
+#&gt; 6 China        2000 213766 1280428583
+```
+]
+
+---
+
+# **Quick practice 2**: "long" or "wide" format? 
+
+**Description**: Word counts in LOTR trilogy
+
+.code90[
+
+```
+#&gt; # A tibble: 9 × 4
+#&gt;   Film                       Race   Female  Male
+#&gt;   &lt;chr&gt;                      &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt;
+#&gt; 1 The Fellowship Of The Ring Elf      1229   971
+#&gt; 2 The Fellowship Of The Ring Hobbit     14  3644
+#&gt; 3 The Fellowship Of The Ring Man         0  1995
+#&gt; 4 The Return Of The King     Elf       183   510
+#&gt; 5 The Return Of The King     Hobbit      2  2673
+#&gt; 6 The Return Of The King     Man       268  2459
+#&gt; 7 The Two Towers             Elf       331   513
+#&gt; 8 The Two Towers             Hobbit      0  2463
+#&gt; 9 The Two Towers             Man       401  3589
+```
+]
+
+---
+
+# **Quick practice 3**: "long" or "wide" format? 
+
+**Description**: Word counts in LOTR trilogy
+
+.code60[
+
+```
+#&gt; # A tibble: 18 × 4
+#&gt;    Film                       Race   Gender Word_Count
+#&gt;    &lt;chr&gt;                      &lt;chr&gt;  &lt;chr&gt;       &lt;dbl&gt;
+#&gt;  1 The Fellowship Of The Ring Elf    Female       1229
+#&gt;  2 The Fellowship Of The Ring Elf    Male          971
+#&gt;  3 The Fellowship Of The Ring Hobbit Female         14
+#&gt;  4 The Fellowship Of The Ring Hobbit Male         3644
+#&gt;  5 The Fellowship Of The Ring Man    Female          0
+#&gt;  6 The Fellowship Of The Ring Man    Male         1995
+#&gt;  7 The Return Of The King     Elf    Female        183
+#&gt;  8 The Return Of The King     Elf    Male          510
+#&gt;  9 The Return Of The King     Hobbit Female          2
+#&gt; 10 The Return Of The King     Hobbit Male         2673
+#&gt; 11 The Return Of The King     Man    Female        268
+#&gt; 12 The Return Of The King     Man    Male         2459
+#&gt; 13 The Two Towers             Elf    Female        331
+#&gt; 14 The Two Towers             Elf    Male          513
+#&gt; 15 The Two Towers             Hobbit Female          0
+#&gt; 16 The Two Towers             Hobbit Male         2463
+#&gt; 17 The Two Towers             Man    Female        401
+#&gt; 18 The Two Towers             Man    Male         3589
+```
+]
+---
+
+
+class: inverse, center, middle
+
+# Reshaping data with
+
+## `pivot_longer()` and `pivot_wider()`
+
+---
+
+## .center[From "long" to "wide" with `pivot_wider()`]
+
+&lt;center&gt;
+&lt;img src="images/tidy-spread.png" width=600&gt;
+&lt;/center&gt;
+
+---
+
+## .center[From "long" to "wide" with `pivot_wider()`]
+
+.leftcol45[
+
+
+```r
+head(fed_spend_long)
+```
+
+```
+#&gt; # A tibble: 6 × 3
+#&gt;   department  year rd_budget_mil
+#&gt;   &lt;chr&gt;      &lt;dbl&gt;         &lt;dbl&gt;
+#&gt; 1 DOD         1976         35696
+#&gt; 2 NASA        1976         12513
+#&gt; 3 DOE         1976         10882
+#&gt; 4 HHS         1976          9226
+#&gt; 5 NIH         1976          8025
+#&gt; 6 NSF         1976          2372
+```
+
+]
+
+.rightcol55[
+
+
+```r
+fed_spend_wide &lt;- fed_spend_long %&gt;%
+*   pivot_wider(
+*       names_from = department,
+*       values_from = rd_budget_mil)
+
+head(fed_spend_wide)
+```
+
+```
+#&gt; # A tibble: 6 × 7
+#&gt;    year   DHS   DOC   DOD   DOE   DOT   EPA
+#&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+#&gt; 1  1976     0   819 35696 10882  1142   968
+#&gt; 2  1977     0   837 37967 13741  1095   966
+#&gt; 3  1978     0   871 37022 15663  1156  1175
+#&gt; 4  1979     0   952 37174 15612  1004  1102
+#&gt; 5  1980     0   945 37005 15226  1048   903
+#&gt; 6  1981     0   829 41737 14798   978   901
+```
+
+]
+
+---
+
+## .center[From "wide" to "long" with `pivot_longer()`]
+
+&lt;center&gt;
+&lt;img src="images/tidy-gather.png" width=600&gt;
+&lt;/center&gt;
+
+---
+
+## .center[From "wide" to "long" with `pivot_longer()`]
+
+.leftcol45[
+
+
+```r
+names(fed_spend_wide)
+```
+
+```
+#&gt;  [1] "year"     "DHS"      "DOC"      "DOD"      "DOE"      "DOT"      "EPA"      "HHS"      "Interior" "NASA"     "NIH"      "NSF"      "Other"    "USDA"     "VA"
+```
+
+]
+
+.rightcol55[
+
+
+```r
+fed_spend_long &lt;- fed_spend_wide %&gt;%
+*   pivot_longer(
+*       cols = DHS:VA,
+*       names_to = "department",
+*       values_to = "rd_budget_mil")
+
+head(fed_spend_long)
+```
+
+```
+#&gt; # A tibble: 6 × 3
+#&gt;    year department rd_budget_mil
+#&gt;   &lt;dbl&gt; &lt;chr&gt;              &lt;dbl&gt;
+#&gt; 1  1976 DHS                    0
+#&gt; 2  1976 DOC                  819
+#&gt; 3  1976 DOD                35696
+#&gt; 4  1976 DOE                10882
+#&gt; 5  1976 DOT                 1142
+#&gt; 6  1976 EPA                  968
+```
+
+]
+
+---
+
+## Can also set `cols` by selecting which columns _not_ to use
+
+.leftcol45[
+
+
+```r
+names(fed_spend_wide)
+```
+
+```
+#&gt;  [1] "year"     "DHS"      "DOC"      "DOD"      "DOE"      "DOT"      "EPA"      "HHS"      "Interior" "NASA"     "NIH"      "NSF"      "Other"    "USDA"     "VA"
+```
+
+]
+
+.rightcol55[
+
+
+```r
+fed_spend_long &lt;- fed_spend_wide %&gt;%
+    pivot_longer(
+*       cols = -year,
+        names_to = "department",
+        values_to = "rd_budget_mil")
+
+head(fed_spend_long)
+```
+
+```
+#&gt; # A tibble: 6 × 3
+#&gt;    year department rd_budget_mil
+#&gt;   &lt;dbl&gt; &lt;chr&gt;              &lt;dbl&gt;
+#&gt; 1  1976 DHS                    0
+#&gt; 2  1976 DOC                  819
+#&gt; 3  1976 DOD                35696
+#&gt; 4  1976 DOE                10882
+#&gt; 5  1976 DOT                 1142
+#&gt; 6  1976 EPA                  968
+```
+
+]
+
+---
+
+class: inverse
+
+<div class="countdown" id="timer_00c12be5" data-warn-when="15" data-update-every="1" tabindex="0" style="top:0;right:0;font-size:2em;">
+<div class="countdown-controls"><button class="countdown-bump-down">&minus;</button><button class="countdown-bump-up">&plus;</button></div>
+<code class="countdown-time"><span class="countdown-digits minutes">15</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+# Your turn: Long &lt;--&gt; Wide
+
+Open the `practice.Rmd` file. 
+
+Under "In Class Question 1", write code to read in the following two files:
+
+- `pv_cells.csv`: Data on solar photovoltaic cell production by country
+- `milk_production.csv`: Data on milk production by state
+
+Now modify the format of each:
+
+- If the data are in "wide" format, convert it to "long" with `pivot_longer()`
+- If the data are in "long" format, convert it to "wide" with `pivot_wider()`
+
+---
+
+class: center, middle, inverse
+
+# Why do we need tidy data?
+
+(a quick explanation with cute graphics, by [Allison Horst](https://github.com/allisonhorst/stats-illustrations))
+
+---
+
+class: center
+background-image: url("images/horst_tidydata_1.jpg")
+background-size: contain
+
+---
+
+class: center
+background-image: url("images/horst_tidydata_2.jpg")
+background-size: contain
+
+---
+
+class: center
+background-image: url("images/horst_tidydata_3.jpg")
+background-size: contain
+
+---
+
+class: center
+background-image: url("images/horst_tidydata_4.jpg")
+background-size: contain
+
+---
+
+# Some tidy examples: data wrangling
+
+Compute the total R&amp;D spending by department in each year
+
+
+```r
+head(fed_spend_wide)
+```
+
+```
+#&gt; # A tibble: 6 × 15
+#&gt;    year   DHS   DOC   DOD   DOE   DOT   EPA   HHS Interior  NASA   NIH   NSF Other  USDA    VA
+#&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+#&gt; 1  1976     0   819 35696 10882  1142   968  9226     1152 12513  8025  2372  1191  1837   404
+#&gt; 2  1977     0   837 37967 13741  1095   966  9507     1082 12553  8214  2395  1280  1796   374
+#&gt; 3  1978     0   871 37022 15663  1156  1175 10533     1125 12516  8802  2446  1237  1962   356
+#&gt; 4  1979     0   952 37174 15612  1004  1102 10127     1176 13079  9243  2404  2321  2054   353
+#&gt; 5  1980     0   945 37005 15226  1048   903 10045     1082 13837  9093  2407  2468  1887   359
+#&gt; 6  1981     0   829 41737 14798   978   901  9644      990 13276  8580  2300  1925  1964   382
+```
+
+---
+
+# Some tidy examples: data wrangling
+
+Compute the total R&amp;D spending by department in each year
+
+Approach 1:
+
+
+```r
+fed_spend_wide %&gt;%
+  mutate(total = DHS + DOC + DOD + DOE + DOT + EPA + HHS + Interior + NASA + NIH + NSF + Other + USDA + VA) %&gt;%
+  select(year, total)
+```
+
+```
+#&gt; # A tibble: 42 × 2
+#&gt;     year  total
+#&gt;    &lt;dbl&gt;  &lt;dbl&gt;
+#&gt;  1  1976  86227
+#&gt;  2  1977  91807
+#&gt;  3  1978  94864
+#&gt;  4  1979  96601
+#&gt;  5  1980  96305
+#&gt;  6  1981  98304
+#&gt;  7  1982  95448
+#&gt;  8  1983  95010
+#&gt;  9  1984 105371
+#&gt; 10  1985 114818
+#&gt; # … with 32 more rows
+```
+
+---
+
+# Some tidy examples: data wrangling
+
+Compute the total R&amp;D spending by department in each year
+
+Approach 2: Reshape first
+
+
+```r
+fed_spend_wide %&gt;%
+    pivot_longer(
+*       cols = -year,
+        names_to = "department",
+        values_to = "rd_budget_mil") %&gt;% 
+    group_by(year) %&gt;% 
+    group_by(year) %&gt;%
+    summarise(total = sum(rd_budget_mil))
+```
+
+```
+#&gt; # A tibble: 42 × 2
+#&gt;     year  total
+#&gt;    &lt;dbl&gt;  &lt;dbl&gt;
+#&gt;  1  1976  86227
+#&gt;  2  1977  91807
+#&gt;  3  1978  94864
+#&gt;  4  1979  96601
+#&gt;  5  1980  96305
+#&gt;  6  1981  98304
+#&gt;  7  1982  95448
+#&gt;  8  1983  95010
+#&gt;  9  1984 105371
+#&gt; 10  1985 114818
+#&gt; # … with 32 more rows
+```
+
+```r
+fed_spend_wide %&gt;%
+  mutate(total = DHS + DOC + DOD + DOE + DOT + EPA + HHS + Interior + NASA + NIH + NSF + Other + USDA + VA) %&gt;%
+  select(year, total)
+```
+
+```
+#&gt; # A tibble: 42 × 2
+#&gt;     year  total
+#&gt;    &lt;dbl&gt;  &lt;dbl&gt;
+#&gt;  1  1976  86227
+#&gt;  2  1977  91807
+#&gt;  3  1978  94864
+#&gt;  4  1979  96601
+#&gt;  5  1980  96305
+#&gt;  6  1981  98304
+#&gt;  7  1982  95448
+#&gt;  8  1983  95010
+#&gt;  9  1984 105371
+#&gt; 10  1985 114818
+#&gt; # … with 32 more rows
+```
+
+---
+
+# Some tidy examples: plotting
+
+Make a bar chart of total R&amp;D spending by agency
+
+.leftcol45[
+
+
+```r
+head(fed_spend_long)
+```
+
+```
+#&gt; # A tibble: 6 × 3
+#&gt;    year department rd_budget_mil
+#&gt;   &lt;dbl&gt; &lt;chr&gt;              &lt;dbl&gt;
+#&gt; 1  1976 DHS                    0
+#&gt; 2  1976 DOC                  819
+#&gt; 3  1976 DOD                35696
+#&gt; 4  1976 DOE                10882
+#&gt; 5  1976 DOT                 1142
+#&gt; 6  1976 EPA                  968
+```
+
+]
+
+.rightcol55[
+
+
+```r
+ggplot(fed_spend_long) +
+* geom_col(aes(x = rd_budget_mil, y = reorder(department, rd_budget_mil)),
+           width = 0.7, alpha = 0.8) +
+  theme_bw(base_size = 15) +
+  labs(x = "R&amp;D Spending ($Millions)",
+       y = "Federal Agency")
+```
+
+&lt;img src="figs/fed-spend-bars-1.png" width="432" /&gt;
+
+]
+
+---
+
+class: inverse
+
+<div class="countdown" id="timer_10ed2f2c" data-warn-when="15" data-update-every="1" tabindex="0" style="top:0;right:0;font-size:2em;">
+<div class="countdown-controls"><button class="countdown-bump-down">&minus;</button><button class="countdown-bump-up">&plus;</button></div>
+<code class="countdown-time"><span class="countdown-digits minutes">20</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+# Your turn: Reshaping data for plotting
+
+
+
+
+---
+
+class: inverse, center
+
+# .fancy[Break]
+
+<div class="countdown" id="timer_2bc5c250" data-warn-when="30" data-update-every="1" tabindex="0" style="top:1;right:0;bottom:0;left:0;margin:5%;font-size:8em;">
+<div class="countdown-controls"><button class="countdown-bump-down">&minus;</button><button class="countdown-bump-up">&plus;</button></div>
+<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+---
+
+### Data provenance - It matters where you get your data
+
+--
+
+**Validity**:
+
+- Is this data trustworthy? Is it authentic?
+- Where did the data come from?
+- How has the data been changed / managed over time?
+- Is the data complete?
+
+--
+
+**Comprehension**:
+
+- Is this data accurate?
+- Can you explain your results?
+- Is this the _right_ data to answer your question?
+
+--
+
+**Reproducibility**: The data source is the start of the reproducibility chain.
+
+---
+
+## <svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M500.3 443.7l-119.7-119.7c27.22-40.41 40.65-90.9 33.46-144.7C401.8 87.79 326.8 13.32 235.2 1.723C99.01-15.51-15.51 99.01 1.724 235.2c11.6 91.64 86.08 166.7 177.6 178.9c53.8 7.189 104.3-6.236 144.7-33.46l119.7 119.7c15.62 15.62 40.95 15.62 56.57 0C515.9 484.7 515.9 459.3 500.3 443.7zM79.1 208c0-70.58 57.42-128 128-128s128 57.42 128 128c0 70.58-57.42 128-128 128S79.1 278.6 79.1 208z"/></svg> **Document your source like a museum curator**
+
+**Example**: View `README.md` file in the `data` folder
+
+--
+
+Whenever you download data, you should **at a minimum** record the following:
+
+  - The name of the file you are describing.
+  - The date you downloaded it.
+  - The original name of the downloaded file (in case you renamed it).
+  - The url to the site you downloaded it from.
+  - The source of the _original_ data (sometimes different from the site you downloaded it from).
+  - A short description of the data, maybe how they were collected (if available).
+  - A dictionary for the data (e.g. a simple markdown table describing each variable).
+
+---
+class: inverse
+
+<div class="countdown" id="timer_5125d87d" data-warn-when="30" data-update-every="1" tabindex="0" style="top:0;right:0;font-size:2em;">
+<div class="countdown-controls"><button class="countdown-bump-down">&minus;</button><button class="countdown-bump-up">&plus;</button></div>
+<code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+# Your turn
+
+Documentation in the "data/README.md" file is missing for the following data sets:
+
+- wildlife_impacts.csv: [source](https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-07-23) (Breakout Rooms 1 &amp; 2)
+- north_america_bear_killings.txt: [source](https://data.world/makeovermonday/2019w21) (Breakout Rooms 3 &amp; 4)
+- uspto_clean_energy_patents.xlsx: [source](https://www.nsf.gov/statistics/2018/nsb20181/report/sections/industry-technology-and-the-global-marketplace/global-trends-in-sustainable-energy-research-and-technologies) (Breakout Rooms 5 &amp; 6)
+
+Go to the above sites and add the following information to the "data/README.md" file:
+
+- The name of the downloaded file.
+- The web address to the site you downloaded the data from.
+- The source of the _original_ data (if different from the website).
+- A short description of the data and how they were collected.
+- A dictionary for the data (hint: the site might already have this!).
+
+
+
+
+
+
+
+
+
+
+---
+
+class: center, middle, inverse
+
+# Start thinking about research questions
+
+---
+
+# Writing a research question
+
+Follow [these guidelines](https://writingcenter.gmu.edu/guides/how-to-write-a-research-question) - your question should be:
+
+--
+
+- **Clear**: your audience can easily understand its purpose without additional explanation.
+
+--
+
+- **Focused**: it is narrow enough that it can be addressed thoroughly with the data available and within the limits of the final project report.
+
+--
+
+- **Concise**: it is expressed in the fewest possible words.
+
+--
+
+- **Complex**: it is not answerable with a simple "yes" or "no," but rather requires synthesis and analysis of data.
+
+--
+
+- **Arguable**: its potential answers are open to debate rather than accepted facts (do others care about it?)
+
+---
+
+# Writing a research question
+
+--
+
+**Bad question: Why are social networking sites harmful?**
+
+- Unclear: it does not specify _which_ social networking sites or state what harm is being caused; assumes that "harm" exists.
+
+--
+
+**Improved question: How are online users experiencing or addressing privacy issues on such social networking sites as Facebook and Twitter?**
+
+- Specifies the sites (Facebook and Twitter), type of harm (privacy issues), and who is harmed (online users).
+
+--
+
+**Other good examples**: See the [Example Projects Page](https://eda.seas.gwu.edu/2021-Spring/ref-example-analyses.html) page
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
