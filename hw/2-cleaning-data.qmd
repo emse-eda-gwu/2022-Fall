@@ -9,4 +9,34 @@ params:
 source(here::here("R", "settings.R"))
 ```
 
-Coming soon!
+```{r child = here::here("fragments", "hw.qmd")}
+```
+
+# 1. Get Organized
+
+Download and edit [this template](`r url_template`) when working through this assignment.
+
+# 2. Read & Practice
+
+Unzip the template folder (make sure you unzip it!), then open the .Rproj file to open RStudio. Open the `hw2.Rmd` file, take notes, and write some example code as you go through the following readings / exercises:
+
+## Readings
+
+- [Stat 545 chapter 15 on joining two tables](https://stat545.com/join-cheatsheet.html)
+- [Tips for Cleaning Messy Data in R](https://rfortherestofus.com/2019/12/how-to-clean-messy-data-in-r/)
+
+## Practice
+
+Check out Alison Hill's free course on DataCamp: [Working with Data in the Tidyverse](https://learn.datacamp.com/courses/working-with-data-in-the-tidyverse). The whole course is quite useful for learning some data cleaning skills. In particular, I suggest going through parts 2 ("Tame your data") and 4 ("Transform your data") to be best-prepared for dealing with messy real-world data.
+
+# 3. Reflect
+
+Reflect on what you've learned while going through these readings and exercises. Is there anything that jumped out at you? Anything you found particularly interesting or confusing? Write at least a paragraph in your `hw2.Rmd` file. Here are some suggestions:
+
+- Discuss some of the key insights or things you found interesting in the readings or recent class periods.
+- Write about the messiest data you've seen.
+- Connect the course content to your own work or project you're working on.
+
+# 4. Submit
+
+To submit this assignment, create a zip file of all the files in your R project folder for this assignment. Name the zip file ``r paste0('hw', params$number, '-netID.zip')``, replacing `netID` with your netID (e.g., ``r paste0('hw', params$number, '-jph.zip')``). Then copy that zip file into the "submissions" folder in your Box folder created for this class (the Box folder is named your GW netID).
