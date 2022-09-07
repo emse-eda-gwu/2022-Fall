@@ -24,7 +24,7 @@ rubric <- read_csv("rubric.csv") %>%
   select(-order)
 ```
 
-### Rubric: Final Project Proposal
+### Rubric: Mini Project 3
 #### EMSE 4572: Exploratory Data Analysis, Fall 2022
 #### `r sum(rubric$maxPoints)` Total Points
 
