@@ -2,9 +2,9 @@
 library(tidyverse)
 
 due <- get_schedule() %>%
-  mutate(final_due = format(final_due, format = "%b %d")) %>%
-  filter(final_n == params$number) %>%
-  pull(final_due)
+  mutate(mini_due = format(mini_due, format = "%b %d")) %>%
+  filter(mini_n == params$number) %>%
+  pull(mini_due)
 due <- paste0(due, " by 11:59pm")
 ```
 
