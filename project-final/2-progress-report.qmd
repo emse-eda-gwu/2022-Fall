@@ -4,10 +4,10 @@ toc: true
 toc-title: Table of contents
 toc-location: left
 params:
-  number: 1
-  weight: '7%'
+  number: 2
+  weight: '12%'
   purpose: 'purpose'
-  assessment: 'Your report will be assessed using [this rubric](rubrics/progress-report/rubric.html){target="_blank"}.'
+  assessment: 'Your report will be assessed using [this rubric](../rubrics/progress-report/rubric.html){target="_blank"}.'
 ---
 
 Coming soon!

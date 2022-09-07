@@ -5,7 +5,7 @@ toc-title: Table of contents
 toc-location: left
 params:
   number: 1
-  weight: '10%'
+  weight: '9%'
   purpose: 'purpose'
   assessment: 'Your proposal will be assessed using [this rubric](../rubrics/proposal/rubric.html){target="_blank"}.'
 ---
