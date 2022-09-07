@@ -25,7 +25,7 @@ rubric <- read_csv("rubric.csv") %>%
 ```
 
 ### Rubric: Final Project Presentation
-#### EMSE 4575: Exploratory Data Analysis, Spring 2021
+#### EMSE 4572: Exploratory Data Analysis, Fall 2022
 #### `r sum(rubric$maxPoints)` Total Points
 
 ```{r, echo=FALSE}
