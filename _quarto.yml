@@ -132,7 +132,7 @@ website:
         menu:
         - text: Schedule a call w/Prof. Helveston
           icon: person
-          href: help/https://jhelvy.appointlet.com/b/professor-helveston
+          href: https://jhelvy.appointlet.com/b/professor-helveston
         - text: Example Projects
           icon: file-earmark-medical
           href: help/example-projects.qmd
