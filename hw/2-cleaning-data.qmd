@@ -20,14 +20,9 @@ Download and edit [this template](`r url_template`) when working through this as
 
 Unzip the template folder (make sure you unzip it!), then open the .Rproj file to open RStudio. Open the `hw2.Rmd` file, take notes, and write some example code as you go through the following readings / exercises:
 
-## Readings
-
 - [Stat 545 chapter 15 on joining two tables](https://stat545.com/join-cheatsheet.html)
 - [Tips for Cleaning Messy Data in R](https://rfortherestofus.com/2019/12/how-to-clean-messy-data-in-r/)
-
-## Practice
-
-Check out Alison Hill's free course on DataCamp: [Working with Data in the Tidyverse](https://learn.datacamp.com/courses/working-with-data-in-the-tidyverse). The whole course is quite useful for learning some data cleaning skills. In particular, I suggest going through parts 2 ("Tame your data") and 4 ("Transform your data") to be best-prepared for dealing with messy real-world data.
+- Alison Hill has an excellent free course on DataCamp called [Working with Data in the Tidyverse](https://learn.datacamp.com/courses/working-with-data-in-the-tidyverse). Unfortunately, the course was archived, but you can read a webpage version of the entire course [here](https://rpubs.com/cliex159/864632). The whole course is quite useful for learning some data cleaning skills. In particular, I suggest going through parts 2 ("Tame your data") and 4 ("Transform your data") to be best-prepared for dealing with messy real-world data.
 
 # 3. Reflect
 
