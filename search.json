@@ -210,18 +210,11 @@
     "text": "Coming soon!"
   },
   {
-    "objectID": "hw/2-cleaning-data.html#readings",
-    "href": "hw/2-cleaning-data.html#readings",
+    "objectID": "hw/2-cleaning-data.html",
+    "href": "hw/2-cleaning-data.html",
     "title": "Cleaning Data",
-    "section": "Readings",
-    "text": "Readings\n\nStat 545 chapter 15 on joining two tables\nTips for Cleaning Messy Data in R"
-  },
-  {
-    "objectID": "hw/2-cleaning-data.html#practice",
-    "href": "hw/2-cleaning-data.html#practice",
-    "title": "Cleaning Data",
-    "section": "Practice",
-    "text": "Practice\nCheck out Alison Hill’s free course on DataCamp: Working with Data in the Tidyverse. The whole course is quite useful for learning some data cleaning skills. In particular, I suggest going through parts 2 (“Tame your data”) and 4 (“Transform your data”) to be best-prepared for dealing with messy real-world data."
+    "section": "",
+    "text": "Due: September 13 by 11:59pm\nWeight: This assignment is worth 1% of your final grade.\nPurpose: The purpose of this assignment is learn some techniques for dealing with messy data. Most of the time, the raw data you get is in the wrong format and variables are not properly coded, so you will need to “clean” the data before starting any analysis. Other times the data will be split into two or more data sets, and you will need to “join” them together into a single data frame.\nAssessment: This assignment is graded using a check system:\n\n✔+ (110%): Responses shows phenomenal thought and engagement with the course content. I will not assign these often.\n✔ (100%): Responses are thoughtful, well-written, and show engagement with the course content. This is the expected level of performance.\n✔− (50%): Responses are hastily composed, too short, and/or only cursorily engages with the course content. This grade signals that you need to improve next time. I will hopefully not assign these often.\n\nNotice that this is essentially a pass/fail system. I’m not grading your writing ability and I’m not counting the number of words you write - I’m looking for thoughtful engagement. One or two sentences is not enough. Write at least a paragraph and show me that you did the readings assigned.\n\n\n1. Get Organized\nDownload and edit this template when working through this assignment.\n\n\n2. Read & Practice\nUnzip the template folder (make sure you unzip it!), then open the .Rproj file to open RStudio. Open the hw2.Rmd file, take notes, and write some example code as you go through the following readings / exercises:\n\nStat 545 chapter 15 on joining two tables\nTips for Cleaning Messy Data in R\nAlison Hill has an excellent free course on DataCamp called Working with Data in the Tidyverse. Unfortunately, the course was archived, but you can read a webpage version of the entire course here. The whole course is quite useful for learning some data cleaning skills. In particular, I suggest going through parts 2 (“Tame your data”) and 4 (“Transform your data”) to be best-prepared for dealing with messy real-world data.\n\n\n\n3. Reflect\nReflect on what you’ve learned while going through these readings and exercises. Is there anything that jumped out at you? Anything you found particularly interesting or confusing? Write at least a paragraph in your hw2.Rmd file. Here are some suggestions:\n\nDiscuss some of the key insights or things you found interesting in the readings or recent class periods.\nWrite about the messiest data you’ve seen.\nConnect the course content to your own work or project you’re working on.\n\n\n\n4. Submit\nTo submit this assignment, create a zip file of all the files in your R project folder for this assignment. Name the zip file hw2-netID.zip, replacing netID with your netID (e.g., hw2-jph.zip). Then copy that zip file into the “submissions” folder in your Box folder created for this class (the Box folder is named your GW netID)."
   },
   {
     "objectID": "hw/3-centrality-variability.html",
