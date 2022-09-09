@@ -1,0 +1,14 @@
+{
+  "hash": "eb16acb07f461dbf5be807bfe7f79386",
+  "result": {
+    "markdown": "---\ntitle: \"Cleaning Data\"\nparams:\n  number: 2\n  purpose: 'The purpose of this assignment is learn some techniques for dealing with messy data. Most of the time, the raw data you get is in the wrong format and variables are not properly coded, so you will need to \"clean\" the data before starting any analysis. Other times the data will be split into two or more data sets, and you will need to \"join\" them together into a single data frame.'\n---\n\n::: {.cell}\n\n:::\n\n\nComing soon!\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
