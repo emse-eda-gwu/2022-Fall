@@ -20,23 +20,23 @@ schedule <- get_schedule() %>%
     # Build links
     class = ifelse(
       is.na(class_stub), paste0("<b>", class_name, "</b>"),
-      paste0(
+        paste0(
           '<a href="class/', class_stub, '.html">',
           fa$class, '</a><b> ', class_name, "</b><br> ", class_description)),
     assignments = ifelse(is.na(assign_due), NA, 
-        paste0(
-        '<a href="hw/', assign_n, "-", assign_stub, '.html">',
-        fa$assignment, '</a><b> ', assign_name, "</b><br>Due: ", assign_due)),
+      paste0(
+        '<a href="hw/', assign_stub, '.html">',
+        fa$assignment, '</a><b> ', assign_name, "</b><br>Due: ", assign_due_md)),
     mini = ifelse(
       is.na(mini_name), NA,
       paste0(
-          '<a href="project-mini/', mini_stub, '.html">',
-        fa$project, '</a><b> ', mini_name, "</b><br>Due: ", mini_due)),
+        '<a href="project-mini/', mini_stub, '.html">',
+        fa$project, '</a><b> ', mini_name, "</b><br>Due: ", mini_due_md)),
     final = ifelse(
       is.na(final_name), NA,
       paste0(
-          '<a href="project-final/', final_stub, '.html">',
-        fa$project, '</a><b> ', final_name, "</b><br>Due: ", final_due))
+        '<a href="project-final/', final_stub, '.html">',
+        fa$project, '</a><b> ', final_name, "</b><br>Due: ", final_due_md))
   )
 
 # Set highlighting based on current week

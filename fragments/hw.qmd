@@ -3,11 +3,9 @@ library(tidyverse)
 library(fontawesome)
 
 due <- get_schedule() %>%
-  mutate(
-    assign_due = lead(date, 1) - 1,
-    assign_due = format(assign_due, format = "%B %d")) %>% 
-  filter(class_n == params$number) %>%
-  pull(assign_due) %>% 
+  mutate(assign_due = lead(date, 1) - 1) %>%
+  filter(assign_n == params$number) %>%
+  pull(assign_due_md) %>%
   paste0(" by 11:59pm")
 
 url_template <- paste0(

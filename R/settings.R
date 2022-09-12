@@ -28,6 +28,7 @@ clean_schedule_name <- function(x) {
 }
 
 # Load custom functions
+
 get_schedule <- function() {
     
     # Get raw schedule
@@ -43,7 +44,10 @@ get_schedule <- function() {
     # Weekly assignment vars
     assignments <- df %>% 
         filter(!is.na(assign_name)) %>% 
-        mutate(assign_due = format(assign_due, format = "%b %d")) %>% 
+        mutate(
+            assign_due_md = format(assign_due, format = "%b %d"),
+            assign_stub = paste0(assign_n, "-", assign_stub)
+        ) %>% 
         select(week, starts_with("assign_"))
     
     # Mini project vars
@@ -51,7 +55,7 @@ get_schedule <- function() {
         filter(!is.na(mini_name)) %>% 
         mutate(
             mini_n = row_number(),
-            mini_due = format(as.Date(mini_due), format = "%b %d"),
+            mini_due_md = format(as.Date(mini_due), format = "%b %d"),
             mini_stub = paste0(mini_n, "-", mini_stub)
         ) %>% 
         select(week, starts_with("mini_"))
@@ -61,7 +65,7 @@ get_schedule <- function() {
         filter(!is.na(final_name)) %>% 
         mutate(
             final_n = row_number(),
-            final_due = format(as.Date(final_due), format = "%b %d"),
+            final_due_md = format(as.Date(final_due), format = "%b %d"),
             final_stub = paste0(final_n, "-", final_stub)
         ) %>% 
         select(week, starts_with("final_"))
@@ -89,4 +93,28 @@ get_schedule <- function() {
     
     return(schedule)
     
+}
+
+get_due_dates <- function() {
+    schedule <- get_schedule()
+    assign <- schedule %>%
+        select(starts_with("assign")) %>%
+        filter(!is.na(assign_n)) %>% 
+        mutate(type = 'hw') %>% 
+        select(type, assign_n, assign_name, assign_stub, assign_due)
+    mini <- schedule %>%
+        select(starts_with("mini")) %>%
+        filter(!is.na(mini_n)) %>% 
+        mutate(type = 'project-mini') %>% 
+        select(type, mini_n, mini_name, mini_stub, mini_due)
+    final <- schedule %>%
+        select(starts_with("final")) %>%
+        filter(!is.na(final_n)) %>% 
+        mutate(type = 'project-final') %>% 
+        select(type, final_n, final_name, final_stub, final_due)
+    names(assign) <- c('type', 'n', 'name', 'stub', 'due')
+    names(mini) <- c('type', 'n', 'name', 'stub', 'due')
+    names(final) <- c('type', 'n', 'name', 'stub', 'due')
+    due <- rbind(assign, mini, final)
+    return(due)
 }
