@@ -156,6 +156,7 @@ glimpse(hot_dogs)
 ```
 
 **Approach 2**: To avoid creating `NA`s with the "dogs_eaten" variables, you can skip using the `col_types` argument and just convert the variable types later using `mutate()`.
+
 ```{r}
 hot_dogs <- read_excel(
     here::here('data', 'hot_dog_winners.xlsx')) %>%
