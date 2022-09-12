@@ -192,46 +192,6 @@ class: middle, inverse
 
 ---
 
-# .center[Waffles and Animations]
-
---
-
-.leftcol[
-### .center[[Waffles](https://github.com/hrbrmstr/waffle)]
-
-The bug:
-```{r, eval=FALSE}
-install.packages("waffle")
-```
-
-The fix:
-```{r, eval=FALSE}
-install.packages("waffle",
-  repos = "https://cinc.rud.is") #<<
-```
-]
-
---
-
-.rightcol[
-### .center[[Animation](https://github.com/thomasp85/gganimate/issues/431)]
-
-The bug:
-```{r, eval=FALSE}
-animate(anim_plot)
-```
-
-The fix:
-```{r, eval=FALSE}
-install.packages('magick')
-
-animate(anim_plot,
-  renderer = magick_renderer()) #<<
-```
-]
-
----
-
 class: center, middle, inverse
 
 # .fancy[.blue[Tip of the week]]
@@ -247,15 +207,17 @@ class: center, middle, inverse
 ## Today's data
 
 "Clean" data
+
 ```{r, eval=FALSE}
 wildlife_impacts <- read_csv(here::here('data', 'wildlife_impacts.csv'))
-milk_production  <- read_csv(here::here('data', 'milk_production.csv'))
-msleep           <- read_csv(here::here('data', 'msleep.csv'))
+milk_production <- read_csv(here::here('data', 'milk_production.csv'))
+msleep <- read_csv(here::here('data', 'msleep.csv'))
 ```
 
 "Messy" data
+
 ```{r, eval=FALSE}
-wind     <- read_excel(here::here('data', 'US_State_Wind_Energy_Facts_2018.xlsx'))
+wind <- read_excel(here::here('data', 'US_State_Wind_Energy_Facts_2018.xlsx'))
 hot_dogs <- read_excel(here::here('data', 'hot_dog_winners.xlsx'))
 ```
 
@@ -284,13 +246,17 @@ install.packages('janitor')
 ---
 
 .leftcol[
+
 <center>
 <img src="images/join_fail.jpg" height=600>
 </center>
+
 ]
 
 .rightcol[
+
 ## .center[What's wrong with this map?]
+
 ]
 
 ---
@@ -298,6 +264,7 @@ install.packages('janitor')
 ### Likely culprit: Merging two columns
 
 .leftcol[
+
 ```{r, echo=FALSE}
 names <- data.frame(state_name = sort(state_abbs_50$state_name))
 abbs  <- data.frame(state_abb = sort(state_abbs_50$state_abb))
@@ -306,15 +273,18 @@ abbs  <- data.frame(state_abb = sort(state_abbs_50$state_abb))
 head(names)
 head(abbs)
 ```
+
 ]
 
 --
 
 .rightcol[
+
 ```{r}
 result <- bind_cols(names, abbs)
 head(result)
 ```
+
 ]
 
 ---
@@ -327,90 +297,110 @@ head(result)
 
 --
 
-&zwj;Example: `band_members` & `band_instruments`
+Example: `band_members` & `band_instruments`
 
 .leftcol[
+
 ```{r}
 band_members
 ```
+
 ]
 
 .rightcol[
+
 ```{r}
 band_instruments
 ```
+
 ]
 
 ---
 
 .leftcol[
+
 ## `inner_join()`
 
 ```{r}
 band_members %>%
     inner_join(band_instruments)
 ```
+
 ]
 
 .rightcol[
+
 <br>
 <center>
 <img src="images/inner_join.gif">
 </center>
+
 ]
 
 ---
 
 .leftcol[
+
 ## `full_join()`
 
 ```{r}
 band_members %>%
     full_join(band_instruments)
 ```
+
 ]
 
 .rightcol[
+
 <br>
 <center>
 <img src="images/full_join.gif">
 </center>
+
 ]
 
 ---
 
 .leftcol[
+
 ## `left_join()`
 
 ```{r}
 band_members %>%
     left_join(band_instruments)
 ```
+
 ]
 
 .rightcol[
+
 <br>
 <center>
 <img src="images/left_join.gif">
 </center>
+
 ]
 
 ---
 
 .leftcol[
+
 ## `right_join()`
 
 ```{r}
 band_members %>%
     right_join(band_instruments)
 ```
+
 ]
 
 .rightcol[
+
 <br>
 <center>
 <img src="images/right_join.gif">
 </center>
+
 ]
 
 ---
@@ -418,18 +408,22 @@ band_members %>%
 ## Specify the joining variable name
 
 .leftcol[
+
 ```{r, echo=TRUE, message=TRUE}
 band_members %>%
     left_join(band_instruments)
 ```
+
 ]
 
 .rightcol[
+
 ```{r, echo=TRUE, message=TRUE}
 band_members %>%
     left_join(band_instruments,
               by = 'name') #<<
 ```
+
 ]
 
 ---
@@ -439,22 +433,26 @@ band_members %>%
 If the names differ, use `by = c("left_name" = "joining_name")`
 
 .leftcol[
+
 ```{r}
 band_members
 ```
 ```{r}
 band_instruments2
 ```
+
 ]
 
 --
 
 .rightcol[
+
 ```{r}
 band_members %>%
     left_join(band_instruments2,
               by = c("name" = "artist")) #<<
 ```
+
 ]
 
 ---
@@ -464,33 +462,40 @@ band_members %>%
 Or just rename the joining variable in a pipe
 
 .leftcol[
+
 ```{r}
 band_members
 ```
 ```{r}
 band_instruments2
 ```
+
 ]
 
 .rightcol[
+
 ```{r}
 band_members %>%
     rename(artist = name) %>% #<<
     left_join(band_instruments2,
               by = "artist") #<<
 ```
+
 ]
 
 ---
+
 class: inverse
 
 ```{r, echo=FALSE}
-countdown(minutes = 15,
-          warn_when = 30,
-          update_every = 1,
-          top = 0,
-          right = 0,
-          font_size = '2em')
+countdown(
+    minutes      = 15,
+    warn_when    = 15,
+    update_every = 1,
+    top          = 0,
+    right        = 0,
+    font_size    = '2em'
+)
 ```
 
 ## Your turn
@@ -502,6 +507,7 @@ countdown(minutes = 15,
 Your result should look like this:
 
 .code70[
+
 ```{r, include=FALSE}
 state_data <- milk_production %>%
     left_join(state_abbs, by = c('state' = 'state_name')) %>%
@@ -511,11 +517,13 @@ state_data <- milk_production %>%
 ```{r}
 head(state_data)
 ```
+
 ]]]
 
 --
 
 .rightcol[.font80[
+
 2) Join the `state_data` data frame to the `wildlife_impacts` data frame, adding the variables `region` and `state_name`
 
 ```{r, include=FALSE}
@@ -523,13 +531,16 @@ wildlife_impacts2 <- state_data %>%
     right_join(wildlife_impacts, by = c('state_abb' = 'state')) %>%
     mutate(state_abb = ifelse(state_abb == 'N/A', NA, state_abb))
 ```
+
 .code50[
+
 ```{r, eval=FALSE}
 glimpse(wildlife_impacts)
 ```
 ```{r, echo=FALSE}
 glimpse(wildlife_impacts2)
 ```
+
 ]]]
 
 ---
@@ -547,24 +558,30 @@ glimpse(wildlife_impacts2)
 ---
 
 .leftcol35[
+
 ### `readxl::read_excel()`
 
 `col_types` must be a vector describing each column type
+
 ]
 
 .rightcol65[
+
 <br><br>
+
 ```{r}
 wind <- read_excel(here::here(
   'data', 'US_State_Wind_Energy_Facts_2018.xlsx'))
 
 glimpse(wind)
 ```
+
 ]
 
 ---
 
 .leftcol40[
+
 ### `readxl::read_excel()`
 
 `col_types` must be a vector describing each column type
@@ -572,6 +589,7 @@ glimpse(wind)
 <br>
 
 .font80[
+
 | How it is in Excel | How it will be in R | How to request in `col_types` |
 |:--------------------|:-----------------------|:--------------------|
 | *anything*          | *non-existent*         | `"skip"`            |
@@ -581,9 +599,11 @@ glimpse(wind)
 | datetime           | `POSIXct`               | `"date"`            |
 | text               | `character`             | `"text"`            |
 | *anything*         | `list`                  | `"list"`            |
+
 ]]
 
 .rightcol60[
+
 ```{r}
 columns <- c('numeric', 'text', rep('numeric', 5))
 columns
@@ -593,6 +613,7 @@ wind <- read_excel(here::here(
 
 glimpse(wind)
 ```
+
 ]
 
 ---
@@ -602,6 +623,7 @@ glimpse(wind)
 `col_types` describes individual variables by name using `cols()`
 
 .leftcol60[
+
 ```{r}
 milk <- read_csv(here::here(
   'data', 'milk_production.csv'),
@@ -609,6 +631,7 @@ milk <- read_csv(here::here(
 
 glimpse(milk)
 ```
+
 ]
 
 ---
@@ -628,6 +651,7 @@ glimpse(milk)
 ## Other option: Edit types **after** reading in the data
 
 .leftcol[
+
 ```{r}
 wind <- read_excel(here::here(
   'data', 'US_State_Wind_Energy_Facts_2018.xlsx')) %>%
@@ -639,9 +663,11 @@ wind <- read_excel(here::here(
 
 glimpse(wind)
 ```
+
 ]
 
 .rightcol[
+
 ```{r}
 milk <- read_csv(here::here(
   'data', 'milk_production.csv')) %>%
@@ -649,6 +675,7 @@ milk <- read_csv(here::here(
 
 glimpse(milk)
 ```
+
 ]
 
 ---
@@ -666,22 +693,26 @@ https://suzan.rbind.io/2018/01/dplyr-tutorial-1/
 ## Renaming made easy
 
 .leftcol35[.noborder[.center[
+
 `janitor::clean_names()`
 
 <center>
 <img src="images/janitor_logo.png" width=200>
 </center>
+
 ]]]
 
 --
 
 .rightcol65[
+
 ```{r}
 wind <- read_excel(here::here(
   'data', 'US_State_Wind_Energy_Facts_2018.xlsx'))
 
 glimpse(wind)
 ```
+
 ]
 
 ---
@@ -689,6 +720,7 @@ glimpse(wind)
 ## Renaming made easy
 
 .leftcol35[.noborder[.center[
+
 `janitor::clean_names()`
 
 <center>
@@ -698,6 +730,7 @@ glimpse(wind)
 ]]]
 
 .rightcol65[
+
 ```{r}
 library(janitor) #<<
 
@@ -707,6 +740,7 @@ wind <- read_excel(here::here(
 
 glimpse(wind)
 ```
+
 ]
 
 ---
@@ -714,6 +748,7 @@ glimpse(wind)
 ## Renaming made easy
 
 .leftcol35[.noborder[.center[
+
 `janitor::clean_names()`
 
 <center>
@@ -723,6 +758,7 @@ glimpse(wind)
 ]]]
 
 .rightcol65[
+
 ```{r}
 library(janitor) #<<
 
@@ -732,6 +768,7 @@ wind <- read_excel(here::here(
 
 glimpse(wind)
 ```
+
 ]
 
 ---
@@ -739,6 +776,7 @@ glimpse(wind)
 ## Renaming made easy
 
 .leftcol35[.noborder[.center[
+
 `janitor::clean_names()`
 
 <center>
@@ -748,6 +786,7 @@ glimpse(wind)
 ]]]
 
 .rightcol65[
+
 ```{r}
 library(janitor) #<<
 
@@ -757,6 +796,7 @@ wind <- read_excel(here::here(
 
 glimpse(wind)
 ```
+
 ]
 
 ---
@@ -766,10 +806,13 @@ glimpse(wind)
 --
 
 .leftcol60[.code70[
-&zwj;Example: data on sleeping patterns of different mammals
+
+Example: data on sleeping patterns of different mammals
+
 ```{r}
 glimpse(msleep)
 ```
+
 ]]
 
 ---
@@ -777,23 +820,29 @@ glimpse(msleep)
 ### `select()`: more powerful than you probably thought
 
 .leftcol55[.code70[
+
 Use `select()` to choose which columns to **keep**
+
 ```{r}
 msleep %>%
   select(name:order, sleep_total:sleep_cycle) %>% #<<
   glimpse()
 ```
+
 ]]
 
 --
 
 .rightcol45[.code70[
+
 Use `select()` to choose which columns to **drop**
+
 ```{r}
 msleep %>%
   select(-(name:order)) %>%
   glimpse()
 ```
+
 ]]
 
 ---
@@ -803,23 +852,29 @@ msleep %>%
 --
 
 .leftcol[.code70[
+
 Select columns that start with "sleep":
+
 ```{r}
 msleep %>%
   select(name, starts_with("sleep")) %>%
   glimpse()
 ```
+
 ]]
 
 --
 
 .rightcol[.code70[
+
 Select columns that contain "eep" and end with "wt":
+
 ```{r}
 msleep %>%
   select(contains("eep"), ends_with("wt")) %>%
   glimpse()
 ```
+
 ]]
 
 ---
@@ -827,23 +882,29 @@ msleep %>%
 ## Select columns based on their **data type**
 
 .leftcol[
+
 Select only numeric columns:
+
 ```{r}
 msleep %>%
     select_if(is.numeric) %>%
     glimpse()
 ```
+
 ]
 
 --
 
 .rightcol[
+
 Select only character columns:
+
 ```{r}
 msleep %>%
     select_if(is.character) %>%
     glimpse()
 ```
+
 ]
 
 ---
@@ -853,21 +914,25 @@ msleep %>%
 --
 
 .leftcol45[.code70[
+
 ```{r}
 msleep %>%
     select(everything()) %>%
     glimpse()
 ```
+
 ]]
 
 --
 
 .rightcol55[.code70[
+
 ```{r}
 msleep %>%
     select(conservation, awake, everything()) %>%
     glimpse()
 ```
+
 ]]
 
 ---
@@ -877,7 +942,9 @@ msleep %>%
 --
 
 .leftcol[.code70[
+
 Use `rename()` to just change the name
+
 ```{r}
 msleep %>%
   rename( #<<
@@ -885,12 +952,15 @@ msleep %>%
     extinction_threat = conservation) %>%
   glimpse()
 ```
+
 ]]
 
 --
 
 .rightcol[.code70[
+
 Use `select()` to change the name **and drop everything else**
+
 ```{r}
 msleep %>%
   select( #<<
@@ -898,6 +968,7 @@ msleep %>%
     extinction_threat = conservation) %>%
   glimpse()
 ```
+
 ]]
 
 ---
@@ -905,7 +976,9 @@ msleep %>%
 ## Use `select()` to **rename** variables
 
 .leftcol[.code70[
+
 Use `rename()` to just change the name
+
 ```{r}
 msleep %>%
   rename( #<<
@@ -913,10 +986,13 @@ msleep %>%
     extinction_threat = conservation) %>%
   glimpse()
 ```
+
 ]]
 
 .rightcol[.code70[
+
 Use `select()` + `everything()` to change names **and keep everything else**
+
 ```{r}
 msleep %>%
   select( #<<
@@ -925,6 +1001,7 @@ msleep %>%
     everything()) %>% #<<
   glimpse()
 ```
+
 ]]
 
 ---
@@ -932,15 +1009,18 @@ msleep %>%
 class: inverse
 
 ```{r, echo=FALSE}
-countdown(minutes = 15,
-          warn_when = 30,
-          update_every = 1,
-          bottom = 0,
-          left = 8,
-          font_size = '2em')
+countdown(
+    minutes      = 15,
+    warn_when    = 15,
+    update_every = 1,
+    top          = 0,
+    right        = 0,
+    font_size    = '2em'
+)
 ```
 
 .leftcol40[
+
 ## Your turn
 
 Read in the `hot_dog_winners.xlsx` file and adjust the variable names and types to the following:
@@ -964,12 +1044,15 @@ hot_dogs <- read_excel(
 
 glimpse(hot_dogs)
 ```
+
 ]
 
 .rightcol60[
+
 <center>
 <img src="images/hot_dogs.png" width=500>
 </center>
+
 ]
 
 ---
@@ -979,24 +1062,26 @@ class: inverse
 # Quiz 3
 
 ```{r, echo=FALSE}
-countdown(minutes = 10,
-          warn_when = 30,
-          update_every = 1,
-          bottom = 0,
-          left = 0,
-          font_size = '4em')
+countdown(
+    minutes = 10,
+    warn_when = 30,
+    update_every = 1,
+    bottom = 0,
+    left = 0,
+    font_size = '4em'
+)
 ```
 
 .leftcol[
 
-### Link is on the [schedule](https://eda.seas.gwu.edu/2022-Fall/schedule.html)
+### Link is in the #class channel
 
 ]
 
 .rightcol[
 
 <center>
-<img src="images/quiz_doge.png" width="400">
+<img src="https://github.com/emse-p4a-gwu/2022-Spring/raw/main/images/quiz_doge.png" width="400">
 </center>
 
 ]
@@ -1011,10 +1096,13 @@ countdown(minutes = 10,
 # Recoding with `ifelse()`
 
 .leftcol35[
+
 Example: Create a variable, `cost_high`, that is `TRUE` if the repair costs were greater than the median costs and `FALSE` otherwise.
+
 ]
 
 .rightcol65[.code70[
+
 ```{r}
 wildlife_impacts1 <- wildlife_impacts %>%
   rename(cost = cost_repairs_infl_adj) %>%
@@ -1027,6 +1115,7 @@ wildlife_impacts1 %>%
   select(cost, cost_median, cost_high) %>%
   head()
 ```
+
 ]]
 
 ---
@@ -1034,10 +1123,13 @@ wildlife_impacts1 %>%
 ## Recoding with **nested** `ifelse()`
 
 .leftcol35[
+
 Create a variable, `season`, based on the `incident_month` variable.
+
 ]
 
 .rightcol65[.code70[
+
 ```{r}
 wildlife_impacts2 <- wildlife_impacts %>%
   mutate(season = ifelse( #<<
@@ -1050,6 +1142,7 @@ wildlife_impacts2 %>%
   distinct(incident_month, season) %>%
   head()
 ```
+
 ]]
 
 ---
@@ -1057,12 +1150,15 @@ wildlife_impacts2 %>%
 ## Recoding with `case_when()`
 
 .leftcol35[
+
 Create a variable, `season`, based on the `incident_month` variable.
 
 **Note**: If you don't include the final `TRUE ~ 'winter'` condition, you'll get `NA` for those cases.
+
 ]
 
 .rightcol65[.code70[
+
 ```{r}
 wildlife_impacts2 <- wildlife_impacts %>%
   mutate(season = case_when( #<<
@@ -1076,6 +1172,7 @@ wildlife_impacts2 %>%
   distinct(incident_month, season) %>%
   head()
 ```
+
 ]]
 
 ---
@@ -1083,10 +1180,13 @@ wildlife_impacts2 %>%
 ## Recoding with `case_when()` with `between()`
 
 .leftcol35[
+
 Create a variable, `season`, based on the `incident_month` variable.
+
 ]
 
 .rightcol65[.code70[
+
 ```{r}
 wildlife_impacts2 <- wildlife_impacts %>%
   mutate(season = case_when(
@@ -1100,6 +1200,7 @@ wildlife_impacts2 %>%
     distinct(incident_month, season) %>%
     head()
 ```
+
 ]]
 
 ---
@@ -1111,7 +1212,9 @@ wildlife_impacts2 %>%
 Convert the `num_engs` variable into a word of the number.
 
 .leftcol55[.code70[
+
 `ifelse()`
+
 ```{r}
 wildlife_impacts3 <- wildlife_impacts %>%
   mutate(num_engs = ifelse(
@@ -1124,11 +1227,13 @@ wildlife_impacts3 <- wildlife_impacts %>%
 
 unique(wildlife_impacts3$num_engs)
 ```
+
 ]]
 
 --
 
 .rightcol45[.code70[
+
 `case_when()`
 
 ```{r}
@@ -1142,6 +1247,7 @@ wildlife_impacts3 <- wildlife_impacts %>%
 
 unique(wildlife_impacts3$num_engs)
 ```
+
 ]]
 
 ---
@@ -1149,18 +1255,22 @@ unique(wildlife_impacts3$num_engs)
 ## Break a single variable into two with `separate()`
 
 .leftcol40[
+
 ```{r}
 tb_rates
 ```
+
 ]
 
 --
 
 .rightcol60[
+
 ```{r}
 tb_rates %>%
   separate(rate, into = c("cases", "population")) #<<
 ```
+
 ]
 
 ---
@@ -1168,17 +1278,21 @@ tb_rates %>%
 ## Break a single variable into two with `separate()`
 
 .leftcol40[
+
 ```{r}
 tb_rates
 ```
+
 ]
 
 .rightcol60[
+
 ```{r}
 tb_rates %>%
   separate(rate, into = c("cases", "population"),
            sep = "/") #<<
 ```
+
 ]
 
 ---
@@ -1186,18 +1300,22 @@ tb_rates %>%
 ## Break a single variable into two with `separate()`
 
 .leftcol40[
+
 ```{r}
 tb_rates
 ```
+
 ]
 
 .rightcol60[
+
 ```{r}
 tb_rates %>%
   separate(rate, into = c("cases", "population"),
            sep = "/", 
            convert = TRUE) #<<
 ```
+
 ]
 
 ---
@@ -1205,17 +1323,21 @@ tb_rates %>%
 ## You can also break up a variable by an index
 
 .leftcol40[
+
 ```{r}
 tb_rates
 ```
+
 ]
 
 .rightcol60[
+
 ```{r}
 tb_rates %>%
   separate(year, into = c("century", "year"), #<<
            sep = 2) #<<
 ```
+
 ]
 
 ---
@@ -1223,18 +1345,22 @@ tb_rates %>%
 ## `unite()`: The opposite of `separate()`
 
 .leftcol40[
+
 ```{r}
 tb_rates
 ```
+
 ]
 
 .rightcol60[
+
 ```{r}
 tb_rates %>%
   separate(year, into = c("century", "year"),
            sep = 2) %>%
   unite(year_new, century, year) #<<
 ```
+
 ]
 
 ---
@@ -1242,12 +1368,15 @@ tb_rates %>%
 ## `unite()`: The opposite of `separate()`
 
 .leftcol40[
+
 ```{r}
 tb_rates
 ```
+
 ]
 
 .rightcol60[
+
 ```{r}
 tb_rates %>%
   separate(year, into = c("century", "year"),
@@ -1255,6 +1384,7 @@ tb_rates %>%
   unite(year_new, century, year,
         sep = "") #<<
 ```
+
 ]
 
 ---
@@ -1263,6 +1393,7 @@ tb_rates %>%
 ```
 
 ---
+
 class: inverse, middle, center
 
 <center>
@@ -1276,7 +1407,9 @@ class: inverse, middle, center
 --
 
 .cols3[
+
 .center[Year-Month-Day]
+
 ```{r}
 ymd('2020-02-26')
 ```
@@ -1287,11 +1420,14 @@ ymd('2020-02-26')
 ### Create dates from strings - **order is the ONLY thing that matters!**
 
 .cols3[
+
 .center[Year-Month-Day]
+
 ```{r}
 ymd('2020-02-26')
 ymd('2020 Feb 26')
 ```
+
 ]
 
 ---
@@ -1299,38 +1435,48 @@ ymd('2020 Feb 26')
 ### Create dates from strings - **order is the ONLY thing that matters!**
 
 .cols3[
+
 .center[Year-Month-Day]
+
 ```{r}
 ymd('2020-02-26')
 ymd('2020 Feb 26')
 ymd('2020 Feb. 26')
 ymd('2020 february 26')
 ```
+
 ]
 
 --
 
 .cols3[
+
 .center[Month-Day-Year]
+
 ```{r}
 mdy('February 26, 2020')
 mdy('Feb. 26, 2020')
 mdy('Feb 26 2020')
 ```
+
 ]
 
 --
 
 .cols3[
+
 .center[Day-Month-Year]
+
 ```{r}
 dmy('26 February 2020')
 dmy('26 Feb. 2020')
 dmy('26 Feb, 2020')
 ```
+
 ]
 
 ---
+
 class: center, middle
 
 # Check out the `lubridate` **[cheat sheet](https://rawgit.com/rstudio/cheatsheets/master/lubridate.pdf)**
@@ -1340,19 +1486,23 @@ class: center, middle
 ## Extracting information from dates
 
 .code60[
+
 ```{r}
 date <- today()
 date
 ```
+
 ]
 
 --
 
 .leftcol[.code60[
+
 ```{r}
 # Get the year
 year(date)
 ```
+
 ]]
 
 ---
@@ -1360,13 +1510,16 @@ year(date)
 ## Extracting information from dates
 
 .code60[
+
 ```{r}
 date <- today()
 date
 ```
+
 ]
 
 .leftcol[.code60[
+
 ```{r}
 # Get the year
 year(date)
@@ -1377,6 +1530,7 @@ month(date)
 # Get the month name
 month(date, label = TRUE, abbr = FALSE)
 ```
+
 ]]
 
 --
@@ -1393,6 +1547,7 @@ wday(date)
 # Get the weekday name
 wday(date, label = TRUE, abbr = TRUE)
 ```
+
 ]]
 
 ---
@@ -1403,9 +1558,11 @@ class: inverse
 On what day of the week were you born?
 
 .leftcol60[
+
 ```{r}
 wday("2020-02-26", label = TRUE)
 ```
+
 ]
 
 ---
@@ -1439,6 +1596,7 @@ date
 ```
 
 ---
+
 class: inverse
 
 # Quick practice
@@ -1457,9 +1615,11 @@ date
 ```
 
 ---
+
 class: inverse
 
 .leftcol[.font80[
+
 ### Your turn
 
 1) Use `case_when()` to modify the `phase_of_flt` variable in the `wildlife_impacts` data:
@@ -1469,7 +1629,9 @@ class: inverse
 - All other values should be called `'other'`.
 
 Before:
+
 .code70[
+
 ```{r, eval=FALSE}
 unique(str_to_lower(wildlife_impacts$phase_of_flt))
 ```
@@ -1480,19 +1642,22 @@ After:
 ```{r, echo=FALSE}
 unique(str_to_lower(wildlife_impacts$phase_of_flt))
 ```
+
 ]]]
 
 --
 
 .rightcol[.font80[
+
 ```{r, echo=FALSE}
-countdown(minutes = 20,
-          warn_when = 30,
-          update_every = 15,
-          right = 0,
-          font_size = '1.5em',
-          style = "position: relative; width: min-content;
-                   display: block; margin-left: 300px;")
+countdown(
+    minutes = 20,
+    warn_when = 30,
+    update_every = 15,
+    right = 0,
+    font_size = '1.5em',
+    style = "position: relative; width: min-content;
+             display: block; margin-left: 300px;")
 ```
 
 2) Use the **lubridate** package to create a new variable, `weekday_name`, from the `incident_date` variable in the `wildlife_impacts` data.
@@ -1532,12 +1697,15 @@ Example: Winners of Nathan's hot dog eating contest
 
 #### 1. Divide & conquer
 #### 2. Gather, separate, spread
+
 ]
 
 .rightcol60[.center[
+
 <center>
 <img src="images/hot_dogs.png" width=500>
 </center>
+
 ]]
 
 ---
@@ -1545,14 +1713,17 @@ Example: Winners of Nathan's hot dog eating contest
 ## Strategy 1: divide & conquer
 
 .leftcol40[
+
 Steps:
 
 1. Read in the data
 2. Clean the names
 3. Remove `*` note at bottom of table
+
 ]
 
 .rightcol60[
+
 ```{r}
 hot_dogs <- read_excel(
     here::here('data', 'hot_dog_winners.xlsx'),
@@ -1562,6 +1733,7 @@ hot_dogs <- read_excel(
 
 glimpse(hot_dogs)
 ```
+
 ]
 
 ---
@@ -1569,6 +1741,7 @@ glimpse(hot_dogs)
 ## Strategy 1: divide & conquer
 
 .leftcol40[
+
 Steps
 
 1. Read in the data
@@ -1576,9 +1749,11 @@ Steps
 3. Remove `*` note at bottom of table
 4. **Split data into two competitions with the same variable names**
 5. **Create new variable in each data frame: `competition`**
+
 ]
 
 .rightcol60[
+
 ```{r}
 hot_dogs_m <- hot_dogs %>%
     select(
@@ -1597,6 +1772,7 @@ hot_dogs_w <- hot_dogs %>%
     mutate(competition = 'Womens') %>% #<<
     dplyr::filter(!is.na(competitor))
 ```
+
 ]
 
 ---
@@ -1604,6 +1780,7 @@ hot_dogs_w <- hot_dogs %>%
 ## Strategy 1: divide & conquer
 
 .leftcol40[
+
 Steps
 
 1. Read in the data
@@ -1613,9 +1790,11 @@ Steps
 5. Create new variable in each data frame: `competition`
 6. **Merge data together with `bind_rows()`**
 7. **Clean up final data frame**
+
 ]
 
 .rightcol60[
+
 ```{r}
 hot_dogs <- bind_rows(hot_dogs_m, hot_dogs_w) %>% #<<
     mutate(
@@ -1625,18 +1804,23 @@ hot_dogs <- bind_rows(hot_dogs_m, hot_dogs_w) %>% #<<
 
 glimpse(hot_dogs)
 ```
+
 ]
 
 ---
 
 .leftcol45[
+
 <img src="images/hot_dogs.png" width=500>
+
 ]
 
 .rightcol55[.code50[
+
 ```{r}
 head(hot_dogs)
 ```
+
 ]]
 
 ---
@@ -1644,14 +1828,17 @@ head(hot_dogs)
 ## Strategy 2: gather, separate, spread
 
 .leftcol40[
+
 Steps:
 
 1. Read in the data
 2. Clean the names
 3. Remove `*` note at bottom of table
+
 ]
 
 .rightcol60[
+
 ```{r}
 hot_dogs <- read_excel(
     here::here('data', 'hot_dog_winners.xlsx'),
@@ -1661,6 +1848,7 @@ hot_dogs <- read_excel(
 
 glimpse(hot_dogs)
 ```
+
 ]
 
 ---
@@ -1668,6 +1856,7 @@ glimpse(hot_dogs)
 ## Strategy 2: gather, separate, spread
 
 .leftcol40[
+
 Steps:
 
 1. Read in the data
@@ -1675,9 +1864,11 @@ Steps:
 3. Remove `*` note at bottom of table
 4. **Rename variables**
 5. **Gather all the "joint" variables**
+
 ]
 
 .rightcol60[
+
 ```{r}
 hot_dogs <- hot_dogs %>%
     select(
@@ -1693,6 +1884,7 @@ hot_dogs <- hot_dogs %>%
 
 head(hot_dogs, 3)
 ```
+
 ]
 
 ---
@@ -1700,6 +1892,7 @@ head(hot_dogs, 3)
 ## Strategy 2: gather, separate, spread
 
 .leftcol30[
+
 Steps:
 
 1. Read in the data
@@ -1708,9 +1901,11 @@ Steps:
 4. Rename variables
 5. Gather all the "joint" variables
 6. **Separate "joint" variables into components**
+
 ]
 
 .rightcol70[
+
 ```{r}
 hot_dogs <- hot_dogs %>%
     separate(variable, into = c('variable', 'competition'),  #<<
@@ -1718,6 +1913,7 @@ hot_dogs <- hot_dogs %>%
 
 head(hot_dogs)
 ```
+
 ]
 
 ---
@@ -1725,6 +1921,7 @@ head(hot_dogs)
 ## Strategy 2: gather, separate, spread
 
 .leftcol30[
+
 Steps:
 
 1. Read in the data
@@ -1735,9 +1932,11 @@ Steps:
 6. Separate "joint" variables into components
 7. **Spread variable and value back to columns**
 8. **Clean up final data frame**
+
 ]
 
 .rightcol70[
+
 ```{r}
 hot_dogs <- hot_dogs %>%
     spread(key = variable, value = value) %>% #<<
@@ -1748,12 +1947,15 @@ hot_dogs <- hot_dogs %>%
 
 glimpse(hot_dogs)
 ```
+
 ]
 
 ---
 
 .leftcol[.code60[
+
 Divide & conquer
+
 ```{r, eval=FALSE}
 hot_dogs <- read_excel(
     here::here('data', 'hot_dog_winners.xlsx'),
@@ -1785,10 +1987,13 @@ hot_dogs <- bind_rows(hot_dogs_m, hot_dogs_w) %>% #<<
         dogs_eaten = parse_number(dogs_eaten),
         year       = as.numeric(year))
 ```
+
 ]]
 
 .rightcol[.code60[
+
 Gather, separate, spread
+
 ```{r, eval=FALSE}
 hot_dogs <- read_excel(
     here::here('data', 'hot_dog_winners.xlsx'),
@@ -1819,11 +2024,13 @@ hot_dogs <- read_excel(
         dogs_eaten = parse_number(dogs_eaten),
         year       = as.numeric(year))
 ```
+
 ]]
 
 ---
 
 .leftcol30[
+
 ## Strategies for dealing with **sub-headers**
 
 <br>
@@ -1831,13 +2038,16 @@ hot_dogs <- read_excel(
 Example:
 
 OICA passenger car sales data
+
 ]
 
 .rightcol70[.center[
+
 <br>
 <center>
 <img src="images/pc_sales.png" width=800>
 </center>
+
 ]]
 
 ---
@@ -1845,13 +2055,16 @@ OICA passenger car sales data
 ## Strategies for dealing with sub-headers
 
 .leftcol40[
+
 Steps:
 
 1. Read in the data, skipping first 5 rows
 2. Clean the names
+
 ]
 
 .rightcol60[
+
 ```{r}
 pc_sales <- read_excel(
     here::here('data', 'pc_sales_2018.xlsx'),
@@ -1861,6 +2074,7 @@ pc_sales <- read_excel(
 
 glimpse(pc_sales)
 ```
+
 ]
 
 ---
@@ -1868,6 +2082,7 @@ glimpse(pc_sales)
 ## Strategies for dealing with sub-headers
 
 .leftcol30[
+
 Steps:
 
 1. Read in the data, skipping first 5 rows
@@ -1878,9 +2093,11 @@ Steps:
 <br>
 
 Use **datapasta** to get rows to drop
+
 ]
 
 .rightcol70[
+
 ```{r}
 drop <- c(
     'EUROPE', 'EU 28 countries + EFTA',
@@ -1896,6 +2113,7 @@ pc_sales <- pc_sales %>%
 
 head(pc_sales)
 ```
+
 ]
 
 ---
@@ -1903,6 +2121,7 @@ head(pc_sales)
 ## Strategies for dealing with sub-headers
 
 .leftcol30[
+
 Steps:
 
 1. Read in the data, skipping first 5 rows
@@ -1910,15 +2129,18 @@ Steps:
 3. Drop bad columns
 4. Filter out bad rows
 5. **Gather the year variables**
+
 ]
 
 .rightcol70[
+
 ```{r}
 pc_sales <- pc_sales %>%
     gather(key = 'year', value = 'num_cars', x2005:x2018) #<<
 
 head(pc_sales)
 ```
+
 ]
 
 ---
@@ -1926,6 +2148,7 @@ head(pc_sales)
 ## Strategies for dealing with sub-headers
 
 .leftcol30[
+
 Steps:
 
 1. Read in the data, skipping first 5 rows
@@ -1934,9 +2157,11 @@ Steps:
 4. Filter out bad rows
 5. Gather the year variables
 6. **Separate the "x" from the year**
+
 ]
 
 .rightcol70[
+
 ```{r}
 pc_sales <- pc_sales %>%
     separate(year, into = c('drop', 'year'), sep = 'x', #<<
@@ -1944,6 +2169,7 @@ pc_sales <- pc_sales %>%
 
 head(pc_sales)
 ```
+
 ]
 
 ---
@@ -1951,6 +2177,7 @@ head(pc_sales)
 ## Strategies for dealing with sub-headers
 
 .leftcol30[
+
 Steps:
 
 1. Read in the data, skipping first 5 rows
@@ -1961,9 +2188,11 @@ Steps:
 6. Separate the "x" from the year
 7. **Remove the `drop` column**
 8. **Finish cleaning**
+
 ]
 
 .rightcol70[
+
 ```{r}
 pc_sales <- pc_sales %>%
   select(-drop) %>%  #<<
@@ -1971,9 +2200,11 @@ pc_sales <- pc_sales %>%
 
 head(pc_sales)
 ```
+
 ]
 
 ---
+
 class: middle, center
 
 # What if I wanted to keep the continents?
@@ -1985,6 +2216,7 @@ class: middle, center
 ---
 
 .code70[
+
 ```{r}
 drop <- c(
   'EUROPE', 'EU 28 countries + EFTA',
@@ -2008,6 +2240,7 @@ pc_sales <- read_excel(
 
 head(pc_sales, 3)
 ```
+
 ]
 
 ---
@@ -2019,33 +2252,41 @@ head(pc_sales, 3)
 --
 
 .leftcol[
+
 ```{r}
 pc_regions <- read_csv(here::here(
   "data", "pc_regions.csv"))
 
 head(pc_regions)
 ```
+
 ]
 
 --
 
 .rightcol[
+
 ```{r}
 pc_sales <- pc_sales %>% 
   left_join(pc_regions) #<<
 
 head(pc_sales)
 ```
+
 ]
 
 ---
 
 .leftcol[
+
 <img src="images/pc_sales.png" width=800>
+
 ]
 
 .rightcol[
+
 .code50[
+
 ```{r}
 drop <- c(
   'EUROPE', 'EU 28 countries + EFTA',
@@ -2076,4 +2317,5 @@ pc_sales <- read_excel(
 
 head(pc_sales)
 ```
+
 ]]

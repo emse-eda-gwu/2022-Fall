@@ -1,8 +1,7 @@
 ---
 title: "Tidy Data"
-subtitle: "EMSE 4575: Exploratory Data Analysis"
+subtitle: "EMSE 4572: Exploratory Data Analysis"
 date: September 07, 2022
-week: 2
 output: html_document
 ---
 

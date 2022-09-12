@@ -60,7 +60,7 @@ Inside the `data` folder, there is a `README.md` file with some missing informat
 The main data file we'll be working with is the `pc_sales_2021.xlsx` file in the `data` folder. You can find this file online at [https://www.oica.net/category/sales-statistics/](https://www.oica.net/category/sales-statistics/). The link to the original data file can be found by right-clicking on the Excel icon on the right side of the page, like this:
 
 <center>
-<img src="oica-data-url.png" width=100%>
+<img src="images/oica-data-url.png" width=100%>
 </center>
 
 # 3. Preview the data
@@ -137,7 +137,7 @@ Some hints to perfectly replicate the figure:
 - The theme is `theme_minimal()`.
 
 <center>
-<img src="barplot.png" width=100%>
+<img src="images/barplot.png" width=100%>
 </center>
 
 ## 12. Knit your report

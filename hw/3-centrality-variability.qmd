@@ -9,4 +9,51 @@ params:
 source(here::here("R", "settings.R"))
 ```
 
-Coming soon!
+```{r child = here::here("fragments", "hw.qmd")}
+```
+
+# 1. Get Organized
+
+Download and edit [this template](`r url_template`) when working through this assignment.
+
+Then unzip the template folder (make sure you unzip it!), then open the .Rproj file to open RStudio. Open the `hw3.Rmd` file, take notes, and write some example code as you go through the following.
+
+# 2. Video on data types & descriptive statistics
+
+This week, we will learn some strategies for exploring data sets to gain a greater understanding of the variable types and their relationships. To get started, open up a notebook (physical, digital...whatever you take notes in best), and **take notes** while you go through the following readings and video:
+
+- [R4DS - 7: Exploratory data analysis](https://r4ds.had.co.nz/exploratory-data-analysis.html): Provides some more "hands on" strategies for exploring data using R and the **ggplot2** library.
+- [Wilke - 5: Directory of visualizations](https://serialmentor.com/dataviz/directory-of-visualizations.html): Provides a quick overview of many common plot types.
+- Watch [this 20 minute video](https://www.youtube.com/watch?v=zHcQPKP6NpM) to learn about some basic data types and descriptive statistics:
+
+<center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/zHcQPKP6NpM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+</center>
+
+# 3. Exercises
+
+Run through these practice exercises
+
+- Complete the following RStudio Primer lesson: [Exploratory Data Analysis](https://rstudio.cloud/learn/primers/3.1)
+- Complete [Lesson 3: Numerical Summaries](https://campus.datacamp.com/courses/exploratory-data-analysis/numerical-summaries?ex=1) from the DataCamp course "Exploratory Data Analysis in R".
+
+# 4. Choosing the right chart
+
+You will want to choose different chart types depending on the relationship or message you want to convey. Fortunately, there are lots of great guides to help you make those choices. View them [here](ref-visualizing-data.html#choosing-the-right-chart).
+
+# 5. Reflect
+
+Reflect on what you've learned while going through these readings and exercises. Is there anything that jumped out at you? Anything you found particularly interesting or confusing? Write at least a paragraph in your `hw3.Rmd` file. Here are some suggestions:
+
+- Discuss some of the key insights or things you found interesting in the readings or recent class periods.
+- Write about the messiest data you've seen.
+- Connect the course content to your own work or project you're working on.
+
+# 6. Submit
+
+To submit this assignment, create a zip file of all the files in your R project folder for this assignment. Name the zip file ``r paste0('hw', params$number, '-netID.zip')``, replacing `netID` with your netID (e.g., ``r paste0('hw', params$number, '-jph.zip')``). Then copy that zip file into the "submissions" folder in your Box folder created for this class (the Box folder is named your GW netID).
+
+---
+
+Page sources: This assignment is inspired by Andrew Heiss's [course](https://datavizm20.classes.andrewheiss.com/assignment/#reflections-1) on Data Visualization.
