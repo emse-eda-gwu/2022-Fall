@@ -20,6 +20,69 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -66,11 +129,11 @@ ul.task-list li input[type="checkbox"] {
 
 <link rel="stylesheet" href="../styles.css">
 <meta property="og:title" content="EMSE 4572 - Mini Project 1: Data Cleaning">
-<meta property="og:description" content="Coming soon!">
+<meta property="og:description" content="For this assignment, you’ll be cleaning up a data set from the International Organization of Motor Vehicle Manufacturers (OICA).">
 <meta property="og:site-name" content="https://eda.seas.gwu.edu/">
 <meta property="og:locale" content="es_ES">
 <meta name="twitter:title" content="EMSE 4572 - Mini Project 1: Data Cleaning">
-<meta name="twitter:description" content="Coming soon!">
+<meta name="twitter:description" content="For this assignment, you’ll be cleaning up a data set from the International Organization of Motor Vehicle Manufacturers (OICA).">
 <meta name="twitter:image" content="https://eda.seas.gwu.edu/2022-Fall/images/logo-square.png">
 <meta name="twitter:creator" content="@johnhelveston">
 <meta name="twitter:card" content="summary">
@@ -364,7 +427,28 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
-    
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#background" id="toc-background" class="nav-link active" data-scroll-target="#background">Background</a></li>
+  <li><a href="#get-organized" id="toc-get-organized" class="nav-link" data-scroll-target="#get-organized">1. Get organized</a></li>
+  <li><a href="#document-the-data" id="toc-document-the-data" class="nav-link" data-scroll-target="#document-the-data">2. Document the data</a></li>
+  <li><a href="#preview-the-data" id="toc-preview-the-data" class="nav-link" data-scroll-target="#preview-the-data">3. Preview the data</a></li>
+  <li><a href="#load-the-data" id="toc-load-the-data" class="nav-link" data-scroll-target="#load-the-data">4. Load the data</a></li>
+  <li><a href="#clean-the-names" id="toc-clean-the-names" class="nav-link" data-scroll-target="#clean-the-names">5. Clean the names</a></li>
+  <li><a href="#reshape-the-data" id="toc-reshape-the-data" class="nav-link" data-scroll-target="#reshape-the-data">6. Reshape the data</a></li>
+  <li><a href="#convert-year-to-a-number" id="toc-convert-year-to-a-number" class="nav-link" data-scroll-target="#convert-year-to-a-number">7. Convert <code>year</code> to a number</a></li>
+  <li><a href="#drop-rows-that-arent-countries" id="toc-drop-rows-that-arent-countries" class="nav-link" data-scroll-target="#drop-rows-that-arent-countries">8. Drop rows that aren’t countries</a></li>
+  <li><a href="#rearrange-the-rows" id="toc-rearrange-the-rows" class="nav-link" data-scroll-target="#rearrange-the-rows">9. Rearrange the rows</a></li>
+  <li><a href="#save-the-cleaned-file" id="toc-save-the-cleaned-file" class="nav-link" data-scroll-target="#save-the-cleaned-file">10. Save the cleaned file</a></li>
+  <li><a href="#bonus-make-a-summary-visualization-10" id="toc-bonus-make-a-summary-visualization-10" class="nav-link" data-scroll-target="#bonus-make-a-summary-visualization-10">BONUS: Make a summary visualization (+10%)</a>
+  <ul class="collapse">
+  <li><a href="#knit-your-report" id="toc-knit-your-report" class="nav-link" data-scroll-target="#knit-your-report">12. Knit your report</a></li>
+  </ul></li>
+  <li><a href="#submit" id="toc-submit" class="nav-link" data-scroll-target="#submit">13. Submit</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/emse-eda-gwu/2022-Fall/edit/main/project-mini/1-data-cleaning.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/emse-eda-gwu/2022-Fall/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
@@ -388,9 +472,133 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Coming soon!</p>
+<div class="cell" data-layout-align="center">
+
+</div>
+<blockquote class="blockquote">
+<p><strong>Due</strong>: Sep 27 by 11:59pm</p>
+<p><strong>Weight</strong>: This assignment is worth 8% of your final grade.</p>
+<p><strong>Purpose</strong>: When you start looking for data to address your project for this course, you will inevitably come across some rather messy data. Fear not! After completing this assignment, you will be well-prepared to tackle the messiness of real-world data! This assignment will put your data wrangling and cleaning skills to the test and will challenge you to become a master data janitor!</p>
+<p><strong>Assessment</strong>: Your project will be assessed using <a href="../rubrics/mini-1/rubric.html" target="_blank">this rubric</a>.</p>
+</blockquote>
+<section id="background" class="level1">
+<h1>Background</h1>
+<p>For this assignment, you’ll be cleaning up a data set from the <a href="https://www.oica.net/">International Organization of Motor Vehicle Manufacturers (OICA)</a>. Your job for this assignment is to clean up a relatively messy data file that contains sales of passenger cars by country in the years 2019, 2020, and 2021. Your final product should be a tidy (long format) data frame with three columns: <code>country</code>, <code>year</code>, and <code>sales</code>. It should look like this:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df )</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># A tibble: 6 x 3</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  country    year   sales</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="sc">&lt;</span>chr<span class="sc">&gt;</span>     <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>   <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> Argentina  <span class="dv">2019</span>  <span class="dv">333226</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> Australia  <span class="dv">2019</span>  <span class="dv">799263</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span> Austria    <span class="dv">2019</span>  <span class="dv">320381</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span> Belgium    <span class="dv">2019</span>  <span class="dv">550008</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span> Brazil     <span class="dv">2019</span> <span class="dv">2262073</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="dv">6</span> Bulgaria   <span class="dv">2019</span>   <span class="dv">35371</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>That’s the goal - in this assignment, we’ll walk through how to get there step-by-step.</p>
+</section>
+<section id="get-organized" class="level1">
+<h1>1. Get organized</h1>
+<p>Download and unzip <a href="../templates/mini1-template.zip">this template</a> for your project, then open the <code>report.Rproj</code> file.</p>
+<p>Once RStudio opens, click on the <code>report.Rmd</code> file. That is the primary file you will edit to conduct your analysis.</p>
+</section>
+<section id="document-the-data" class="level1">
+<h1>2. Document the data</h1>
+<p>Inside the <code>data</code> folder, there is a <code>README.md</code> file with some missing information. Click on that file and edit it to fill in the missing information. Here is some info that will help:</p>
+<p>The main data file we’ll be working with is the <code>pc_sales_2021.xlsx</code> file in the <code>data</code> folder. You can find this file online at <a href="https://www.oica.net/category/sales-statistics/">https://www.oica.net/category/sales-statistics/</a>. The link to the original data file can be found by right-clicking on the Excel icon on the right side of the page, like this:</p>
+<center>
+<img src="images/oica-data-url.png" width="100%">
+</center>
+</section>
+<section id="preview-the-data" class="level1">
+<h1>3. Preview the data</h1>
+<p>With messy Excel files, it is often helpful to first open and view them so you can learn about what might be needed to clean them up in R, such as how many lines you may need to skip at the top when reading in the data. To make sure Excel doesn’t corrupt your data, <strong>make a copy</strong> of the Excel file and open that copy with Microsoft Excel. You can keep that copy open throughout your data cleaning journey and can be confident that you haven’t corrupted the original file!</p>
+</section>
+<section id="load-the-data" class="level1">
+<h1>4. Load the data</h1>
+<p>Use the <code>read_excel()</code> function from the <code>readxl</code> package to read in the <code>pc_sales_2021.xlsx</code> data file. Make sure you use the <code>sheet</code> argument to specify which sheet to read in as well as the <code>skip</code> argument to specify how many lines to skip at the top of the file.</p>
+</section>
+<section id="clean-the-names" class="level1">
+<h1>5. Clean the names</h1>
+<p>When reading in a messy data file, one of the first things you’ll want to do is clean up the names. Follow these steps:</p>
+<ul>
+<li>Use the <code>clean_names()</code>function from the <code>janitor</code> package to clean all the names.</li>
+<li>Use the <code>rename()</code> function to change the name of the column that contains country names to <code>country</code>.</li>
+</ul>
+</section>
+<section id="reshape-the-data" class="level1">
+<h1>6. Reshape the data</h1>
+<p>The data are clearly in a “wide” format because the last three columns are labeled as years, but the values in those columns are sales. We’ll want to reshape that into just two columns: <code>year</code> &amp; <code>sales</code>. To do so, follow these steps:</p>
+<ul>
+<li>Use the <code>select()</code> function to keep only the columns with country names and sales numbers (some of the columns report percent growth - we want to drop those).</li>
+<li>Use the <code>pivot_longer()</code> function to reshape the data into a long format structure with the following names: <code>country</code>, <code>year</code>, and <code>sales</code>.</li>
+</ul>
+</section>
+<section id="convert-year-to-a-number" class="level1">
+<h1>7. Convert <code>year</code> to a number</h1>
+<p>Our data now have a tidy structure, but the values under the <code>year</code> column is a character with values like this in it: <code>q1_q4_2019</code>. We need to get rid of those pesky <code>q1_q4_</code> things and just keep the year value. Follow these steps:</p>
+<ul>
+<li>Use the <code>separate()</code> function with <code>sep = "_"</code> to split up the <code>year</code> variable into three columns. You can use the <code>into</code> argument to give the new columns new names, such as <code>c("drop1", "drop2", "year")</code>. This will convert <code>year</code> into three columns: one containing the <code>q1</code> value, another containing <code>q4</code>, and the last one containing the year values.</li>
+<li>Once you’ve got those columns split up, you can use the <code>select()</code> function to drop the columns containing the <code>q1</code> and <code>q4</code> values.</li>
+<li>Finally, use <code>mutate()</code> to convert the <code>year</code> column to a numeric type.</li>
+</ul>
+</section>
+<section id="drop-rows-that-arent-countries" class="level1">
+<h1>8. Drop rows that aren’t countries</h1>
+<p>This step is probably the messiest step. The <code>country</code> column contains a mix of countries and whole regions (e.g.&nbsp;<code>"EUROPE"</code>). We only want countries, so we need to use <code>filter()</code> to drop rows that contain regions. I’ve done you a favor by listing all of the regions in the data as a vector below - you can copy-paste it to use in filtering out these rows:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>regions <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"EUROPE"</span>,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"EU 27 countries + EFTA + UK"</span>,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"OTHER COUNTRIES"</span>,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"RUSSIA, TURKEY &amp; OTHER EUROPE"</span>,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"AMERICA"</span>,</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"NAFTA"</span>,</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"AFRICA"</span>,</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"CENTRAL &amp; SOUTH AMERICA"</span>,</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"ASIA/OCEANIA/MIDDLE EAST"</span>,</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"ASEAN"</span>,</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">"ALL COUNTRIES/REGIONS"</span>,</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">"OTHER COUNTRIES/REGIONS"</span>,</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">"TOTAL OICA MEMBERS"</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>When finished filtering out the regions, convert the <code>country</code> values from “upper” case to “title” case (e.g.&nbsp;<code>"FRANCE"</code> should become <code>"France"</code>).</p>
+</section>
+<section id="rearrange-the-rows" class="level1">
+<h1>9. Rearrange the rows</h1>
+<p>Use the <code>arrange()</code> function to sort the rows by year and country.</p>
+</section>
+<section id="save-the-cleaned-file" class="level1">
+<h1>10. Save the cleaned file</h1>
+<p>Save your cleaned data frame to your <code>data</code> folder as a CSV file. Name the file <code>my_clean_data.csv</code>.</p>
+</section>
+<section id="bonus-make-a-summary-visualization-10" class="level1">
+<h1>BONUS: Make a summary visualization (+10%)</h1>
+<p>Use your cleaned data to create the plot below. If your cleaned data is not properly formatted at this point to make the file, you can read in the <code>pc_sales_clean.csv</code> file and use it to make the plot.</p>
+<p>Some hints to perfectly replicate the figure:</p>
+<ul>
+<li>Consider using <code>ifelse()</code> to make a new variable for the bar color based on the <code>country</code> variable.</li>
+<li>You can use <code>fct_relevel()</code> to re-order the country factors (the order of how they are stacked).</li>
+<li>The fill colors are <code>'grey'</code>, <code>'red'</code>, and <code>'blue'</code>.</li>
+<li>The theme is <code>theme_minimal()</code>.</li>
+</ul>
+<center>
+<img src="images/barplot.png" width="100%">
+</center>
+<section id="knit-your-report" class="level2">
+<h2 class="anchored" data-anchor-id="knit-your-report">12. Knit your report</h2>
+<p>Click the “knit” button to compile your <code>.Rmd</code> file into a html web page. Then open the <code>report.html</code> file in a web browser and proofread your report. Does all of the formatting look correct?</p>
+</section>
+</section>
+<section id="submit" class="level1">
+<h1>13. Submit</h1>
+<p>To submit this assignment, create a zip file of all the files in your R project folder for this assignment. Name the zip file <code>mini1-netID.zip</code>, replacing <code>netID</code> with your netID (e.g., <code>mini1-jph.zip</code>). Then copy that zip file into the “submissions” folder in your Box folder created for this class (the Box folder is named your GW netID).</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
