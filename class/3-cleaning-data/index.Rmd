@@ -74,18 +74,10 @@ meta() %>%
     twitter_creator = "@johnhelveston"
   )
 
-# Setup class-specific paths
-class <- "9-cleaning-data"
-root <- paste0("https://eda.seas.gwu.edu/2022-Spring/class/", class, "/")
-path_slides <- file.path("class", class, "index.html")
-path_pdf <- paste0(root, class, ".pdf")
-path_notes <- paste0(root, class, ".zip")
-
 # Read in data
 wildlife_impacts <- read_csv(here::here('data', 'wildlife_impacts.csv'))
 milk_production  <- read_csv(here::here('data', 'milk_production.csv'))
-msleep           <- read_csv(here::here('data', 'msleep.csv'))
-tb_rates         <- table3
+tb_rates <- table3
 
 # Add new variables
 wildlife_impacts_orig <- wildlife_impacts
@@ -196,30 +188,6 @@ class: middle, inverse
 ### `r fontawesome::fa(name = "user", fill = "white")` `r rmarkdown::metadata$author`
 ### `r fontawesome::fa(name = "calendar", fill = "white")` `r rmarkdown::metadata$date`
 
-]
-
----
-class: inverse
-
-# Quiz 3
-
-```{r, echo=FALSE}
-countdown(minutes = 10,
-          warn_when = 30,
-          update_every = 1,
-          bottom = 0,
-          left = 0,
-          font_size = '4em')
-```
-
-.leftcol[
-### Link is on the [schedule](https://eda.seas.gwu.edu/2022-Fall/schedule.html)
-]
-
-.rightcol[
-<center>
-<img src="images/quiz_doge.png" width="400">
-</center>
 ]
 
 ---
@@ -1005,20 +973,33 @@ glimpse(hot_dogs)
 ]
 
 ---
-class: inverse, center
+
+class: inverse
+
+# Quiz 3
 
 ```{r, echo=FALSE}
-countdown(minutes = 5,
+countdown(minutes = 10,
           warn_when = 30,
           update_every = 1,
-          left = 0, right = 0, top = 1, bottom = 0,
-          margin = "5%",
-          font_size = "8em")
+          bottom = 0,
+          left = 0,
+          font_size = '4em')
 ```
 
-# Break!
+.leftcol[
 
-## Stand up, Move around, Stretch!
+### Link is on the [schedule](https://eda.seas.gwu.edu/2022-Fall/schedule.html)
+
+]
+
+.rightcol[
+
+<center>
+<img src="images/quiz_doge.png" width="400">
+</center>
+
+]
 
 ---
 
