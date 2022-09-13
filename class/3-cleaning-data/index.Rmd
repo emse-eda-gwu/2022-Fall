@@ -1059,7 +1059,7 @@ glimpse(hot_dogs)
 
 class: inverse
 
-# Quiz 3
+# Quiz 1
 
 ```{r, echo=FALSE}
 countdown(
