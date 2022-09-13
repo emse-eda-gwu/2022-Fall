@@ -125,9 +125,17 @@ Use the `arrange()` function to sort the rows by year and country.
 
 Save your cleaned data frame to your `data` folder as a CSV file. Name the file `my_clean_data.csv`.
 
+# 11. Knit your report
+
+Click the "knit" button to compile your `.Rmd` file into a html web page. Then open the `report.html` file in a web browser and proofread your report. Does all of the formatting look correct?
+
+# 12. Submit
+
+To submit this assignment, create a zip file of all the files in your R project folder for this assignment. Name the zip file `mini1-netID.zip`, replacing `netID` with your netID (e.g., `mini1-jph.zip`). Then copy that zip file into the "submissions" folder in your Box folder created for this class (the Box folder is named your GW netID).
+
 # BONUS: Make a summary visualization (+5%)
 
-Use your cleaned data to create the plot below. If your cleaned data is not properly formatted at this point to make the file, you can read in the `pc_sales_clean.csv` file and use it to make the plot.
+For a 5% bonus, add a code chunk at the bottom of your report to generate the plot below. If your cleaned data is not properly formatted, you can read in the `pc_sales_clean.csv` file and use it to make the plot.
 
 Some hints to perfectly replicate the figure:
 
@@ -139,11 +147,3 @@ Some hints to perfectly replicate the figure:
 <center>
 <img src="images/barplot.png" width=100%>
 </center>
-
-# 11. Knit your report
-
-Click the "knit" button to compile your `.Rmd` file into a html web page. Then open the `report.html` file in a web browser and proofread your report. Does all of the formatting look correct?
-
-# 12. Submit
-
-To submit this assignment, create a zip file of all the files in your R project folder for this assignment. Name the zip file `mini1-netID.zip`, replacing `netID` with your netID (e.g., `mini1-jph.zip`). Then copy that zip file into the "submissions" folder in your Box folder created for this class (the Box folder is named your GW netID).
