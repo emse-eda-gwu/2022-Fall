@@ -40,7 +40,7 @@ Run through these practice exercises
 
 # 4. Choosing the right chart
 
-You will want to choose different chart types depending on the relationship or message you want to convey. Fortunately, there are lots of great guides to help you make those choices. View them [here](ref-visualizing-data.html#choosing-the-right-chart).
+You will want to choose different chart types depending on the relationship or message you want to convey. Fortunately, there are lots of great guides to help you make those choices. View them [here](https://eda.seas.gwu.edu/2022-Fall/help/visualizing-data.html#choosing-the-right-chart).
 
 # 5. Reflect
 
