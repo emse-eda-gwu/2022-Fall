@@ -50,7 +50,11 @@ Reflect on what you've learned while going through these readings and exercises.
 - Write about the messiest data you've seen.
 - Connect the course content to your own work or project you're working on.
 
-# 6. Submit
+# 6. Knit
+
+Click the "knit" button to compile your `hw3.Rmd` file into a html web page. Then open the `hw3.html` file in a web browser and proofread your report. Does all of the formatting look correct?
+
+# 7. Submit
 
 To submit this assignment, create a zip file of all the files in your R project folder for this assignment. Name the zip file ``r paste0('hw', params$number, '-netID.zip')``, replacing `netID` with your netID (e.g., ``r paste0('hw', params$number, '-jph.zip')``). Then copy that zip file into the "submissions" folder in your Box folder created for this class (the Box folder is named your GW netID).
 
