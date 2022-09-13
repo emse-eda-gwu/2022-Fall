@@ -94,27 +94,3 @@ get_schedule <- function() {
     return(schedule)
     
 }
-
-get_due_dates <- function() {
-    schedule <- get_schedule()
-    assign <- schedule %>%
-        select(starts_with("assign")) %>%
-        filter(!is.na(assign_n)) %>% 
-        mutate(type = 'hw') %>% 
-        select(type, assign_n, assign_name, assign_stub, assign_due)
-    mini <- schedule %>%
-        select(starts_with("mini")) %>%
-        filter(!is.na(mini_n)) %>% 
-        mutate(type = 'project-mini') %>% 
-        select(type, mini_n, mini_name, mini_stub, mini_due)
-    final <- schedule %>%
-        select(starts_with("final")) %>%
-        filter(!is.na(final_n)) %>% 
-        mutate(type = 'project-final') %>% 
-        select(type, final_n, final_name, final_stub, final_due)
-    names(assign) <- c('type', 'n', 'name', 'stub', 'due')
-    names(mini) <- c('type', 'n', 'name', 'stub', 'due')
-    names(final) <- c('type', 'n', 'name', 'stub', 'due')
-    due <- rbind(assign, mini, final)
-    return(due)
-}
