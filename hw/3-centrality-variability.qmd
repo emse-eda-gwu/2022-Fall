@@ -16,7 +16,7 @@ source(here::here("R", "settings.R"))
 
 Download and edit [this template](`r url_template`) when working through this assignment.
 
-Then unzip the template folder (make sure you unzip it!), then open the .Rproj file to open RStudio. Open the `hw3.Rmd` file, take notes, and write some example code as you go through the following.
+Then unzip the template folder (make sure you unzip it!), then open the .Rproj file to open RStudio. Open the ``r paste0('hw', params$number, '.Rmd')`` file, take notes, and write some example code as you go through the following.
 
 # 2. Video on data types & descriptive statistics
 
@@ -44,7 +44,7 @@ You will want to choose different chart types depending on the relationship or m
 
 # 5. Reflect
 
-Reflect on what you've learned while going through these readings and exercises. Is there anything that jumped out at you? Anything you found particularly interesting or confusing? Write at least a paragraph in your `hw3.Rmd` file. Here are some suggestions:
+Reflect on what you've learned while going through these readings and exercises. Is there anything that jumped out at you? Anything you found particularly interesting or confusing? Write at least a paragraph in your ``r paste0('hw', params$number, '.Rmd')`` file. Here are some suggestions:
 
 - Discuss some of the key insights or things you found interesting in the readings or recent class periods.
 - Write about the messiest data you've seen.
@@ -52,7 +52,7 @@ Reflect on what you've learned while going through these readings and exercises.
 
 # 6. Knit
 
-Click the "knit" button to compile your `hw3.Rmd` file into a html web page. Then open the `hw3.html` file in a web browser and proofread your report. Does all of the formatting look correct?
+Click the "knit" button to compile your ``r paste0('hw', params$number, '.Rmd')`` file into a html web page. Then open the ``r paste0('hw', params$number, '.html')`` file in a web browser and proofread your report. Does all of the formatting look correct?
 
 # 7. Submit
 

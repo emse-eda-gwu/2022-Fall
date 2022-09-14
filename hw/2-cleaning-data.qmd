@@ -18,7 +18,7 @@ Download and edit [this template](`r url_template`) when working through this as
 
 # 2. Read & Practice
 
-Unzip the template folder (make sure you unzip it!), then open the .Rproj file to open RStudio. Open the `hw2.Rmd` file, take notes, and write some example code as you go through the following readings / exercises:
+Unzip the template folder (make sure you unzip it!), then open the .Rproj file to open RStudio. Open the ``r paste0('hw', params$number, '.Rmd')`` file, take notes, and write some example code as you go through the following readings / exercises:
 
 - [Stat 545 chapter 15 on joining two tables](https://stat545.com/join-cheatsheet.html)
 - [Tips for Cleaning Messy Data in R](https://rfortherestofus.com/2019/12/how-to-clean-messy-data-in-r/)
@@ -26,7 +26,7 @@ Unzip the template folder (make sure you unzip it!), then open the .Rproj file t
 
 # 3. Reflect
 
-Reflect on what you've learned while going through these readings and exercises. Is there anything that jumped out at you? Anything you found particularly interesting or confusing? Write at least a paragraph in your `hw2.Rmd` file. Here are some suggestions:
+Reflect on what you've learned while going through these readings and exercises. Is there anything that jumped out at you? Anything you found particularly interesting or confusing? Write at least a paragraph in your ``r paste0('hw', params$number, '.Rmd')`` file. Here are some suggestions:
 
 - Discuss some of the key insights or things you found interesting in the readings or recent class periods.
 - Write about the messiest data you've seen.
@@ -34,7 +34,7 @@ Reflect on what you've learned while going through these readings and exercises.
 
 # 4. Knit
 
-Click the "knit" button to compile your `hw2.Rmd` file into a html web page. Then open the `hw2.html` file in a web browser and proofread your report. Does all of the formatting look correct?
+Click the "knit" button to compile your ``r paste0('hw', params$number, '.Rmd')`` file into a html web page. Then open the ``r paste0('hw', params$number, '.html')`` file in a web browser and proofread your report. Does all of the formatting look correct?
 
 # 5. Submit
 

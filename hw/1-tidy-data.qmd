@@ -22,7 +22,7 @@ Download and edit [this template](`r url_template`) when working through this as
 
 # 3. Readings & Exercises
 
-Unzip the template folder (make sure you unzip it!), then open the .Rproj file to open RStudio. Open the `hw1.Rmd` file, take notes, and write some example code as you go through the following readings / exercises:
+Unzip the template folder (make sure you unzip it!), then open the .Rproj file to open RStudio. Open the ``r paste0('hw', params$number, '.Rmd')`` file, take notes, and write some example code as you go through the following readings / exercises:
 
 1. **Getting Familiar with the Course**: Follow [Snoop's advice](https://www.youtube.com/watch?v=Tnlaokj1opA) and read the entire [Course Syllabus](../syllabus.html) (actually read the whole thing). Then review the [schedule](../schedule.html) and make sure to note important upcoming deadlines.
 2. **Getting Familiar with Tidy Data**: Read [this tidyverse article](https://tidyr.tidyverse.org/articles/tidy-data.html) explaining the concept of tidy data.
@@ -30,7 +30,7 @@ Unzip the template folder (make sure you unzip it!), then open the .Rproj file t
 
 # 4. Reflect 
 
-Reflect on what you've learned while going through these readings and exercises. Is there anything that jumped out at you? Anything you found particularly interesting or confusing? Write at least a paragraph in your `hw1.Rmd` file.
+Reflect on what you've learned while going through these readings and exercises. Is there anything that jumped out at you? Anything you found particularly interesting or confusing? Write at least a paragraph in your ``r paste0('hw', params$number, '.Rmd')`` file.
 
 # 5. Submit
 
