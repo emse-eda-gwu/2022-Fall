@@ -7,7 +7,7 @@ toc-location: left
 
 For your final project, you will take a dataset, explore it, tinker with it, and tell a nuanced story about it using at least three key charts. I want this project to be as useful for you and your future career as possible - you'll hopefully want to show off your final project in a portfolio or during job interviews. Accordingly, you get to choose what data you will use for your project. Choose whatever one you are most interested in or will have the most fun with.
 
-> Check out [these examples](ref-example-analyses.html) of other exploratory data analyses for inspiration
+> Check out [these examples](../help/example-projects.qmd) of other exploratory data analyses for inspiration
 
 For the final project, you will:
 
