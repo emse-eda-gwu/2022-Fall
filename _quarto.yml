@@ -112,15 +112,15 @@ website:
         menu:
         - text: "Data Cleaning (Due Sep 27)"
           href: project-mini/1-data-cleaning.qmd
-        - text: "Exploring Data (Due Oct 11)"
+        - text: "Exploring Data (Due Oct 18)"
           href: project-mini/2-exploring-data.qmd
-        - text: "Re-design (Due Nov 01)"
+        - text: "Re-design (Due Nov 08)"
           href: project-mini/3-re-design.qmd
       - text: "Final Project"
         menu:
         - text: "Project Overview"
           href: project-final/0-overview.qmd
-        - text: Proposal (Due Sep 27)
+        - text: Proposal (Due Oct 04)
           href: project-final/1-proposal.qmd
         - text: Progress Report (Due Nov 01)
           href: project-final/2-progress-report.qmd

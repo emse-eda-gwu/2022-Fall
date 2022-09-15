@@ -28,8 +28,8 @@ For the final project, you will:
 
 Item            | Weight towards<br>final grade | Due Date<br>(by 11:59pm)
 ----------------|----------------------------|--------------------
-Proposal        | 9 %   | Sep 27
-Progress Report | 12 %  | Nov 1
+Proposal        | 9 %   | Oct 04
+Progress Report | 12 %  | Nov 01
 Final Report    | 16 %  | Dec 11
 Presentation    | 9 %   | Dec 13
 
