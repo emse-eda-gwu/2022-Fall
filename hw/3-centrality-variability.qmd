@@ -33,10 +33,7 @@ This week, we will learn some strategies for exploring data sets to gain a great
 
 # 3. Exercises
 
-Run through these practice exercises
-
-- Complete the following RStudio Primer lesson: [Exploratory Data Analysis](https://rstudio.cloud/learn/primers/3.1)
-- Complete [Lesson 3: Numerical Summaries](https://campus.datacamp.com/courses/exploratory-data-analysis/numerical-summaries?ex=1) from the DataCamp course "Exploratory Data Analysis in R".
+Complete the following RStudio Primer lesson: [Exploratory Data Analysis](https://rstudio.cloud/learn/primers/3.1)
 
 # 4. Choosing the right chart
 
