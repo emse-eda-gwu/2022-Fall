@@ -16,7 +16,7 @@ source(here::here("R", "settings.R"))
 
 If you haven't yet, go to the [Course Software](../help/course-software.html) page and install all the software we'll need for this course. You'll need these tools for this assignment.
 
-# 2. Getting Organized
+# 2. Get Organized
 
 Download and edit [this template](`r url_template`) when working through this assignment.
 
