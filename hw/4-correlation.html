@@ -66,11 +66,11 @@ ul.task-list li input[type="checkbox"] {
 
 <link rel="stylesheet" href="../styles.css">
 <meta property="og:title" content="EMSE 4572 - Correlation">
-<meta property="og:description" content="Coming soon!">
+<meta property="og:description" content="Download and edit this template when working through this assignment.">
 <meta property="og:site-name" content="https://eda.seas.gwu.edu/">
 <meta property="og:locale" content="es_ES">
 <meta name="twitter:title" content="EMSE 4572 - Correlation">
-<meta name="twitter:description" content="Coming soon!">
+<meta name="twitter:description" content="Download and edit this template when working through this assignment.">
 <meta name="twitter:image" content="https://eda.seas.gwu.edu/2022-Fall/images/logo-square.png">
 <meta name="twitter:creator" content="@johnhelveston">
 <meta name="twitter:card" content="summary">
@@ -387,9 +387,88 @@ ul.task-list li input[type="checkbox"] {
 <div class="cell">
 
 </div>
-<p>Coming soon!</p>
+<div class="cell" data-layout-align="center">
+
+</div>
+<blockquote class="blockquote">
+<p><strong>Due</strong>: Sep 27 by 11:59pm</p>
+<p><strong>Weight</strong>: This assignment is worth 1% of your final grade.</p>
+<p><strong>Purpose</strong>: The purpose of this assignment is to learn some methods to recognize and measure the correlation between two variables as well as how to find a “line of best fit” between them.</p>
+<p><strong>Assessment</strong>: This assignment is graded using a check system:</p>
+<ul>
+<li>✔+ (110%): Responses shows phenomenal thought and engagement with the course content. I will not assign these often.</li>
+<li>✔ (100%): Responses are thoughtful, well-written, and show engagement with the course content. This is the expected level of performance.</li>
+<li>✔− (50%): Responses are hastily composed, too short, and/or only cursorily engages with the course content. This grade signals that you need to improve next time. I will <em>hopefully</em> not assign these often.</li>
+</ul>
+<p>Notice that this is essentially a pass/fail system. I’m not grading your writing ability and I’m not counting the number of words you write - I’m looking for thoughtful engagement. One or two sentences is <strong>not enough</strong>. Write at least a paragraph and show me that you did the readings assigned.</p>
+</blockquote>
+<section id="get-organized" class="level1">
+<h1>1. Get Organized</h1>
+<p>Download and edit <a href="https://eda.seas.gwu.edu/2022-Fall/templates/hw4.zip">this template</a> when working through this assignment.</p>
+<p>Then unzip the template folder (make sure you unzip it!), then open the .Rproj file to open RStudio. Open the <code>hw4.Rmd</code> file, take notes, and write some example code as you go through the following.</p>
+</section>
+<section id="readings-videos" class="level1">
+<h1>2. Readings / Videos</h1>
+<p>This week, we will learn some methods to recognize and measure the correlation between two variables as well as how to find a “line of best fit” between them. By the end, you will be able to:</p>
+<ul>
+<li>Recognize when to use correlation.</li>
+<li>Interpret the magnitude and direction of a correlation.</li>
+<li>Explain the influence of outliers.</li>
+<li>Describe the Pearson correlation and the Spearman correlation.</li>
+<li>Explain the term “line of best fit”.</li>
+<li>Interpret intercept and slope coefficients.</li>
+<li>Define residuals.</li>
+<li>Describe the standard error of the estimate.</li>
+<li>Report the assumptions of linear regression and how to test them.</li>
+<li>Explain standardized regression and its connection to correlation.</li>
+</ul>
+<section id="readings-on-visualizing-correlation" class="level2">
+<h2 class="anchored" data-anchor-id="readings-on-visualizing-correlation">Readings on visualizing correlation</h2>
+<ul>
+<li><a href="https://serialmentor.com/dataviz/visualizing-associations.html">Wilke - 12: Visualizing associations</a>: An overview of ways to visualize associations between two or more variables.</li>
+<li><a href="https://hbr.org/2015/06/beware-spurious-correlations">“Beware Spurious Correlations”, Harvard Business Review</a></li>
+</ul>
+</section>
+<section id="video-on-correlation-measures" class="level2">
+<h2 class="anchored" data-anchor-id="video-on-correlation-measures">Video on correlation measures</h2>
+<center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/fmK5YWWobH8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
+</iframe>
+</center>
+</section>
+<section id="optional-readings" class="level2">
+<h2 class="anchored" data-anchor-id="optional-readings">Optional Readings</h2>
+<p>The history of statistical correlation is rather ugly and routed in racism and eugenics. These readings discuss this topics in more detail:</p>
+<ul>
+<li><a href="https://theconversation.com/francis-galton-pioneered-scientific-advances-in-many-fields-but-also-founded-the-racist-pseudoscience-of-eugenics-144465">Francis Galton pioneered scientific advances in many fields – but also founded the racist pseudoscience of eugenics</a></li>
+<li><a href="https://www.pbs.org/newshour/nation/column-the-false-racist-theory-of-eugenics-once-ruled-science-lets-never-let-that-happen-again">Column: The false, racist theory of eugenics once ruled science. Let’s never let that happen again</a></li>
+<li>Listen to <a href="https://podcasts.apple.com/us/podcast/g-unfit/id152249110?i=1000444689017">this Radiolab episode</a> on eugenics.</li>
+</ul>
+</section>
+</section>
+<section id="exercises" class="level1">
+<h1>3. Exercises</h1>
+<p>You don’t <em>have</em> to do these, but they can be really helpful for extra practice. This week, take a look at the DataCamp course <a href="https://learn.datacamp.com/courses/correlation-and-regression-in-r">“Correlation and Regression in R”</a>.</p>
+</section>
+<section id="reflect" class="level1">
+<h1>4. Reflect</h1>
+<p>Reflect on what you’ve learned while going through these readings and exercises. Is there anything that jumped out at you? Anything you found particularly interesting or confusing? Write at least a paragraph in your <code>hw4.Rmd</code> file. Here are some suggestions:</p>
+<ul>
+<li>Discuss some of the key insights or things you found interesting in the readings or recent class periods.</li>
+<li>Write about the messiest data you’ve seen.</li>
+<li>Connect the course content to your own work or project you’re working on.</li>
+</ul>
+</section>
+<section id="knit" class="level1">
+<h1>5. Knit</h1>
+<p>Click the “knit” button to compile your <code>hw4.Rmd</code> file into a html web page. Then open the <code>hw4.html</code> file in a web browser and proofread your report. Does all of the formatting look correct?</p>
+</section>
+<section id="submit" class="level1">
+<h1>6. Submit</h1>
+<p>To submit this assignment, create a zip file of all the files in your R project folder for this assignment. Name the zip file <code>hw4-netID.zip</code>, replacing <code>netID</code> with your netID (e.g., <code>hw4-jph.zip</code>). Then copy that zip file into the “submissions” folder in your Box folder created for this class.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

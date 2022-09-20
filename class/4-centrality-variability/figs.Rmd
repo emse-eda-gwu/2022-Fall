@@ -1,0 +1,151 @@
+---
+title: "Centrality & Variability"
+subtitle: "EMSE 4572: Exploratory Data Analysis"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+library(tidyverse)
+library(fontawesome)
+library(cowplot)
+library(ggrepel)
+library(countdown)
+library(metathis)
+options(
+    htmltools.dir.version = FALSE,
+    knitr.table.format = "html",
+    knitr.kable.NA = '',
+    dplyr.width = Inf,
+    width = 250
+)
+knitr::opts_chunk$set(
+    warning = FALSE,
+    message = FALSE,
+    fig.path = "figs/",
+    fig.width = 7.252,
+    fig.height = 4,
+    comment = "#>",
+    fig.retina = 3
+)
+
+theme_set(theme_bw(base_size = 20)) # Set theme for all ggplots
+
+# Read in data sets for class
+marathon <- read_csv(here::here('data', 'marathon.csv'))
+tb_cases <- read_csv(here::here('data', 'tb_cases.csv'))
+wildlife_impacts <- read_csv(here::here('data', 'wildlife_impacts.csv'))
+daysToShip <- data.frame(
+    order = seq(12),
+    warehouseA = c(3,3,3,4,4,4,5,5,5,5,5,5),
+    warehouseB = c(1,1,1,3,3,4,5,5,5,6,7,10))
+```
+
+```{r wildlife-hist}
+#| fig.width: 9
+#| fig.height: 5
+
+labels <- wildlife_impacts %>%
+    filter(! is.na(height)) %>%
+    summarise(mean = round(mean(height)),
+              median = round(median(height))) %>%
+    gather(stat, value, mean:median) %>%
+    mutate(y = c(22000, 25000), stat = paste0(stat, ": ", value))
+wildlife_impacts %>%
+    filter(! is.na(height)) %>%
+    filter(height < 20000) %>% 
+    ggplot() +
+    geom_histogram(aes(x = height), bins = 50) +
+    scale_y_continuous(expand = expansion(c(0, 0.05))) +
+    scale_x_continuous(expand = expansion(c(0, 0.05))) +
+    labs(title = 'Histogram of impact height',
+         x = 'Height (ft)', y = 'Count') +
+    geom_vline(xintercept = labels$value, linetype = "dashed", color = "red",
+               size = 1) +
+    geom_label_repel(data = labels, aes(x = value, y = y, label = stat),
+               hjust = 0, nudge_x = 3000, size = 6)
+```
+
+```{r days-to-ship}
+#| fig.width: 12
+#| fig.height: 6
+
+daysToShip %>%
+    gather(warehouse, days, warehouseA:warehouseB) %>%
+    group_by(warehouse) %>%
+    summarise(
+        mean   = mean(days),
+        median = median(days),
+        range = max(days) - min(days), 
+        sd    = sd(days)) 
+daysToShipLabels <- daysToShip %>%
+    gather(warehouse, days, warehouseA:warehouseB) %>%
+    group_by(warehouse) %>%
+    summarise(
+        range = max(days) - min(days),
+        sd    = sd(days)) %>%
+    mutate(
+        x1 = 2, x2 = 4.5, y = 4,
+        label1 = 'Range:\nSD:',
+        label2 = paste0(range, '\n', round(sd, 2)))
+daysToShip %>%
+    gather(warehouse, days, warehouseA:warehouseB) %>%
+    group_by(warehouse) %>%
+    mutate(days = days - mean(days)) %>%
+    ggplot() +
+    geom_col(aes(x = as.factor(order), y = days), width = 0.7) +
+    geom_text(data = daysToShipLabels, aes(x = x1, y = y, label = label1),
+               hjust = 0, size = 8, fontface = "bold") +
+    geom_text(data = daysToShipLabels, aes(x = x2, y = y, label = label2),
+               hjust = 0, size = 8) +
+    facet_wrap(~warehouse, nrow = 1) +
+    geom_hline(yintercept = 0, size = 1) +
+    labs(title = 'Difference from mean days to ship',
+         x = 'Order', y = 'Days to ship')
+```
+
+```{r days-to-ship-sd}
+#| fig.width: 6
+#| fig.height: 5
+
+daysToShip %>%
+    gather(warehouse, days, warehouseA:warehouseB) %>%
+    group_by(warehouse) %>%
+    mutate(days = days - mean(days)) %>%
+    filter(warehouse == 'warehouseB') %>%
+    ggplot() +
+    geom_col(aes(x = as.factor(order), y = days), width = 0.7) +
+    geom_text(data = daysToShipLabels %>% filter(warehouse == 'warehouseB'), 
+              aes(x = x1, y = y, label = label1),
+               hjust = 0, size = 8, fontface = "bold") +
+    geom_text(data = daysToShipLabels %>% filter(warehouse == 'warehouseB'), 
+              aes(x = x2, y = y, label = label2),
+               hjust = 0, size = 8) +
+    geom_hline(yintercept = 0, size = 1) +
+    labs(title = 'Difference from mean days to ship',
+         x = 'Order', y = 'Days to ship')
+```
+
+```{r anscombe-quartet}
+#| fig.width: 8
+#| fig.height: 6
+#| echo: false
+
+x       <- c(anscombe$x1, anscombe$x2, anscombe$x3, anscombe$x4)
+y       <- c(anscombe$y1, anscombe$y2, anscombe$y3, anscombe$y4)
+quartet <- rep(c('A', 'B', 'C', 'D'), each = nrow(anscombe))
+ansDf   <- tibble(x, y, quartet)
+ansDf %>%
+    ggplot(aes(x = x, y = y)) +
+    geom_point(alpha = 0.6, size = 2) +
+    stat_smooth(method = 'lm', se = F, size = 0.4, alpha = 0.6) +
+    facet_wrap(vars(quartet)) +
+    scale_x_continuous(breaks=seq(4, 18, 2), limits=c(4, 19)) +
+    scale_y_continuous(breaks=seq(4, 12, 2), limits=c(3, 13)) +
+    theme(
+        axis.ticks = element_blank(),
+        axis.ticks.length = unit(0, "cm"),
+        axis.text = element_blank(),
+        axis.title = element_blank(),
+        plot.margin = margin(0, 0, 0, 0, "cm"))
+```
