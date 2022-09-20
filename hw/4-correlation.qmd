@@ -9,4 +9,65 @@ params:
 source(here::here("R", "settings.R"))
 ```
 
-Coming soon!
+```{r child = here::here("fragments", "hw.qmd")}
+```
+
+# 1. Get Organized
+
+Download and edit [this template](`r url_template`) when working through this assignment.
+
+Then unzip the template folder (make sure you unzip it!), then open the .Rproj file to open RStudio. Open the ``r paste0('hw', params$number, '.Rmd')`` file, take notes, and write some example code as you go through the following.
+
+# 2. Readings / Videos
+
+This week, we will learn some methods to recognize and measure the correlation between two variables as well as how to find a "line of best fit" between them. By the end, you will be able to:
+
+- Recognize when to use correlation.
+- Interpret the magnitude and direction of a correlation.
+- Explain the influence of outliers.
+- Describe the Pearson correlation and the Spearman correlation.
+- Explain the term "line of best fit".
+- Interpret intercept and slope coefficients.
+- Define residuals.
+- Describe the standard error of the estimate.
+- Report the assumptions of linear regression and how to test them.
+- Explain standardized regression and its connection to correlation.
+
+## Readings on visualizing correlation
+
+- [Wilke - 12: Visualizing associations](https://serialmentor.com/dataviz/visualizing-associations.html): An overview of ways to visualize associations between two or more variables.
+- ["Beware Spurious Correlations", Harvard Business Review](https://hbr.org/2015/06/beware-spurious-correlations)
+
+## Video on correlation measures
+
+<center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/fmK5YWWobH8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</center>
+
+## Optional Readings
+
+The history of statistical correlation is rather ugly and routed in racism and eugenics. These readings discuss this topics in more detail:
+
+- [Francis Galton pioneered scientific advances in many fields – but also founded the racist pseudoscience of eugenics](https://theconversation.com/francis-galton-pioneered-scientific-advances-in-many-fields-but-also-founded-the-racist-pseudoscience-of-eugenics-144465)
+- [Column: The false, racist theory of eugenics once ruled science. Let’s never let that happen again](https://www.pbs.org/newshour/nation/column-the-false-racist-theory-of-eugenics-once-ruled-science-lets-never-let-that-happen-again)
+- Listen to [this Radiolab episode](https://podcasts.apple.com/us/podcast/g-unfit/id152249110?i=1000444689017) on eugenics.
+
+# 3. Exercises
+
+You don't *have* to do these, but they can be really helpful for extra practice. This week, take a look at the DataCamp course ["Correlation and Regression in R"](https://learn.datacamp.com/courses/correlation-and-regression-in-r).
+
+# 4. Reflect
+
+Reflect on what you've learned while going through these readings and exercises. Is there anything that jumped out at you? Anything you found particularly interesting or confusing? Write at least a paragraph in your ``r paste0('hw', params$number, '.Rmd')`` file. Here are some suggestions:
+
+- Discuss some of the key insights or things you found interesting in the readings or recent class periods.
+- Write about the messiest data you've seen.
+- Connect the course content to your own work or project you're working on.
+
+# 5. Knit
+
+Click the "knit" button to compile your ``r paste0('hw', params$number, '.Rmd')`` file into a html web page. Then open the ``r paste0('hw', params$number, '.html')`` file in a web browser and proofread your report. Does all of the formatting look correct?
+
+# 6. Submit
+
+To submit this assignment, create a zip file of all the files in your R project folder for this assignment. Name the zip file ``r paste0('hw', params$number, '-netID.zip')``, replacing `netID` with your netID (e.g., ``r paste0('hw', params$number, '-jph.zip')``). Then copy that zip file into the "submissions" folder in your Box folder created for this class.
