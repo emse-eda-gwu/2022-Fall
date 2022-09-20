@@ -52,11 +52,7 @@ The history of statistical correlation is rather ugly and routed in racism and e
 - [Column: The false, racist theory of eugenics once ruled science. Let’s never let that happen again](https://www.pbs.org/newshour/nation/column-the-false-racist-theory-of-eugenics-once-ruled-science-lets-never-let-that-happen-again)
 - Listen to [this Radiolab episode](https://podcasts.apple.com/us/podcast/g-unfit/id152249110?i=1000444689017) on eugenics.
 
-# 3. Exercises
-
-You don't *have* to do these, but they can be really helpful for extra practice. This week, take a look at the DataCamp course ["Correlation and Regression in R"](https://learn.datacamp.com/courses/correlation-and-regression-in-r).
-
-# 4. Reflect
+# 3. Reflect
 
 Reflect on what you've learned while going through these readings and exercises. Is there anything that jumped out at you? Anything you found particularly interesting or confusing? Write at least a paragraph in your ``r paste0('hw', params$number, '.Rmd')`` file. Here are some suggestions:
 
@@ -64,10 +60,10 @@ Reflect on what you've learned while going through these readings and exercises.
 - Write about the messiest data you've seen.
 - Connect the course content to your own work or project you're working on.
 
-# 5. Knit
+# 4. Knit
 
 Click the "knit" button to compile your ``r paste0('hw', params$number, '.Rmd')`` file into a html web page. Then open the ``r paste0('hw', params$number, '.html')`` file in a web browser and proofread your report. Does all of the formatting look correct?
 
-# 6. Submit
+# 5. Submit
 
 To submit this assignment, create a zip file of all the files in your R project folder for this assignment. Name the zip file ``r paste0('hw', params$number, '-netID.zip')``, replacing `netID` with your netID (e.g., ``r paste0('hw', params$number, '-jph.zip')``). Then copy that zip file into the "submissions" folder in your Box folder created for this class.
