@@ -1,0 +1,13 @@
+
+class: inverse, middle
+
+# Week `r rmarkdown::metadata$week`: .fancy[`r rmarkdown::metadata$title`]
+
+## 1. Data Types
+## 2. Measures of Centrality & Variability
+
+## BREAK
+
+## 3. Visualizing Centrality & Variability
+## 4. Relationships Between 2 Variables
+## 5. Exploratory Data Analysis

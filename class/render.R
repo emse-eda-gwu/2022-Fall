@@ -12,4 +12,5 @@ zip::zip(
         'data',
         'practice.Rmd',
         'practice-solutions.Rmd',
-        paste0(lesson, ".Rproj")))
+        paste0(lesson, ".Rproj"))
+)

@@ -1,0 +1,255 @@
+---
+title: "Centrality & Variability"
+subtitle: "EMSE 4572: Exploratory Data Analysis"
+output: html_document
+---
+
+```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(here)
+knitr::opts_chunk$set(
+    warning = FALSE,
+    message = FALSE,
+    comment = "#>",
+    fig.path = "figs/", # Plot save path
+    fig.width = 7.252, # Plot dimensions
+    fig.height = 4, #<<
+    fig.retina = 3 # Better plot resolution
+)
+
+theme_set(theme_bw(base_size = 20)) # Set theme for all ggplots
+
+# Read in data
+milk_production <- read_csv(here('data', 'milk_production.csv'))
+lotr_words <- read_csv(here('data', 'lotr_words.csv'))
+marathon <- read_csv(here('data', 'marathon.csv'))
+wildlife_impacts <- read_csv(here('data', 'wildlife_impacts.csv'))
+faithful <- read_csv(here('data', 'faithful.csv'))
+candy_rankings <- read_csv(here('data', 'candy_rankings.csv'))
+```
+
+# Quick practice: What's the data type?
+
+Decide here:
+
+https://docs.google.com/presentation/d/1J8UtyEwkA5QEcQQ9LCAs4EU1gyhPY7QIoIW_T_gys6o/edit?usp=sharing
+
+```{r}
+wildlife_impacts %>%
+  filter(!is.na(cost_repairs_infl_adj)) %>%
+  select(incident_date, time_of_day, species, cost_repairs_infl_adj)
+```
+
+- incident_date:         Interval
+- time_of_day:           Ordinal
+- species:               Nominal
+- cost_repairs_infl_adj: Ratio
+
+
+
+# Practice with summary measurements
+
+1) Read in the following data sets:
+
+- milk_production.csv
+- lotr_words.csv
+
+ 2) For each variable in each data set, if possible, summarize its
+
+- Centrality
+- Variability
+
+```{r}
+# milk_production:
+milk_production %>%
+    summarise(
+        mean   = mean(milk_produced),
+        median = median(milk_produced),
+        range  = max(milk_produced) - min(milk_produced),
+        sd     = sd(milk_produced),
+        IQR    = IQR(milk_produced)) %>%
+    # Convert to millions units so easier to compare
+    mutate(mean = mean / 10^6, median = median / 10^6)
+
+# Summarize for each region
+milk_production %>%
+    group_by(region) %>%
+    summarise(
+        mean   = mean(milk_produced),
+        median = median(milk_produced),
+        range  = max(milk_produced) - min(milk_produced),
+        sd     = sd(milk_produced),
+        IQR    = IQR(milk_produced)) %>%
+    # Convert to millions units so easier to compare
+    mutate(mean = mean / 10^6, median = median / 10^6)
+
+# lotr_words
+lotr_words %>%
+    summarise(
+        mean   = mean(Female),
+        median = median(Female),
+        range  = max(Female) - min(Female),
+        sd     = sd(Female),
+        IQR    = IQR(Female))
+
+# You can also just use the summary() function
+summary(milk_production$milk_produced)
+summary(milk_production$year)
+summary(milk_production)
+
+summary(lotr_words$Female)
+summary(lotr_words$Male)
+```
+
+
+
+# Practice with visual summaries
+
+1) Read in the following data sets:
+
+- faithful.csv
+- marathon.csv
+
+2) Summarize the following variables using an appropriate chart (bar chart, histogram, and / or boxplot):
+
+- faithful: eruptions
+- faithful: waiting
+- marathon: Age
+- marathon: State
+- marathon: Country
+- marathon: `Official Time`
+
+```{r}
+# faithful:
+ggplot(faithful) +
+    geom_histogram(aes(x = eruptions))
+
+ggplot(faithful) +
+    geom_boxplot(aes(y = eruptions))
+
+ggplot(faithful) +
+    geom_histogram(aes(x = waiting))
+
+# marathon
+ggplot(marathon) +
+    geom_histogram(aes(x = Age))
+
+ggplot(marathon) +
+    geom_boxplot(aes(y = Age))
+
+marathon %>%
+    filter(Overall < 50) %>%
+    count(State) %>%
+    ggplot() +
+    geom_col(aes(x = n, y = reorder(State, n)))
+
+marathon %>%
+    filter(Overall < 50) %>%
+    count(Country) %>%
+    ggplot() +
+    geom_col(aes(x = n, y = reorder(Country, n)))
+
+ggplot(marathon) +
+    geom_histogram(aes(x = `Official Time`))
+
+ggplot(marathon) +
+    geom_boxplot(aes(y = `Official Time`))
+```
+
+
+
+# Practice with visualizing _relationships_
+
+1) Read in the following data sets:
+
+- marathon.csv
+- wildlife_impacts.csv
+
+2) Visualize the _relationships_ between the following variables using an appropriate chart (bar plots, scatterplots, and / or box plots):
+
+- marathon: Age & `Official Time`
+- marathon: Country & `Official Time`
+- wildlife_impacts: state & operator
+
+```{r}
+ggplot(marathon) +
+    geom_point(aes(x = `Official Time`, y = Age), size = 0.3)
+
+marathon %>%
+    filter(!is.na(Country)) %>%
+    filter(Overall < 500) %>%
+    ggplot() +
+    geom_boxplot(
+        aes(
+            x = `Official Time`, 
+            y = reorder(Country, `Official Time`)
+        )
+    )
+
+wildlife_impacts %>%
+    filter(state != "N/A") %>%
+    count(operator, state) %>%
+    ggplot() +
+    geom_col(
+        aes(
+            x = n, 
+            y = reorder(state, n), 
+            fill = operator
+        )
+    )
+```
+
+
+
+# Practice doing EDA
+
+1) Read in the candy_rankings.csv data sets
+
+2) Preview the data, note the data types and what each variable is.
+
+3) Visualize (at least) three _relationships_ between two variables (guided by a question) using an appropriate chart:
+
+- Bar chart
+- Scatterplot
+- Boxplot
+
+```{r}
+# candy_rankings
+candy_rankings %>%
+  ggplot() +
+  geom_boxplot(aes(x = fruity, y = winpercent))
+
+candy_rankings %>%
+  ggplot() +
+  geom_boxplot(aes(x = chocolate, y = winpercent))
+
+candy_rankings %>%
+    ggplot() +
+    geom_histogram(aes(x = winpercent, fill = chocolate), alpha = 0.3)
+# Looks like people rate candy with chocolate much higher!
+
+# Reeses at the top!
+candy_rankings %>%
+  ggplot() +
+  geom_col(
+      aes(
+          x = winpercent, 
+          y = reorder(competitorname, winpercent)
+      )
+  )
+
+# No correlation between sugar and winning
+candy_rankings %>%
+  ggplot() +
+  geom_point(aes(x = pricepercent, y = sugarpercent))
+
+candy_rankings %>%
+  ggplot() +
+  geom_point(aes(x = winpercent, y = sugarpercent))
+
+# Interesting...seems people aren't that sensitive to price
+candy_rankings %>%
+  ggplot() +
+  geom_point(aes(x = winpercent, y = pricepercent))
+```
+
