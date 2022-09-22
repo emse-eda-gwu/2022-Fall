@@ -1,6 +1,6 @@
 ---
 title: "Centrality & Variability"
-subtitle: "EMSE 4575: Exploratory Data Analysis"
+subtitle: "EMSE 4572: Exploratory Data Analysis"
 date: September 21, 2022
 week: 4
 author: "John Paul Helveston"
@@ -683,6 +683,17 @@ class: inverse, middle
 
 class: inverse
 
+```{r, echo=FALSE}
+countdown(
+    minutes      = 15,
+    warn_when    = 15,
+    update_every = 1,
+    top          = 0,
+    right        = 0,
+    font_size    = '2em'
+)
+```
+
 # Practice with summary measurements
 
 ### 1) Read in the following data sets:
@@ -1010,6 +1021,17 @@ ggplot(wildlife_impacts) +
 
 class: inverse
 
+```{r, echo=FALSE}
+countdown(
+    minutes      = 15,
+    warn_when    = 15,
+    update_every = 1,
+    top          = 0,
+    right        = 0,
+    font_size    = '2em'
+)
+```
+
 # Practicing visual summaries
 
 .font90[
@@ -1167,6 +1189,17 @@ ggplot(wildlife_impacts) +
 
 class: inverse
 
+```{r, echo=FALSE}
+countdown(
+    minutes      = 15,
+    warn_when    = 15,
+    update_every = 1,
+    top          = 0,
+    right        = 0,
+    font_size    = '2em'
+)
+```
+
 # Practice with visualizing _relationships_
 
 1) Read in the following data sets:
@@ -1263,6 +1296,17 @@ Check out [these guides](https://eda.seas.gwu.edu/2022-Fall/help/visualizing-dat
 ---
 
 class: inverse
+
+```{r, echo=FALSE}
+countdown(
+    minutes      = 15,
+    warn_when    = 15,
+    update_every = 1,
+    top          = 0,
+    right        = 0,
+    font_size    = '2em'
+)
+```
 
 # Practice doing EDA
 

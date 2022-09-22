@@ -1,6 +1,6 @@
 ---
 title: "Getting Started"
-subtitle: "EMSE 4575: Exploratory Data Analysis"
+subtitle: "EMSE 4572: Exploratory Data Analysis"
 date: August 31, 2022
 week: 1
 author: "John Paul Helveston"
