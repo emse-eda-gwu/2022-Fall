@@ -13,4 +13,4 @@ due <- paste0(due, " by 11:59pm")
 >
 > **Purpose**: `r params$purpose`
 >
-> **Assessment**: `r params$assessment`
+> **Assessment**: Your submission will be assessed using the [rubric](#grading-rubric) at the bottom of this page.
