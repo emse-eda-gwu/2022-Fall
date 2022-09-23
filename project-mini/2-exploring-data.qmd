@@ -7,8 +7,27 @@ params:
   number: 2
   weight: '8%'
   purpose: 'purpose'
-  assessment: 'Your project will be assessed using [this rubric](rubrics/mini-2/rubric.html){target="_blank"}.'
 ---
 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  warning = FALSE,
+  message = FALSE,
+  fig.path = "figs/",
+  fig.width = 7.252,
+  fig.height = 4,
+  comment = "#>",
+  fig.retina = 3
+)
+
+source(here::here("R", "settings.R"))
+
+# Read in rubric data
+rubric <- read_csv(here::here('rubrics', 'mini2.csv'))
+maxPoints <- rubric %>%
+    filter(rating == "Excellent") %>%
+    summarise(max = sum(maxPoints)) %>%
+    pull(max)
+```
 
 Coming soon!

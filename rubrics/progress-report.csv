@@ -1,0 +1,22 @@
+order,category,label,rating,maxPoints,points,description
+1,organization,Organization & Formatting,Excellent,5,5,All formatting guidelines are followed; YAML is correct with all team members listed.
+1,organization,Organization & Formatting,Good,5,4,Most formatting guidelines are followed; YAML is correct with all team members listed.
+1,organization,Organization & Formatting,Needs work,5,3,Several or all formatting guidelines not followed; YAML contains elements that aren't updated from the template.
+2,researchQuestion,Research Question,Excellent,10,10 / 9,"Research question is clear, focused, concise, complex, and arguable."
+2,researchQuestion,Research Question,Good,10,8 / 7 / 6,"Research question is reasonably clear and focused, but may be too simple, too complex, or too verbose."
+2,researchQuestion,Research Question,Needs work,10,5 / 4 / 3,Research question is unclear and lacks focus; question is far too simple or overly complex.
+3,dataSources,Data Sources,Excellent,10,10 / 9,Data sources or plausible data sources are clearly described; validity of and concerns about data are discussed.
+3,dataSources,Data Sources,Good,10,8 / 7 / 6,Identified data sources or plausible data sources are not clearly described; validity of and concerns about data are minimally discussed.
+3,dataSources,Data Sources,Needs work,10,5 / 4 / 3,Data sources are poorly described or missing; description of validity of and concerns about data are poor or missing.
+4,evaluations,Evaluation of Expectations,Excellent,10,10 / 9,Clear discussion of whether or not proposal expectations about variables and relationships were met; evidence from data provided to support discussion.
+4,evaluations,Evaluation of Expectations,Good,10,8 / 7 / 6,"Description of only one expected variable, relationship, or chart, or minimal description of two; minimal evidence from data provided to support discussion."
+4,evaluations,Evaluation of Expectations,Needs work,10,5 / 4 / 3,"Poor or missing description of variables, relationships, or charts; poor or missing evidence to support discussion."
+5,viz1,Data Visualization 1,Excellent,10,10 / 9,Chart expertly demonstrates best practices of visual design; chart is functionally accurate and generally easy to understand; chart address research question.
+5,viz1,Data Visualization 1,Good,10,8 / 7 / 6,"Chart generally demonstrates best practices of visual design; although accurate, some elements are distracting or confusing; chart mildly addresses research question."
+5,viz1,Data Visualization 1,Needs work,10,5 / 4 / 3,Chart generally lacks best practices of visual design; multiple confusing or unclear / distracting elements; unrelated to research question.
+6,viz2,Data Visualization 2,Excellent,10,10 / 9,Chart expertly demonstrates best practices of visual design; chart is functionally accurate and generally easy to understand; chart address research question.
+6,viz2,Data Visualization 2,Good,10,8 / 7 / 6,"Chart generally demonstrates best practices of visual design; although accurate, some elements are distracting or confusing; chart mildly addresses research question."
+6,viz2,Data Visualization 2,Needs work,10,5 / 4 / 3,Chart generally lacks best practices of visual design; multiple confusing or unclear / distracting elements; unrelated to research question.
+7,technical,Technical things,Excellent,5,5,All code runs without errors; all files included in the submitted .zip file.
+7,technical,Technical things,Good,5,4,"Code has only one or two error, otherwise runs; all files included in the submitted .zip file."
+7,technical,Technical things,Needs work,5,3,Code has multiple errors; submitted .zip file is missing components necessary to reproduce analysis.
