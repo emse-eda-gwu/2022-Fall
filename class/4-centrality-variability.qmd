@@ -10,4 +10,3 @@ source(here::here("R", "settings.R"))
 
 ```{r child = here::here("fragments", "class.qmd")}
 ```
-

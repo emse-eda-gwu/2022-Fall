@@ -1,0 +1,178 @@
+---
+title: "Correlation"
+subtitle: "EMSE 4572: Exploratory Data Analysis"
+output: html_document
+---
+
+```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
+knitr::opts_chunk$set(
+    warning = FALSE,
+    message = FALSE,
+    comment = "#>",
+    fig.path = "figs/", # Plot save path
+    fig.width = 7.252, # Plot dimensions
+    fig.height = 4, #<<
+    fig.retina = 3 # Better plot resolution
+)
+
+# install.packages('HistData')
+# install.packages('palmerpenguins')
+# install.packages('GGally')
+
+library(HistData)
+library(GGally)
+library(palmerpenguins)
+library(tidyverse)
+library(here)
+
+# Set theme for all ggplots
+theme_set(theme_bw(base_size = 20)) 
+
+# Read in data
+msleep <- read_csv(here('data', 'msleep.csv'))
+```
+
+# 1. Correlation
+
+Using the `penguins` data frame:
+
+1. Find the two variables with the largest correlation in absolute value (i.e. closest to -1 or 1).
+
+2. Create a scatter plot of those two variables.
+
+3. Add an annotation for the Pearson correlation coefficient.
+
+```{r}
+penguins %>%
+    ggcorr(label = TRUE)
+
+corr <- cor(
+    penguins$flipper_length_mm, penguins$body_mass_g,
+    use = "complete.obs")
+
+corLab <- paste("r = ", round(corr, 2))
+
+penguins %>% 
+    ggplot() +
+    geom_point(
+        aes(
+            x = flipper_length_mm, 
+            y = body_mass_g), 
+        alpha = 0.7
+    ) +
+    annotate(
+        geom = 'text', 
+        x = 175, y = 6000,
+        label = corLab,
+        hjust = 0, size = 5) +
+    theme_classic(base_size = 18) +
+    labs(
+        x = "Flipper length (mm)",
+        y = "Body mass (g)"
+    )
+```
+
+# 2. Linear models
+
+Using the `msleep` data frame:
+
+1. Create a scatter plot of `brainwt` versus `bodywt`.
+2. Include an annotation for the Pearson correlation coefficient.
+3. Include an annotation for the best fit line.
+
+Bonus: Compare your results to a log-linear relationship by converting the x and y variables to the log of x and y, like this:
+
+```{r, eval=FALSE}
+model <- lm(log(x) ~ log(y), data = msleep)
+```
+
+You can also convert your plot to log axes by adding these layers:
+
+```{r, eval=FALSE}
+plot +
+    scale_x_log10() +
+    scale_y_log10()
+```
+
+Linear model:
+
+```{r}
+# Make the correlation label
+corr <- cor(
+    msleep$bodywt, msleep$brainwt,
+    method = 'pearson', use = "complete.obs")
+corrLabel <- paste('r = ', round(corr, 2)) 
+
+# Make the model label
+modelLinear <- lm(brainwt ~ bodywt, data = msleep)
+coefs <- round(coef(modelLinear), 3)
+modelLabel <- str_c('y = ', coefs[1], ' + ', coefs[2], 'x')
+
+# Make the chart
+msleep %>% 
+    ggplot(
+        aes(
+            x = bodywt, 
+            y = brainwt
+        )
+    ) +
+    geom_point() +
+    geom_smooth(method = 'lm', se = FALSE) +
+    annotate(
+        geom = 'text', 
+        x = 100, y = 6,
+        label = corrLabel,
+        hjust = 0, size = 5) +
+    annotate(
+        geom = 'text', 
+        x = 100, y = 5.5,
+        label = modelLabel,
+        hjust = 0, size = 5) + 
+    labs(
+        x = "Body weight", 
+        y = "Brain weight"
+    )
+```
+
+Log-linear model:
+
+```{r}
+# Make the correlation label
+corrLog <- cor(
+    log(msleep$bodywt), log(msleep$brainwt),
+    method = 'pearson', use = "complete.obs")
+corrLabelLog <- paste('r = ', round(corrLog, 2)) 
+
+# Make the model label
+modelLog <- lm(log(brainwt) ~ log(bodywt), data = msleep)
+coefs <- round(coef(modelLog), 3)
+modelLabelLog <- str_c('log(y) = ', coefs[1], ' + ', coefs[2], ' log(x)')
+
+# Make the chart
+msleep %>% 
+    ggplot(
+        aes(
+            x = bodywt, 
+            y = brainwt
+        )
+    ) +
+    geom_point() +
+    geom_smooth(method = 'lm', se = FALSE) +
+    annotate(
+        geom = 'text', 
+        x = 0.01, y = 6,
+        label = corrLabelLog,
+        hjust = 0, size = 5) +
+    annotate(
+        geom = 'text', 
+        x = 0.01, y = 3,
+        label = modelLabelLog,
+        hjust = 0, size = 5) +
+    labs(
+        x = "log(body weight)", 
+        y = "log(brain weight)"
+    ) +
+    scale_x_log10() +
+    scale_y_log10()
+```
+
