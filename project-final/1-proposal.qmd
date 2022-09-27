@@ -34,7 +34,7 @@ Write a proposal of an exploratory data analysis that you plan to conduct for yo
 
 ## 1. Get organized
 
-Download and unzip [this template](templates/project_template.zip) for your proposal report. Open the `project.Rproj` file and write your proposal in the `report.Rmd` file. The template comes with some text and code explaining how to use it - should should delete this code as it is only for explanatory purposes. Be sure to adjust the content in the YAML:
+Download and unzip [this template](../templates/project-template.zip) for your proposal report. Open the `project.Rproj` file and write your proposal in the `report.Rmd` file. The template comes with some text and code explaining how to use it - should should delete this code as it is only for explanatory purposes. Be sure to adjust the content in the YAML:
 
 - Write your project title in the `title` field (and provide a subtitle if you wish, or delete the `subtitle` field).
  - In the `author` field, list the names of all teammates, e.g. `author: Luke Skywalker, Leia Organa, and Han Solo`.
