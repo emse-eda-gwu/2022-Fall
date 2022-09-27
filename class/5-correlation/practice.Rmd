@@ -1,0 +1,82 @@
+---
+title: "Correlation"
+subtitle: "EMSE 4572: Exploratory Data Analysis"
+output: html_document
+---
+
+```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
+knitr::opts_chunk$set(
+    warning = FALSE,
+    message = FALSE,
+    comment = "#>",
+    fig.path = "figs/", # Plot save path
+    fig.width = 7.252, # Plot dimensions
+    fig.height = 4, #<<
+    fig.retina = 3 # Better plot resolution
+)
+
+# install.packages('HistData')
+# install.packages('palmerpenguins')
+# install.packages('GGally')
+
+library(HistData)
+library(GGally)
+library(palmerpenguins)
+library(tidyverse)
+library(here)
+
+# Set theme for all ggplots
+theme_set(theme_bw(base_size = 20))
+
+# Read in data
+msleep <- read_csv(here('data', 'msleep.csv'))
+```
+
+# 1. Correlation
+
+Using the `penguins` data frame:
+
+1. Find the two variables with the largest correlation in absolute value (i.e. closest to -1 or 1).
+
+2. Create a scatter plot of those two variables.
+
+3. Add an annotation for the Pearson correlation coefficient.
+
+```{r}
+# Write code here
+```
+
+# 2. Linear models
+
+Using the `msleep` data frame:
+
+1. Create a scatter plot of `brainwt` versus `bodywt`.
+2. Include an annotation for the Pearson correlation coefficient.
+3. Include an annotation for the best fit line.
+
+Bonus: Compare your results to a log-linear relationship by converting the x and y variables to the log of x and y, like this:
+
+```{r, eval=FALSE}
+model <- lm(log(x) ~ log(y), data = msleep)
+```
+
+You can also convert your plot to log axes by adding these layers:
+
+```{r, eval=FALSE}
+plot +
+    scale_x_log10() +
+    scale_y_log10()
+```
+
+Linear model:
+
+```{r}
+# Write code here
+```
+
+Log-linear model:
+
+```{r}
+# Write code here
+```
+

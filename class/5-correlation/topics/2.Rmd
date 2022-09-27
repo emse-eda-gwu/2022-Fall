@@ -1,0 +1,12 @@
+
+class: inverse, middle
+
+# Week `r rmarkdown::metadata$week`: .fancy[`r rmarkdown::metadata$title`]
+
+## 1. What is correlation?
+## 2. .orange[Visualizing correlation]
+
+## BREAK
+
+## 3. Linear models
+## 4. Visualizing linear models
