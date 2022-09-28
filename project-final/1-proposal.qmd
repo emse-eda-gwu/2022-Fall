@@ -6,7 +6,7 @@ toc-location: left
 params:
   number: 1
   weight: '9%'
-  purpose: 'purpose'
+  purpose: 'The purpose of the proposal is to clarify the specific research topic of interest for your team and to ensure that you are headed in a promising direction before spending hours analyzing data for your project.'
 ---
 
 ```{r setup, include=FALSE}
