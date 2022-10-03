@@ -340,7 +340,7 @@
     "href": "project-final/1-proposal.html#knit-and-submit",
     "title": "Project Proposal",
     "section": "5. Knit and submit",
-    "text": "5. Knit and submit\nClick the “knit” button to compile your .Rmd file into a html web page, then create a zip file of everything in your R Project folder. Go to the “Assignment Submission” page on Blackboard and submit your zip file under “Final Project: Proposal”. Only one person from your team should submit the report."
+    "text": "5. Knit and submit\nClick the “knit” button to compile your proposal.Rmd file into a html web page, then create a zip file of everything in your R Project folder. Name your file proposal.zip, then go to your team Box folder and submit your zip file in the “submissions” folder. Only one person from your team should submit the report."
   },
   {
     "objectID": "project-final/2-progress-report.html",
