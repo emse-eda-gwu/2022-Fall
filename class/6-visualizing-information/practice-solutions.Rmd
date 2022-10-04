@@ -1,0 +1,54 @@
+---
+title: "Visualizing Information"
+subtitle: "EMSE 4572: Exploratory Data Analysis"
+output: html_document
+---
+
+```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
+# install.packages("cowplot")
+
+library(tidyverse)
+library(here)
+library(cowplot)
+knitr::opts_chunk$set(
+    warning = FALSE,
+    message = FALSE,
+    fig.path = "figs/",
+    fig.width = 7.252,
+    fig.height = 4,
+    comment = "#>",
+    fig.retina = 3
+)
+
+# Read in data
+gapminder <- read_csv(here('data', 'gapminder.csv'))
+```
+
+# Practice making a good chart with ggplot
+
+Use the `gapminder.csv` data to create the following plot, following these steps:
+
+1. Format data frame
+2. Add geoms
+3. Flip coordinates?
+4. Reorder factors?
+5. Adjust scales
+6. Adjust theme
+7. Annotate
+
+```{r americasLifeExp, fig.width=10, fig.height=7}
+gapminder %>%
+  filter(year == 2007, continent == "Americas") %>%
+  ggplot() +
+  geom_col(
+    aes(x = lifeExp, y = reorder(country, lifeExp)),
+    width = 0.7, alpha = 0.8
+  ) +
+  scale_x_continuous(expand = expansion(mult = c(0, 0.05))) +
+  theme_minimal_vgrid(font_size = 18) +
+  labs(
+    title = 'Life expectancy in American countries in 2007',
+    x = 'Life expectancy (years)',
+    y = 'Country'
+  )
+```

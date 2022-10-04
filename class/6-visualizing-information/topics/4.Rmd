@@ -1,0 +1,12 @@
+
+class: inverse, middle
+
+# Week `r rmarkdown::metadata$week`: .fancy[`r rmarkdown::metadata$title`]
+
+## 1. The Human Visual-Memory System
+## 2. The Psychology of Data Viz
+
+## BREAK
+
+## 3. 10 Data Viz Best Practices
+## 4. .orange[Making a (good) ggplot]
