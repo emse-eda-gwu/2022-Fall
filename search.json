@@ -259,11 +259,18 @@
     "text": "Video on the psychology of data viz\nWatch this 40-minute video titled “How humans see data”, by John Rauser. He discusses how we can exploit our understanding of human psychology to design effective charts (I’ll cover much of the same information in the video in class next week)."
   },
   {
-    "objectID": "hw/6-amounts-proportions.html",
-    "href": "hw/6-amounts-proportions.html",
+    "objectID": "hw/6-amounts-proportions.html#design-principles",
+    "href": "hw/6-amounts-proportions.html#design-principles",
     "title": "Amounts & Proportions",
-    "section": "",
-    "text": "Coming soon!"
+    "section": "Design principles",
+    "text": "Design principles\nThe design principles discussed in the following readings repeat many of the concepts we saw last week, except focused on the particular subset of charts for this week:\n\nWilke: 6 - Visualizing amounts\nWilke: 10 - Visualizing proportions\nSquare pie chart beats out the rest in perception study\nWhen Are 100% Stacked Bar Graphs Useful?"
+  },
+  {
+    "objectID": "hw/6-amounts-proportions.html#coding-techniques",
+    "href": "hw/6-amounts-proportions.html#coding-techniques",
+    "title": "Amounts & Proportions",
+    "section": "Coding techniques",
+    "text": "Coding techniques\nThe readings below discuss two important components that we will run into a lot in making charts: factors & facets. Factors are categorical variables, but dealing with them in R can be somewhat messy. Fortunately, we have the forcats package to help us tackle these! Facets, on the other hand, are rather straight forward to implement and offer a handy technique for creating charts when you have many different variables to consider at once.\nWhen you go through these, take notes in your hw6.Rmd file of examples or concepts that you come across:\n\nR4DS: 15 - Factors\nR4DS: 3.5 - Facets"
   },
   {
     "objectID": "hw/7-comparisons.html",
