@@ -9,4 +9,56 @@ params:
 source(here::here("R", "settings.R"))
 ```
 
-Coming soon!
+```{r child = here::here("fragments", "hw.qmd")}
+```
+
+# 1. Get Organized
+
+Download and edit [this template](`r url_template`) when working through this assignment.
+
+Then unzip the template folder (make sure you unzip it!), then open the .Rproj file to open RStudio. Open the ``r paste0('hw', params$number, '.Rmd')`` file, take notes, and write some example code as you go through the following.
+
+# 2. Readings
+
+The readings listed below are broken into two groups:
+
+1. Design principles
+2. Coding techniques to implement those principles
+
+## Design principles
+
+The design principles discussed in the following readings repeat many of the concepts we saw last week, except focused on the particular subset of charts for this week:
+
+- Wilke: [6 - Visualizing amounts](https://serialmentor.com/dataviz/visualizing-amounts.html)
+- Wilke: [10 - Visualizing proportions](https://serialmentor.com/dataviz/visualizing-proportions.html)
+- [Square pie chart beats out the rest in perception study](https://eagereyes.org/blog/2016/a-reanalysis-of-a-study-about-square-pie-charts-from-2009)
+- [When Are 100% Stacked Bar Graphs Useful?](https://www.perceptualedge.com/blog/?p=2239)
+
+## Coding techniques
+
+The readings below discuss two important components that we will run into a lot in making charts: **factors & facets**. Factors are categorical variables, but dealing with them in R can be somewhat messy. Fortunately, we have the [forcats](https://forcats.tidyverse.org/) package to help us tackle these! Facets, on the other hand, are rather straight forward to implement and offer a handy technique for creating charts when you have many different variables to consider at once.
+
+When you go through these, take notes in your ``r paste0('hw', params$number, '.Rmd')`` file of examples or concepts that you come across:
+
+- R4DS: [15 - Factors](https://r4ds.had.co.nz/factors.html)
+- R4DS: [3.5 - Facets](https://r4ds.had.co.nz/data-visualisation.html#facets)
+
+# 3. Practice Coding
+
+To get a little extra practice developing better charts with ggplot2, go to the "Finding Data" page and on the [Packages](../help/finding-data.html#packages) section choose a package that you find interesting. Install the package, then in a code chunk load the package with `library(packageName)`. You can examine the data sets loaded with the package using `data(package = "packageName")`. Choose a data frame then make a plot illustrating a relationship in the data. Below your code chunk with your visualization, explain in a few sentences what the chart you made shows.
+
+# 4. Reflect
+
+Reflect on what you've learned while going through these readings and exercises. Is there anything that jumped out at you? Anything you found particularly interesting or confusing? Write at least a paragraph in your ``r paste0('hw', params$number, '.Rmd')`` file. Here are some suggestions:
+
+- Discuss some of the key insights or things you found interesting in the readings or recent class periods.
+- Write about the messiest data you've seen.
+- Connect the course content to your own work or project you're working on.
+
+# 5. Knit
+
+Click the "knit" button to compile your ``r paste0('hw', params$number, '.Rmd')`` file into a html web page. Then open the ``r paste0('hw', params$number, '.html')`` file in a web browser and proofread your report. Does all of the formatting look correct?
+
+# 6. Submit
+
+To submit this assignment, create a zip file of all the files in your R project folder for this assignment. Name the zip file ``r paste0('hw', params$number, '-netID.zip')``, replacing `netID` with your netID (e.g., ``r paste0('hw', params$number, '-jph.zip')``). Then copy that zip file into the "submissions" folder in your Box folder created for this class.
