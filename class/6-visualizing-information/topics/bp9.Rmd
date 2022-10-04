@@ -1,0 +1,19 @@
+
+class: inverse
+
+# .center[10 Data Viz Best Practices]
+
+.font120[
+1. Remove chart chunk
+2. Don't make 3D plots*
+3. Don't lie
+4. Don't use pie charts for proportions*
+5. Don't stack bars*
+6. Rotate and sort categorical axes*
+7. Eliminate legends & directly label geoms*
+8. Don't use pattern fills
+9. .orange[Don't use red & green together]
+10. Consider tables for small data sets
+
+.right[*most of the time]
+]

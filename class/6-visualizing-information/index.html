@@ -1,0 +1,3136 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Visualizing Information</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="John Paul Helveston" />
+    <meta name="date" content="2022-10-05" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/tile-view/tile-view.css" rel="stylesheet" />
+    <script src="libs/tile-view/tile-view.js"></script>
+    <link href="libs/panelset/panelset.css" rel="stylesheet" />
+    <script src="libs/panelset/panelset.js"></script>
+    <script src="libs/clipboard/clipboard.min.js"></script>
+    <link href="libs/xaringanExtra-clipboard/xaringanExtra-clipboard.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-clipboard/xaringanExtra-clipboard.js"></script>
+    <script>window.xaringanExtraClipboard(null, {"button":"Copy Code","success":"Copied!","error":"Press Ctrl+C to Copy"})</script>
+    <link href="libs/shareon/shareon.min.css" rel="stylesheet" />
+    <script src="libs/shareon/shareon.min.js"></script>
+    <link href="libs/xaringanExtra-shareagain/shareagain.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-shareagain/shareagain.js"></script>
+    <link href="libs/xaringanExtra-extra-styles/xaringanExtra-extra-styles.css" rel="stylesheet" />
+    <meta name="description" content="EMSE 4572: Exploratory Data Analysis"/>
+    <meta name="generator" content="xaringan and remark.js"/>
+    <meta name="github-repo" content="emse-eda-gwu/2022-Fall"/>
+    <meta name="twitter:title" content="Visualizing Information"/>
+    <meta name="twitter:description" content="EMSE 4572: Exploratory Data Analysis"/>
+    <meta name="twitter:url" content="https://eda.seas.gwu.edu/2022-Fall/"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:creator" content="@johnhelveston"/>
+    <meta name="twitter:site" content="@johnhelveston"/>
+    <meta property="og:title" content="Visualizing Information"/>
+    <meta property="og:description" content="EMSE 4572: Exploratory Data Analysis"/>
+    <meta property="og:url" content="https://eda.seas.gwu.edu/2022-Fall/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="article:author" content="John Paul Helveston"/>
+    <link href="libs/countdown/countdown.css" rel="stylesheet" />
+    <script src="libs/countdown/countdown.js"></script>
+    <link rel="stylesheet" href="css/lexis.css" type="text/css" />
+    <link rel="stylesheet" href="css/lexis-fonts.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+background-image: url("images/nasa_global_preview.png")
+background-size: cover
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+.rightcol80[.white[
+
+# Week 6: .fancy[Visualizing Information]
+
+### <svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:white;overflow:visible;position:relative;"><path d="M243.4 2.587C251.4-.8625 260.6-.8625 268.6 2.587L492.6 98.59C506.6 104.6 514.4 119.6 511.3 134.4C508.3 149.3 495.2 159.1 479.1 160V168C479.1 181.3 469.3 192 455.1 192H55.1C42.74 192 31.1 181.3 31.1 168V160C16.81 159.1 3.708 149.3 .6528 134.4C-2.402 119.6 5.429 104.6 19.39 98.59L243.4 2.587zM256 128C273.7 128 288 113.7 288 96C288 78.33 273.7 64 256 64C238.3 64 224 78.33 224 96C224 113.7 238.3 128 256 128zM127.1 416H167.1V224H231.1V416H280V224H344V416H384V224H448V420.3C448.6 420.6 449.2 420.1 449.8 421.4L497.8 453.4C509.5 461.2 514.7 475.8 510.6 489.3C506.5 502.8 494.1 512 480 512H31.1C17.9 512 5.458 502.8 1.372 489.3C-2.715 475.8 2.515 461.2 14.25 453.4L62.25 421.4C62.82 420.1 63.41 420.6 63.1 420.3V224H127.1V416z"/></svg> EMSE 4572: Exploratory Data Analysis
+### <svg aria-hidden="true" role="img" viewBox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:white;overflow:visible;position:relative;"><path d="M224 256c70.7 0 128-57.31 128-128s-57.3-128-128-128C153.3 0 96 57.31 96 128S153.3 256 224 256zM274.7 304H173.3C77.61 304 0 381.6 0 477.3c0 19.14 15.52 34.67 34.66 34.67h378.7C432.5 512 448 496.5 448 477.3C448 381.6 370.4 304 274.7 304z"/></svg> John Paul Helveston
+### <svg aria-hidden="true" role="img" viewBox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:white;overflow:visible;position:relative;"><path d="M96 32C96 14.33 110.3 0 128 0C145.7 0 160 14.33 160 32V64H288V32C288 14.33 302.3 0 320 0C337.7 0 352 14.33 352 32V64H400C426.5 64 448 85.49 448 112V160H0V112C0 85.49 21.49 64 48 64H96V32zM448 464C448 490.5 426.5 512 400 512H48C21.49 512 0 490.5 0 464V192H448V464z"/></svg> October 05, 2022
+
+]]
+
+---
+
+class: middle
+
+.rightcol80[
+# References:
+
+# - [Data Viz "Cheat Sheet"](https://github.com/emse-eda-gwu/2022-Fall/raw/main/content/cheatsheet-dataviz.pdf)
+
+# - [Data Viz Reference Page](https://eda.seas.gwu.edu/2022-Fall/help/visualizing-data.html)
+
+]
+
+---
+
+class: middle
+
+.border[
+
+&lt;center&gt;
+&lt;img src="figs/graphQuality.png" width=900&gt;
+&lt;/center&gt;
+
+]
+
+---
+
+class: middle
+
+&lt;center&gt;
+&lt;img src="images/chart-quality.jpg" width=900&gt;
+&lt;/center&gt;
+
+.left[From [here](https://psyteachr.github.io/msc-data-skills/ggplot.html)]
+
+---
+
+class: inverse, middle
+
+.rightcol80[
+
+# "_Having word processing software&lt;br&gt;doesn't make us great writers._"
+## — Stephen Few
+
+]
+
+---
+
+class: center
+
+.leftcol[
+
+# We don't write paragraphs like this
+
+&lt;center&gt;
+&lt;img src="images/bad_text.png"&gt;
+&lt;/center&gt;
+
+.left[.font80[Image from Few (2012, pg. 227)]]
+
+]
+
+--
+
+.rightcol[
+
+# So don't make&lt;br&gt;graphs like this
+
+&lt;center&gt;
+&lt;img src="images/bad_3d_bars.png" width=400&gt;
+&lt;/center&gt;
+
+.center[.font80[Image from excelcharts.com]]
+
+]
+
+---
+
+
+
+class: inverse, middle
+
+# Week 6: .fancy[Visualizing Information]
+
+## 1. The Human Visual-Memory System
+## 2. The Psychology of Data Viz
+
+## BREAK
+
+## 3. 10 Data Viz Best Practices
+## 4. Making a (good) ggplot
+
+---
+
+
+
+class: inverse, middle
+
+# Week 6: .fancy[Visualizing Information]
+
+## 1. .orange[The Human Visual-Memory System]
+## 2. The Psychology of Data Viz
+
+## BREAK
+
+## 3. 10 Data Viz Best Practices
+## 4. Making a (good) ggplot
+
+---
+
+class: inverse, middle, center
+
+# Good visualizations optimize for&lt;br&gt;the human visual-memory system
+
+---
+
+class: center
+
+## A (very) simplified model of the visual-memory system
+
+&lt;center&gt;
+&lt;img src="images/effective-charts-1.png" width=1000&gt;
+&lt;/center&gt;
+
+---
+
+class: center
+
+## A (very) simplified model of the visual-memory system
+
+&lt;center&gt;
+&lt;img src="images/effective-charts-2.png" width=1000&gt;
+&lt;/center&gt;
+
+---
+
+class: center
+
+## A (very) simplified model of the visual-memory system
+
+&lt;center&gt;
+&lt;img src="images/effective-charts-3.png" width=1000&gt;
+&lt;/center&gt;
+
+---
+
+class: center
+
+## A (very) simplified model of the visual-memory system
+
+&lt;center&gt;
+&lt;img src="images/effective-charts-4.png" width=1000&gt;
+&lt;/center&gt;
+
+---
+
+class: inverse, middle
+
+# Two objectives of effective charts:
+
+## 1. Grab &amp; direct attention (iconic memory)
+## 2. Reduce processing demands (working memory)
+
+---
+
+class: center
+
+# The power of pre-attentive processing
+
+## Count all the "5"'s
+
+--
+
+&lt;center&gt;
+&lt;img src="images/fives-1.png" width=500&gt;
+&lt;/center&gt;
+
+---
+
+class: center
+
+# The power of pre-attentive processing
+
+## Count all the "5"'s
+
+--
+
+&lt;center&gt;
+&lt;img src="images/fives-2.png" width=500&gt;
+&lt;/center&gt;
+
+---
+
+class: center
+
+.leftcol[
+
+&lt;center&gt;
+&lt;img src="images/preattentive-attributes-1.png"&gt;
+&lt;/center&gt;
+
+]
+
+--
+
+.rightcol[
+
+## Pre-attentive attributes
+&lt;br&gt;
+&lt;center&gt;
+&lt;img src="figs/mtCarsScatterColor.png" width=500&gt;
+&lt;/center&gt;
+
+]
+
+---
+
+class: center
+
+.leftcol[
+
+&lt;center&gt;
+&lt;img src="images/preattentive-attributes-2.png"&gt;
+&lt;/center&gt;
+
+]
+
+.rightcol[
+
+## Pre-attentive attributes
+
+### .red[Numerical (ratio) data]
+
+&lt;center&gt;
+&lt;img src="figs/mtCarsScatterColor.png" width=500&gt;
+&lt;/center&gt;
+
+]
+
+---
+
+class: center
+
+.leftcol[
+
+&lt;center&gt;
+&lt;img src="images/preattentive-attributes-3.png"&gt;
+&lt;/center&gt;
+
+]
+
+.rightcol[
+
+## Pre-attentive attributes
+
+### .red[Numerical (ratio) data]&lt;br&gt;.blue[Categorical (ordinal) data]
+
+&lt;center&gt;
+&lt;img src="figs/mtCarsScatterColor.png" width=500&gt;
+&lt;/center&gt;
+
+]
+
+---
+
+class: inverse, middle, center
+
+# Not all pre-attentive attributes are equal
+
+---
+
+class: center
+
+# Where is the red dot?
+
+--
+
+.cols3[
+
+&lt;center&gt;
+&lt;img src="figs/preattentive1.png" width=500&gt;
+&lt;/center&gt;
+
+]
+
+--
+
+.cols3[
+
+&lt;center&gt;
+&lt;img src="figs/preattentive2.png" width=500&gt;
+&lt;/center&gt;
+
+]
+
+--
+
+.cols3[
+
+&lt;center&gt;
+&lt;img src="figs/preattentive3.png" width=500&gt;
+&lt;/center&gt;
+
+]
+
+---
+
+# .center[For categorical data:]
+
+### 1. Hue (color) &gt; shape
+### 2. Less is more (stay in working memory!)
+
+.cols3[
+
+&lt;center&gt;
+&lt;img src="figs/preattentive1.png" width=500&gt;
+&lt;/center&gt;
+
+]
+
+.cols3[
+
+&lt;center&gt;
+&lt;img src="figs/preattentive2.png" width=500&gt;
+&lt;/center&gt;
+
+]
+
+.cols3[
+
+&lt;center&gt;
+&lt;img src="figs/preattentive3.png" width=500&gt;
+&lt;/center&gt;
+
+]
+
+---
+
+class: middle
+
+.leftcol[
+
+&lt;center&gt;
+&lt;img src="images/check-bad.png" width=100&gt;&lt;br&gt;
+&lt;img src="figs/preattentive-bad.png" width=600&gt;
+&lt;/center&gt;
+
+]
+
+--
+
+.rightcol[
+
+&lt;center&gt;
+&lt;img src="images/check-good.png" width=100&gt;
+&lt;img src="figs/preattentive-good.png" width=650&gt;
+&lt;/center&gt;
+
+]
+
+
+---
+
+class: middle
+
+&lt;center&gt;
+&lt;img src="images/trump_covid.jpg" width=1000&gt;
+&lt;/center&gt;
+
+---
+
+
+
+class: inverse, middle
+
+# Week 6: .fancy[Visualizing Information]
+
+## 1. The Human Visual-Memory System
+## 2. .orange[The Psychology of Data Viz]
+
+## BREAK
+
+## 3. 10 Data Viz Best Practices
+## 4. Making a (good) ggplot
+
+---
+
+class: center, middle, inverse
+
+# Much of the content in this section is from&lt;br&gt;John Rauser's [talk](https://www.youtube.com/watch?v=fSgEeI2Xpdc) on YouTube
+
+(Always cite your sources)
+
+---
+
+class: middle
+
+.leftcol60[
+
+&lt;center&gt;
+&lt;img src="images/cleveland-pub.png"&gt;
+&lt;/center&gt;
+
+]
+
+--
+
+.rightcol40[
+
+Cleveland, W. S., &amp; McGill, R. (1985). Graphical perception and graphical methods for analyzing scientific data. Science, New Series, 229(4716), 828-833.
+
+]
+
+---
+
+name: cleveland-perception
+class: inverse
+
+# Cleveland's operations of pattern perception:
+
+.leftcol[
+
+# 1. Estimation
+# 2. Assembly
+# 3. Detection
+
+]
+
+---
+
+class: inverse
+
+# Cleveland's operations of pattern perception:
+
+.leftcol[
+
+# 1. .red[Estimation] --------&gt;
+# 2. Assembly
+# 3. Detection
+
+]
+
+.rightcol[
+
+- ### **Discrimination** (X equal to Y?)
+- ### **Ranking** (X greater than Y?)
+- ### **Ratioing** (X double Y?)
+
+]
+
+---
+
+name: cleveland-estimation
+class: center, middle
+
+# .red[Estimation]: Hierarchy for _numerical_ data
+
+&lt;center&gt;
+&lt;img src="images/cleveland-hierarchy.png" width=1000&gt;
+&lt;/center&gt;
+
+.leftcol[
+
+## .left[More Accurate]
+
+]
+
+.rightcol[
+
+## .right[Less Accurate]
+
+]
+
+---
+
+class: center
+
+# Example: Life expectancy in countries in Asia
+
+.leftcol[
+
+
+```
+#&gt;               country lifeExp
+#&gt; 1         Afghanistan  43.828
+#&gt; 2                Iraq  59.545
+#&gt; 3            Cambodia  59.723
+#&gt; 4             Myanmar  62.069
+#&gt; 5         Yemen, Rep.  62.698
+#&gt; 6               Nepal  63.785
+#&gt; 7          Bangladesh  64.062
+#&gt; 8               India  64.698
+#&gt; 9            Pakistan  65.483
+#&gt; 10           Mongolia  66.803
+#&gt; 11   Korea, Dem. Rep.  67.297
+#&gt; 12           Thailand  70.616
+#&gt; 13          Indonesia  70.650
+#&gt; 14               Iran  70.964
+#&gt; 15        Philippines  71.688
+#&gt; 16            Lebanon  71.993
+#&gt; 17             Jordan  72.535
+#&gt; 18       Saudi Arabia  72.777
+#&gt; 19              China  72.961
+#&gt; 20 West Bank and Gaza  73.422
+```
+
+]
+
+---
+
+class: middle
+
+.leftcol30[
+
+1. Position on a common scale
+2. Position on&lt;br&gt;non-aligned scales
+3. Length
+4. Angle
+5. Area
+6. Color saturation
+7. **.red[Color hue]**
+
+]
+
+--
+
+.rightcol70[
+
+&lt;center&gt;
+&lt;img src="images/hue.png" width=750&gt;
+&lt;/center&gt;
+
+]
+
+---
+
+class: middle
+
+.leftcol30[
+
+1. Position on a common scale
+2. Position on&lt;br&gt;non-aligned scales
+3. Length
+4. Angle
+5. Area
+6. Color saturation
+7. **.red[Color hue]**
+
+&lt;br&gt;
+
+- <svg aria-hidden="true" role="img" viewBox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:green;overflow:visible;position:relative;"><path d="M384 32C419.3 32 448 60.65 448 96V416C448 451.3 419.3 480 384 480H64C28.65 480 0 451.3 0 416V96C0 60.65 28.65 32 64 32H384zM339.8 211.8C350.7 200.9 350.7 183.1 339.8 172.2C328.9 161.3 311.1 161.3 300.2 172.2L192 280.4L147.8 236.2C136.9 225.3 119.1 225.3 108.2 236.2C97.27 247.1 97.27 264.9 108.2 275.8L172.2 339.8C183.1 350.7 200.9 350.7 211.8 339.8L339.8 211.8z"/></svg> / <svg aria-hidden="true" role="img" viewBox="0 0 320 512" style="height:1em;width:0.62em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:red;overflow:visible;position:relative;"><path d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg> **Discriminate**
+- <svg aria-hidden="true" role="img" viewBox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:green;overflow:visible;position:relative;"><path d="M384 32C419.3 32 448 60.65 448 96V416C448 451.3 419.3 480 384 480H64C28.65 480 0 451.3 0 416V96C0 60.65 28.65 32 64 32H384zM339.8 211.8C350.7 200.9 350.7 183.1 339.8 172.2C328.9 161.3 311.1 161.3 300.2 172.2L192 280.4L147.8 236.2C136.9 225.3 119.1 225.3 108.2 236.2C97.27 247.1 97.27 264.9 108.2 275.8L172.2 339.8C183.1 350.7 200.9 350.7 211.8 339.8L339.8 211.8z"/></svg> / <svg aria-hidden="true" role="img" viewBox="0 0 320 512" style="height:1em;width:0.62em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:red;overflow:visible;position:relative;"><path d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg> **Rank**
+- <svg aria-hidden="true" role="img" viewBox="0 0 320 512" style="height:1em;width:0.62em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:red;overflow:visible;position:relative;"><path d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg> **Ratio**
+
+]
+
+.rightcol70[
+
+&lt;center&gt;
+&lt;img src="figs/jr_hue.png" width=750&gt;
+&lt;/center&gt;
+
+]
+
+---
+
+class: middle
+
+.leftcol30[
+
+1. Position on a common scale
+2. Position on&lt;br&gt;non-aligned scales
+3. Length
+4. Angle
+5. Area
+6. Color saturation
+7. **.red[Color hue]**
+
+Sorting helps a bit...
+
+- <svg aria-hidden="true" role="img" viewBox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:green;overflow:visible;position:relative;"><path d="M384 32C419.3 32 448 60.65 448 96V416C448 451.3 419.3 480 384 480H64C28.65 480 0 451.3 0 416V96C0 60.65 28.65 32 64 32H384zM339.8 211.8C350.7 200.9 350.7 183.1 339.8 172.2C328.9 161.3 311.1 161.3 300.2 172.2L192 280.4L147.8 236.2C136.9 225.3 119.1 225.3 108.2 236.2C97.27 247.1 97.27 264.9 108.2 275.8L172.2 339.8C183.1 350.7 200.9 350.7 211.8 339.8L339.8 211.8z"/></svg> / <svg aria-hidden="true" role="img" viewBox="0 0 320 512" style="height:1em;width:0.62em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:red;overflow:visible;position:relative;"><path d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg> **Discriminate**
+- <svg aria-hidden="true" role="img" viewBox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:green;overflow:visible;position:relative;"><path d="M384 32C419.3 32 448 60.65 448 96V416C448 451.3 419.3 480 384 480H64C28.65 480 0 451.3 0 416V96C0 60.65 28.65 32 64 32H384zM339.8 211.8C350.7 200.9 350.7 183.1 339.8 172.2C328.9 161.3 311.1 161.3 300.2 172.2L192 280.4L147.8 236.2C136.9 225.3 119.1 225.3 108.2 236.2C97.27 247.1 97.27 264.9 108.2 275.8L172.2 339.8C183.1 350.7 200.9 350.7 211.8 339.8L339.8 211.8z"/></svg> / <svg aria-hidden="true" role="img" viewBox="0 0 320 512" style="height:1em;width:0.62em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:red;overflow:visible;position:relative;"><path d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg> **Rank**
+- <svg aria-hidden="true" role="img" viewBox="0 0 320 512" style="height:1em;width:0.62em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:red;overflow:visible;position:relative;"><path d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg> **Ratio**
+
+]
+
+.rightcol70[
+
+&lt;center&gt;
+&lt;img src="figs/jr_hue_ordered.png" width=750&gt;
+&lt;/center&gt;
+
+]
+
+---
+
+class: middle
+
+.leftcol30[
+
+1. Position on a common scale
+2. Position on&lt;br&gt;non-aligned scales
+3. Length
+4. Angle
+5. Area
+6. **.red[Color saturation]**
+7. Color hue
+
+&lt;br&gt;
+
+- <svg aria-hidden="true" role="img" viewBox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:green;overflow:visible;position:relative;"><path d="M384 32C419.3 32 448 60.65 448 96V416C448 451.3 419.3 480 384 480H64C28.65 480 0 451.3 0 416V96C0 60.65 28.65 32 64 32H384zM339.8 211.8C350.7 200.9 350.7 183.1 339.8 172.2C328.9 161.3 311.1 161.3 300.2 172.2L192 280.4L147.8 236.2C136.9 225.3 119.1 225.3 108.2 236.2C97.27 247.1 97.27 264.9 108.2 275.8L172.2 339.8C183.1 350.7 200.9 350.7 211.8 339.8L339.8 211.8z"/></svg> / <svg aria-hidden="true" role="img" viewBox="0 0 320 512" style="height:1em;width:0.62em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:red;overflow:visible;position:relative;"><path d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg> **Discriminate**
+- <svg aria-hidden="true" role="img" viewBox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:green;overflow:visible;position:relative;"><path d="M384 32C419.3 32 448 60.65 448 96V416C448 451.3 419.3 480 384 480H64C28.65 480 0 451.3 0 416V96C0 60.65 28.65 32 64 32H384zM339.8 211.8C350.7 200.9 350.7 183.1 339.8 172.2C328.9 161.3 311.1 161.3 300.2 172.2L192 280.4L147.8 236.2C136.9 225.3 119.1 225.3 108.2 236.2C97.27 247.1 97.27 264.9 108.2 275.8L172.2 339.8C183.1 350.7 200.9 350.7 211.8 339.8L339.8 211.8z"/></svg> / <svg aria-hidden="true" role="img" viewBox="0 0 320 512" style="height:1em;width:0.62em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:red;overflow:visible;position:relative;"><path d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg> **Rank**
+- <svg aria-hidden="true" role="img" viewBox="0 0 320 512" style="height:1em;width:0.62em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:red;overflow:visible;position:relative;"><path d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg> **Ratio**
+
+]
+
+.rightcol70[
+
+&lt;center&gt;
+&lt;img src="figs/jr_saturation_ordered.png" width=750&gt;
+&lt;/center&gt;
+
+]
+
+---
+
+class: middle
+
+.leftcol30[
+
+1. Position on a common scale
+2. Position on&lt;br&gt;non-aligned scales
+3. Length
+4. Angle
+5. Area
+6. **.red[Color saturation]**
+7. Color hue
+
+Align to 0 scale:
+
+- <svg aria-hidden="true" role="img" viewBox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:green;overflow:visible;position:relative;"><path d="M384 32C419.3 32 448 60.65 448 96V416C448 451.3 419.3 480 384 480H64C28.65 480 0 451.3 0 416V96C0 60.65 28.65 32 64 32H384zM339.8 211.8C350.7 200.9 350.7 183.1 339.8 172.2C328.9 161.3 311.1 161.3 300.2 172.2L192 280.4L147.8 236.2C136.9 225.3 119.1 225.3 108.2 236.2C97.27 247.1 97.27 264.9 108.2 275.8L172.2 339.8C183.1 350.7 200.9 350.7 211.8 339.8L339.8 211.8z"/></svg> / <svg aria-hidden="true" role="img" viewBox="0 0 320 512" style="height:1em;width:0.62em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:red;overflow:visible;position:relative;"><path d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg> **Discriminate**
+- <svg aria-hidden="true" role="img" viewBox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:green;overflow:visible;position:relative;"><path d="M384 32C419.3 32 448 60.65 448 96V416C448 451.3 419.3 480 384 480H64C28.65 480 0 451.3 0 416V96C0 60.65 28.65 32 64 32H384zM339.8 211.8C350.7 200.9 350.7 183.1 339.8 172.2C328.9 161.3 311.1 161.3 300.2 172.2L192 280.4L147.8 236.2C136.9 225.3 119.1 225.3 108.2 236.2C97.27 247.1 97.27 264.9 108.2 275.8L172.2 339.8C183.1 350.7 200.9 350.7 211.8 339.8L339.8 211.8z"/></svg> / <svg aria-hidden="true" role="img" viewBox="0 0 320 512" style="height:1em;width:0.62em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:red;overflow:visible;position:relative;"><path d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg> **Rank**
+- <svg aria-hidden="true" role="img" viewBox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:green;overflow:visible;position:relative;"><path d="M384 32C419.3 32 448 60.65 448 96V416C448 451.3 419.3 480 384 480H64C28.65 480 0 451.3 0 416V96C0 60.65 28.65 32 64 32H384zM339.8 211.8C350.7 200.9 350.7 183.1 339.8 172.2C328.9 161.3 311.1 161.3 300.2 172.2L192 280.4L147.8 236.2C136.9 225.3 119.1 225.3 108.2 236.2C97.27 247.1 97.27 264.9 108.2 275.8L172.2 339.8C183.1 350.7 200.9 350.7 211.8 339.8L339.8 211.8z"/></svg> / <svg aria-hidden="true" role="img" viewBox="0 0 320 512" style="height:1em;width:0.62em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:red;overflow:visible;position:relative;"><path d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg> **Ratio**
+
+]
+
+.rightcol70[
+
+&lt;center&gt;
+&lt;img src="figs/jr_saturation_ordered_zero.png" width=750&gt;
+&lt;/center&gt;
+
+]
+
+---
+
+class: middle
+
+.leftcol30[
+
+1. Position on a common scale
+2. Position on&lt;br&gt;non-aligned scales
+3. Length
+4. Angle
+5. **.red[Area]**
+6. Color saturation
+7. Color hue
+
+&lt;br&gt;
+
+- <svg aria-hidden="true" role="img" viewBox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:green;overflow:visible;position:relative;"><path d="M384 32C419.3 32 448 60.65 448 96V416C448 451.3 419.3 480 384 480H64C28.65 480 0 451.3 0 416V96C0 60.65 28.65 32 64 32H384zM339.8 211.8C350.7 200.9 350.7 183.1 339.8 172.2C328.9 161.3 311.1 161.3 300.2 172.2L192 280.4L147.8 236.2C136.9 225.3 119.1 225.3 108.2 236.2C97.27 247.1 97.27 264.9 108.2 275.8L172.2 339.8C183.1 350.7 200.9 350.7 211.8 339.8L339.8 211.8z"/></svg> / <svg aria-hidden="true" role="img" viewBox="0 0 320 512" style="height:1em;width:0.62em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:red;overflow:visible;position:relative;"><path d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg> **Discriminate**
+- <svg aria-hidden="true" role="img" viewBox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:green;overflow:visible;position:relative;"><path d="M384 32C419.3 32 448 60.65 448 96V416C448 451.3 419.3 480 384 480H64C28.65 480 0 451.3 0 416V96C0 60.65 28.65 32 64 32H384zM339.8 211.8C350.7 200.9 350.7 183.1 339.8 172.2C328.9 161.3 311.1 161.3 300.2 172.2L192 280.4L147.8 236.2C136.9 225.3 119.1 225.3 108.2 236.2C97.27 247.1 97.27 264.9 108.2 275.8L172.2 339.8C183.1 350.7 200.9 350.7 211.8 339.8L339.8 211.8z"/></svg> / <svg aria-hidden="true" role="img" viewBox="0 0 320 512" style="height:1em;width:0.62em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:red;overflow:visible;position:relative;"><path d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg> **Rank**
+- <svg aria-hidden="true" role="img" viewBox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:green;overflow:visible;position:relative;"><path d="M384 32C419.3 32 448 60.65 448 96V416C448 451.3 419.3 480 384 480H64C28.65 480 0 451.3 0 416V96C0 60.65 28.65 32 64 32H384zM339.8 211.8C350.7 200.9 350.7 183.1 339.8 172.2C328.9 161.3 311.1 161.3 300.2 172.2L192 280.4L147.8 236.2C136.9 225.3 119.1 225.3 108.2 236.2C97.27 247.1 97.27 264.9 108.2 275.8L172.2 339.8C183.1 350.7 200.9 350.7 211.8 339.8L339.8 211.8z"/></svg> / <svg aria-hidden="true" role="img" viewBox="0 0 320 512" style="height:1em;width:0.62em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:red;overflow:visible;position:relative;"><path d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg> **Ratio**
+
+]
+
+.rightcol70[
+
+&lt;center&gt;
+&lt;img src="figs/jr_area.png" width=750&gt;
+&lt;/center&gt;
+
+]
+
+---
+
+class: middle
+
+.leftcol30[
+
+1. Position on a common scale
+2. Position on&lt;br&gt;non-aligned scales
+3. Length
+4. Angle
+5. **.red[Area]**
+6. Color saturation
+7. Color hue
+
+]
+
+.rightcol70[
+
+### .center[Area works okay for "bubble" charts]
+&lt;center&gt;
+&lt;img src="images/gapminder_bubbles.jpg" width=750&gt;
+&lt;/center&gt;
+
+]
+
+---
+
+class: middle
+
+.leftcol30[
+
+1. Position on a common scale
+2. Position on&lt;br&gt;non-aligned scales
+3. Length
+4. **.red[Angle]**
+5. Area
+6. Color saturation
+7. Color hue
+
+&lt;br&gt;
+
+- <svg aria-hidden="true" role="img" viewBox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:green;overflow:visible;position:relative;"><path d="M384 32C419.3 32 448 60.65 448 96V416C448 451.3 419.3 480 384 480H64C28.65 480 0 451.3 0 416V96C0 60.65 28.65 32 64 32H384zM339.8 211.8C350.7 200.9 350.7 183.1 339.8 172.2C328.9 161.3 311.1 161.3 300.2 172.2L192 280.4L147.8 236.2C136.9 225.3 119.1 225.3 108.2 236.2C97.27 247.1 97.27 264.9 108.2 275.8L172.2 339.8C183.1 350.7 200.9 350.7 211.8 339.8L339.8 211.8z"/></svg> / <svg aria-hidden="true" role="img" viewBox="0 0 320 512" style="height:1em;width:0.62em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:red;overflow:visible;position:relative;"><path d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg> **Discriminate**
+- <svg aria-hidden="true" role="img" viewBox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:green;overflow:visible;position:relative;"><path d="M384 32C419.3 32 448 60.65 448 96V416C448 451.3 419.3 480 384 480H64C28.65 480 0 451.3 0 416V96C0 60.65 28.65 32 64 32H384zM339.8 211.8C350.7 200.9 350.7 183.1 339.8 172.2C328.9 161.3 311.1 161.3 300.2 172.2L192 280.4L147.8 236.2C136.9 225.3 119.1 225.3 108.2 236.2C97.27 247.1 97.27 264.9 108.2 275.8L172.2 339.8C183.1 350.7 200.9 350.7 211.8 339.8L339.8 211.8z"/></svg> **Rank**
+- <svg aria-hidden="true" role="img" viewBox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:green;overflow:visible;position:relative;"><path d="M384 32C419.3 32 448 60.65 448 96V416C448 451.3 419.3 480 384 480H64C28.65 480 0 451.3 0 416V96C0 60.65 28.65 32 64 32H384zM339.8 211.8C350.7 200.9 350.7 183.1 339.8 172.2C328.9 161.3 311.1 161.3 300.2 172.2L192 280.4L147.8 236.2C136.9 225.3 119.1 225.3 108.2 236.2C97.27 247.1 97.27 264.9 108.2 275.8L172.2 339.8C183.1 350.7 200.9 350.7 211.8 339.8L339.8 211.8z"/></svg> / <svg aria-hidden="true" role="img" viewBox="0 0 320 512" style="height:1em;width:0.62em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:red;overflow:visible;position:relative;"><path d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg> **Ratio**
+
+]
+
+.rightcol70[
+
+&lt;center&gt;
+&lt;img src="figs/jr_angle.png" width=750&gt;
+&lt;/center&gt;
+
+]
+
+---
+
+class: middle
+background-color: #FFFFFF
+
+.leftcol30[
+
+1. Position on a common scale
+2. Position on&lt;br&gt;non-aligned scales
+3. Length
+4. **.red[Angle]**
+5. Area
+6. Color saturation
+7. Color hue
+
+]
+
+.rightcol70[
+
+&lt;center&gt;
+&lt;img src="figs/statesPie.png" width=750&gt;
+&lt;/center&gt;
+
+]
+
+---
+
+class: middle
+
+.leftcol30[
+
+1. Position on a common scale
+2. Position on&lt;br&gt;non-aligned scales
+3. **.red[Length]**
+4. Angle
+5. Area
+6. Color saturation
+7. Color hue
+
+&lt;br&gt;
+
+- <svg aria-hidden="true" role="img" viewBox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:green;overflow:visible;position:relative;"><path d="M384 32C419.3 32 448 60.65 448 96V416C448 451.3 419.3 480 384 480H64C28.65 480 0 451.3 0 416V96C0 60.65 28.65 32 64 32H384zM339.8 211.8C350.7 200.9 350.7 183.1 339.8 172.2C328.9 161.3 311.1 161.3 300.2 172.2L192 280.4L147.8 236.2C136.9 225.3 119.1 225.3 108.2 236.2C97.27 247.1 97.27 264.9 108.2 275.8L172.2 339.8C183.1 350.7 200.9 350.7 211.8 339.8L339.8 211.8z"/></svg> / <svg aria-hidden="true" role="img" viewBox="0 0 320 512" style="height:1em;width:0.62em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:red;overflow:visible;position:relative;"><path d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg> **Discriminate**
+- <svg aria-hidden="true" role="img" viewBox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:green;overflow:visible;position:relative;"><path d="M384 32C419.3 32 448 60.65 448 96V416C448 451.3 419.3 480 384 480H64C28.65 480 0 451.3 0 416V96C0 60.65 28.65 32 64 32H384zM339.8 211.8C350.7 200.9 350.7 183.1 339.8 172.2C328.9 161.3 311.1 161.3 300.2 172.2L192 280.4L147.8 236.2C136.9 225.3 119.1 225.3 108.2 236.2C97.27 247.1 97.27 264.9 108.2 275.8L172.2 339.8C183.1 350.7 200.9 350.7 211.8 339.8L339.8 211.8z"/></svg> / <svg aria-hidden="true" role="img" viewBox="0 0 320 512" style="height:1em;width:0.62em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:red;overflow:visible;position:relative;"><path d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg> **Rank**
+- <svg aria-hidden="true" role="img" viewBox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:green;overflow:visible;position:relative;"><path d="M384 32C419.3 32 448 60.65 448 96V416C448 451.3 419.3 480 384 480H64C28.65 480 0 451.3 0 416V96C0 60.65 28.65 32 64 32H384zM339.8 211.8C350.7 200.9 350.7 183.1 339.8 172.2C328.9 161.3 311.1 161.3 300.2 172.2L192 280.4L147.8 236.2C136.9 225.3 119.1 225.3 108.2 236.2C97.27 247.1 97.27 264.9 108.2 275.8L172.2 339.8C183.1 350.7 200.9 350.7 211.8 339.8L339.8 211.8z"/></svg> **Ratio**
+
+]
+
+.rightcol70[
+
+&lt;center&gt;
+&lt;img src="figs/jr_length.png" width=750&gt;
+&lt;/center&gt;
+
+]
+
+---
+
+class: middle
+
+.leftcol30[
+
+1. Position on a common scale
+2. **.red[Position on&lt;br&gt;non-aligned scales]**
+3. Length
+4. Angle
+5. Area
+6. Color saturation
+7. Color hue
+
+&lt;br&gt;
+
+- <svg aria-hidden="true" role="img" viewBox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:green;overflow:visible;position:relative;"><path d="M384 32C419.3 32 448 60.65 448 96V416C448 451.3 419.3 480 384 480H64C28.65 480 0 451.3 0 416V96C0 60.65 28.65 32 64 32H384zM339.8 211.8C350.7 200.9 350.7 183.1 339.8 172.2C328.9 161.3 311.1 161.3 300.2 172.2L192 280.4L147.8 236.2C136.9 225.3 119.1 225.3 108.2 236.2C97.27 247.1 97.27 264.9 108.2 275.8L172.2 339.8C183.1 350.7 200.9 350.7 211.8 339.8L339.8 211.8z"/></svg> / <svg aria-hidden="true" role="img" viewBox="0 0 320 512" style="height:1em;width:0.62em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:red;overflow:visible;position:relative;"><path d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg> **Discriminate**
+- <svg aria-hidden="true" role="img" viewBox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:green;overflow:visible;position:relative;"><path d="M384 32C419.3 32 448 60.65 448 96V416C448 451.3 419.3 480 384 480H64C28.65 480 0 451.3 0 416V96C0 60.65 28.65 32 64 32H384zM339.8 211.8C350.7 200.9 350.7 183.1 339.8 172.2C328.9 161.3 311.1 161.3 300.2 172.2L192 280.4L147.8 236.2C136.9 225.3 119.1 225.3 108.2 236.2C97.27 247.1 97.27 264.9 108.2 275.8L172.2 339.8C183.1 350.7 200.9 350.7 211.8 339.8L339.8 211.8z"/></svg> / <svg aria-hidden="true" role="img" viewBox="0 0 320 512" style="height:1em;width:0.62em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:red;overflow:visible;position:relative;"><path d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg> **Rank**
+- <svg aria-hidden="true" role="img" viewBox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:green;overflow:visible;position:relative;"><path d="M384 32C419.3 32 448 60.65 448 96V416C448 451.3 419.3 480 384 480H64C28.65 480 0 451.3 0 416V96C0 60.65 28.65 32 64 32H384zM339.8 211.8C350.7 200.9 350.7 183.1 339.8 172.2C328.9 161.3 311.1 161.3 300.2 172.2L192 280.4L147.8 236.2C136.9 225.3 119.1 225.3 108.2 236.2C97.27 247.1 97.27 264.9 108.2 275.8L172.2 339.8C183.1 350.7 200.9 350.7 211.8 339.8L339.8 211.8z"/></svg> **Ratio**
+
+]
+
+.rightcol70[
+
+&lt;center&gt;
+&lt;img src="figs/jr_position_non_aligned.png" width=750&gt;
+&lt;/center&gt;
+
+]
+
+---
+
+class: middle
+
+.leftcol30[
+
+1. **.red[Position on a common scale]**
+2. Position on&lt;br&gt;non-aligned scales
+3. Length
+4. Angle
+5. Area
+6. Color saturation
+7. Color hue
+
+&lt;br&gt;
+
+- <svg aria-hidden="true" role="img" viewBox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:green;overflow:visible;position:relative;"><path d="M384 32C419.3 32 448 60.65 448 96V416C448 451.3 419.3 480 384 480H64C28.65 480 0 451.3 0 416V96C0 60.65 28.65 32 64 32H384zM339.8 211.8C350.7 200.9 350.7 183.1 339.8 172.2C328.9 161.3 311.1 161.3 300.2 172.2L192 280.4L147.8 236.2C136.9 225.3 119.1 225.3 108.2 236.2C97.27 247.1 97.27 264.9 108.2 275.8L172.2 339.8C183.1 350.7 200.9 350.7 211.8 339.8L339.8 211.8z"/></svg> **Discriminate**
+- <svg aria-hidden="true" role="img" viewBox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:green;overflow:visible;position:relative;"><path d="M384 32C419.3 32 448 60.65 448 96V416C448 451.3 419.3 480 384 480H64C28.65 480 0 451.3 0 416V96C0 60.65 28.65 32 64 32H384zM339.8 211.8C350.7 200.9 350.7 183.1 339.8 172.2C328.9 161.3 311.1 161.3 300.2 172.2L192 280.4L147.8 236.2C136.9 225.3 119.1 225.3 108.2 236.2C97.27 247.1 97.27 264.9 108.2 275.8L172.2 339.8C183.1 350.7 200.9 350.7 211.8 339.8L339.8 211.8z"/></svg> **Rank**
+- <svg aria-hidden="true" role="img" viewBox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:green;overflow:visible;position:relative;"><path d="M384 32C419.3 32 448 60.65 448 96V416C448 451.3 419.3 480 384 480H64C28.65 480 0 451.3 0 416V96C0 60.65 28.65 32 64 32H384zM339.8 211.8C350.7 200.9 350.7 183.1 339.8 172.2C328.9 161.3 311.1 161.3 300.2 172.2L192 280.4L147.8 236.2C136.9 225.3 119.1 225.3 108.2 236.2C97.27 247.1 97.27 264.9 108.2 275.8L172.2 339.8C183.1 350.7 200.9 350.7 211.8 339.8L339.8 211.8z"/></svg> **Ratio**
+
+]
+
+.rightcol70[
+
+&lt;center&gt;
+&lt;img src="figs/jr_position_aligned_ordered.png" width=750&gt;
+&lt;/center&gt;
+
+]
+
+---
+
+class: middle
+
+.leftcol30[
+
+1. **.red[Position on a common scale]**
+2. Position on&lt;br&gt;non-aligned scales
+3. Length
+4. Angle
+5. Area
+6. Color saturation
+7. Color hue
+
+.red[
+
+**No need to scale to 0:**
+- Lowers resolution
+- Isn't needed for accurate ratioing
+
+]]
+
+.rightcol70[
+
+&lt;center&gt;
+&lt;img src="figs/jr_position_aligned_ordered_zero.png" width=750&gt;
+&lt;/center&gt;
+
+]
+
+---
+
+class: middle
+
+.leftcol30[
+
+1. **.red[Position on a common scale]**
+2. Position on&lt;br&gt;non-aligned scales
+3. Length
+4. Angle
+5. Area
+6. Color saturation
+7. Color hue
+
+**.red[Sorting still matters!]**
+
+]
+
+.rightcol70[
+
+&lt;center&gt;
+&lt;img src="figs/jr_position_aligned.png" width=750&gt;
+&lt;/center&gt;
+
+]
+
+---
+
+template: cleveland-perception
+
+---
+
+class: inverse
+
+# Cleveland's operations of pattern perception:
+
+.leftcol45[
+# 1. Estimation
+# 2. .red[Assembly] --------&gt;
+# 3. Detection
+
+]
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+.rightcol55[
+
+#### The grouping of graphical elements
+
+]
+
+---
+
+class: inverse, middle, center
+
+# .font130[.red[Assembly]: Gestalt Psychology]
+
+&lt;br&gt;
+
+### The whole has a reality that is entirely separate from the parts
+
+---
+
+class: middle
+background-color: #FFFFFF
+
+&lt;center&gt;
+&lt;img src="images/gestalt-panda.png" width=400&gt;
+&lt;/center&gt;
+
+---
+
+class: center
+background-color: #FFFFFF
+
+# Reification
+
+&lt;br&gt;
+&lt;center&gt;
+&lt;img src="images/gestalt-f1-logo.jpg" width=700&gt;
+&lt;/center&gt;
+
+---
+
+class: center
+background-color: #FFFFFF
+
+.leftcol30[
+
+# Emergence
+
+]
+
+.rightcol70[
+
+&lt;center&gt;
+&lt;img src="images/gestalt-dog.jpg" width=600&gt;
+&lt;/center&gt;
+
+]
+
+---
+
+background-color: #FFFFFF
+
+.leftcol20[
+
+# Law of Closure
+
+Our minds fill in the missing information
+
+]
+
+.rightcol80[
+
+&lt;img src="figs/jr_circle.png" width=600&gt;
+
+]
+
+---
+
+class: inverse, center
+
+# .font120[Prägnanz]
+
+&lt;br&gt;
+
+### We strongly prefer to interpret stimuli as regular, simple, and orderly
+
+--
+
+.cols3[
+
+&lt;center&gt;
+&lt;img src="images/unsatisfying-pie.gif" width=500&gt;
+&lt;/center&gt;
+
+]
+
+--
+
+.cols3[
+
+&lt;center&gt;
+&lt;img src="images/unsatisfying-paper.gif" width=500&gt;
+&lt;/center&gt;
+
+]
+
+--
+
+.cols3[
+
+&lt;center&gt;
+&lt;img src="images/unsatisfying-lines.gif" width=500&gt;
+&lt;/center&gt;
+
+]
+
+---
+
+class: middle
+
+.leftcol30[
+
+# .font120[Prägnanz]
+
+.font120[This should cause you cognitive pain]
+
+
+It's the graphical equivalent of this:
+
+&lt;center&gt;
+&lt;img src="images/unsatisfying-pie.gif"&gt;
+&lt;/center&gt;
+
+]
+
+.rightcol70[
+
+&lt;center&gt;
+&lt;img src="figs/jr_position_aligned.png" width=750&gt;
+&lt;/center&gt;
+
+]
+
+---
+
+class: middle
+
+.leftcol30[
+
+# .font120[Prägnanz]
+
+.font120[This makes our brains happy]
+
+]
+
+.rightcol70[
+
+&lt;center&gt;
+&lt;img src="figs/jr_position_aligned_ordered.png" width=750&gt;
+&lt;/center&gt;
+
+]
+
+---
+
+class: middle
+
+.leftcol30[
+
+# Law of Continuity
+
+.font120[We will group together objects that follow an established direction]
+
+]
+
+.rightcol70[
+
+&lt;center&gt;
+&lt;img src="figs/mtCarsScatter.png" width=750&gt;
+&lt;/center&gt;
+
+]
+
+---
+
+class: middle
+
+.leftcol30[
+
+# Law of Continuity
+
+.font120[We will group together objects that follow an established direction]
+
+]
+
+.rightcol70[
+
+&lt;center&gt;
+&lt;img src="figs/mtCarsScatterSmooth.png" width=750&gt;
+&lt;/center&gt;
+
+]
+
+---
+
+class: middle
+
+.leftcol30[
+
+# Law of Similarity
+
+.font120[We see elements that are _physically similar_ as part of the same object]
+
+]
+
+.rightcol70[
+
+&lt;center&gt;
+&lt;img src="figs/mtCarsScatterColor.png" width=750&gt;
+&lt;/center&gt;
+
+]
+
+---
+
+class: middle
+
+.leftcol30[
+
+# Law of Similarity
+
+.font120[We see elements that are _physically similar_ as part of the same object]
+
+]
+
+.rightcol70[
+
+&lt;center&gt;
+&lt;img src="figs/mtCarsScatterShape1.png" width=750&gt;
+&lt;/center&gt;
+
+]
+
+---
+
+class: middle
+
+.leftcol30[
+
+# Law of Similarity
+
+.font120[We see elements that are _physically similar_ as part of the same object]
+
+]
+
+.rightcol70[
+
+&lt;center&gt;
+&lt;img src="figs/mtCarsScatterShape2.png" width=750&gt;
+&lt;/center&gt;
+
+]
+
+---
+
+class: middle
+
+.leftcol30[
+
+# Law of Similarity
+
+.font120[We see elements that are _physically similar_ as part of the same object]
+
+]
+
+.rightcol70[
+
+&lt;center&gt;
+&lt;img src="figs/mtCarsScatterShape3.png" width=750&gt;
+&lt;/center&gt;
+
+]
+
+---
+
+class: middle
+
+.leftcol30[
+
+# Law of Proximity
+
+.font120[We tend to see elements that are _physically near_ each other as part of the same object]
+
+]
+
+.rightcol70[
+
+&lt;center&gt;
+&lt;img src="figs/jr_diamonds_bars_dodged.png" width=750&gt;
+&lt;/center&gt;
+
+]
+
+---
+
+class: middle
+
+.leftcol30[
+
+# Law of Proximity
+
+.font120[We tend to see elements that are _physically near_ each other as part of the same object]
+
+]
+
+.rightcol70[
+
+&lt;center&gt;
+&lt;img src="figs/jr_diamonds_line_total.png" width=750&gt;
+&lt;/center&gt;
+
+]
+
+---
+
+class: middle
+
+.leftcol30[
+
+# Law of Proximity
+
+.font120[We tend to see elements that are _physically near_ each other as part of the same object]
+
+]
+
+.rightcol70[
+
+&lt;center&gt;
+&lt;img src="figs/jr_diamonds_line_cut.png" width=750&gt;
+&lt;/center&gt;
+
+]
+
+---
+
+template: cleveland-perception
+
+---
+
+template: cleveland-estimation
+
+---
+
+name: cleveland-assembly
+class: center
+
+# .red[Assembly]: Gestalt Psychology
+
+| Law of Closure | Prägnanz | Law of Continuity | Law of Similarity | Law of Proximity |
+|-|-|-|-|-|
+| Fill in the missing information | We like regular, simple, and orderly | Group together objects with established direction | Physically _similar_ = same object | Physically _near_ = same object |
+| &lt;center&gt;&lt;img src="figs/jr_circle.png" width=200&gt;&lt;/center&gt; | &lt;center&gt;&lt;img src="figs/jr_position_aligned.png" width=200&gt;&lt;/center&gt; | &lt;center&gt;&lt;img src="figs/mtCarsScatter.png" width=200&gt;&lt;/center&gt; | &lt;center&gt;&lt;img src="figs/mtCarsScatterColor.png" width=200&gt;&lt;/center&gt; | &lt;center&gt;&lt;img src="figs/jr_diamonds_bars_dodged.png" width=200&gt;&lt;/center&gt; |
+|  | &lt;center&gt;&lt;img src="images/unsatisfying-pie.gif" width=200&gt;&lt;/center&gt; | &lt;center&gt;&lt;img src="figs/mtCarsScatterSmooth.png" width=200&gt;&lt;/center&gt; | &lt;center&gt;&lt;img src="figs/mtCarsScatterShape1.png" width=200&gt;&lt;/center&gt; | &lt;center&gt;&lt;img src="figs/jr_diamonds_line_cut.png" width=200&gt;&lt;/center&gt; |
+
+---
+
+class: inverse
+
+# Cleveland's operations of pattern perception:
+
+.leftcol45[
+# 1. Estimation
+# 2. Assembly
+# 3. .red[Detection] --------&gt;
+
+]
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+.rightcol55[
+#### Recognizing that a geometric object encodes a physical value
+
+]
+
+---
+
+class: middle
+
+&lt;center&gt;
+&lt;img src="images/norman_door.gif" width=900&gt;
+&lt;/center&gt;
+
+---
+
+.leftcol[
+
+# Norman door (n.):
+
+1. A door where the design tells you to do the opposite of what you're actually supposed to do.
+
+2. A door that gives the wrong signal and needs a sign to correct it.
+
+]
+
+.rightcol[
+
+&lt;center&gt;
+&lt;img src="images/design_of_everyday_things.jpg" width=400&gt;
+&lt;/center&gt;
+
+]
+
+---
+
+class: center
+
+.leftcol[
+
+# Norman door
+
+&lt;center&gt;
+&lt;img src="images/check-bad.png" width=80&gt;
+&lt;img src="images/norman_door.jpg" width=250&gt;
+&lt;/center&gt;
+
+]
+
+--
+
+.rightcol[
+
+# Non-Norman door
+
+&lt;center&gt;
+&lt;img src="images/check-good.png" width=100&gt;
+&lt;img src="images/non-norman-door.jpg" width=480&gt;
+&lt;/center&gt;
+
+]
+
+---
+
+class: middle
+
+.border[
+
+&lt;center&gt;
+&lt;img src="figs/mtCarsScatter.png" width=800&gt;
+&lt;/center&gt;
+
+]
+
+---
+
+class: middle
+
+.border[
+
+&lt;center&gt;
+&lt;img src="figs/mtCarsScatterGray.png" width=800&gt;
+&lt;/center&gt;
+
+]
+
+---
+
+class: middle
+
+.border[
+
+&lt;center&gt;
+&lt;img src="figs/mtCarsScatterSmall.png" width=800&gt;
+&lt;/center&gt;
+
+]
+
+---
+
+class: middle
+
+.border[
+
+&lt;center&gt;
+&lt;img src="figs/mtCarsScatterGrid1.png" width=800&gt;
+&lt;/center&gt;
+
+]
+
+---
+
+class: middle
+
+.border[
+
+&lt;center&gt;
+&lt;img src="figs/mtCarsScatterGrid2.png" width=800&gt;
+&lt;/center&gt;
+
+]
+
+---
+
+class: middle
+
+.border[
+
+&lt;center&gt;
+&lt;img src="figs/mtCarsScatterGrid3.png" width=800&gt;
+&lt;/center&gt;
+
+]
+
+---
+
+class: middle, center
+
+The white circles you see at the intersections is called the **"Hermann Grid illusion"**
+
+.border[
+
+&lt;center&gt;
+&lt;img src="figs/mtCarsScatterGrid4.png" width=700&gt;
+&lt;/center&gt;
+
+]
+
+---
+
+class: middle
+
+.border[
+&lt;center&gt;
+&lt;img src="figs/mtCarsScatterGrid5.png" width=800&gt;
+&lt;/center&gt;
+
+]
+
+---
+
+class: inverse, center
+
+<div class="countdown" id="timer_633c1213" style="top:1;right:0;bottom:0;left:0;margin:5%;font-size:8em;" data-warnwhen="30">
+<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+# Break!
+
+## Stand up, Move around, Stretch!
+
+---
+
+
+
+class: inverse, middle
+
+# Week 6: .fancy[Visualizing Information]
+
+## 1. The Human Visual-Memory System
+## 2. The Psychology of Data Viz
+
+## BREAK
+
+## 3. .orange[10 Data Viz Best Practices]
+## 4. Making a (good) ggplot
+
+---
+
+
+
+class: inverse
+
+# .center[10 Data Viz Best Practices]
+
+.font120[
+1. Remove chart chunk
+2. Don't make 3D plots*
+3. Don't lie
+4. Don't use pie charts for proportions*
+5. Don't stack bars*
+6. Rotate and sort categorical axes*
+7. Eliminate legends &amp; directly label geoms*
+8. Don't use pattern fills
+9. Don't use red &amp; green together
+10. Consider tables for small data sets
+
+.right[*most of the time]
+]
+
+---
+
+
+
+class: inverse
+
+# .center[10 Data Viz Best Practices]
+
+.font120[
+1. .orange[Remove chart chunk]
+2. Don't make 3D plots*
+3. Don't lie
+4. Don't use pie charts for proportions*
+5. Don't stack bars*
+6. Rotate and sort categorical axes*
+7. Eliminate legends &amp; directly label geoms*
+8. Don't use pattern fills
+9. Don't use red &amp; green together
+10. Consider tables for small data sets
+
+.right[*most of the time]
+]
+
+---
+
+class: inverse, middle
+
+.rightcol80[
+
+# "_Erase non-data ink._"
+## — Ed Tufte
+
+]
+
+---
+
+class: center, middle
+
+.leftcol[
+
+&lt;center&gt;
+&lt;img src="images/check-bad.png" width=80&gt;
+&lt;img src="images/monsterBars.png" width=500&gt;
+&lt;/center&gt;
+
+Figure 1.6: `Monstrous Costs’ by Nigel Holmes, in Healy, 2018
+
+]
+
+--
+
+.rightcol[
+
+&lt;center&gt;
+&lt;img src="images/check-good.png" width=100&gt;
+&lt;img src="figs/monsterBars.png" width=480&gt;
+&lt;/center&gt;
+
+]
+
+---
+
+class: middle
+
+&lt;center&gt;
+&lt;img src="images/less-is-more-darkhorse-analytics.gif" width=800&gt;
+&lt;/center&gt;
+
+.left[Figure 24.1: From Data Looks Better Naked by Darkhorse Analytics]
+
+---
+
+class: center, middle
+
+.leftcol[
+
+&lt;center&gt;
+&lt;img src="images/check-bad.png" width=80&gt;
+&lt;img src="images/less-is-more-darkhorse-analytics-before.png" width=500&gt;
+&lt;/center&gt;
+
+]
+
+--
+
+.rightcol[
+
+&lt;center&gt;
+&lt;img src="images/check-good.png" width=100&gt;
+&lt;img src="images/less-is-more-darkhorse-analytics-after.png" width=480&gt;
+&lt;/center&gt;
+
+]
+
+---
+
+
+
+class: inverse
+
+# .center[10 Data Viz Best Practices]
+
+.font120[
+1. Remove chart chunk
+2. .orange[Don't make 3D plots*]
+3. Don't lie
+4. Don't use pie charts for proportions*
+5. Don't stack bars*
+6. Rotate and sort categorical axes*
+7. Eliminate legends &amp; directly label geoms*
+8. Don't use pattern fills
+9. Don't use red &amp; green together
+10. Consider tables for small data sets
+
+.right[*most of the time]
+]
+
+---
+
+class: center, middle
+
+.leftcol[
+
+## Humans aren't good at distinguishing 3D space
+
+&lt;center&gt;
+&lt;img src="images/penrose-stairs.png" width=400&gt;
+&lt;/center&gt;
+
+[Penrose Stairs](https://en.wikipedia.org/wiki/Penrose_stairs
+), made famous by&lt;br&gt;M.C. Escher (1898-1972)
+
+]
+
+--
+
+.rightcol[
+
+## Ink proportions !=&lt;br&gt;true proportions
+
+&lt;center&gt;
+&lt;img src="images/3dpies.png" width=500&gt;
+&lt;/center&gt;
+
+]
+
+---
+
+class: center, middle
+
+# Occlusion: geoms are obscured
+
+&lt;center&gt;
+&lt;img src="images/3d-occlusion.png" width=400&gt;
+&lt;/center&gt;
+
+---
+
+class: center, middle
+
+.leftcol60[
+
+&lt;center&gt;
+&lt;img src="images/3dbad.jpeg" width=100%&gt;
+&lt;/center&gt;
+
+]
+
+.rightcol40[
+
+# Multiple interpretations
+
+]
+
+---
+
+class: center, middle
+
+.leftcol40[
+
+&lt;center&gt;
+&lt;img src="images/check-bad.png" width=80&gt;
+&lt;img src="images/3d-occlusion.png" width=400&gt;
+&lt;/center&gt;
+
+]
+
+--
+
+.rightcol60[
+
+&lt;center&gt;
+&lt;img src="images/check-good.png" width=100&gt;
+.border[&lt;img src="figs/facetedBars.png" width=600&gt;]
+&lt;/center&gt;
+
+]
+
+---
+
+class: center, middle
+
+# The third dimension distracts from the data
+
+## (this is what Tufte calls "chart junk")
+
+
+&lt;center&gt;
+&lt;img src="images/3d-chart-junk.png" width=700&gt;
+&lt;/center&gt;
+
+---
+
+class: center, middle
+
+.leftcol60[
+
+&lt;center&gt;
+&lt;img src="images/check-bad.png" width=80&gt;
+&lt;img src="images/3d-chart-junk.png"&gt;
+&lt;/center&gt;
+
+]
+
+--
+
+.rightcol40[
+
+&lt;center&gt;
+&lt;img src="images/check-good.png" width=100&gt;
+.border[&lt;img src="figs/simpleBars.png"&gt;]
+&lt;/center&gt;
+
+]
+
+---
+
+
+
+class: inverse
+
+# .center[10 Data Viz Best Practices]
+
+.font120[
+1. Remove chart chunk
+2. Don't make 3D plots*
+3. .orange[Don't lie]
+4. Don't use pie charts for proportions*
+5. Don't stack bars*
+6. Rotate and sort categorical axes*
+7. Eliminate legends &amp; directly label geoms*
+8. Don't use pattern fills
+9. Don't use red &amp; green together
+10. Consider tables for small data sets
+
+.right[*most of the time]
+]
+
+---
+
+class: center, middle
+
+### "Lie Factor" = `\(\frac{\text{Size of effect in graphic}}{\text{Size of effect in data}}\)`
+
+---
+
+class: center, middle
+
+### "Lie Factor" = `\(\frac{\text{Size of effect in graphic}}{\text{Size of effect in data}} = \frac{\frac{5.3 - 0.6}{0.6}}{\frac{27.5 - 18}{18}} = \frac{7.83}{0.53} = 14.8\)`
+
+.leftcol60[.border[
+
+&lt;center&gt;
+&lt;img src="images/tufte-fuel-economy-bad.png"&gt;
+&lt;/center&gt;
+
+.font80[.left[Edward Tufte (2001) "The Visual Display of Quantitative Information", 2nd Edition, pg. 57-58.]]
+
+]]
+
+--
+
+.rightcol40[.border[
+
+&lt;center&gt;
+&lt;img src="images/tufte-fuel-economy-good.png" width=370&gt;
+&lt;/center&gt;
+
+]]
+
+---
+
+class: center, middle
+
+# Bar charts should always start at 0
+
+--
+
+.leftcol60[
+
+&lt;center&gt;
+&lt;img src="images/check-bad.png" width=80&gt;
+&lt;img src="images/fox-news-bars.png"&gt;
+&lt;/center&gt;
+
+.font70[.left[Image from http://livingqlikview.com/the-9-worst-data-visualizations-ever-created/
+]]
+
+]
+
+--
+
+.rightcol40[
+
+&lt;center&gt;
+&lt;img src="images/check-good.png" width=100&gt;
+.border[&lt;img src="figs/barchart_zero.png" width=330px&gt;]
+&lt;/center&gt;
+
+]
+
+---
+
+class: center, middle
+
+# Don't cherry-pick your data
+
+--
+
+.leftcol60[
+
+&lt;center&gt;
+&lt;img src="images/check-bad.png" width=80&gt;
+&lt;img src="images/fox-news-immigration-bars-bad.jpg"&gt;
+&lt;/center&gt;
+
+.font70[.left[Image from https://www.mediamatters.org/fox-news/fox-news-newest-dishonest-chart-immigration-enforcement]]
+
+]
+
+--
+
+.rightcol40[
+
+&lt;center&gt;
+&lt;img src="images/check-good.png" width=100&gt;
+.border[&lt;img src="images/fox-news-immigration-bars-good.jpg"&gt;]
+&lt;/center&gt;
+
+]
+
+---
+
+class: center, middle
+
+# Make sure your chart makes sense
+
+&lt;center&gt;
+&lt;img src="images/fox-news-piechart.png" width=600&gt;
+&lt;/center&gt;
+
+.font70[.left[Image from Image from http://livingqlikview.com/the-9-worst-data-visualizations-ever-created/
+]]
+
+---
+
+
+
+class: inverse
+
+# .center[10 Data Viz Best Practices]
+
+.font120[
+1. Remove chart chunk
+2. Don't make 3D plots*
+3. Don't lie
+4. .orange[Don't use pie charts for proportions*]
+5. Don't stack bars*
+6. Rotate and sort categorical axes*
+7. Eliminate legends &amp; directly label geoms*
+8. Don't use pattern fills
+9. Don't use red &amp; green together
+10. Consider tables for small data sets
+
+.right[*most of the time]
+]
+
+---
+
+class: middle, center
+background-color: #FFFFFF
+
+.leftcol45[
+
+&lt;center&gt;
+&lt;img src="images/check-bad.png" width=80&gt;
+&lt;img src="figs/statesPie.png" width=750&gt;
+&lt;/center&gt;
+
+]
+
+--
+
+.rightcol55[
+
+&lt;center&gt;
+&lt;img src="images/check-good.png" width=100&gt;
+&lt;img src="figs/statesBar.png" width=750&gt;
+&lt;/center&gt;
+
+]
+
+---
+
+class: middle
+background-color: #FFFFFF
+
+.leftcol45[
+
+# Exceptions:
+
+## - Small data
+## - Simple fractions
+## - If sum of parts matters
+
+]
+
+--
+
+.rightcol55[
+
+&lt;center&gt;
+&lt;img src="images/bundestag-pie-1.png"&gt;
+&lt;/center&gt;
+
+]
+
+---
+
+class: middle, center
+background-color: #FFFFFF
+
+# Best pie chart of all time
+
+&lt;center&gt;
+&lt;img src="images/pie-pyramid.png" width=900&gt;
+&lt;/center&gt;
+
+---
+
+
+
+class: inverse
+
+# .center[10 Data Viz Best Practices]
+
+.font120[
+1. Remove chart chunk
+2. Don't make 3D plots*
+3. Don't lie
+4. Don't use pie charts for proportions*
+5. .orange[Don't stack bars*]
+6. Rotate and sort categorical axes*
+7. Eliminate legends &amp; directly label geoms*
+8. Don't use pattern fills
+9. Don't use red &amp; green together
+10. Consider tables for small data sets
+
+.right[*most of the time]
+]
+
+---
+
+class: middle, center
+
+# Stacked bars are rarely a good idea
+
+.border[
+
+&lt;center&gt;
+&lt;img src="figs/jr_diamonds_bars_stacked.png" width=700&gt;
+&lt;/center&gt;
+
+]
+
+---
+
+class: middle, center
+
+## "Parallel coordinates" plot usually works better
+
+.leftcol[.border[
+
+&lt;center&gt;
+&lt;img src="figs/jr_diamonds_line_cut.png"&gt;
+&lt;/center&gt;
+
+]]
+
+.rightcol[.border[
+
+&lt;center&gt;
+&lt;img src="figs/jr_diamonds_line_total.png"&gt;
+&lt;/center&gt;
+
+]]
+
+---
+
+class: middle, center
+
+## Exception:&lt;br&gt;When you care about the _total_ more than the categories
+
+.leftcol60[.border[
+
+&lt;center&gt;
+&lt;img src="figs/jr_phones_area.png"&gt;
+&lt;/center&gt;
+
+]]
+
+--
+
+.rightcol40[.border[
+
+&lt;center&gt;
+&lt;img src="figs/backgroundChecks.png" width=400&gt;
+&lt;/center&gt;
+
+]]
+
+---
+
+
+
+class: inverse
+
+# .center[10 Data Viz Best Practices]
+
+.font120[
+1. Remove chart chunk
+2. Don't make 3D plots*
+3. Don't lie
+4. Don't use pie charts for proportions*
+5. Don't stack bars*
+6. .orange[Rotate and sort categorical axes*]
+7. Eliminate legends &amp; directly label geoms*
+8. Don't use pattern fills
+9. Don't use red &amp; green together
+10. Consider tables for small data sets
+
+.right[*most of the time]
+]
+
+---
+
+class: middle, center
+
+## Rotate axes if you can't read them
+
+.leftcol45[
+
+&lt;center&gt;
+&lt;img src="images/check-bad.png" width=80&gt;
+.border[&lt;img src="figs/mpg_bars_bad.png" width=400&gt;]
+&lt;/center&gt;
+
+]
+
+--
+
+.rightcol55[
+
+&lt;center&gt;
+&lt;img src="images/check-good.png" width=100&gt;
+.border[&lt;img src="figs/mpg_bars_flipped.png" width=750&gt;]
+&lt;/center&gt;
+
+]
+
+---
+
+class: middle, center
+
+## Default order is almost always wrong
+
+.leftcol[
+
+&lt;center&gt;
+&lt;img src="images/check-bad.png" width=80&gt;
+Ordered by alphabet (default)
+.border[&lt;img src="figs/mpg_bars_flipped.png"&gt;]
+&lt;/center&gt;
+
+]
+
+--
+
+.rightcol[
+
+&lt;center&gt;
+&lt;img src="images/check-good.png" width=100&gt;
+Ordered by count
+.border[&lt;img src="figs/mpg_bars_flipped_sorted.png"&gt;]
+&lt;/center&gt;
+
+]
+
+---
+
+class: center
+
+## Exception: Ordinal variables
+
+&lt;center&gt;
+.border[&lt;img src="images/wildlife-months-bar-1.png" width=900&gt;]
+&lt;/center&gt;
+
+---
+
+
+
+class: inverse
+
+# .center[10 Data Viz Best Practices]
+
+.font120[
+1. Remove chart chunk
+2. Don't make 3D plots*
+3. Don't lie
+4. Don't use pie charts for proportions*
+5. Don't stack bars*
+6. Rotate and sort categorical axes*
+7. .orange[Eliminate legends &amp; directly label geoms*]
+8. Don't use pattern fills
+9. Don't use red &amp; green together
+10. Consider tables for small data sets
+
+.right[*most of the time]
+]
+
+---
+
+class: middle, center
+
+## Directly label geoms
+
+.leftcol[
+
+&lt;center&gt;
+&lt;img src="images/check-bad.png" width=75&gt;
+.border[&lt;img src="figs/milk_region.png"&gt;]
+&lt;/center&gt;
+
+]
+
+--
+
+.rightcol[
+
+&lt;center&gt;
+&lt;img src="images/check-good.png" width=100&gt;
+.border[&lt;img src="figs/milk_region_label.png"&gt;]
+&lt;/center&gt;
+
+]
+
+---
+
+class: center
+
+## Exception: When you have repeated categories
+
+&lt;center&gt;
+.border[&lt;img src="images/pattern_fills2.png" width=600&gt;]
+&lt;/center&gt;
+
+---
+
+
+
+class: inverse
+
+# .center[10 Data Viz Best Practices]
+
+.font120[
+1. Remove chart chunk
+2. Don't make 3D plots*
+3. Don't lie
+4. Don't use pie charts for proportions*
+5. Don't stack bars*
+6. Rotate and sort categorical axes*
+7. Eliminate legends &amp; directly label geoms*
+8. .orange[Don't use pattern fills]
+9. Don't use red &amp; green together
+10. Consider tables for small data sets
+
+.right[*most of the time]
+]
+
+---
+
+class: middle
+background-color: #f8f8f8
+
+&lt;center&gt;
+&lt;img src="images/pattern_fills3.png" width=600&gt;
+&lt;/center&gt;
+
+---
+
+class: middle, center
+
+.leftcol[
+
+&lt;center&gt;
+&lt;img src="images/check-bad.png" width=75&gt;
+.border[&lt;img src="images/pattern_fills1.png"&gt;]
+&lt;/center&gt;
+
+]
+
+--
+
+.rightcol[
+
+&lt;center&gt;
+&lt;img src="images/check-good.png" width=100&gt;
+.border[&lt;img src="images/pattern_fills2.png"&gt;]
+&lt;/center&gt;
+
+]
+
+---
+
+
+
+class: inverse
+
+# .center[10 Data Viz Best Practices]
+
+.font120[
+1. Remove chart chunk
+2. Don't make 3D plots*
+3. Don't lie
+4. Don't use pie charts for proportions*
+5. Don't stack bars*
+6. Rotate and sort categorical axes*
+7. Eliminate legends &amp; directly label geoms*
+8. Don't use pattern fills
+9. .orange[Don't use red &amp; green together]
+10. Consider tables for small data sets
+
+.right[*most of the time]
+]
+
+---
+
+class: center
+
+# 10% of males and 1% of females are color blind
+
+--
+
+.leftcol[
+
+&lt;center&gt;
+.border[&lt;img src="figs/colorBlindBad1.png"&gt;]
+&lt;/center&gt;
+
+]
+
+--
+
+.rightcol[
+
+&lt;center&gt;
+.border[&lt;img src="figs/colorBlindBad2.png"&gt;]
+&lt;/center&gt;
+
+]
+
+---
+
+class: middle, center
+
+## Facets can be used to avoid color altogether
+
+.leftcol[
+
+&lt;center&gt;
+&lt;img src="images/check-bad.png" width=75&gt;
+.border[&lt;img src="figs/colorBlindBad1.png"&gt;]
+&lt;/center&gt;
+
+]
+
+--
+
+.rightcol[
+
+&lt;center&gt;
+&lt;img src="images/check-good.png" width=100&gt;
+.border[&lt;img src="figs/colorBlindBad3.png"&gt;]
+&lt;/center&gt;
+
+]
+
+---
+
+
+
+class: inverse
+
+# .center[10 Data Viz Best Practices]
+
+.font120[
+1. Remove chart chunk
+2. Don't make 3D plots*
+3. Don't lie
+4. Don't use pie charts for proportions*
+5. Don't stack bars*
+6. Rotate and sort categorical axes*
+7. Eliminate legends &amp; directly label geoms*
+8. Don't use pattern fills
+9. Don't use red &amp; green together
+10. .orange[Consider tables for small data sets]
+
+.right[*most of the time]
+]
+
+---
+
+class: middle
+background-color: #FFFFFF
+
+&lt;center&gt;
+&lt;img src="images/pole-pie1.png" width=900&gt;
+&lt;/center&gt;
+
+---
+
+class: middle
+background-color: #FFFFFF
+
+&lt;center&gt;
+&lt;img src="images/pole-pie2.png" width=900&gt;
+&lt;/center&gt;
+
+---
+
+class: center, middle
+
+## Who do you think did a better job in tonight’s debate?
+
+| | Clinton | Trump |
+|-|-|-|
+| Among Democrats | 99% | 1% |
+| Among Republicans | 53% | 47% |
+
+---
+
+class: middle
+
+.rightcol80[
+# References:
+
+# - [Data Viz "Cheat Sheet"](https://github.com/emse-eda-gwu/2022-Fall/raw/main/content/cheatsheet-dataviz.pdf)
+
+# - [Data Viz Reference Page](https://eda.seas.gwu.edu/2022-Fall/help/visualizing-data.html)
+
+]
+
+---
+
+class: inverse
+
+# Your turn - go [here](https://docs.google.com/presentation/d/1dtLEzy9G4VoyOvqhkxHH7j9HrytM8bpvrXbr8Wdd_5I/edit?usp=sharing)
+
+For your "bad" visualization:
+
+1) Identify where the graphic falls on Cleveland's pattern recognition hierarchy
+
+&lt;center&gt;
+&lt;img src="images/cleveland-hierarchy.png" width=1000&gt;
+&lt;/center&gt;
+
+2) Any design rules that are broken
+
+3) Suggest at least two improvements
+
+<div class="countdown" id="timer_633c1051" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
+<code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+---
+
+class: middle
+
+&lt;center&gt;
+&lt;img src="images/bad-viz/army_budget.jpg" width=900&gt;
+&lt;/center&gt;
+
+---
+
+class: middle
+
+.leftcol40[
+
+&lt;center&gt;
+&lt;img src="images/bad-viz/prisoners.png" width=500&gt;
+&lt;/center&gt;
+
+]
+
+--
+
+.rightcol60[
+
+&lt;center&gt;
+&lt;img src="figs/prisoner_bars.png" width=900&gt;
+&lt;/center&gt;
+
+]
+
+---
+
+class: middle
+
+.leftcol40[
+
+&lt;center&gt;
+&lt;img src="images/bad-viz/junk-life-expectancy-bad.png" width=500&gt;
+&lt;/center&gt;
+
+]
+
+--
+
+.rightcol60[
+
+&lt;center&gt;
+&lt;img src="images/bad-viz/junk-life-expectancy-good1.png" width=400&gt;
+&lt;img src="images/bad-viz/junk-life-expectancy-good2.png" width=400&gt;
+&lt;/center&gt;
+
+]
+
+---
+
+class: middle
+
+.leftcol45[
+
+&lt;center&gt;
+&lt;img src="images/bad-viz/bears-bad.png" width=500&gt;
+&lt;/center&gt;
+
+]
+
+--
+
+.rightcol55[
+
+&lt;center&gt;
+&lt;img src="images/bad-viz/bears-good.jpeg" width=600&gt;
+&lt;/center&gt;
+
+]
+
+---
+
+class: middle
+
+.cols3[
+
+&lt;center&gt;
+&lt;img src="images/bad-viz/clinton-tweet-venn-1.png"&gt;
+&lt;/center&gt;
+
+]
+
+--
+
+.cols3[
+
+&lt;center&gt;
+&lt;img src="images/bad-viz/clinton-tweet-venn-2.jpg"&gt;
+&lt;/center&gt;
+
+]
+
+--
+
+.cols3[
+
+&lt;center&gt;
+&lt;img src="figs/backgroundChecks.png"&gt;
+&lt;/center&gt;
+
+]
+
+---
+
+
+
+class: inverse, middle
+
+# Week 6: .fancy[Visualizing Information]
+
+## 1. The Human Visual-Memory System
+## 2. The Psychology of Data Viz
+
+## BREAK
+
+## 3. 10 Data Viz Best Practices
+## 4. .orange[Making a (good) ggplot]
+
+---
+
+class: center
+
+## Making a (good) ggplot
+
+.leftcol40[
+
+Before:
+
+&lt;center&gt;
+&lt;img src="figs/birds_before.png"&gt;
+&lt;/center&gt;
+
+]
+
+.rightcol60[
+
+After:
+
+&lt;center&gt;
+&lt;img src="figs/birds_after.png"&gt;
+&lt;/center&gt;
+
+]
+
+---
+
+class: inverse
+
+# .center[Making a (good) ggplot]
+
+.font120[
+
+1. Format data frame
+2. Add geoms
+3. Flip coordinates?
+4. Reorder factors?
+5. Adjust scales
+6. Adjust theme
+7. Annotate
+
+]
+
+---
+
+# 1) Format data frame
+
+
+```r
+# Format the data frame
+wildlife_impacts %&gt;%
+* count(operator)
+```
+
+```
+#&gt; # A tibble: 4 × 2
+#&gt;   operator               n
+#&gt;   &lt;chr&gt;              &lt;int&gt;
+#&gt; 1 AMERICAN AIRLINES  14887
+#&gt; 2 DELTA AIR LINES     9005
+#&gt; 3 SOUTHWEST AIRLINES 17970
+#&gt; 4 UNITED AIRLINES    15116
+```
+
+---
+
+# 2) Add geoms
+
+.leftcol[
+
+
+```r
+# Format the data frame
+wildlife_impacts %&gt;%
+  count(operator) %&gt;%
+
+# Add geoms
+  ggplot() +
+  geom_col(
+*     aes(x = operator, y = n),
+      width = 0.7, alpha = 0.8)
+```
+]
+
+.rightcol[
+
+&lt;center&gt;
+&lt;img src="figs/birds_before.png"&gt;
+&lt;/center&gt;
+
+]
+
+---
+
+## 3) Flip coordinates - can you read the labels?
+
+.leftcol[.code70[
+
+
+```r
+# Format the data frame
+wildlife_impacts %&gt;%
+  count(operator) %&gt;%
+
+# Add geoms
+  ggplot() +
+  geom_col(
+      aes(x = operator, y = n),
+      width = 0.7, alpha = 0.8) +
+
+# Flip coordinates
+* coord_flip()
+```
+
+]]
+
+.rightcol[
+
+&lt;center&gt;
+&lt;img src="figs/birds_coord_flip.png" width=500&gt;
+&lt;/center&gt;
+
+]
+
+---
+
+## 3) Flip coordinates - can you read the labels?
+
+.leftcol[.code70[
+
+
+```r
+# Format the data frame
+wildlife_impacts %&gt;%
+  count(operator) %&gt;%
+
+# Add geoms
+  ggplot() +
+  geom_col(
+*     aes(x = n, y = operator),
+      width = 0.7, alpha = 0.8)
+```
+
+]]
+
+.rightcol[
+
+&lt;center&gt;
+&lt;img src="figs/birds_coord_flip.png" width=500&gt;
+&lt;/center&gt;
+
+]
+
+---
+
+## 4) Reorder factors with `reorder()`
+
+.leftcol55[.code70[
+
+
+```r
+# Format the data frame
+wildlife_impacts %&gt;%
+  count(operator) %&gt;%
+
+# Add geoms
+  ggplot() +
+  geom_col(
+*     aes(x = n, y = reorder(operator, n)),
+      width = 0.7, alpha = 0.8)
+```
+
+]]
+
+.rightcol45[
+
+&lt;center&gt;
+&lt;img src="figs/birds_fct_reorder.png"&gt;
+&lt;/center&gt;
+
+]
+
+---
+
+## 5) Adjust scales
+
+.leftcol55[.code70[
+
+
+```r
+# Format the data frame
+wildlife_impacts %&gt;%
+  count(operator) %&gt;%
+
+# Add geoms
+  ggplot() +
+  geom_col(
+      aes(x = n, y = reorder(operator, n)),
+      width = 0.7, alpha = 0.8) +
+
+# Adjust x axis scale
+* scale_x_continuous(
+*   expand = expansion(mult = c(0, 0.05)))
+```
+
+]]
+
+.rightcol45[
+
+&lt;center&gt;
+&lt;img src="figs/birds_scales1.png"&gt;
+&lt;/center&gt;
+
+]
+
+---
+
+## 5) Adjust scales - customize break points (if you want)
+
+.leftcol55[.code70[
+
+
+```r
+# Format the data frame
+wildlife_impacts %&gt;%
+  count(operator) %&gt;%
+
+# Add geoms
+  ggplot() +
+  geom_col(
+      aes(x = n, y = reorder(operator, n)),
+      width = 0.7, alpha = 0.8) +
+
+# Adjust x axis scale
+  scale_x_continuous(
+    expand = expansion(mult = c(0, 0.05)),
+*   breaks = c(0, 10000, 20000),
+*   limits = c(0, 20000))
+```
+
+]]
+
+.rightcol45[
+
+&lt;center&gt;
+&lt;img src="figs/birds_scales2.png"&gt;
+&lt;/center&gt;
+
+]
+
+---
+
+## 6) Adjust theme
+
+### Four `cowplot` themes you should know
+
+&lt;center&gt;
+&lt;img src="figs/cowplot_themes.png" width=1200&gt;
+&lt;/center&gt;
+
+---
+
+## 6) Adjust theme
+
+.leftcol[.code70[
+
+For horizontal bars, add only vertical grid
+
+
+```r
+# Format the data frame
+wildlife_impacts %&gt;%
+  count(operator) %&gt;%
+
+# Add geoms
+  ggplot() +
+  geom_col(
+      aes(x = n, y = reorder(operator, n)),
+      width = 0.7, alpha = 0.8) +
+
+# Adjust x axis scale
+  scale_x_continuous(
+    expand = expansion(mult = c(0, 0.05))) +
+
+# Adjust theme
+* theme_minimal_vgrid()
+```
+
+]]
+
+.rightcol[
+
+&lt;center&gt;
+&lt;img src="figs/birds_theme.png" width=500&gt;
+&lt;/center&gt;
+
+]
+
+---
+
+## 7) Annotate
+
+.leftcol[.code70[
+
+
+```r
+# Format the data frame
+wildlife_impacts %&gt;%
+  count(operator) %&gt;%
+* mutate(operator = str_to_title(operator)) %&gt;%
+
+# Add geoms
+  ggplot() +
+  geom_col(
+      aes(x = n, y = reorder(operator, n)),
+      width = 0.7, alpha = 0.8) +
+
+# Adjust x axis scale
+  scale_x_continuous(
+    expand = expansion(mult = c(0, 0.05))) +
+
+# Adjust theme
+  theme_minimal_vgrid() +
+
+# Annotate
+* labs(
+*   x = 'Count',
+*   y = NULL)
+```
+
+]]
+
+.rightcol[
+
+&lt;center&gt;
+&lt;img src="figs/birds_after.png"&gt;
+&lt;/center&gt;
+
+]
+
+---
+
+## Finished product
+
+.leftcol55[.code70[
+
+
+```r
+wildlife_impacts %&gt;%
+  count(operator) %&gt;%
+  mutate(operator = str_to_title(operator)) %&gt;%
+  ggplot() +
+  geom_col(
+      aes(x = n, y = reorder(operator, n)),
+      width = 0.7, alpha = 0.8) +
+  scale_x_continuous(
+    expand = expansion(mult = c(0, 0.05))) +
+  theme_minimal_vgrid() +
+  labs(
+    x = 'Count',
+    y = NULL)
+```
+
+]]
+
+.rightcol45[
+
+&lt;center&gt;
+&lt;img src="figs/birds_after.png"&gt;
+&lt;/center&gt;
+
+]
+
+---
+
+class: inverse
+
+<div class="countdown" id="timer_633c1274" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
+<code class="countdown-time"><span class="countdown-digits minutes">15</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+## Your turn
+
+.leftcol35[
+
+Use the `gapminder.csv` data to create the following plot, following these steps:
+
+1. Format data frame
+2. Add geoms
+3. Flip coordinates?
+4. Reorder factors?
+5. Adjust scales
+6. Adjust theme
+7. Annotate
+
+]
+
+.rightcol65[
+
+&lt;img src="figs/americasLifeExp-1.png" width="576" /&gt;
+
+]
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
