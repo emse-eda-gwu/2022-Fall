@@ -6,7 +6,7 @@ toc-location: left
 params:
   number: 2
   weight: '8%'
-  purpose: 'When you get a data file to analyze, one of the first things you'll want to do is _explore_ it. But that's often easier said than done. The purpose of this assignment is to give you a chance to practice some of the techniques we've discussed in class for exploring a data set.'
+  purpose: "When you get a data file to analyze, one of the first things you'll want to do is _explore_ it. But that's often easier said than done. The purpose of this assignment is to give you a chance to practice some of the techniques we've discussed in class for exploring a data set."
 ---
 
 ```{r setup, include=FALSE}
@@ -28,9 +28,6 @@ maxPoints <- rubric %>%
     filter(rating == "Excellent") %>%
     summarise(max = sum(maxPoints)) %>%
     pull(max)
-```
-
-```{r child = here::here("fragments", "setup.qmd")}
 ```
 
 ```{r child = here::here("fragments", "mini.qmd")}
