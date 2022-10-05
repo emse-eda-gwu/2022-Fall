@@ -6,7 +6,7 @@ toc-location: left
 params:
   number: 2
   weight: '8%'
-  purpose: 'purpose'
+  purpose: "When you get a data file to analyze, one of the first things you'll want to do is _explore_ it. But that's often easier said than done. The purpose of this assignment is to give you a chance to practice some of the techniques we've discussed in class for exploring a data set."
 ---
 
 ```{r setup, include=FALSE}
@@ -30,4 +30,75 @@ maxPoints <- rubric %>%
     pull(max)
 ```
 
-Coming soon!
+```{r child = here::here("fragments", "mini.qmd")}
+```
+
+# 1. Get organized
+
+Download and unzip [this template](../templates/mini2-template.zip) for your project, then open the `report.Rproj` file.
+
+**Be sure to delete / replace any of the existing text / code in the template before submitting - the template text is just there as a helpful guide**
+
+# 2. Load the data
+
+For this assignment, you'll be exploring data on the costs of hundreds of transit projects around the world collected by the [Transit Costs Project](https://transitcosts.com/). The data span more than 50 countries and totals more than 11,000 km of urban rail built since the late 1990s.
+
+Write code to load the `transit_cost.csv` file in the "data" folder.
+
+# 3. Document the data
+
+> **Format**: This can just be a single paragraph describing the data sources.
+
+Go to [this GitHub page](https://github.com/rfordatascience/tidytuesday/tree/master/data/2021/2021-01-05) and read about the data we'll be using (that's where I got the data in from). In your `report.Rmd` file, document the original data source as well as the source from where you downloaded the data. Note that the GitHub page is **not** the original data source - it is just a repository where someone else put the data.
+
+# 4. Preview the data
+
+> **Format**: This can be a mix of code chunks and written text. It is more for you than me - think of this like jotting down notes to help you understand what is in the data.
+
+Preview the data (e.g. using `head()`, `glimpse()`, `View()`, and / or make some quick plots). Take note of what variables are available, their types, and what they measure (Hint: look at the data dictionary on the GitHub page!).
+
+# 5. Identify research questions
+
+> **Format**: Use a numbered list to list each question and the associated variables you will explore.
+
+Once you have a sense for the available variables in the data, list **at least three** questions you think you may be able to answer with these data (you can list more if you want). For each question, also note which variables you plan to explore to address the question. A question can be about what the data captures (e.g. "Which countries in the data have the longest total amount of projects in km?") or about a relationship between different variables (e.g. "Are projects with tunnels more expensive on a $/km basis than projects without tunnels?").
+
+**Note**: It is okay if you end up not being able to answer your question - just write down what you think you _might_ be able to find out by exploring the data.
+
+# 6. Explore the data
+
+Go through each of your questions and search for answers. **You should include at least one visualization for each question** (so a minimum of 3 charts total).
+
+For each question, follow these steps:
+
+1. If necessary, modify the `transit_cost` data frame to address your question. For example, you may need to create new variables (e.g. using `mutate()`), filter the data (e.g. if you're only interested in a single country, year, etc.), or you may want to rename some of the variables. For this task, you'll be relying on your data wrangling skills.
+2. Examine summary measures (centrality, variability, correlation) in the variables relevant to your question by making charts and / or printing out summary values / tables. Your chart(s) should be appropriately chosen according to the data type and / or relationship you are searching for. At this stage in the course, don't worry to much about how "pretty" your charts looks - we'll get better at polishing our charts throughout the class. Just make sure they are clear and legible.
+3. For each research question, write at least one paragraph describing what you found. If you found an answer to your question, make sure you have included at least one chart (or a few charts if appropriate) that helps explain your answer. If this process did **not** lead to an answer your question, write about how you might adjust your question or perhaps what other data you may need to address your question.
+
+# 7. Knit your report
+
+Click the "knit" button to compile your `report.Rmd` file into a html web page. Then open the `report.html` file in a web browser and proofread your report. Does all of the formatting look correct? Did your plots render as expected? Does the text you wrote support / align with the plots you made?
+
+Treat your report as if you were going to send it to a publisher. Consider changing the theme and make sure all the formatting is neat and tidy.
+
+# 8. Submit
+
+To submit this assignment, create a zip file of all the files in your R project folder for this assignment. Name the zip file `mini2-netID.zip`, replacing `netID` with your netID (e.g., `mini2-jph.zip`). Then copy that zip file into the "submissions" folder in your Box folder created for this class.
+
+# Grading Rubric
+
+### `r maxPoints` Total Points
+
+```{r, echo=FALSE}
+rubric %>%
+  mutate(description = paste0("<b>", points, '</b><br>', description)) %>%
+  select(-points) %>%
+  spread(key = rating, value = description) %>%
+  select(-category) %>%
+  rename(Category = label) %>%
+  arrange(order) %>%
+  select(-order) %>%
+  select(-maxPoints) %>%
+  kable(format = 'html', escape = FALSE) %>%
+  kable_styling(bootstrap_options = "striped")
+```

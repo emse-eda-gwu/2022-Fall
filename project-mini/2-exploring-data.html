@@ -63,14 +63,17 @@ ul.task-list li input[type="checkbox"] {
 <!-- fontawesome kit -->
 <script src="https://kit.fontawesome.com/1392a7030f.js" crossorigin="anonymous"></script>
 
+<script src="../site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
 
 <link rel="stylesheet" href="../styles.css">
 <meta property="og:title" content="EMSE 4572 - Mini Project 2: Exploring Data">
-<meta property="og:description" content="Coming soon!">
+<meta property="og:description" content="Download and unzip this template for your project, then open the report.Rproj file.">
 <meta property="og:site-name" content="https://eda.seas.gwu.edu/">
 <meta property="og:locale" content="es_ES">
 <meta name="twitter:title" content="EMSE 4572 - Mini Project 2: Exploring Data">
-<meta name="twitter:description" content="Coming soon!">
+<meta name="twitter:description" content="Download and unzip this template for your project, then open the report.Rproj file.">
 <meta name="twitter:image" content="https://eda.seas.gwu.edu/2022-Fall/images/logo-square.png">
 <meta name="twitter:creator" content="@johnhelveston">
 <meta name="twitter:card" content="summary">
@@ -364,7 +367,24 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
-    
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#get-organized" id="toc-get-organized" class="nav-link active" data-scroll-target="#get-organized">1. Get organized</a></li>
+  <li><a href="#load-the-data" id="toc-load-the-data" class="nav-link" data-scroll-target="#load-the-data">2. Load the data</a></li>
+  <li><a href="#document-the-data" id="toc-document-the-data" class="nav-link" data-scroll-target="#document-the-data">3. Document the data</a></li>
+  <li><a href="#preview-the-data" id="toc-preview-the-data" class="nav-link" data-scroll-target="#preview-the-data">4. Preview the data</a></li>
+  <li><a href="#identify-research-questions" id="toc-identify-research-questions" class="nav-link" data-scroll-target="#identify-research-questions">5. Identify research questions</a></li>
+  <li><a href="#explore-the-data" id="toc-explore-the-data" class="nav-link" data-scroll-target="#explore-the-data">6. Explore the data</a></li>
+  <li><a href="#knit-your-report" id="toc-knit-your-report" class="nav-link" data-scroll-target="#knit-your-report">7. Knit your report</a></li>
+  <li><a href="#submit" id="toc-submit" class="nav-link" data-scroll-target="#submit">8. Submit</a></li>
+  <li><a href="#grading-rubric" id="toc-grading-rubric" class="nav-link" data-scroll-target="#grading-rubric">Grading Rubric</a>
+  <ul class="collapse">
+  <li><a href="#total-points" id="toc-total-points" class="nav-link" data-scroll-target="#total-points">45 Total Points</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/emse-eda-gwu/2022-Fall/edit/main/project-mini/2-exploring-data.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/emse-eda-gwu/2022-Fall/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
@@ -388,9 +408,128 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Coming soon!</p>
+<div class="cell" data-layout-align="center">
+
+</div>
+<blockquote class="blockquote">
+<p><strong>Due</strong>: Oct 18 by 11:59pm</p>
+<p><strong>Weight</strong>: This assignment is worth 8% of your final grade.</p>
+<p><strong>Purpose</strong>: When you get a data file to analyze, one of the first things you’ll want to do is <em>explore</em> it. But that’s often easier said than done. The purpose of this assignment is to give you a chance to practice some of the techniques we’ve discussed in class for exploring a data set.</p>
+<p><strong>Assessment</strong>: Your submission will be assessed using the <a href="#grading-rubric">rubric</a> at the bottom of this page.</p>
+</blockquote>
+<section id="get-organized" class="level1">
+<h1>1. Get organized</h1>
+<p>Download and unzip <a href="../templates/mini2-template.zip">this template</a> for your project, then open the <code>report.Rproj</code> file.</p>
+<p><strong>Be sure to delete / replace any of the existing text / code in the template before submitting - the template text is just there as a helpful guide</strong></p>
+</section>
+<section id="load-the-data" class="level1">
+<h1>2. Load the data</h1>
+<p>For this assignment, you’ll be exploring data on the costs of hundreds of transit projects around the world collected by the <a href="https://transitcosts.com/">Transit Costs Project</a>. The data span more than 50 countries and totals more than 11,000 km of urban rail built since the late 1990s.</p>
+<p>Write code to load the <code>transit_cost.csv</code> file in the “data” folder.</p>
+</section>
+<section id="document-the-data" class="level1">
+<h1>3. Document the data</h1>
+<blockquote class="blockquote">
+<p><strong>Format</strong>: This can just be a single paragraph describing the data sources.</p>
+</blockquote>
+<p>Go to <a href="https://github.com/rfordatascience/tidytuesday/tree/master/data/2021/2021-01-05">this GitHub page</a> and read about the data we’ll be using (that’s where I got the data in from). In your <code>report.Rmd</code> file, document the original data source as well as the source from where you downloaded the data. Note that the GitHub page is <strong>not</strong> the original data source - it is just a repository where someone else put the data.</p>
+</section>
+<section id="preview-the-data" class="level1">
+<h1>4. Preview the data</h1>
+<blockquote class="blockquote">
+<p><strong>Format</strong>: This can be a mix of code chunks and written text. It is more for you than me - think of this like jotting down notes to help you understand what is in the data.</p>
+</blockquote>
+<p>Preview the data (e.g.&nbsp;using <code>head()</code>, <code>glimpse()</code>, <code>View()</code>, and / or make some quick plots). Take note of what variables are available, their types, and what they measure (Hint: look at the data dictionary on the GitHub page!).</p>
+</section>
+<section id="identify-research-questions" class="level1">
+<h1>5. Identify research questions</h1>
+<blockquote class="blockquote">
+<p><strong>Format</strong>: Use a numbered list to list each question and the associated variables you will explore.</p>
+</blockquote>
+<p>Once you have a sense for the available variables in the data, list <strong>at least three</strong> questions you think you may be able to answer with these data (you can list more if you want). For each question, also note which variables you plan to explore to address the question. A question can be about what the data captures (e.g.&nbsp;“Which countries in the data have the longest total amount of projects in km?”) or about a relationship between different variables (e.g.&nbsp;“Are projects with tunnels more expensive on a $/km basis than projects without tunnels?”).</p>
+<p><strong>Note</strong>: It is okay if you end up not being able to answer your question - just write down what you think you <em>might</em> be able to find out by exploring the data.</p>
+</section>
+<section id="explore-the-data" class="level1">
+<h1>6. Explore the data</h1>
+<p>Go through each of your questions and search for answers. <strong>You should include at least one visualization for each question</strong> (so a minimum of 3 charts total).</p>
+<p>For each question, follow these steps:</p>
+<ol type="1">
+<li>If necessary, modify the <code>transit_cost</code> data frame to address your question. For example, you may need to create new variables (e.g.&nbsp;using <code>mutate()</code>), filter the data (e.g.&nbsp;if you’re only interested in a single country, year, etc.), or you may want to rename some of the variables. For this task, you’ll be relying on your data wrangling skills.</li>
+<li>Examine summary measures (centrality, variability, correlation) in the variables relevant to your question by making charts and / or printing out summary values / tables. Your chart(s) should be appropriately chosen according to the data type and / or relationship you are searching for. At this stage in the course, don’t worry to much about how “pretty” your charts looks - we’ll get better at polishing our charts throughout the class. Just make sure they are clear and legible.</li>
+<li>For each research question, write at least one paragraph describing what you found. If you found an answer to your question, make sure you have included at least one chart (or a few charts if appropriate) that helps explain your answer. If this process did <strong>not</strong> lead to an answer your question, write about how you might adjust your question or perhaps what other data you may need to address your question.</li>
+</ol>
+</section>
+<section id="knit-your-report" class="level1">
+<h1>7. Knit your report</h1>
+<p>Click the “knit” button to compile your <code>report.Rmd</code> file into a html web page. Then open the <code>report.html</code> file in a web browser and proofread your report. Does all of the formatting look correct? Did your plots render as expected? Does the text you wrote support / align with the plots you made?</p>
+<p>Treat your report as if you were going to send it to a publisher. Consider changing the theme and make sure all the formatting is neat and tidy.</p>
+</section>
+<section id="submit" class="level1">
+<h1>8. Submit</h1>
+<p>To submit this assignment, create a zip file of all the files in your R project folder for this assignment. Name the zip file <code>mini2-netID.zip</code>, replacing <code>netID</code> with your netID (e.g., <code>mini2-jph.zip</code>). Then copy that zip file into the “submissions” folder in your Box folder created for this class.</p>
+</section>
+<section id="grading-rubric" class="level1">
+<h1>Grading Rubric</h1>
+<section id="total-points" class="level3">
+<h3 class="anchored" data-anchor-id="total-points">45 Total Points</h3>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+
+<table class="table table-striped" style="margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Category </th>
+   <th style="text-align:left;"> Excellent </th>
+   <th style="text-align:left;"> Good </th>
+   <th style="text-align:left;"> Needs work </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Formatting </td>
+   <td style="text-align:left;"> <b>5</b><br>Followed all formatting guidelines. </td>
+   <td style="text-align:left;"> <b>4</b><br>Followed most formatting guidelines. </td>
+   <td style="text-align:left;"> <b>3</b><br>Missing multiple formatting guidelines. </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Documentation </td>
+   <td style="text-align:left;"> <b>5</b><br>Original and downloaded data sources clearly described. </td>
+   <td style="text-align:left;"> <b>4</b><br>Poor description of original and / or downloaded data sources. </td>
+   <td style="text-align:left;"> <b>3</b><br>Poor / unclear / missing description of either original or downloaded data source </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Research questions </td>
+   <td style="text-align:left;"> <b>10 / 9</b><br>At least 3 RQs &amp; associated data variables listed. </td>
+   <td style="text-align:left;"> <b>8 / 7 / 6</b><br>&lt;3 RQs listed or variables are missing. </td>
+   <td style="text-align:left;"> <b>5 / 4 / 3</b><br>&lt;3 RQs listed and variables are missing. </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Exploration </td>
+   <td style="text-align:left;"> <b>10 / 9</b><br>Summary measures and charts appropriately used to address all RQs; excellent summary description. </td>
+   <td style="text-align:left;"> <b>8 / 7 / 6</b><br>Measures and charts used to address RQs could be improved; adequate summary description. </td>
+   <td style="text-align:left;"> <b>5 / 4 / 3</b><br>Missing summary measures and / or charts to address RQs; poor summary description. </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Visualizations </td>
+   <td style="text-align:left;"> <b>10 / 9</b><br>Visualizations appropriately chosen according to data types and / or relationships. </td>
+   <td style="text-align:left;"> <b>8 / 7 / 6</b><br>Visualizations are appropriate but could be improved. </td>
+   <td style="text-align:left;"> <b>5 / 4 / 3</b><br>Poor match between visualization and data types / relationships, and / or missing. </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Technical things </td>
+   <td style="text-align:left;"> <b>5</b><br>All code runs without errors; all files included in the submitted .zip file. </td>
+   <td style="text-align:left;"> <b>4</b><br>Code has only one or two error, otherwise runs; all files included in the submitted .zip file. </td>
+   <td style="text-align:left;"> <b>3</b><br>Code has multiple errors; submitted .zip file is missing components necessary to reproduce analysis. </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
