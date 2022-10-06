@@ -56,7 +56,8 @@ State a clear research question. Follow [these guidelines](https://writingcenter
 
 Discuss the data source(s) you plan to use for your analysis. Follow these guidelines:
 
-- If you have already identified the source(s), describe them and include urls and / or references to the sources. - If you have not identified a source yet, describe the data you _hope_ to use, and give at least one plausible source that may have the data (regardless of whether the source makes it available or not).
+- If you have already identified the source(s), describe them and include urls and / or references to the sources.
+- If you have not identified a source yet, describe the data you _hope_ to use, and give at least one plausible source that may have the data (regardless of whether the source makes it available or not).
 - Discuss the validity of the source(s). For each data source, is the data the _original_ data, or has it been pre-processed by someone else? How was the original data collected and by whom? If you do not yet have a source, discuss what concerns you have about a plausible source that might have the data.
 
 ## 4. Describe anticipated results
