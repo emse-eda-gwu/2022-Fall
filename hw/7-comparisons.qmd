@@ -9,4 +9,46 @@ params:
 source(here::here("R", "settings.R"))
 ```
 
-Coming soon!
+```{r child = here::here("fragments", "hw.qmd")}
+```
+
+# 1. Get Organized
+
+Download and edit [this template](`r url_template`) when working through this assignment.
+
+Then unzip the template folder (make sure you unzip it!), then open the .Rproj file to open RStudio. Open the ``r paste0('hw', params$number, '.Rmd')`` file, take notes, and write some example code as you go through the following.
+
+# 2. Readings
+
+> "At the heart of quantitative reasoning is a single question: Compared to what?"
+>
+> -- Edward Tufte
+
+Most of the readings this week have code in them that illustrate how to create each chart type, and I encourage you to try and reproduce a few of the examples provided in R yourself. You may also want to take a look at the [top 50 ggplots](http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html), which contains examples with ggplot code to create 50 common visualizations.
+
+- [Slope charts](http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html#Slope%20Chart)
+- [Bullet charts](https://themockup.blog/posts/2020-11-29-bullet-chart-variants-in-r/)
+- [Dumbell charts](http://uc-r.github.io/cleveland-dot-plots)
+- Wilke: [7 - Visualizing distributions](https://serialmentor.com/dataviz/histograms-density-plots.html)
+- Wilke: [9 - Visualizing many distributions at once](https://serialmentor.com/dataviz/boxplots-violins.html)
+- [Dual-Scaled Axes in Graphs - Are They Ever the Best Solution?](http://www.perceptualedge.com/articles/visual_business_intelligence/dual-scaled_axes.pdf)
+
+# 3. Make a Chart
+
+Once you've read through everything, add a code chunk in your ``r paste0('hw', params$number, '.Rmd')`` file that creates one of the charts you saw in one of the readings. **Cite the source** of the chart. The goal is to try and reproduce the chart as closely as possible to how it looks in the reading. While it is okay to copy-paste code directly into your reflection, try to write the code yourself. Practicing the coding yourself is key to mastering these skills. You may need to modify the figure dimensions in the chunk settings.
+
+# 4. Reflect
+
+Reflect on what you've learned while going through these readings and exercises. Is there anything that jumped out at you? Anything you found particularly interesting or confusing? Write at least a paragraph in your ``r paste0('hw', params$number, '.Rmd')`` file. Here are some suggestions:
+
+- Discuss some of the key insights or things you found interesting in the readings or recent class periods.
+- Write about the messiest data you've seen.
+- Connect the course content to your own work or project you're working on.
+
+# 5. Knit
+
+Click the "knit" button to compile your ``r paste0('hw', params$number, '.Rmd')`` file into a html web page. Then open the ``r paste0('hw', params$number, '.html')`` file in a web browser and proofread your report. Does all of the formatting look correct?
+
+# 6. Submit
+
+To submit this assignment, create a zip file of all the files in your R project folder for this assignment. Name the zip file ``r paste0('hw', params$number, '-netID.zip')``, replacing `netID` with your netID (e.g., ``r paste0('hw', params$number, '-jph.zip')``). Then copy that zip file into the "submissions" folder in your Box folder created for this class.
