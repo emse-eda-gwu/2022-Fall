@@ -69,8 +69,7 @@ wildlife_impacts %>%
     phase_of_flt = fct_other(phase_of_flt, keep = c(
       "Approach", "Take-Off Run", "Landing Roll", "Climb")),
     phase_of_flt = fct_reorder(phase_of_flt, n),
-    phase_of_flt = fct_recode(phase_of_flt,
-                              "All Other" = "Other")) %>%
+    phase_of_flt = fct_recode(phase_of_flt, "All Other" = "Other")) %>%
   ggplot() +
   geom_col(aes(x = n, y = phase_of_flt), width = 0.7) +
   scale_x_continuous(expand = expansion(mult = c(0, 0.05))) +
@@ -102,10 +101,12 @@ bears %>%
   scale_fill_manual(values = c("gray", "red")) +
   theme_minimal_hgrid(font_size = 18) +
   theme(legend.position = "none") +
-  labs(x = "Month",
-       y = "Count",
-       title = 'Number of bear killings in each month',
-       subtitle = 'August is the deadliest month')
+  labs(
+      x = "Month",
+      y = "Count",
+      title = 'Number of bear killings in each month',
+      subtitle = 'August is the deadliest month'
+  )
 ```
 
 ```{r milk_dots_top10, fig.height=4, fig.width=7}
@@ -121,9 +122,11 @@ milk_production %>%
     aes(x = milk_produced, y = state),
     size = 2.5, color = 'steelblue') +
   theme_minimal_vgrid() +
-  labs(x = 'Milk produced (billions lbs)',
-       y = 'State',
-       title = "Top 10 milk producing states in 2017")
+  labs(
+      x = 'Milk produced (billions lbs)',
+      y = 'State',
+      title = "Top 10 milk producing states in 2017"
+  )
 ```
 
 ## Your turn - practice plotting proportions
