@@ -1,0 +1,11 @@
+
+class: inverse, middle
+
+# Week `r rmarkdown::metadata$week`: .fancy[`r rmarkdown::metadata$title`]
+
+## 1. Manipulating factors
+## 2. Graphing amounts
+
+## BREAK
+
+## 3. .orange[Graphing proportions]

@@ -1,0 +1,232 @@
+---
+title: "Amounts & Proportions"
+subtitle: "EMSE 4572: Exploratory Data Analysis"
+output: html_document
+---
+
+```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
+# install.packages("waffle")
+library(tidyverse)
+library(here)
+library(cowplot)
+library(waffle)
+knitr::opts_chunk$set(
+    warning = FALSE,
+    message = FALSE,
+    fig.path = "figs/",
+    fig.width = 7.252,
+    fig.height = 4,
+    comment = "#>",
+    fig.retina = 3
+)
+
+# Read in data
+fed_spending_wide <- read_csv(here('data', 'fed_spending_wide.csv'))
+fed_spending_long <- read_csv(here('data', 'fed_spending_long.csv'))
+milk_prod_wide <- read_csv(here('data', 'milk_prod_wide.csv'))
+milk_prod_long <- read_csv(here('data', 'milk_prod_long.csv'))
+avengers         <- read_csv(here('data', 'avengers.csv'))
+bears            <- read_csv(here('data', 'north_america_bear_killings.csv'))
+federal_spending <- read_csv(here('data', 'fed_spending_long.csv'))
+gapminder        <- read_csv(here('data', 'gapminder.csv'))
+lotr_words       <- read_csv(here('data', 'lotr_words.csv'))
+milk_production  <- read_csv(here('data', 'milk_production.csv'))
+wildlife_impacts <- read_csv(here('data', 'wildlife_impacts.csv'))
+```
+
+# Tidy data review
+
+```{r}
+# Tidy the data
+fed_spending_long <- fed_spending_wide %>%
+    gather(key = "department", value = "rd_budget_mil", DHS:VA)
+
+milk_prod_long <- milk_prod_wide %>%
+    gather(key = "region", value = "milk_production", Appalachian:Pacific)
+```
+
+```{r}
+# Visualize variability
+fed_spending_long %>%
+    ggplot() +
+    geom_histogram(aes(x = rd_budget_mil))
+
+milk_prod_long %>%
+    ggplot() +
+    geom_histogram(aes(x = milk_production))
+```
+
+# Practice manipulating factors
+
+Use the `wildlife_impacts` data to create the following plot
+
+```{r wildlife_phase_of_flight_bars, fig.width=9, fig.height=5}
+wildlife_impacts %>%
+  filter(!is.na(phase_of_flt)) %>%
+  mutate(phase_of_flt = str_to_title(phase_of_flt)) %>%
+  count(phase_of_flt) %>%
+  mutate(
+    phase_of_flt = fct_other(phase_of_flt, keep = c(
+      "Approach", "Take-Off Run", "Landing Roll", "Climb")),
+    phase_of_flt = fct_reorder(phase_of_flt, n),
+    phase_of_flt = fct_recode(phase_of_flt,
+                              "All Other" = "Other")) %>%
+  ggplot() +
+  geom_col(aes(x = n, y = phase_of_flt), width = 0.7) +
+  scale_x_continuous(expand = expansion(mult = c(0, 0.05))) +
+  theme_minimal_vgrid(font_size = 18) +
+  labs(x = "Count",
+       y = "Phase of flight",
+       title = 'Number of wildlife impacts by phase of flight')
+```
+
+## Your turn - practice plotting amounts
+
+Create the following charts:
+
+```{r bear_bars, fig.width=7, fig.height=5}
+bears %>%
+  count(month) %>%
+  mutate(
+    month = as.factor(month),
+    is_aug = ifelse(month == "8", TRUE, FALSE)) %>%
+  ggplot() +
+  geom_col(
+    aes(x = month, 
+        y = n,
+        fill = is_aug),
+    width = 0.7) +
+  scale_y_continuous(
+    expand = expansion(mult = c(0, 0.05)),
+    limits = c(0, 30)) +
+  scale_fill_manual(values = c("gray", "red")) +
+  theme_minimal_hgrid(font_size = 18) +
+  theme(legend.position = "none") +
+  labs(x = "Month",
+       y = "Count",
+       title = 'Number of bear killings in each month',
+       subtitle = 'August is the deadliest month')
+```
+
+```{r milk_dots_top10, fig.height=4, fig.width=7}
+milk_production %>%
+  filter(year == 2017) %>%
+  arrange(desc(milk_produced)) %>%
+  slice(1:10) %>%
+  mutate(
+    milk_produced = milk_produced / 10^9,
+    state = fct_reorder(state, milk_produced)) %>%
+  ggplot() +
+  geom_point(
+    aes(x = milk_produced, y = state),
+    size = 2.5, color = 'steelblue') +
+  theme_minimal_vgrid() +
+  labs(x = 'Milk produced (billions lbs)',
+       y = 'State',
+       title = "Top 10 milk producing states in 2017")
+```
+
+## Your turn - practice plotting proportions
+
+Using the `wildlife_impacts` data, create plots that shows the proportion of incidents that occur at each different time of day.
+
+For this exercise, you can remove `NA` values.
+
+Try to create the following plots:
+
+- Stacked bars
+- Dodged bars
+- Pie chart
+- Waffle chart
+
+```{r}
+wildlife_summary <- wildlife_impacts %>%
+  filter(!is.na(time_of_day)) %>%
+  count(time_of_day)
+
+wildlife_summary
+```
+
+Stacked bars:
+
+```{r wildlife_bars_stacked, fig.width=6, fig.height=3}
+ggplot(wildlife_summary) +
+  geom_col(
+    aes(x = n, y = "", fill = reorder(time_of_day, n)),
+    width = 0.7, alpha = 0.8) +
+  scale_x_continuous(
+    expand = expansion(mult = c(0, 0.05))) +
+  theme_minimal_hgrid() +
+  labs(
+    x = NULL,
+    y = 'Number of incidents',
+    fill = 'Time of day')
+```
+
+Dodged bars:
+
+```{r wildlife_bars_dodged, fig.width=5, fig.height=3}
+wildlife_summary %>%
+  ggplot() +
+  geom_col(
+    aes(x = n, y = reorder(time_of_day, n)),
+    width = 0.7, alpha = 0.8) +
+  scale_x_continuous(
+    expand = expansion(mult = c(0, 0.05))) +
+  theme_minimal_vgrid() +
+  labs(
+    x = 'Time of day',
+    y = 'Number of incidents',
+    fill = 'Time of day')
+```
+
+Pie chart:
+
+```{r wildlife_pie, fig.width=5, fig.height=3}
+wildlife_summary %>%
+  arrange(desc(n)) %>%
+  mutate(
+    # Reorder the time_of_day factors before computing the labels
+    time_of_day = fct_reorder(time_of_day, n), 
+    p = 100*(n / sum(n)),
+    label = paste(round(p), '%')) %>%
+  ggplot() +
+  geom_col(
+    aes(x = "", y = n, fill = time_of_day),
+    width = 0.7, alpha = 0.8) +
+  coord_polar(theta = "y") +
+  geom_text(
+    aes(x = 1.2, y = n, label = label),
+    color = "black", size = 4,
+    position = position_stack(vjust = 0.5)) +
+  theme_map() +
+  labs(
+    x = NULL,
+    y = 'Number of incidents',
+    fill = 'Time of day')
+```
+
+Waffle chart:
+
+```{r wildlife_waffle, fig.height=5, fig.width=3.5}
+# Divide the number of incidents by 100
+wildlife_summary %>%
+  mutate(n = n / 100) %>%
+  # geom_waffle() ignores factor levels and arranges the squares
+  # based on the way the data frame is sorted
+  arrange(desc(n)) %>% 
+  ggplot() +
+  geom_waffle(
+    aes(fill = time_of_day, values = n),
+    color = "white", size = 1, n_rows = 15,
+    flip = TRUE) +
+  scale_x_discrete(expand = c(0, 0)) +
+  scale_y_discrete(expand = c(0, 0)) +
+  theme_minimal() +
+  labs(
+    fill = 'Time of day',
+    x = NULL,
+    y = NULL,
+    title = 'Wildlife impact incidents by time of day',
+    subtitle = '(1 square = 100 incidents)')
+```
