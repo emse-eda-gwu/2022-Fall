@@ -199,8 +199,8 @@ class: inverse, middle
 
 # Next projects due:
 
-## - [Mini project 2](Update): Exploring Data (Due 10/11)
-## - [Project proposal](Update) (Due 03/12)
+## - [Mini project 2](https://eda.seas.gwu.edu/2022-Fall/project-mini/2-exploring-data.html): Exploring Data (Due 10/18)
+## - [Project progress report](https://eda.seas.gwu.edu/2022-Fall/project-final/2-progress-report.html) (Due 11/01)
 
 ---
 
@@ -219,9 +219,11 @@ wildlife_impacts &lt;- read_csv(here('data', 'wildlife_impacts.csv'))
 
 ## New packages
 
+The [{waffle} package](https://github.com/hrbrmstr/waffle)
+
 
 ```r
-install.packages("waffle")
+install.packages("waffle", repos = "https://cinc.rud.is")
 ```
 
 ---
@@ -291,14 +293,19 @@ class: center
 # Format the data frame
 federal_spending %&gt;%
   group_by(department) %&gt;%
-  summarise(rd_budget_bil = sum(rd_budget_mil) / 10^3) %&gt;%
+  summarise(
+    rd_budget_bil = sum(rd_budget_mil) / 10^3) %&gt;%
 
 # Make the chart
   ggplot() +
-  geom_col(aes(x = rd_budget_bil,
-*              y = reorder(department, rd_budget_bil)),
-           width = 0.7, alpha = 0.8,
-           fill = "steelblue") +
+  geom_col(
+    aes(
+      x = rd_budget_bil,
+*     y = reorder(department, rd_budget_bil)
+    ), 
+    width = 0.7, alpha = 0.8,
+    fill = "steelblue"
+  ) +
   scale_x_continuous(
     expand = expansion(mult = c(0, 0.05))) +
   theme_minimal_vgrid()
@@ -327,16 +334,19 @@ federal_spending %&gt;%
 # Format the data frame
 federal_spending %&gt;%
   group_by(department) %&gt;%
-  summarise(rd_budget_bil = sum(rd_budget_mil) / 10^3) %&gt;%
+  summarise(
+    rd_budget_bil = sum(rd_budget_mil) / 10^3) %&gt;%
   mutate(
-*   department = fct_reorder(department, rd_budget_bil)) %&gt;%
+*   department = fct_reorder(
+*       department, rd_budget_bil)) %&gt;%
 
 # Make the chart
   ggplot() +
-  geom_col(aes(x = rd_budget_bil,
-               y = department),
-           width = 0.7, alpha = 0.8,
-           fill = "steelblue") +
+  geom_col(
+    aes(x = rd_budget_bil, y = department),
+    width = 0.7, alpha = 0.8,
+    fill = "steelblue"
+  ) +
   scale_x_continuous(
     expand = expansion(mult = c(0, 0.05))) +
   theme_minimal_vgrid()
@@ -385,7 +395,7 @@ class: inverse, middle
 
 ---
 
-### 1. Reorder factors based on another numerical variable
+### 1. Reorder factors based on another **numerical variable**
 
 .leftcol60[.code70[
 
@@ -396,16 +406,19 @@ Use `fct_reorder()`
 # Format the data frame
 federal_spending %&gt;%
   group_by(department) %&gt;%
-  summarise(rd_budget_bil = sum(rd_budget_mil) / 10^3) %&gt;%
+  summarise(
+    rd_budget_bil = sum(rd_budget_mil) / 10^3) %&gt;%
   mutate(
-*   department = fct_reorder(department, rd_budget_bil)) %&gt;%
+*   department = fct_reorder(
+*       department, rd_budget_bil)) %&gt;%
 
 # Make the chart
   ggplot() +
-  geom_col(aes(x = rd_budget_bil,
-               y = department),
-           width = 0.7, alpha = 0.8,
-           fill = "steelblue") +
+  geom_col(
+    aes(x = rd_budget_bil, y = department),
+    width = 0.7, alpha = 0.8,
+    fill = "steelblue"
+  ) +
   scale_x_continuous(
     expand = expansion(mult = c(0, 0.05))) +
   theme_minimal_vgrid()
@@ -424,7 +437,7 @@ federal_spending %&gt;%
 
 ---
 
-### 2. Reorder factors manually
+### 2. Reorder factors **manually**
 
 .leftcol[.code70[
 
@@ -432,13 +445,17 @@ federal_spending %&gt;%
 ```r
 # Format the data frame
 lotr_words %&gt;%
-  gather(key = 'gender', value = 'wordCount',
-         Female:Male) %&gt;%
+  pivot_longer(
+      names_to = 'gender', 
+      values_to = 'wordCount',
+      cols = Female:Male) %&gt;%
 
 # Make the chart
   ggplot() +
-  geom_col(aes(x = wordCount, y = Film),
-           width = 0.7, alpha = 0.8) +
+  geom_col(
+    aes(x = wordCount, y = Film),
+    width = 0.7, alpha = 0.8
+  ) +
   scale_x_continuous(
     expand = expansion(mult = c(0, 0.05))) +
   theme_minimal_vgrid()
@@ -456,7 +473,7 @@ lotr_words %&gt;%
 
 ---
 
-### 2. Reorder factors manually with `fct_relevel()`
+### 2. Reorder factors **manually** with `fct_relevel()`
 
 .leftcol[.code70[
 
@@ -464,8 +481,10 @@ lotr_words %&gt;%
 ```r
 # Format the data frame
 lotr_words %&gt;%
-  gather(key = 'gender', value = 'wordCount',
-         Female:Male) %&gt;%
+  pivot_longer(
+      names_to = 'gender', 
+      values_to = 'wordCount',
+      cols = Female:Male) %&gt;%
 * mutate(
 *   Film = fct_relevel(Film, levels = c(
 *     'The Fellowship Of The Ring',
@@ -474,8 +493,10 @@ lotr_words %&gt;%
 
 # Make the chart
   ggplot() +
-  geom_col(aes(x = wordCount, y = Film),
-           width = 0.7, alpha = 0.8) +
+  geom_col(
+    aes(x = wordCount, y = Film),
+    width = 0.7, alpha = 0.8
+  ) +
   scale_x_continuous(
     expand = expansion(mult = c(0, 0.05))) +
   theme_minimal_vgrid()
@@ -502,13 +523,17 @@ lotr_words %&gt;%
 ```r
 # Format the data frame
 lotr_words %&gt;%
-  gather(key = 'gender', value = 'wordCount',
-         Female:Male) %&gt;%
+  pivot_longer(
+      names_to = 'gender', 
+      values_to = 'wordCount',
+      cols = Female:Male) %&gt;%
 
 # Make the chart
   ggplot() +
-  geom_col(aes(x = wordCount, y = Film),
-           width = 0.7, alpha = 0.8) +
+  geom_col(
+    aes(x = wordCount, y = Film),
+    width = 0.7, alpha = 0.8
+  ) +
   scale_x_continuous(
     expand = expansion(mult = c(0, 0.05))) +
   theme_minimal_vgrid()
@@ -518,7 +543,7 @@ lotr_words %&gt;%
 
 .rightcol[
 
-.center[The film names here are too long]
+.center[.red[The film names here are too long]]
 
 &lt;center&gt;
 &lt;img src="figs/lotr_bars.png"&gt;
@@ -538,8 +563,10 @@ lotr_words %&gt;%
 ```r
 # Format the data frame
 lotr_words %&gt;%
-  gather(key = 'gender', value = 'wordCount',
-         Female:Male) %&gt;%
+  pivot_longer(
+      names_to = 'gender', 
+      values_to = 'wordCount',
+      cols = Female:Male) %&gt;%
 * mutate(
 *   Film = fct_recode(Film,
 *     'The Fellowship\nof the Ring' = 'The Fellowship Of The Ring',
@@ -547,8 +574,10 @@ lotr_words %&gt;%
 
 # Make the chart
   ggplot() +
-  geom_col(aes(x = wordCount, y = Film),
-           width = 0.7, alpha = 0.8) +
+  geom_col(
+    aes(x = wordCount, y = Film),
+    width = 0.7, alpha = 0.8
+  ) +
   scale_x_continuous(
     expand = expansion(mult = c(0, 0.05))) +
   theme_minimal_vgrid()
@@ -574,8 +603,10 @@ lotr_words %&gt;%
 ```r
 # Format the data frame
 lotr_words %&gt;%
-  gather(key = 'gender', value = 'wordCount',
-         Female:Male) %&gt;%
+  pivot_longer(
+      names_to = 'gender', 
+      values_to = 'wordCount',
+      cols = Female:Male) %&gt;% 
 * mutate(
 *   Film = fct_relevel(Film, levels = c(
 *     'The Fellowship Of The Ring',
@@ -587,8 +618,10 @@ lotr_words %&gt;%
 
 # Make the chart
   ggplot() +
-  geom_col(aes(x = wordCount, y = Film),
-           width = 0.7, alpha = 0.8) +
+  geom_col(
+      aes(x = wordCount, y = Film),
+      width = 0.7, alpha = 0.8
+  ) +
   scale_x_continuous(
     expand = expansion(mult = c(0, 0.05))) +
   theme_minimal_vgrid()
@@ -608,23 +641,26 @@ lotr_words %&gt;%
 
 ### 4. What if there are too many factor levels?
 
-.leftcol[.code70[
+.leftcol55[.code70[
 
 
 ```r
 # Format the data frame
 federal_spending %&gt;%
   group_by(department) %&gt;%
-  summarise(rd_budget_bil = sum(rd_budget_mil) / 10^3) %&gt;%
+  summarise(
+    rd_budget_bil = sum(rd_budget_mil) / 10^3) %&gt;%
   mutate(
-*   department = fct_reorder(department, rd_budget_bil)) %&gt;%
+*   department = fct_reorder(
+*       department, rd_budget_bil)) %&gt;%
 
 # Make the chart
   ggplot() +
-  geom_col(aes(x = rd_budget_bil,
-               y = department),
-           width = 0.7, alpha = 0.8,
-           fill = "steelblue") +
+  geom_col(
+    aes(x = rd_budget_bil, y = department),
+    width = 0.7, alpha = 0.8,
+    fill = "steelblue"
+  ) +
   scale_x_continuous(
     expand = expansion(mult = c(0, 0.05))) +
   theme_minimal_vgrid()
@@ -632,7 +668,7 @@ federal_spending %&gt;%
 
 ]]
 
-.rightcol[
+.rightcol45[
 
 &lt;center&gt;
 &lt;img src="figs/federal_spending_bars.png"&gt;
@@ -656,15 +692,18 @@ federal_spending %&gt;%
 *   department = fct_other(department,
 *     keep = c('DOD', 'HHS', 'NIH', 'NASA', 'DOE'))) %&gt;%
   group_by(department) %&gt;%
-  summarise(rd_budget_bil = sum(rd_budget_mil) / 10^3) %&gt;%
-  mutate(department = fct_reorder(department, rd_budget_bil)) %&gt;%
+  summarise(
+    rd_budget_bil = sum(rd_budget_mil) / 10^3) %&gt;%
+  mutate(
+    department = fct_reorder(department, rd_budget_bil)) %&gt;%
 
 # Make the chart
   ggplot() +
-  geom_col(aes(x = rd_budget_bil,
-               y = department),
-           width = 0.7, alpha = 0.8,
-           fill = "steelblue") +
+  geom_col(
+    aes(x = rd_budget_bil, y = department),
+    width = 0.7, alpha = 0.8,
+    fill = "steelblue"
+  ) +
   scale_x_continuous(
     expand = expansion(mult = c(0, 0.05))) +
   theme_minimal_vgrid()
@@ -695,9 +734,10 @@ avengers %&gt;%
 
 # Make the chart
   ggplot() +
-  geom_col(aes(x = appearances,
-               y = name_alias),
-           width = 0.7, alpha = 0.8) +
+  geom_col(
+    aes(x = appearances,y = name_alias),
+    width = 0.7, alpha = 0.8
+  ) +
   scale_x_continuous(
     expand = expansion(mult = c(0, 0.05))) +
   theme_minimal_vgrid()
@@ -732,9 +772,10 @@ avengers %&gt;%
 
 # Make the chart
   ggplot() +
-  geom_col(aes(x = appearances,
-               y = name_alias),
-           width = 0.7, alpha = 0.8) +
+  geom_col(
+    aes(x = appearances, y = name_alias),
+    width = 0.7, alpha = 0.8
+  ) +
   scale_x_continuous(
     expand = expansion(mult = c(0, 0.05))) +
   theme_minimal_vgrid()
@@ -770,10 +811,14 @@ avengers %&gt;%
 
 # Make the chart
   ggplot() +
-  geom_col(aes(x = appearances,
-               y = name_alias,
-               fill = gender),
-           width = 0.7, alpha = 0.8) +
+  geom_col(
+    aes(
+      x = appearances, 
+      y = name_alias,
+      fill = gender
+    ),
+    width = 0.7, alpha = 0.8
+  ) +
   scale_x_continuous(
     expand = expansion(mult = c(0, 0.05))) +
   theme_minimal_vgrid()
@@ -801,8 +846,8 @@ Use the `wildlife_impacts` data to create the following plot
 &lt;img src="figs/wildlife_phase_of_flight_bars.png" width=800&gt;
 &lt;/center&gt;
 
-<div class="countdown" id="timer_6344bdb4" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
-<code class="countdown-time"><span class="countdown-digits minutes">20</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+<div class="countdown" id="timer_63458e62" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
+<code class="countdown-time"><span class="countdown-digits minutes">15</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
 ---
@@ -1084,12 +1129,14 @@ Summarize data frame:
 # Summarize the data
 federal_spending %&gt;%
   group_by(department) %&gt;%
-  summarise(rd_budget_bil = sum(rd_budget_mil) / 10^3) %&gt;%
-  mutate(department = fct_reorder(department, rd_budget_bil)) %&gt;%
+  summarise(
+    rd_budget_bil = sum(rd_budget_mil) / 10^3) %&gt;%
+  mutate(
+    department = fct_reorder(department, rd_budget_bil)) %&gt;%
 
 # Make the chart
   ggplot() +
-  geom_point(
+* geom_point(
 *   aes(x = rd_budget_bil, y = department),
     size = 2.5, color = 'steelblue') +
   theme_minimal_vgrid()
@@ -1120,8 +1167,10 @@ Summarize data frame:
 # Summarize the data
 federal_spending %&gt;%
   group_by(department) %&gt;%
-  summarise(rd_budget_bil = sum(rd_budget_mil) / 10^3) %&gt;%
-  mutate(department = fct_reorder(department, rd_budget_bil)) %&gt;%
+  summarise(
+    rd_budget_bil = sum(rd_budget_mil) / 10^3) %&gt;%
+  mutate(
+    department = fct_reorder(department, rd_budget_bil)) %&gt;%
 
 # Make the chart
   ggplot() +
@@ -1151,7 +1200,7 @@ federal_spending %&gt;%
 
 class: inverse, middle
 
-<div class="countdown" id="timer_6344bd2d" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
+<div class="countdown" id="timer_63458d88" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
 <code class="countdown-time"><span class="countdown-digits minutes">20</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -1181,7 +1230,7 @@ Data: `milk_production`
 
 class: inverse, center
 
-<div class="countdown" id="timer_6344bf55" style="top:1;right:0;bottom:0;left:0;margin:5%;font-size:8em;" data-warnwhen="30">
+<div class="countdown" id="timer_63459073" style="top:1;right:0;bottom:0;left:0;margin:5%;font-size:8em;" data-warnwhen="30">
 <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -1641,11 +1690,11 @@ milk_production %&gt;%
   geom_col(
     aes(x = "", y = milk_produced, fill = state),
     width = 0.7, alpha = 0.8) +
-  geom_text(
+* geom_text(
 *   aes(x = "", y = milk_produced, label = label),
 *   color = "white", size = 6,
 *   position = position_stack(vjust = 0.5)) +
-* coord_polar(theta = "y") +
+  coord_polar(theta = "y") +
 * theme_map() +
   labs(x = NULL,
        y = NULL,
@@ -1747,9 +1796,9 @@ milk_production %&gt;%
 
 .rightcol45[
 
-Use values between 100 - 1,000
+**Use values between 100 - 1,000**
 
-(You don't want 1,000,000,000 boxes!)
+.font80[(You don't want 1,000,000,000 boxes!)]
 
 
 ```
@@ -1803,9 +1852,9 @@ milk_production %&gt;%
 
 .rightcol45[
 
-Use values between 100 - 1,000
+**Use values between 100 - 1,000**
 
-(You don't want 1,000,000,000 boxes!)
+.font80[(You don't want 1,000,000,000 boxes!)]
 
 
 ```
@@ -1883,13 +1932,13 @@ class: center
 Stacked bars
 
 &lt;center&gt;
-&lt;img src="figs/milk_compare_bars_stacked.png"&gt;
+&lt;img src="figs/milk_compare_bars_stacked.png" width = 450&gt;
 &lt;/center&gt;
 
 Dodged bars
 
 &lt;center&gt;
-&lt;img src="figs/milk_compare_bars_dodged.png"&gt;
+&lt;img src="figs/milk_compare_bars_dodged.png" width = 450&gt;
 &lt;/center&gt;
 
 ]
@@ -1898,11 +1947,11 @@ Dodged bars
 
 Pie chart
 
-&lt;img src="figs/milk_compare_pie-1.png" width="360" style="display: block; margin: auto;" /&gt;
+&lt;img src="figs/milk_compare_pie-1.png" width="324" style="display: block; margin: auto;" /&gt;
 
 Waffle chart
 
-&lt;img src="figs/unnamed-chunk-44-1.png" width="360" style="display: block; margin: auto;" /&gt;
+&lt;img src="figs/unnamed-chunk-44-1.png" width="324" style="display: block; margin: auto;" /&gt;
 
 ]
 
@@ -1910,7 +1959,7 @@ Waffle chart
 
 class: inverse
 
-<div class="countdown" id="timer_6344bff5" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
+<div class="countdown" id="timer_63458e4a" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
 <code class="countdown-time"><span class="countdown-digits minutes">20</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
