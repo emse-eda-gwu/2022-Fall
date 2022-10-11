@@ -63,14 +63,17 @@ ul.task-list li input[type="checkbox"] {
 <!-- fontawesome kit -->
 <script src="https://kit.fontawesome.com/1392a7030f.js" crossorigin="anonymous"></script>
 
+<script src="../site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
 
 <link rel="stylesheet" href="../styles.css">
 <meta property="og:title" content="EMSE 4572 - Progress Report">
-<meta property="og:description" content="Coming soon!">
+<meta property="og:description" content="Write a report summarizing progress you have made towards your project thus far, including summary statistics of your data and preliminary charts.">
 <meta property="og:site-name" content="https://eda.seas.gwu.edu/">
 <meta property="og:locale" content="es_ES">
 <meta name="twitter:title" content="EMSE 4572 - Progress Report">
-<meta name="twitter:description" content="Coming soon!">
+<meta name="twitter:description" content="Write a report summarizing progress you have made towards your project thus far, including summary statistics of your data and preliminary charts.">
 <meta name="twitter:image" content="https://eda.seas.gwu.edu/2022-Fall/images/logo-square.png">
 <meta name="twitter:creator" content="@johnhelveston">
 <meta name="twitter:card" content="summary">
@@ -364,7 +367,23 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
-    
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#get-organized" id="toc-get-organized" class="nav-link active" data-scroll-target="#get-organized">1. Get organized</a></li>
+  <li><a href="#write-your-research-question" id="toc-write-your-research-question" class="nav-link" data-scroll-target="#write-your-research-question">2. Write your research question</a></li>
+  <li><a href="#discuss-your-data-sources" id="toc-discuss-your-data-sources" class="nav-link" data-scroll-target="#discuss-your-data-sources">3. Discuss your data sources</a></li>
+  <li><a href="#evaluate-your-proposal-expectations" id="toc-evaluate-your-proposal-expectations" class="nav-link" data-scroll-target="#evaluate-your-proposal-expectations">4. Evaluate your proposal expectations</a></li>
+  <li><a href="#include-two-preliminary-charts" id="toc-include-two-preliminary-charts" class="nav-link" data-scroll-target="#include-two-preliminary-charts">5. Include two preliminary charts</a></li>
+  <li><a href="#review-your-teammates" id="toc-review-your-teammates" class="nav-link" data-scroll-target="#review-your-teammates">6. Review your teammates</a></li>
+  <li><a href="#knit-and-submit" id="toc-knit-and-submit" class="nav-link" data-scroll-target="#knit-and-submit">7. Knit and submit</a></li>
+  <li><a href="#grading-rubric" id="toc-grading-rubric" class="nav-link" data-scroll-target="#grading-rubric">Grading Rubric</a>
+  <ul class="collapse">
+  <li><a href="#total-points" id="toc-total-points" class="nav-link" data-scroll-target="#total-points">60 Total Points</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/emse-eda-gwu/2022-Fall/edit/main/project-final/2-progress-report.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/emse-eda-gwu/2022-Fall/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
@@ -388,9 +407,138 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Coming soon!</p>
+<div class="cell" data-layout-align="center">
+
+</div>
+<blockquote class="blockquote">
+<p><strong>Due</strong>: Nov 01 by 11:59pm</p>
+<p><strong>Weight</strong>: This assignment is worth 12% of your final grade.</p>
+<p><strong>Purpose</strong>: purpose</p>
+<p><strong>Assessment</strong>: Your submission will be assessed using the <a href="#grading-rubric">rubric</a> at the bottom of this page.</p>
+</blockquote>
+<p>Write a report summarizing progress you have made towards your project thus far, including summary statistics of your data and preliminary charts. You should have already identified data source(s) for your project and begun exploring the data. Your report should be written in a narrative format (i.e.&nbsp;using coherent paragraphs rather than a series of bullet points). You may use headings where appropriate to break up your report into sections. Below is a list of specific items your progress report should include.</p>
+<section id="get-organized" class="level2">
+<h2 class="anchored" data-anchor-id="get-organized">1. Get organized</h2>
+<p>Download and unzip <a href="../templates/project-template.zip">this template</a> for your proposal report. Open the <code>project.Rproj</code> file and write your progress report in the <code>report.Rmd</code> file. The template comes with some text and code explaining how to use it - should should delete this code as it is only for explanatory purposes. Be sure to adjust the content in the YAML:</p>
+<ul>
+<li>Write your project title in the <code>title</code> field (and provide a subtitle if you wish, otherwise delete the <code>subtitle</code> field).</li>
+<li>In the <code>author</code> field, list the names of all teammates, e.g.&nbsp;<code>author: Luke Skywalker, Leia Organa, and Han Solo</code>.</li>
+</ul>
+<p><strong>You should also put the data you are working with for your project in the appropriate folders</strong>.</p>
+</section>
+<section id="write-your-research-question" class="level2">
+<h2 class="anchored" data-anchor-id="write-your-research-question">2. Write your research question</h2>
+<p>This can (and almost certainly should) be a revised research question from your proposal.</p>
+<p>Again, follow <a href="https://writingcenter.gmu.edu/guides/how-to-write-a-research-question">these guidelines</a>.</p>
+</section>
+<section id="discuss-your-data-sources" class="level2">
+<h2 class="anchored" data-anchor-id="discuss-your-data-sources">3. Discuss your data sources</h2>
+<p>Discuss the data source(s) you are using for your analysis. For each data source:</p>
+<ul>
+<li><p>Describe it and include urls or references to the original sources as well as links to any pre-processed or formatted data you are using. These are not always the same. For example, in the <a href="a-mini-project-1.html">Mini Project 1 assignment</a>, the original source was the <a href="https://transitcosts.com/">Transit Costs Project</a> whereas the data file used was posted on <a href="https://github.com/rfordatascience/tidytuesday/tree/master/data/2021/2021-01-05">this GitHub repo</a>.</p></li>
+<li><p>Discuss the validity of your data:</p>
+<ul>
+<li>Is the data you are using from the <em>original</em> source, or has it been pre-processed?</li>
+<li>How was the original data collected and by whom?</li>
+<li>Are there perhaps any missing data that might not have been observed?</li>
+<li>Could the data be biased in some way?</li>
+</ul></li>
+<li><p>Finally, provide a data dictionary for each data file you are using in an appendix at the end of your report. The dictionary should contain a table of each variable name along with a brief description of the variable.</p></li>
+</ul>
+</section>
+<section id="evaluate-your-proposal-expectations" class="level2">
+<h2 class="anchored" data-anchor-id="evaluate-your-proposal-expectations">4. Evaluate your proposal expectations</h2>
+<ul>
+<li>Do you find support for your original proposal expectation about how one variable might be distributed? Show it by looking at summaries of the variable. If that variable doesn’t exist in your data, discuss another key variable instead and how it is distributed.</li>
+<li>Do you find support for the expected relationships you wrote about in your proposal? If those variables don’t exist in your data, discuss one key relationship that you have identified between two or more variables.</li>
+</ul>
+</section>
+<section id="include-two-preliminary-charts" class="level2">
+<h2 class="anchored" data-anchor-id="include-two-preliminary-charts">5. Include two preliminary charts</h2>
+<ul>
+<li>Your charts should either support or oppose your research question(s), or they should illustrate what else you might need to address your research question.</li>
+<li>You may choose whatever chart types you wish, but your choices should highlight the point you want to make or should clearly show the relationship you want to emphasize. Consider <a href="ref-visualizing-data.html">these resources</a> when choosing your charts.</li>
+<li>Your charts should follow the design principles we have covered in class. They do not have to be fully “polished” yet, but at a minimum they should be accurate (i.e.&nbsp;not misleading) and they should not include distracting non-data ink.</li>
+</ul>
+</section>
+<section id="review-your-teammates" class="level2">
+<h2 class="anchored" data-anchor-id="review-your-teammates">6. Review your teammates</h2>
+<p><strong>For students working in teams</strong>: On Blackboard under the assignment titled “Team Member Review: Progress Report”, submit a short description of the specific contributions of each team member in your team (this is one of the only things I’ll ask for on Blackboard). Here is an example review:</p>
+<pre><code>Student A identified the data source and wrote the documentation for it. Student B led the data cleaning process and did much of the initial data exploration. Student C helped write code for the main visualizations.</code></pre>
+<p>These reviews will be kept confidential and compared to assess that the workload and grading for team members are equitable. Team members who do not make meaningful contributions to their projects will not receive the same grade as that of their team mates. <strong>If you are having any disputes among team members, please contact Professor Helveston asap so we can find a resolution.</strong></p>
+</section>
+<section id="knit-and-submit" class="level2">
+<h2 class="anchored" data-anchor-id="knit-and-submit">7. Knit and submit</h2>
+<p>Click the “knit” button to compile your <code>.Rmd</code> file into a html web page, then create a zip file of everything in your R Project folder. Name your file <code>progress-report.zip</code>, then go to your team Box folder and submit your zip file in the “submissions” folder. <strong>Only one person from your team should submit the report.</strong></p>
+</section>
+<section id="grading-rubric" class="level1">
+<h1>Grading Rubric</h1>
+<section id="total-points" class="level3">
+<h3 class="anchored" data-anchor-id="total-points">60 Total Points</h3>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+
+<table class="table table-striped" style="margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Category </th>
+   <th style="text-align:left;"> Excellent </th>
+   <th style="text-align:left;"> Good </th>
+   <th style="text-align:left;"> Needs work </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Organization &amp; Formatting </td>
+   <td style="text-align:left;"> <b>5</b><br>All formatting guidelines are followed; YAML is correct with all team members listed. </td>
+   <td style="text-align:left;"> <b>4</b><br>Most formatting guidelines are followed; YAML is correct with all team members listed. </td>
+   <td style="text-align:left;"> <b>3</b><br>Several or all formatting guidelines not followed; YAML contains elements that aren't updated from the template. </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Research Question </td>
+   <td style="text-align:left;"> <b>10 / 9</b><br>Research question is clear, focused, concise, complex, and arguable. </td>
+   <td style="text-align:left;"> <b>8 / 7 / 6</b><br>Research question is reasonably clear and focused, but may be too simple, too complex, or too verbose. </td>
+   <td style="text-align:left;"> <b>5 / 4 / 3</b><br>Research question is unclear and lacks focus; question is far too simple or overly complex. </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Data Sources </td>
+   <td style="text-align:left;"> <b>10 / 9</b><br>Data sources or plausible data sources are clearly described; validity of and concerns about data are discussed. </td>
+   <td style="text-align:left;"> <b>8 / 7 / 6</b><br>Identified data sources or plausible data sources are not clearly described; validity of and concerns about data are minimally discussed. </td>
+   <td style="text-align:left;"> <b>5 / 4 / 3</b><br>Data sources are poorly described or missing; description of validity of and concerns about data are poor or missing. </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Evaluation of Expectations </td>
+   <td style="text-align:left;"> <b>10 / 9</b><br>Clear discussion of whether or not proposal expectations about variables and relationships were met; evidence from data provided to support discussion. </td>
+   <td style="text-align:left;"> <b>8 / 7 / 6</b><br>Description of only one expected variable, relationship, or chart, or minimal description of two; minimal evidence from data provided to support discussion. </td>
+   <td style="text-align:left;"> <b>5 / 4 / 3</b><br>Poor or missing description of variables, relationships, or charts; poor or missing evidence to support discussion. </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Data Visualization 1 </td>
+   <td style="text-align:left;"> <b>10 / 9</b><br>Chart expertly demonstrates best practices of visual design; chart is functionally accurate and generally easy to understand; chart address research question. </td>
+   <td style="text-align:left;"> <b>8 / 7 / 6</b><br>Chart generally demonstrates best practices of visual design; although accurate, some elements are distracting or confusing; chart mildly addresses research question. </td>
+   <td style="text-align:left;"> <b>5 / 4 / 3</b><br>Chart generally lacks best practices of visual design; multiple confusing or unclear / distracting elements; unrelated to research question. </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Data Visualization 2 </td>
+   <td style="text-align:left;"> <b>10 / 9</b><br>Chart expertly demonstrates best practices of visual design; chart is functionally accurate and generally easy to understand; chart address research question. </td>
+   <td style="text-align:left;"> <b>8 / 7 / 6</b><br>Chart generally demonstrates best practices of visual design; although accurate, some elements are distracting or confusing; chart mildly addresses research question. </td>
+   <td style="text-align:left;"> <b>5 / 4 / 3</b><br>Chart generally lacks best practices of visual design; multiple confusing or unclear / distracting elements; unrelated to research question. </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Technical things </td>
+   <td style="text-align:left;"> <b>5</b><br>All code runs without errors; all files included in the submitted .zip file. </td>
+   <td style="text-align:left;"> <b>4</b><br>Code has only one or two error, otherwise runs; all files included in the submitted .zip file. </td>
+   <td style="text-align:left;"> <b>3</b><br>Code has multiple errors; submitted .zip file is missing components necessary to reproduce analysis. </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

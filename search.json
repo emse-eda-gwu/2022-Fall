@@ -354,7 +354,56 @@
     "href": "project-final/2-progress-report.html",
     "title": "Progress Report",
     "section": "",
-    "text": "Coming soon!"
+    "text": "Write a report summarizing progress you have made towards your project thus far, including summary statistics of your data and preliminary charts. You should have already identified data source(s) for your project and begun exploring the data. Your report should be written in a narrative format (i.e. using coherent paragraphs rather than a series of bullet points). You may use headings where appropriate to break up your report into sections. Below is a list of specific items your progress report should include."
+  },
+  {
+    "objectID": "project-final/2-progress-report.html#get-organized",
+    "href": "project-final/2-progress-report.html#get-organized",
+    "title": "Progress Report",
+    "section": "1. Get organized",
+    "text": "1. Get organized\nDownload and unzip this template for your proposal report. Open the project.Rproj file and write your progress report in the report.Rmd file. The template comes with some text and code explaining how to use it - should should delete this code as it is only for explanatory purposes. Be sure to adjust the content in the YAML:\n\nWrite your project title in the title field (and provide a subtitle if you wish, otherwise delete the subtitle field).\nIn the author field, list the names of all teammates, e.g. author: Luke Skywalker, Leia Organa, and Han Solo.\n\nYou should also put the data you are working with for your project in the appropriate folders."
+  },
+  {
+    "objectID": "project-final/2-progress-report.html#write-your-research-question",
+    "href": "project-final/2-progress-report.html#write-your-research-question",
+    "title": "Progress Report",
+    "section": "2. Write your research question",
+    "text": "2. Write your research question\nThis can (and almost certainly should) be a revised research question from your proposal.\nAgain, follow these guidelines."
+  },
+  {
+    "objectID": "project-final/2-progress-report.html#discuss-your-data-sources",
+    "href": "project-final/2-progress-report.html#discuss-your-data-sources",
+    "title": "Progress Report",
+    "section": "3. Discuss your data sources",
+    "text": "3. Discuss your data sources\nDiscuss the data source(s) you are using for your analysis. For each data source:\n\nDescribe it and include urls or references to the original sources as well as links to any pre-processed or formatted data you are using. These are not always the same. For example, in the Mini Project 1 assignment, the original source was the Transit Costs Project whereas the data file used was posted on this GitHub repo.\nDiscuss the validity of your data:\n\nIs the data you are using from the original source, or has it been pre-processed?\nHow was the original data collected and by whom?\nAre there perhaps any missing data that might not have been observed?\nCould the data be biased in some way?\n\nFinally, provide a data dictionary for each data file you are using in an appendix at the end of your report. The dictionary should contain a table of each variable name along with a brief description of the variable."
+  },
+  {
+    "objectID": "project-final/2-progress-report.html#evaluate-your-proposal-expectations",
+    "href": "project-final/2-progress-report.html#evaluate-your-proposal-expectations",
+    "title": "Progress Report",
+    "section": "4. Evaluate your proposal expectations",
+    "text": "4. Evaluate your proposal expectations\n\nDo you find support for your original proposal expectation about how one variable might be distributed? Show it by looking at summaries of the variable. If that variable doesn’t exist in your data, discuss another key variable instead and how it is distributed.\nDo you find support for the expected relationships you wrote about in your proposal? If those variables don’t exist in your data, discuss one key relationship that you have identified between two or more variables."
+  },
+  {
+    "objectID": "project-final/2-progress-report.html#include-two-preliminary-charts",
+    "href": "project-final/2-progress-report.html#include-two-preliminary-charts",
+    "title": "Progress Report",
+    "section": "5. Include two preliminary charts",
+    "text": "5. Include two preliminary charts\n\nYour charts should either support or oppose your research question(s), or they should illustrate what else you might need to address your research question.\nYou may choose whatever chart types you wish, but your choices should highlight the point you want to make or should clearly show the relationship you want to emphasize. Consider these resources when choosing your charts.\nYour charts should follow the design principles we have covered in class. They do not have to be fully “polished” yet, but at a minimum they should be accurate (i.e. not misleading) and they should not include distracting non-data ink."
+  },
+  {
+    "objectID": "project-final/2-progress-report.html#review-your-teammates",
+    "href": "project-final/2-progress-report.html#review-your-teammates",
+    "title": "Progress Report",
+    "section": "6. Review your teammates",
+    "text": "6. Review your teammates\nFor students working in teams: On Blackboard under the assignment titled “Team Member Review: Progress Report”, submit a short description of the specific contributions of each team member in your team (this is one of the only things I’ll ask for on Blackboard). Here is an example review:\nStudent A identified the data source and wrote the documentation for it. Student B led the data cleaning process and did much of the initial data exploration. Student C helped write code for the main visualizations.\nThese reviews will be kept confidential and compared to assess that the workload and grading for team members are equitable. Team members who do not make meaningful contributions to their projects will not receive the same grade as that of their team mates. If you are having any disputes among team members, please contact Professor Helveston asap so we can find a resolution."
+  },
+  {
+    "objectID": "project-final/2-progress-report.html#knit-and-submit",
+    "href": "project-final/2-progress-report.html#knit-and-submit",
+    "title": "Progress Report",
+    "section": "7. Knit and submit",
+    "text": "7. Knit and submit\nClick the “knit” button to compile your .Rmd file into a html web page, then create a zip file of everything in your R Project folder. Name your file progress-report.zip, then go to your team Box folder and submit your zip file in the “submissions” folder. Only one person from your team should submit the report."
   },
   {
     "objectID": "project-final/3-final-report.html",
