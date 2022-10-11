@@ -1,0 +1,110 @@
+---
+title: "Amounts & Proportions"
+subtitle: "EMSE 4572: Exploratory Data Analysis"
+output: html_document
+---
+
+```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
+# install.packages("waffle")
+library(tidyverse)
+library(here)
+library(cowplot)
+library(waffle)
+knitr::opts_chunk$set(
+    warning = FALSE,
+    message = FALSE,
+    fig.path = "figs/",
+    fig.width = 7.252,
+    fig.height = 4,
+    comment = "#>",
+    fig.retina = 3
+)
+
+# Read in data
+fed_spending_wide <- read_csv(here('data', 'fed_spending_wide.csv'))
+fed_spending_long <- read_csv(here('data', 'fed_spending_long.csv'))
+milk_prod_wide <- read_csv(here('data', 'milk_prod_wide.csv'))
+milk_prod_long <- read_csv(here('data', 'milk_prod_long.csv'))
+avengers         <- read_csv(here('data', 'avengers.csv'))
+bears            <- read_csv(here('data', 'north_america_bear_killings.csv'))
+federal_spending <- read_csv(here('data', 'fed_spending_long.csv'))
+gapminder        <- read_csv(here('data', 'gapminder.csv'))
+lotr_words       <- read_csv(here('data', 'lotr_words.csv'))
+milk_production  <- read_csv(here('data', 'milk_production.csv'))
+wildlife_impacts <- read_csv(here('data', 'wildlife_impacts.csv'))
+```
+
+# Tidy data review
+
+```{r}
+# Tidy the data
+```
+
+```{r}
+# Visualize variability
+```
+
+# Practice manipulating factors
+
+Use the `wildlife_impacts` data to create the following plot
+
+```{r wildlife_phase_of_flight_bars, fig.width=9, fig.height=5}
+# Write code here
+```
+
+## Practice plotting amounts
+
+Create the following charts:
+
+```{r bear_bars, fig.width=7, fig.height=5}
+# Write code here
+```
+
+```{r milk_dots_top10, fig.height=4, fig.width=7}
+# Write code here
+```
+
+## Your turn - practice plotting proportions
+
+Using the `wildlife_impacts` data, create plots that shows the proportion of incidents that occur at each different time of day.
+
+For this exercise, you can remove `NA` values.
+
+Try to create the following plots:
+
+- Stacked bars
+- Dodged bars
+- Pie chart
+- Waffle chart
+
+```{r}
+wildlife_summary <- wildlife_impacts %>%
+  filter(!is.na(time_of_day)) %>%
+  count(time_of_day)
+
+wildlife_summary
+```
+
+Stacked bars:
+
+```{r wildlife_bars_stacked, fig.width=6, fig.height=3}
+# Write code here
+```
+
+Dodged bars:
+
+```{r wildlife_bars_dodged, fig.width=5, fig.height=3}
+# Write code here
+```
+
+Pie chart:
+
+```{r wildlife_pie, fig.width=5, fig.height=3}
+# Write code here
+```
+
+Waffle chart:
+
+```{r wildlife_waffle, fig.height=5, fig.width=3.5}
+# Write code here
+```
