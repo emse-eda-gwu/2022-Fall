@@ -30,4 +30,79 @@ maxPoints <- rubric %>%
     pull(max)
 ```
 
-Coming soon!
+```{r child = here::here("fragments", "project.qmd")}
+```
+
+Write a report summarizing progress you have made towards your project thus far, including summary statistics of your data and preliminary charts. You should have already identified data source(s) for your project and begun exploring the data. Your report should be written in a narrative format (i.e. using coherent paragraphs rather than a series of bullet points). You may use headings where appropriate to break up your report into sections. Below is a list of specific items your progress report should include.
+
+## 1. Get organized
+
+Download and unzip [this template](../templates/project-template.zip) for your proposal report. Open the `project.Rproj` file and write your progress report in the `report.Rmd` file. The template comes with some text and code explaining how to use it - should should delete this code as it is only for explanatory purposes. Be sure to adjust the content in the YAML:
+
+- Write your project title in the `title` field (and provide a subtitle if you wish, otherwise delete the `subtitle` field).
+ - In the `author` field, list the names of all teammates, e.g. `author: Luke Skywalker, Leia Organa, and Han Solo`.
+
+**You should also put the data you are working with for your project in the appropriate folders**.
+
+## 2. Write your research question
+
+This can (and almost certainly should) be a revised research question from your proposal.
+
+Again, follow [these guidelines](https://writingcenter.gmu.edu/guides/how-to-write-a-research-question).
+
+## 3. Discuss your data sources
+
+Discuss the data source(s) you are using for your analysis. For each data source:
+
+- Describe it and include urls or references to the original sources as well as links to any pre-processed or formatted data you are using. These are not always the same. For example, in the [Mini Project 1 assignment](a-mini-project-1.html), the original source was the [Transit Costs Project](https://transitcosts.com/) whereas the data file used was posted on [this GitHub repo](https://github.com/rfordatascience/tidytuesday/tree/master/data/2021/2021-01-05).
+- Discuss the validity of your data:
+
+    - Is the data you are using from the _original_ source, or has it been pre-processed?
+    - How was the original data collected and by whom?
+    - Are there perhaps any missing data that might not have been observed?
+    - Could the data be biased in some way?
+
+- Finally, provide a data dictionary for each data file you are using in an appendix at the end of your report. The dictionary should contain a table of each variable name along with a brief description of the variable.
+
+## 4. Evaluate your proposal expectations
+
+- Do you find support for your original proposal expectation about how one variable might be distributed? Show it by looking at summaries of the variable. If that variable doesn't exist in your data, discuss another key variable instead and how it is distributed.
+- Do you find support for the expected relationships you wrote about in your proposal? If those variables don't exist in your data, discuss one key relationship that you have identified between two or more variables.
+
+## 5. Include two preliminary charts
+
+- Your charts should either support or oppose your research question(s), or they should illustrate what else you might need to address your research question.
+- You may choose whatever chart types you wish, but your choices should highlight the point you want to make or should clearly show the relationship you want to emphasize. Consider [these resources](ref-visualizing-data.html) when choosing your charts.
+- Your charts should follow the design principles we have covered in class. They do not have to be fully "polished" yet, but at a minimum they should be accurate (i.e. not misleading) and they should not include distracting non-data ink.
+
+## 6. Review your teammates
+
+**For students working in teams**: On Blackboard under the assignment titled "Team Member Review: Progress Report", submit a short description of the specific contributions of each team member in your team (this is one of the only things I'll ask for on Blackboard). Here is an example review:
+
+```
+Student A identified the data source and wrote the documentation for it. Student B led the data cleaning process and did much of the initial data exploration. Student C helped write code for the main visualizations.
+```
+
+These reviews will be kept confidential and compared to assess that the workload and grading for team members are equitable. Team members who do not make meaningful contributions to their projects will not receive the same grade as that of their team mates. **If you are having any disputes among team members, please contact Professor Helveston asap so we can find a resolution.**
+
+## 7. Knit and submit
+
+Click the "knit" button to compile your `.Rmd` file into a html web page, then create a zip file of everything in your R Project folder. Name your file `progress-report.zip`, then go to your team Box folder and submit your zip file in the "submissions" folder. **Only one person from your team should submit the report.**
+
+# Grading Rubric
+
+### `r maxPoints` Total Points
+
+```{r, echo=FALSE}
+rubric %>%
+  mutate(description = paste0("<b>", points, '</b><br>', description)) %>%
+  select(-points) %>%
+  spread(key = rating, value = description) %>%
+  select(-category) %>%
+  rename(Category = label) %>%
+  arrange(order) %>%
+  select(-order) %>%
+  select(-maxPoints) %>%
+  kable(format = 'html', escape = FALSE) %>%
+  kable_styling(bootstrap_options = "striped")
+```
