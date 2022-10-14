@@ -1,0 +1,308 @@
+---
+title: "Comparisons"
+subtitle: "EMSE 4572: Exploratory Data Analysis"
+output: html_document
+---
+
+```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
+# install.packages("ggrepel")
+# install.packages("ggridges")
+library(ggrepel)
+library(ggridges)
+library(tidyverse)
+library(here)
+library(cowplot)
+knitr::opts_chunk$set(
+    warning = FALSE,
+    message = FALSE,
+    fig.path = "figs/",
+    fig.width = 7.252,
+    fig.height = 4,
+    comment = "#>",
+    fig.retina = 3
+)
+
+# Read in the data
+gapminder        <- read_csv(here('data', 'gapminder.csv'))
+milk_production  <- read_csv(here('data', 'milk_production.csv'))
+internet_regions <- read_csv(here('data', 'internet_users_region.csv'))
+```
+
+### Your turn - reference lines
+
+Use the `milk_production.csv` data to create the following charts showing differences from the mean state milk production in 2017.
+
+```{r}
+milk_summary <- milk_production %>%
+  filter(year == 2017) %>%
+  mutate(
+    milk_produced = milk_produced / 10^9,
+    state = fct_reorder(state, milk_produced))
+```
+
+```{r milk-lollipop-mean, fig.height=8, fig.width=5.5, fig.align='center'}
+milk_production %>%
+  filter(year == 2017) %>%
+  mutate(
+    milk_produced = milk_produced / 10^9,
+    state = fct_reorder(state, milk_produced)) %>%
+  ggplot() +
+  geom_point(
+    aes(x = milk_produced, y = state),
+    size = 2.5, color = 'steelblue') +
+  geom_vline(
+    xintercept = mean(milk_summary$milk_produced),
+    color = 'red', linetype = 'dashed') +
+  annotate(
+    'text', x = 5, y = 'Georgia',
+    color = 'red', hjust = 0,
+    label = 'Mean\nProduction') +
+  theme_minimal_vgrid() +
+  labs(x = 'Milk produced (billions lbs)',
+       y = 'State')
+```
+
+```{r milk-bars-diverging, fig.height=8, fig.width=6, fig.align='center'}
+milk_summary %>%
+  mutate(
+    milk_produced = milk_produced - mean(milk_produced),
+    barColor = ifelse(milk_produced > 0, 'above', 'below')) %>%
+  ggplot() +
+  geom_col(
+    aes(x = milk_produced, y = state, fill = barColor),
+    width = 0.7) +
+  scale_fill_manual(values = c('steelblue', 'sienna')) +
+  theme_minimal_vgrid() +
+  theme(legend.position = 'none') +
+  labs(
+    x = 'Difference from mean milk produced (billions lbs)',
+    y = 'State')
+```
+
+Now replicate it but only for the top 10, merging all other states into an "Other" category 
+
+```{r milk-lollipop-mean-top10, fig.height=5, fig.width=5.5, fig.align='center'}
+top10 <- milk_production %>%
+  filter(year == 2017) %>%
+  arrange(desc(milk_produced)) %>% 
+  slice(1:10)
+
+milk_summary <- milk_production %>%
+  filter(year == 2017) %>%
+  mutate(
+    milk_produced = milk_produced / 10^9,
+    state = fct_other(state, keep = top10$state)) %>% 
+  group_by(state) %>% 
+  summarise(milk_produced = sum(milk_produced)) %>% 
+  ungroup() %>% 
+  mutate(state = fct_reorder(state, milk_produced))
+
+ggplot(milk_summary) +
+  geom_point(
+    aes(x = milk_produced, y = state),
+    size = 2.5, color = 'steelblue') +
+  geom_vline(
+    xintercept = mean(milk_summary$milk_produced),
+    color = 'red', linetype = 'dashed') +
+  annotate(
+    'text', x = 19, y = 'California',
+    color = 'red', hjust = 1,
+    label = 'Mean\nProduction') +
+  theme_minimal_vgrid() +
+  labs(x = 'Milk produced (billions lbs)',
+       y = 'State')
+```
+
+## Your turn - comparing multiple categories
+
+Using the `internet_regions` data frame, pick a strategy and create an improved version of this chart.
+
+Strategies:
+
+- Dodged bars
+- Facets
+- Bullet chart
+- Dumbell chart
+- Slope chart
+
+```{r internet-usage-bars, fig.height=6, fig.width=10, out.width="80%"}
+internet_regions_compare <- internet_regions %>%
+  filter(year %in% c(2000, 2015)) %>%
+  mutate(
+    numUsers = numUsers / 10^6,
+    year = as.factor(year))
+
+ggplot(internet_regions_compare) +
+  geom_col(
+    aes(x = year, y = numUsers, fill = region),
+    position = "dodge") +
+  labs(y = "Millions of internet users")
+```
+
+```{r internet-usage-dodged, fig.height=6, fig.width=10, out.width="80%"}
+internet_regions_compare %>%
+  mutate(region = fct_reorder2(region, year, -numUsers)) %>%
+  ggplot() +
+  geom_col(
+    aes(x = numUsers, y = region, fill = year),
+    position = "dodge") +
+  theme_minimal_vgrid(font_size = 18) +
+  scale_x_continuous(
+    limits = c(0, 1200),
+    expand = expansion(mult = c(0, 0.05))) +
+  scale_fill_manual(values = c('grey', 'gold')) +
+  labs(x = "Millions of internet users", 
+       y = "Region")
+```
+
+```{r internet-usage-facets, fig.height=4, fig.width=14, out.width="80%"}
+internet_regions_compare %>%
+  mutate(
+    region = fct_recode(region,
+      "Middle East &\nNorth Africa" = "Middle East & North Africa",
+      "Latin America &\n Caribbean" = "Latin America & Caribbean",
+      "Europe &\n Central Asia" = "Europe & Central Asia"),
+    region = fct_reorder2(region, year, -numUsers)) %>%
+  ggplot() +
+  geom_col(
+    aes(x = year, y = numUsers, fill = year),
+    width = 0.6) +
+  facet_wrap(vars(region), nrow = 1) +
+  theme_minimal_hgrid(font_size = 18) +
+  theme(legend.position = "none") +
+  scale_y_continuous(
+    limits = c(0, 1200),
+    expand = expansion(mult = c(0, 0.05))) +
+  scale_fill_manual(values = c('grey', 'gold')) +
+  labs(y = "Millions of internet users")
+```
+
+```{r internet-usage-bullet, fig.height=6, fig.width=10, out.width="80%"}
+internet_regions_compare %>%
+  mutate(region = fct_reorder2(region, year, -numUsers)) %>%
+  spread(year, numUsers) %>%
+  ggplot() +
+  geom_col(
+    aes(x = `2000`, y = region, fill = "2000"),
+    width = 0.7) +
+  geom_col(
+    aes(x = `2015`, y = region, fill = "2015"),
+    width = 0.3) +
+  theme_minimal_vgrid(font_size = 18) +
+  scale_x_continuous(
+    limits = c(0, 1200),
+    expand = expansion(mult = c(0, 0.05))) +
+  scale_fill_manual(values = c('grey', 'black')) +
+  labs(y = "Millions of internet users",
+       fill = "Year")
+```
+
+```{r internet-usage-dumbbell, fig.height=4, fig.width=6, fig.align='center'}
+internet_regions_compare %>%
+  mutate(region = fct_reorder2(region, year, -numUsers)) %>%
+  ggplot(aes(x = numUsers, y = region)) +
+  geom_line(
+    aes(group = region),
+    color = 'lightblue', size = 1) +
+    geom_point(aes(color = year), size = 2.5) +
+    scale_color_manual(values = c('lightblue', 'steelblue')) +
+    scale_x_continuous(limits = c(0, 1200)) +
+    theme_minimal_vgrid() +
+    # Remove y axis line
+    theme(axis.line.y = element_blank()) +
+    labs(x = 'Millions of internet users',
+         y = 'Region',
+         color = 'Year',
+         title = 'Number of internet users by world region',
+         subtitle = "(2000 - 2015)")
+```
+
+```{r internet-usage-slope, fig.height=7, fig.width=10, fig.align='center'}
+internet_regions_compare %>%
+  mutate(
+    region = fct_reorder2(region, year, -numUsers),
+    region_asia = ifelse(region == "East Asia & Pacific", "asia", "other"),
+    label = paste(region, ' (', round(numUsers), ')'),
+    label_left = ifelse(year == 2000, label, NA),
+    label_right = ifelse(year == 2015, label, NA)) %>%
+    ggplot(aes(x = year, y = numUsers,
+           group = region)) +
+    geom_line(aes(color = region_asia), size = 1)  +
+    # Add 2000 labels (left side)
+    geom_text_repel(
+      aes(label = label_left),
+      hjust = 1, nudge_x = -0.05,
+      direction = 'y', segment.color = 'grey') +
+    # Add 2015 labels (right side)
+    geom_text_repel(
+      aes(label = label_right),
+      hjust = 0, nudge_x = 0.05,
+      direction = 'y', segment.color = 'grey') +
+    # Move year labels to top
+    scale_x_discrete(position = 'top') +
+    # Annotate & adjust theme
+    scale_color_manual(values = c("red", "black")) +
+    theme_minimal_grid() +
+    theme(panel.grid  = element_blank(),
+          axis.text.y = element_blank(),
+          axis.ticks = element_blank(),
+          legend.position = 'none') +
+    labs(x = NULL,
+         y = 'Millions of internet users',
+         title = 'Number of internet users by world region',
+         subtitle = "(2000 - 2015)")
+```
+
+
+
+
+## Your turn - comparing distributions
+
+Use the `gapminder.csv` data to create the following charts comparing the distribution of life expectancy across countries in continents in 2007.
+
+```{r}
+gapminder_2007 <- gapminder %>%
+  filter(year == 2007) %>%
+  mutate(continent = fct_reorder(continent, lifeExp))
+```
+
+```{r gapminder-densities, fig.height=4.5, fig.width=6.5, fig.align='center'}
+gapminder_densities <- ggplot(gapminder_2007) +
+  geom_density(
+    aes(x = lifeExp, y = ..count.., fill = continent),
+    alpha = 0.4) +
+  scale_y_continuous(
+    expand = expansion(mult = c(0, 0.05))) +
+  scale_fill_brewer(palette = 'Accent') +
+  theme_minimal_hgrid() +
+  labs(
+    x = 'Life expectancy (years)',
+    y = 'Count',
+    fill = 'Continent',
+    title = 'Distribution of life expectancy across\ncountries in continent in 2007')
+
+gapminder_densities
+```
+
+```{r gapminder-densities-facet, fig.height=3, fig.width=10, fig.align='center'}
+gapminder_densities + 
+  facet_wrap(vars(continent), nrow = 1) + 
+  theme(legend.position = "none") + 
+  labs(title = 'Distribution of life expectancy across countries in continent in 2007')
+```
+
+```{r gapminder-ridges, fig.height=4.5, fig.width=6.5, fig.align='center'}
+gapminder_2007 %>%
+    filter(continent != 'Oceania') %>%
+    ggplot() +
+    geom_density_ridges(
+      aes(x = lifeExp, y = continent),
+      scale = 1.5, alpha = 0.7) +
+    scale_y_discrete(expand = c(0, 0)) +
+    scale_x_continuous(expand = c(0, 0)) +
+    coord_cartesian(clip = "off") +
+    theme_ridges() +
+    labs(x = 'Life expectancy (years)',
+         y = 'Continent',
+         title = 'Distribution of life expectancy across\ncountries in continent in 2007')
+```

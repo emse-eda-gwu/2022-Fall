@@ -8,4 +8,5 @@ params:
 source(here::here("R", "settings.R"))
 ```
 
-Coming soon!
+```{r child = here::here("fragments", "class.qmd")}
+```

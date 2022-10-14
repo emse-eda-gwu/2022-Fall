@@ -1,0 +1,11 @@
+
+class: inverse, middle
+
+# Week `r rmarkdown::metadata$week`: .fancy[`r rmarkdown::metadata$title`]
+
+## 1. Comparing to a reference
+## 2. Comparing variables
+
+## BREAK
+
+## 3. Comparing distributions

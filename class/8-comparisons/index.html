@@ -1,0 +1,1621 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Comparisons</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="John Paul Helveston" />
+    <meta name="date" content="2021-02-24" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/tile-view/tile-view.css" rel="stylesheet" />
+    <script src="libs/tile-view/tile-view.js"></script>
+    <link href="libs/panelset/panelset.css" rel="stylesheet" />
+    <script src="libs/panelset/panelset.js"></script>
+    <script src="libs/clipboard/clipboard.min.js"></script>
+    <link href="libs/xaringanExtra-clipboard/xaringanExtra-clipboard.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-clipboard/xaringanExtra-clipboard.js"></script>
+    <script>window.xaringanExtraClipboard(null, {"button":"Copy Code","success":"Copied!","error":"Press Ctrl+C to Copy"})</script>
+    <link href="libs/shareon/shareon.min.css" rel="stylesheet" />
+    <script src="libs/shareon/shareon.min.js"></script>
+    <link href="libs/xaringanExtra-shareagain/shareagain.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-shareagain/shareagain.js"></script>
+    <link href="libs/xaringanExtra-extra-styles/xaringanExtra-extra-styles.css" rel="stylesheet" />
+    <meta name="description" content="EMSE 4575: Exploratory Data Analysis"/>
+    <meta name="generator" content="xaringan and remark.js"/>
+    <meta name="github-repo" content="emse-eda-gwu/2021-Spring"/>
+    <meta name="twitter:title" content="Comparisons"/>
+    <meta name="twitter:description" content="EMSE 4575: Exploratory Data Analysis"/>
+    <meta name="twitter:url" content="https://eda.seas.gwu.edu/2021-Spring/"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:creator" content="@johnhelveston"/>
+    <meta name="twitter:site" content="@johnhelveston"/>
+    <meta property="og:title" content="Comparisons"/>
+    <meta property="og:description" content="EMSE 4575: Exploratory Data Analysis"/>
+    <meta property="og:url" content="https://eda.seas.gwu.edu/2021-Spring/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="article:author" content="John Paul Helveston"/>
+    <link href="libs/countdown/countdown.css" rel="stylesheet" />
+    <script src="libs/countdown/countdown.js"></script>
+    <link rel="stylesheet" href="css/lexis.css" type="text/css" />
+    <link rel="stylesheet" href="css/lexis-fonts.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+class: middle, inverse
+
+.leftcol30[
+&lt;center&gt;
+&lt;img src="https://raw.githubusercontent.com/emse-eda-gwu/2021-Spring/master/images/eda_hex_sticker.png" width=250&gt;
+&lt;/center&gt;
+]
+
+.rightcol70[
+# Week 7: .fancy[Comparisons]
+
+### &lt;svg style="height:0.8em;top:.04em;position:relative;fill:white;" viewBox="0 0 512 512"&gt;&lt;path d="M496 128v16a8 8 0 0 1-8 8h-24v12c0 6.627-5.373 12-12 12H60c-6.627 0-12-5.373-12-12v-12H24a8 8 0 0 1-8-8v-16a8 8 0 0 1 4.941-7.392l232-88a7.996 7.996 0 0 1 6.118 0l232 88A8 8 0 0 1 496 128zm-24 304H40c-13.255 0-24 10.745-24 24v16a8 8 0 0 0 8 8h464a8 8 0 0 0 8-8v-16c0-13.255-10.745-24-24-24zM96 192v192H60c-6.627 0-12 5.373-12 12v20h416v-20c0-6.627-5.373-12-12-12h-36V192h-64v192h-64V192h-64v192h-64V192H96z"/&gt;&lt;/svg&gt; EMSE 4575: Exploratory Data Analysis
+### &lt;svg style="height:0.8em;top:.04em;position:relative;fill:white;" viewBox="0 0 448 512"&gt;&lt;path d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z"/&gt;&lt;/svg&gt; John Paul Helveston
+### &lt;svg style="height:0.8em;top:.04em;position:relative;fill:white;" viewBox="0 0 448 512"&gt;&lt;path d="M0 464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V192H0v272zm320-196c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12h-40c-6.6 0-12-5.4-12-12v-40zm0 128c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12h-40c-6.6 0-12-5.4-12-12v-40zM192 268c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12h-40c-6.6 0-12-5.4-12-12v-40zm0 128c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12h-40c-6.6 0-12-5.4-12-12v-40zM64 268c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12H76c-6.6 0-12-5.4-12-12v-40zm0 128c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12H76c-6.6 0-12-5.4-12-12v-40zM400 64h-48V16c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v48H160V16c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v48H48C21.5 64 0 85.5 0 112v48h448v-48c0-26.5-21.5-48-48-48z"/&gt;&lt;/svg&gt; February 24, 2021
+]
+
+---
+class: inverse
+
+# Quiz 2
+
+<div class="countdown" id="timer_6035b947" style="bottom:0;left:0;font-size:4em;" data-warnwhen="30">
+<code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+.leftcol[
+### Link is on the [schedule](https://eda.seas.gwu.edu/2021-Spring/schedule.html)
+]
+
+.rightcol[
+&lt;center&gt;
+&lt;img src="images/quiz_doge.png" width="400"&gt;
+&lt;/center&gt;
+]
+
+---
+class: center, middle, inverse
+
+# .fancy[.blue[Tip of the week]]
+
+# Shortcut keys
+
+---
+class: middle, inverse
+
+## 1) Quick shortcuts
+
+.leftcol[
+Insert a `&lt;-` operator:
+
+- **Windows**: `ALT` + `-`
+- **Mac**: `OPTION` + `-`
+]
+
+--
+
+.rightcol[
+Insert a `%&gt;%` operator:
+
+- **Windows**: `CTRL` + `SHIFT` + `M`
+- **Mac**: `COMMAND` + `SHIFT` + `M`
+]
+
+---
+class: middle, inverse
+
+## 2) Edit multiple lines of code at once
+
+1. Press and hold `ALT` (Windows) or `OPTION` (Mac)
+2. Select multiple lines of code
+
+https://twitter.com/i/status/995394452821721088
+
+---
+class: middle, inverse
+
+.rightcol80[
+## "At the heart of quantitative reasoning is a single question: Compared to what?"
+## -- Edward Tufte
+]
+
+---
+
+## Today's data
+
+
+```r
+college_all_ages &lt;- read_csv(here('data', 'college_all_ages.csv'))
+gapminder        &lt;- read_csv(here('data', 'gapminder.csv'))
+marathon         &lt;- read_csv(here('data', 'marathon.csv'))
+milk_production  &lt;- read_csv(here('data', 'milk_production.csv'))
+*internet_regions &lt;- read_csv(here('data', 'internet_users_region.csv'))
+```
+
+## New packages
+
+
+```r
+install.packages("ggrepel")
+install.packages("ggridges")
+```
+
+---
+
+
+
+class: inverse, middle
+
+# Week 7: .fancy[Comparisons]
+
+## 1. Comparing to a reference
+## 2. Comparing variables
+
+## BREAK
+
+## 3. Comparing distributions
+
+---
+
+
+
+class: inverse, middle
+
+# Week 7: .fancy[Comparisons]
+
+## 1. .orange[Comparing to a reference]
+## 2. Comparing variables
+
+## BREAK
+
+## 3. Comparing distributions
+
+&lt;!--
+Comparing things to a reference line:
+- Add a simple line
+- diverging bars / lollipops,
+
+- In any of these plots, adding a benchmark can be really useful
+- Another way is to compare things to a **computed** benchmark, like the mean - diverging bars / lollipops
+--&gt;
+
+---
+class: middle
+
+## .center[For this section, we'll be using this data frame:]
+
+.code100[
+
+```r
+gapminder_americas &lt;- gapminder %&gt;%
+  filter(continent == "Americas", year == 2007) %&gt;%
+  mutate(country = fct_reorder(country, lifeExp))
+```
+]
+
+---
+class: center
+
+## Use reference lines to add context to chart
+
+.leftcol[
+&lt;img src="figs/life-exp-dots-1.png" width="432" style="display: block; margin: auto;" /&gt;
+]
+
+--
+
+.rightcol[
+&lt;img src="figs/life-exp-dots-mean-1.png" width="432" style="display: block; margin: auto;" /&gt;
+]
+
+---
+class: center
+
+## Or make zero the reference line
+
+
+
+.leftcol[
+&lt;img src="figs/life-exp-dots-diverging-1.png" width="432" style="display: block; margin: auto;" /&gt;
+]
+
+.rightcol[
+&lt;img src="figs/life-exp-bars-diverging-1.png" width="432" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+## How to add a reference line
+
+.leftcol60[.code70[
+Add horizontal line with `geom_hline()`
+
+Add vertical line with `geom_vline()`
+
+
+```r
+ggplot(gapminder_americas) +
+  geom_point(
+    aes(x = lifeExp, y = country),
+    color = 'steelblue', size = 2.5) +
+* geom_vline(
+*     xintercept = mean(gapminder_americas$lifeExp),
+*     color = 'red', linetype = 'dashed') +
+  theme_minimal_vgrid() +
+  labs(x = 'Life expectancy (years)',
+       y = 'Country')
+```
+]]
+
+.rightcol40[
+&lt;img src="figs/unnamed-chunk-8-1.png" width="432" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+## How to add a reference line
+
+.leftcol60[.code70[
+
+Add text with `annotate()`
+
+
+```r
+ggplot(gapminder_americas) +
+  geom_point(
+    aes(x = lifeExp, y = country),
+    color = 'steelblue', size = 2.5) +
+  geom_vline(
+      xintercept = mean(gapminder_americas$lifeExp),
+      color = 'red', linetype = 'dashed') +
+  annotate(
+*   'text', x = 73.2, y = 'Puerto Rico',
+*   color = 'red', hjust = 1,
+*   label = 'Mean\nLife\nExpectancy') +
+  theme_minimal_vgrid() +
+  labs(x = 'Life expectancy (years)',
+       y = 'Country')
+```
+]]
+
+.rightcol40[.center[
+&lt;img src="figs/unnamed-chunk-10-1.png" width="432" style="display: block; margin: auto;" /&gt;
+]]
+
+---
+
+## How to make zero the reference point
+
+.leftcol60[.code70[
+
+```r
+gapminder_diverging &lt;- gapminder_americas %&gt;%
+    mutate(
+        # Subtract the mean
+*       lifeExp = lifeExp - mean(lifeExp),
+        # Define the fill color
+*       color = ifelse(lifeExp &gt; 0, 'Above', 'Below'))
+```
+
+
+```r
+ggplot(gapminder_diverging) +
+  geom_col(
+*   aes(x = lifeExp, y = country, fill = color),
+    width = 0.7, alpha = 0.8) +
+  scale_fill_manual(
+*   values = c('steelblue', 'red')) +
+  theme_minimal_vgrid() +
+  theme(legend.position = 'none') +
+  labs(
+    x = 'Country',
+    y = 'Difference from mean life expectancy (years)')
+```
+]]
+
+.rightcol40[
+&lt;img src="figs/unnamed-chunk-13-1.png" width="432" style="display: block; margin: auto;" /&gt;
+]
+
+---
+class: inverse
+
+<div class="countdown" id="timer_6035b9cb" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
+<code class="countdown-time"><span class="countdown-digits minutes">20</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+### Your turn - comparing to a reference
+
+Use the `milk_production.csv` data to create the following charts&lt;br&gt;showing differences from the mean state milk production in 2017.
+
+.leftcol[
+&lt;img src="figs/milk-lollipop-mean-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+]
+
+.rightcol[
+&lt;img src="figs/milk-bars-diverging-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+
+
+class: inverse, middle
+
+# Week 7: .fancy[Comparisons]
+
+## 1. Comparing to a reference
+## 2. .orange[Comparing variables]
+
+## BREAK
+
+## 3. Comparing distributions
+
+&lt;!--
+Comparing categories with facets
+
+Comparing two things (dodged bars, slope chart, dumbbell chart)
+
+- dodged comparisons are fine, but really no more than 2 things.
+- Finally, overlapping bars are great when you want to show when something exceeds a threshold. E.g. going over your budget.
+- Using facets to break up 3-4 groups of 2 is okay.
+- A better approach for multiple categories:
+    - slope charts
+    - dumbbell charts
+--&gt;
+
+---
+class: center, middle
+
+## Neither of these charts are great
+
+.leftcol[
+&lt;img src="figs/diamonds_bars_stacked-1.png" width="522.144" /&gt;
+]
+
+.rightcol[
+&lt;img src="figs/diamonds_bars_dodged-1.png" width="522.144" /&gt;
+]
+
+---
+class: center
+
+## "Parallel Coordinates" plots work well
+
+.leftcol[.left[
+
+```r
+diamonds %&gt;%
+  count(clarity, cut) %&gt;%
+  ggplot(
+    aes(x = clarity, y = n,
+*       color = cut, group = cut)) +
+  geom_line() +
+  geom_point() +
+  scale_y_continuous(limits = c(0, 5100)) +
+  theme_half_open(font_size = 18) +
+  labs(y = "Count")
+```
+]]
+
+.rightcol[
+&lt;img src="figs/unnamed-chunk-16-1.png" width="504" /&gt;
+]
+
+---
+
+## Consider facets for **comparing across categories**
+
+.leftcol60[
+
+```r
+diamonds %&gt;%
+  count(clarity, cut) %&gt;%
+  ggplot() +
+  geom_col(aes(x = clarity, y = n),
+           width = 0.7) +
+* facet_wrap(vars(cut), nrow = 1) +
+  scale_y_continuous(
+    expand = expansion(mult = c(0, 0.05))) +
+  theme_minimal_hgrid(font_size = 16)
+```
+]
+
+&lt;img src="figs/diamonds-facet-2-1.png" width="1296" /&gt;
+
+---
+
+.leftcol[.code70[
+
+## Consider facets for **comparing across categories**
+
+
+```r
+diamonds %&gt;%
+  count(clarity, cut) %&gt;%
+  mutate(n = n / 1000) %&gt;%
+  ggplot() +
+  geom_col(aes(x = clarity, y = n),
+           width = 0.7) +
+* facet_wrap(vars(cut), ncol = 2) +
+* coord_flip() +
+  scale_y_continuous(
+    expand = expansion(mult = c(0, 0.05))) +
+* theme_minimal_vgrid(font_size = 16) +
+  labs(y = "Count (thousands)")
+```
+]]
+
+.rightcol[
+&lt;img src="figs/unnamed-chunk-17-1.png" width="576" style="display: block; margin: auto;" /&gt;
+]
+
+---
+background-image: url("images/ft-coronavirus.jpg")
+background-size: contain
+
+.right[&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt; From [Financial Times](https://www.ft.com/coronavirus-latest)]
+
+---
+class: inverse, center
+
+## When comparing across multiple categories, consider:
+
+.leftcol[
+## Parallel coordinates charts
+
+&lt;img src="figs/unnamed-chunk-18-1.png" width="504" /&gt;
+]
+
+.rightcol[
+## Faceting
+
+&lt;img src="figs/unnamed-chunk-19-1.png" width="70%" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+## .center[When comparing **only 2** things,&lt;br&gt;dodged bars are a good starting point]
+
+.leftcol[.code70[
+
+```r
+milk_compare &lt;- milk_production %&gt;%
+  filter(year %in% c(1970, 2017)) %&gt;%
+  mutate(state = fct_other(state,
+    keep = c('California', 'Wisconsin'))) %&gt;%
+  group_by(year, state) %&gt;%
+  summarise(
+    milk_produced = sum(milk_produced) / 10^9)
+```
+
+```
+#&gt; # A tibble: 6 x 3
+#&gt; # Groups:   year [2]
+#&gt;    year state      milk_produced
+#&gt;   &lt;dbl&gt; &lt;fct&gt;              &lt;dbl&gt;
+#&gt; 1  1970 California          9.46
+#&gt; 2  1970 Wisconsin          18.4 
+#&gt; 3  1970 Other              89.1 
+#&gt; 4  2017 California         39.8 
+#&gt; 5  2017 Wisconsin          30.3 
+#&gt; 6  2017 Other             145.
+```
+
+
+]]
+
+.rightcol[
+&lt;img src="figs/unnamed-chunk-21-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+## .center[When comparing **only 2** things,&lt;br&gt;dodged bars are a good starting point]
+
+.leftcol[.code70[
+
+```r
+ggplot(milk_compare) +
+  geom_col(
+    aes(x = milk_produced, y = state,
+        fill = as.factor(year)),
+    width = 0.7, alpha = 0.8,
+*   position = 'dodge') +
+  scale_fill_manual(
+      values = c('grey', 'steelblue'),
+      guide  = guide_legend(reverse = TRUE)) +
+  scale_x_continuous(
+    expand = expansion(mult = c(0, 0.05))) +
+  theme_minimal_vgrid() +
+  labs(
+    x = 'Milk produced (billion lbs)',
+    y = NULL,
+    fill = 'Year')
+```
+]]
+
+.rightcol[
+&lt;img src="figs/unnamed-chunk-23-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+class: center
+
+## Avoid putting &gt;2 categories in legend (if possible)
+
+.leftcol[
+&lt;center&gt;
+&lt;img src="images/check-bad.png" width=75&gt;
+&lt;/center&gt;
+
+&lt;img src="figs/milk-compare-dodged-bad-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+.rightcol[
+&lt;center&gt;
+&lt;img src="images/check-good.png" width=100&gt;
+&lt;/center&gt;
+
+&lt;img src="figs/unnamed-chunk-24-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+## .center[Or use facets to get rid of the legend!]
+
+.leftcol[
+&lt;center&gt;
+&lt;img src="images/check-bad.png" width=75&gt;
+&lt;/center&gt;
+
+&lt;img src="figs/unnamed-chunk-25-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+.rightcol[
+&lt;center&gt;
+&lt;img src="images/check-good.png" width=100&gt;
+&lt;/center&gt;
+
+
+
+&lt;img src="figs/unnamed-chunk-26-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+class: center
+
+## "Bullet" charts are also effective for comparing **2** things
+
+&lt;img src="figs/milk-compare-bullet-1.png" width="576" style="display: block; margin: auto;" /&gt;
+
+---
+
+## How to make a "bullet" chart
+
+.leftcol[.code70[
+
+```r
+milk_compare %&gt;%
+* spread(year, milk_produced) %&gt;%
+  ggplot() +
+  geom_col(
+    aes(x = `1970`, y = state, fill = '1970'),
+*       width = 0.7) +
+  geom_col(
+    aes(x = `2017`, y = state, fill = '2017'),
+*       width = 0.3) +
+  scale_fill_manual(
+    values = c('grey', 'black')) +
+  scale_x_continuous(
+      expand = expansion(mult = c(0, 0.05))) +
+  theme_minimal_vgrid(font_size = 18) +
+  labs(
+    x = 'Milk produced (billion lbs)',
+    y = NULL,
+    fill = "Year")
+```
+]]
+
+.rightcol[.center[
+&lt;img src="figs/unnamed-chunk-28-1.png" width="576" style="display: block; margin: auto;" /&gt;
+]]
+
+---
+class: center
+
+## With **more than 2** things, dodged bars can get confusing
+
+Still comparing 2 time periods, but across **10** categories
+
+
+
+&lt;img src="figs/milk-compare-dodged-toomany-1.png" width="576" style="display: block; margin: auto;" /&gt;
+
+---
+class: center
+
+### Strategies for comparing 2 things across **more than 2 categories**
+
+.leftcol[
+**Dodged bars 😿**
+
+&lt;img src="figs/unnamed-chunk-29-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+--
+
+.rightcol[
+**Dumbbell chart**
+
+
+
+&lt;img src="figs/milk-dumbbell-chart-1.png" width="396" style="display: block; margin: auto;" /&gt;
+]
+
+---
+class: center
+
+### Strategies for comparing 2 things across **more than 2 categories**
+
+.leftcol[
+**Dodged bars 😞**
+
+&lt;img src="figs/unnamed-chunk-30-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+--
+
+.rightcol[
+**Slope chart**
+
+
+
+&lt;img src="figs/milk-slope-chart-1.png" width="432" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+.leftcol[
+Dumbbell charts highlight:
+
+- Compare **magnitudes** across two periods / groups
+
+&lt;img src="figs/unnamed-chunk-31-1.png" width="432" style="display: block; margin: auto;" /&gt;
+]
+
+--
+
+.rightcol[
+Slope charts highlight:
+
+- _Change_ in **rankings**
+- Highlight individual categories
+
+&lt;img src="figs/unnamed-chunk-32-1.png" width="432" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+## How to make a **Dumbbell chart**
+
+.leftcol[.code70[
+Create data frame for plotting
+
+```r
+top10states &lt;- milk_production %&gt;%
+    filter(year == 2017) %&gt;%
+    arrange(desc(milk_produced)) %&gt;%
+    slice(1:10)
+
+milk_summary_dumbbell &lt;- milk_production %&gt;%
+  filter(
+    year %in% c(1970, 2017),
+    state %in% top10states$state) %&gt;%
+  mutate(
+    # Reorder state variables
+    state = fct_reorder2(state,
+      year, desc(milk_produced)),
+    # Convert year to discrete variable
+    year = as.factor(year),
+    # Modify units
+    milk_produced = milk_produced / 10^9)
+```
+]]
+
+.rightcol[.code70[
+&lt;img src="figs/unnamed-chunk-34-1.png" width="432" style="display: block; margin: auto;" /&gt;
+]]
+
+---
+
+## How to make a **Dumbbell chart**
+
+.leftcol[.code70[
+Make lines (note the `group` variable)
+
+
+```r
+ggplot(milk_summary_dumbbell,
+*      aes(x = milk_produced, y = state)) +
+* geom_line(aes(group = state),
+            color = 'lightblue', size = 1)
+```
+]]
+
+.rightcol[.code70[
+&lt;img src="figs/unnamed-chunk-35-1.png" width="432" style="display: block; margin: auto;" /&gt;
+]]
+
+---
+
+## How to make a **Dumbbell chart**
+
+.leftcol[.code70[
+Add points (note the `color` variable)
+
+```r
+ggplot(milk_summary_dumbbell,
+       aes(x = milk_produced, y = state)) +
+  geom_line(aes(group = state),
+            color = 'lightblue', size = 1) +
+* geom_point(aes(color = year), size = 2.5)
+```
+]]
+
+.rightcol[.code70[
+&lt;img src="figs/unnamed-chunk-36-1.png" width="432" style="display: block; margin: auto;" /&gt;
+]]
+
+---
+
+## How to make a **Dumbbell chart**
+
+.leftcol[.code70[
+Change the colors:
+
+```r
+ggplot(milk_summary_dumbbell,
+       aes(x = milk_produced, y = state)) +
+  geom_line(aes(group = state),
+            color = 'lightblue', size = 1) +
+  geom_point(aes(color = year), size = 2.5) +
+* scale_color_manual(
+*     values = c('lightblue', 'steelblue'))
+```
+]]
+
+.rightcol[.code70[
+&lt;img src="figs/unnamed-chunk-37-1.png" width="432" style="display: block; margin: auto;" /&gt;
+]]
+
+---
+
+## How to make a **Dumbbell chart**
+
+.leftcol[.code70[
+Adjust the theme and annotate
+
+```r
+ggplot(milk_summary_dumbbell,
+       aes(x = milk_produced, y = state)) +
+  geom_line(aes(group = state),
+            color = 'lightblue', size = 1) +
+  geom_point(aes(color = year), size = 2.5) +
+  scale_color_manual(
+      values = c('lightblue', 'steelblue')) +
+* theme_minimal_vgrid() +
+  # Remove y axis line and tick marks
+  theme(
+    axis.line.y = element_blank(),
+*   axis.ticks.y = element_blank()) +
+* labs(x = 'Milk produced (billion lbs)',
+*      y = 'State',
+*      color = 'Year',
+*      title = 'Top 10 milk producing states',
+*      subtitle = '(1970 - 2017)')
+```
+]]
+
+.rightcol[.code70[
+&lt;img src="figs/unnamed-chunk-39-1.png" width="432" style="display: block; margin: auto;" /&gt;
+]]
+
+---
+
+.leftcol[.code60[
+Create data frame for plotting
+
+
+```r
+top10states &lt;- milk_production %&gt;%
+    filter(year == 2017) %&gt;%
+    arrange(desc(milk_produced)) %&gt;%
+    slice(1:10)
+
+milk_summary_slope &lt;- milk_production %&gt;%
+  filter(
+    year %in% c(1970, 2017),
+    state %in% top10states$state) %&gt;%
+  mutate(
+    # Reorder state variables
+    state = fct_reorder2(state,
+      year, desc(milk_produced)),
+    # Convert year to discrete variable
+    year = as.factor(year),
+    # Modify units
+    milk_produced = milk_produced / 10^9,
+*   # Define line color
+*   lineColor = if_else(
+*     state == 'California', 'CA', 'other'),
+*   # Make labels
+*   label = paste(state, ' (',
+*                 round(milk_produced), ')'),
+*   label_left = ifelse(year == 1970, label, NA),
+*   label_right = ifelse(year == 2017, label, NA))
+```
+]]
+
+.rightcol[.code50[
+## .center[How to make a&lt;br&gt;**Slope chart**]
+
+&lt;img src="figs/unnamed-chunk-41-1.png" width="432" style="display: block; margin: auto;" /&gt;
+]]
+
+---
+
+.leftcol[.code60[
+Create data frame for plotting
+
+
+```r
+top10states &lt;- milk_production %&gt;%
+    filter(year == 2017) %&gt;%
+    arrange(desc(milk_produced)) %&gt;%
+    slice(1:10)
+
+milk_summary_slope &lt;- milk_production %&gt;%
+  filter(
+    year %in% c(1970, 2017),
+    state %in% top10states$state) %&gt;%
+  mutate(
+    # Reorder state variables
+    state = fct_reorder2(state,
+      year, desc(milk_produced)),
+    # Convert year to discrete variable
+    year = as.factor(year),
+    # Modify units
+    milk_produced = milk_produced / 10^9,
+*   # Define line color
+*   lineColor = if_else(
+*     state == 'California', 'CA', 'other'),
+*   # Make labels
+*   label = paste(state, ' (',
+*                 round(milk_produced), ')'),
+*   label_left = ifelse(year == 1970, label, NA),
+*   label_right = ifelse(year == 2017, label, NA))
+```
+]]
+
+.rightcol[.code50[
+## .center[How to make a&lt;br&gt;**Slope chart**]
+
+
+```r
+milk_summary_slope %&gt;%
+    select(state, year, milk_produced, label, lineColor)
+```
+
+```
+#&gt; # A tibble: 20 x 5
+#&gt;    state        year  milk_produced label                lineColor
+#&gt;    &lt;fct&gt;        &lt;fct&gt;         &lt;dbl&gt; &lt;chr&gt;                &lt;chr&gt;    
+#&gt;  1 New York     1970         10.3   New York  ( 10 )     other    
+#&gt;  2 Pennsylvania 1970          7.12  Pennsylvania  ( 7 )  other    
+#&gt;  3 Michigan     1970          4.60  Michigan  ( 5 )      other    
+#&gt;  4 Wisconsin    1970         18.4   Wisconsin  ( 18 )    other    
+#&gt;  5 Minnesota    1970          9.64  Minnesota  ( 10 )    other    
+#&gt;  6 Texas        1970          3.06  Texas  ( 3 )         other    
+#&gt;  7 Idaho        1970          1.49  Idaho  ( 1 )         other    
+#&gt;  8 New Mexico   1970          0.304 New Mexico  ( 0 )    other    
+#&gt;  9 Washington   1970          2.09  Washington  ( 2 )    other    
+#&gt; 10 California   1970          9.46  California  ( 9 )    CA       
+#&gt; 11 New York     2017         14.9   New York  ( 15 )     other    
+#&gt; 12 Pennsylvania 2017         10.9   Pennsylvania  ( 11 ) other    
+#&gt; 13 Michigan     2017         11.2   Michigan  ( 11 )     other    
+#&gt; 14 Wisconsin    2017         30.3   Wisconsin  ( 30 )    other    
+#&gt; 15 Minnesota    2017          9.86  Minnesota  ( 10 )    other    
+#&gt; 16 Texas        2017         12.1   Texas  ( 12 )        other    
+#&gt; 17 Idaho        2017         14.6   Idaho  ( 15 )        other    
+#&gt; 18 New Mexico   2017          8.21  New Mexico  ( 8 )    other    
+#&gt; 19 Washington   2017          6.53  Washington  ( 7 )    other    
+#&gt; 20 California   2017         39.8   California  ( 40 )   CA
+```
+]]
+
+---
+
+## How to make a **Slope chart**
+
+.leftcol[.code70[
+Start with a line plot - note the `group` variable:
+
+
+```r
+ggplot(milk_summary_slope,
+*      aes(x = year, y = milk_produced,
+*          group = state)) +
+*   geom_line(aes(color = lineColor))
+```
+]]
+
+.rightcol[.code70[
+&lt;img src="figs/unnamed-chunk-44-1.png" width="432" style="display: block; margin: auto;" /&gt;
+]]
+
+---
+
+## How to make a **Slope chart**
+
+.leftcol[.code70[
+Add labels:
+
+
+```r
+ggplot(milk_summary_slope,
+       aes(x = year, y = milk_produced,
+           group = state)) +
+    geom_line(aes(color = lineColor)) +
+    # Add 1970 labels (left side)
+*   geom_text(aes(label = label_left),
+*             hjust = 1, nudge_x = -0.05) +
+    # Add 2017 labels (right side)
+*   geom_text(aes(label = label_right),
+*             hjust = 0, nudge_x = 0.05)
+```
+
+Justification | `hjust`
+--------------|-------
+Left          | 0
+Center        | 0.5
+Right         | 1
+
+]]
+
+.rightcol[.code70[
+&lt;img src="figs/unnamed-chunk-45-1.png" width="432" style="display: block; margin: auto;" /&gt;
+]]
+
+---
+class: center, middle
+
+## Overlapping labels?
+
+.leftcol30[.border[
+&lt;center&gt;
+&lt;img src="images/overlapping_labels.png"&gt;
+&lt;/center&gt;
+]]
+
+---
+class: center, middle
+
+## Overlapping labels?&lt;br&gt;**ggrepel** library to the rescue!
+
+.leftcol30[.border[
+&lt;center&gt;
+&lt;img src="images/overlapping_labels.png"&gt;
+&lt;/center&gt;
+]]
+
+.rightcol70[
+&lt;center&gt;
+&lt;img src="images/horst_monsters_ggrepel.jpg" width=600&gt;
+&lt;/center&gt;
+]
+
+.left[Artwork by [@allison_horst](https://twitter.com/allison_horst)]
+
+---
+
+## How to make a **Slope chart**
+
+.leftcol[.code70[
+Align labels so they don't overlap:
+
+
+```r
+*library(ggrepel)
+
+ggplot(milk_summary_slope,
+       aes(x = year, y = milk_produced,
+           group = state)) +
+    geom_line(aes(color = lineColor)) +
+    # Add 1970 labels (left side)
+*   geom_text_repel(
+      aes(label = label_left),
+      hjust = 1, nudge_x = -0.05,
+*     direction = 'y', segment.color = 'grey') +
+    # Add 2017 labels (right side)
+*   geom_text_repel(
+      aes(label = label_right),
+      hjust = 0, nudge_x = 0.05,
+*     direction = 'y', segment.color = 'grey')
+```
+]]
+
+.rightcol[.code70[
+&lt;img src="figs/unnamed-chunk-46-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]]
+
+---
+
+## How to make a **Slope chart**
+
+.leftcol[.code70[
+Adjust colors:
+
+```r
+ggplot(milk_summary_slope,
+       aes(x = year, y = milk_produced,
+           group = state)) +
+    geom_line(aes(color = lineColor)) +
+    geom_text_repel(
+      aes(label = label_left),
+      hjust = 1, nudge_x = -0.05,
+      direction = 'y', segment.color = 'grey') +
+    geom_text_repel(
+      aes(label = label_right),
+      hjust = 0, nudge_x = 0.05,
+      direction = 'y', segment.color = 'grey') +
+    # Move year labels to top, modify line colors
+*   scale_x_discrete(position = 'top') +
+*   scale_color_manual(values = c('red', 'black'))
+```
+]]
+
+.rightcol[.code70[
+&lt;img src="figs/unnamed-chunk-47-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]]
+
+---
+
+.leftcol[.code60[
+Adjust the theme and annotate
+
+
+```r
+ggplot(milk_summary_slope,
+       aes(x = year, y = milk_produced,
+           group = state)) +
+    geom_line(aes(color = lineColor)) +
+    # Add 1970 labels (left side)
+    geom_text_repel(
+      aes(label = label_left),
+      hjust = 1, nudge_x = -0.05,
+      direction = 'y', segment.color = 'grey') +
+    # Add 2017 labels (right side)
+    geom_text_repel(aes(label = label_right),
+      hjust = 0, nudge_x = 0.05,
+      direction = 'y', segment.color = 'grey') +
+    # Move year labels to top, modify line colors
+    scale_x_discrete(position = 'top') +
+    scale_color_manual(values = c('red', 'black')) +
+    # Annotate &amp; adjust theme
+    labs(x = NULL,
+         y = 'Milk produced (billion lbs)',
+         title = 'Top 10 milk producing states (1970 - 2017)') +
+*   theme_minimal_grid() +
+*   theme(panel.grid  = element_blank(),
+*         axis.text.y = element_blank(),
+*         axis.ticks = element_blank(),
+*         legend.position = 'none')
+```
+]]
+
+.rightcol[.code70[
+## .center[How to make a&lt;br&gt;**Slope chart**]
+
+&lt;img src="figs/unnamed-chunk-49-1.png" width="432" style="display: block; margin: auto;" /&gt;
+]]
+
+---
+class: inverse
+
+<div class="countdown" id="timer_6035b8e1" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
+<code class="countdown-time"><span class="countdown-digits minutes">20</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+## Your turn - comparing multiple categories
+
+Using the `internet_regions` data frame, pick a strategy and create an improved version of this chart.
+
+.leftcol30[
+Strategies:
+
+- Dodged bars
+- Facets
+- Bullet chart
+- Dumbell chart
+- Slope chart
+]
+
+.rightcol70[
+&lt;img src="figs/internet-usage-bars-1.png" width="80%" /&gt;
+]
+
+---
+class: inverse, center
+
+<div class="countdown" id="timer_6035ba1c" style="top:1;right:0;bottom:0;left:0;margin:5%;font-size:8em;" data-warnwhen="30">
+<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+# Break!
+
+## Stand up, Move around, Stretch!
+
+---
+
+
+
+class: inverse, middle
+
+# Week 7: .fancy[Comparisons]
+
+## 1. Comparing to a reference
+## 2. Comparing variables
+
+## BREAK
+
+## 3. .orange[Comparing distributions]
+
+&lt;!-- Comparing distributions
+
+- Box plots
+- Transparent histograms &amp; densities (good for maybe 2 categories)
+- Ridgeline plots (good for lots of categories)
+
+Ridgeline plots: https://wilkelab.org/ggridges/ --&gt;
+
+&lt;!-- Helpful:
+https://datavizf17.classes.andrewheiss.com/files/example_2017-09-19.Rmd --&gt;
+
+---
+class: center
+
+## Overlapping histograms have issues
+
+.leftcol[
+### Bad
+
+&lt;img src="figs/marathon_histogram_overlap-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+--
+
+.rightcol[
+### Slightly better
+
+&lt;img src="figs/marathon_density_overlap-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+class: center
+
+## Good when number of categories is **small**
+
+.leftcol[
+### Density facets
+
+&lt;img src="figs/marathon_density_facet-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+--
+
+.rightcol[
+### Diverging histograms
+
+&lt;img src="figs/marathon_diverging_histograms-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+class: center
+
+## Good when number of categories is **large**
+
+.leftcol[
+### Boxplot
+&lt;img src="figs/college_boxplot-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+--
+
+.rightcol[
+### Ridgeplot
+
+&lt;img src="figs/college_ridgeplot-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+.leftcol[.code70[
+## How to make density facets
+
+You can use `facet_wrap()`, but&lt;br&gt;you won't get the full density overlay
+
+
+```r
+ggplot(marathon,
+       aes(x = Age, y = ..count..,
+           fill = `M/F`)) +
+*   geom_density(alpha = 0.7) +
+*   facet_wrap(vars(`M/F`)) +
+    scale_fill_manual(
+        values = c('sienna', 'steelblue')) +
+    scale_y_continuous(
+        expand = expansion(mult = c(0, 0.05))) +
+    theme_minimal_hgrid()
+```
+]]
+
+.rightcol[
+&lt;img src="figs/unnamed-chunk-53-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+--
+
+.rightcol[
+.center[If you want the full density overlay,&lt;br&gt;you have to hand-make the facets]
+&lt;img src="figs/unnamed-chunk-54-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+## How to make density facets
+
+.leftcol[.code70[
+Make the full density plot first
+
+
+```r
+base &lt;- ggplot(marathon,
+*              aes(x = Age, y = ..count..)) +
+*   geom_density(fill = 'grey', alpha = 0.7) +
+    scale_y_continuous(
+        expand = expansion(mult = c(0, 0.05))) +
+    theme_minimal_hgrid()
+```
+]]
+
+.rightcol[
+&lt;img src="figs/density_facet_base-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+## How to make density facets
+
+.leftcol[.code70[
+Separately create each sub-plot
+
+
+```r
+male &lt;- base +
+  geom_density(
+*   data = marathon %&gt;%
+*     filter(`M/F` == 'M'),
+    fill = 'steelblue', alpha = 0.7) +
+  theme(legend.position = 'none')
+```
+
+
+```r
+female &lt;- base +
+  geom_density(
+*   data = marathon %&gt;%
+*     filter(`M/F` == 'F'),
+    fill = 'sienna', alpha = 0.7) +
+  theme(legend.position = 'none')
+```
+]]
+
+.rightcol[
+&lt;img src="figs/density_facet_male-1.png" width="288" style="display: block; margin: auto;" /&gt;
+
+&lt;img src="figs/density_facet_female-1.png" width="288" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+## How to make density facets
+
+.code70[
+Combine into single plot
+
+
+```r
+plot_grid(male, female,
+          labels = c('Male', 'Female'))
+```
+]
+
+&lt;img src="figs/unnamed-chunk-59-1.png" width="792" style="display: block; margin: auto;" /&gt;
+
+---
+
+## How to make diverging histograms
+
+.leftcol[.code70[
+Make the histograms by filtering the data
+
+
+```r
+ggplot(marathon, aes(x = Age)) +
+    # Add histogram for Female runners:
+    geom_histogram(
+*     data = marathon %&gt;%
+*       filter(`M/F` == 'F'),
+      aes(fill = `M/F`, y=..count..),
+      alpha = 0.7, color = 'white') +
+    # Add negative histogram for Male runners:
+    geom_histogram(
+*     data = marathon %&gt;%
+*       filter(`M/F` == 'M'),
+      aes(fill = `M/F`, y=..count..*(-1)),
+      alpha = 0.7, color = 'white')
+```
+]]
+
+.rightcol[
+&lt;img src="figs/unnamed-chunk-60-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+## How to make diverging histograms
+
+.leftcol[.code70[
+Make the histograms by filtering the data
+
+
+```r
+ggplot(marathon, aes(x = Age)) +
+    # Add histogram for Female runners:
+    geom_histogram(
+      data = marathon %&gt;%
+        filter(`M/F` == 'F'),
+*     aes(fill = `M/F`, y=..count..),
+      alpha = 0.7, color = 'white') +
+    # Add negative histogram for Male runners:
+    geom_histogram(
+      data = marathon %&gt;%
+        filter(`M/F` == 'M'),
+*     aes(fill = `M/F`, y=..count..*(-1)),
+      alpha = 0.7, color = 'white')
+```
+]]
+
+.rightcol[
+&lt;img src="figs/unnamed-chunk-62-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+## How to make diverging histograms
+
+.leftcol[.code70[
+Rotate, adjust colors, theme, annotate
+
+
+```r
+ggplot(marathon, aes(x = Age)) +
+    # Add histogram for Female runners:
+    geom_histogram(
+      data = marathon %&gt;%
+        filter(`M/F` == 'F'),
+      aes(fill = `M/F`, y=..count..),
+      alpha = 0.7, color = 'white') +
+    # Add negative histogram for Male runners:
+    geom_histogram(
+      data = marathon %&gt;%
+        filter(`M/F` == 'M'),
+      aes(fill = `M/F`, y=..count..*(-1)),
+      alpha = 0.7, color = 'white')
+*   scale_fill_manual(
+        values = c('sienna', 'steelblue')) +
+*   coord_flip() +
+*   theme_minimal_hgrid() +
+*   labs(fill = 'Gender',
+*        y    = 'Count')
+```
+]]
+
+.rightcol[
+&lt;img src="figs/unnamed-chunk-64-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+## How to make ridgeplots
+
+.leftcol[.code70[
+Make a ridgeplot with **ggridges** library
+
+
+```r
+*library(ggridges)
+
+college_all_ages %&gt;%
+  mutate(
+    major_category = fct_reorder(
+      major_category, median)) %&gt;%
+  ggplot() +
+* geom_density_ridges(
+*   aes(x = median, y = major_category),
+*   scale = 4, alpha = 0.7) +
+  scale_y_discrete(expand = c(0, 0)) +
+  scale_x_continuous(expand = c(0, 0)) +
+* coord_cartesian(clip = "off") +
+* theme_ridges() +
+  labs(x = 'Median income ($)',
+       y = 'Major category')
+```
+]]
+
+.rightcol[
+&lt;img src="figs/unnamed-chunk-66-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+class: inverse
+
+<div class="countdown" id="timer_6035b920" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
+<code class="countdown-time"><span class="countdown-digits minutes">15</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+## Your turn - comparing distributions
+
+Use the `gapminder.csv` data to create the following charts comparing the distribution of life expectancy across countries in continents in 2007.
+
+.leftcol[
+
+
+&lt;img src="figs/gapminder_densities-1.png" width="468" style="display: block; margin: auto;" /&gt;
+]
+
+.rightcol[
+&lt;img src="figs/gapminder_ridges-1.png" width="468" style="display: block; margin: auto;" /&gt;
+]
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
