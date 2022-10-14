@@ -1,0 +1,119 @@
+---
+title: "Comparisons"
+subtitle: "EMSE 4572: Exploratory Data Analysis"
+output: html_document
+---
+
+```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
+# install.packages("ggrepel")
+# install.packages("ggridges")
+library(ggrepel)
+library(ggridges)
+library(tidyverse)
+library(here)
+library(cowplot)
+knitr::opts_chunk$set(
+    warning = FALSE,
+    message = FALSE,
+    fig.path = "figs/",
+    fig.width = 7.252,
+    fig.height = 4,
+    comment = "#>",
+    fig.retina = 3
+)
+
+# Read in the data
+gapminder        <- read_csv(here('data', 'gapminder.csv'))
+milk_production  <- read_csv(here('data', 'milk_production.csv'))
+internet_regions <- read_csv(here('data', 'internet_users_region.csv'))
+```
+
+
+### Your turn - reference lines
+
+Use the `milk_production.csv` data to create the following charts showing differences from the mean state milk production in 2017.
+
+```{r}
+milk_summary <- milk_production %>%
+  filter(year == 2017) %>%
+  mutate(
+    milk_produced = milk_produced / 10^9,
+    state = fct_reorder(state, milk_produced))
+```
+
+```{r milk-lollipop-mean, fig.height=8, fig.width=5.5, fig.align='center'}
+# Write code here
+```
+
+```{r milk-bars-diverging, fig.height=8, fig.width=6, fig.align='center'}
+# Write code here
+```
+
+
+
+## Your turn - comparing multiple categories
+
+Using the `internet_regions` data frame, pick a strategy and create an improved version of this chart.
+
+Strategies:
+
+- Dodged bars
+- Facets
+- Bullet chart
+- Dumbell chart
+- Slope chart
+
+```{r internet-usage-bars, fig.height=6, fig.width=10, out.width="80%"}
+internet_regions_compare <- internet_regions %>%
+  filter(year %in% c(2000, 2015)) %>%
+  mutate(
+    numUsers = numUsers / 10^6,
+    year = as.factor(year))
+
+ggplot(internet_regions_compare) +
+  geom_col(
+    aes(x = year, y = numUsers, fill = region),
+    position = "dodge") +
+  labs(y = "Millions of internet users")
+```
+
+```{r internet-usage-dodged, fig.height=6, fig.width=10, out.width="80%"}
+# Make a dodged bar chart here
+```
+
+```{r internet-usage-facets, fig.height=4, fig.width=14, out.width="80%"}
+# Make a faceted bar chart here
+```
+
+```{r internet-usage-bullet, fig.height=6, fig.width=10, out.width="80%"}
+# Make a bullet chart here
+```
+
+```{r internet-usage-dumbbell, fig.height=6, fig.width=6, fig.align='center'}
+# Make a dumbell chart here
+```
+
+```{r internet-usage-slope, fig.height=7, fig.width=10, fig.align='center'}
+# Make a slope chart here
+```
+
+
+
+
+## Your turn - comparing distributions
+
+Use the `gapminder.csv` data to create the following charts comparing the distribution of life expectancy across countries in continents in 2007.
+
+```{r}
+gapminder_2007 <- gapminder %>%
+  filter(year == 2007) %>%
+  mutate(continent = fct_reorder(continent, lifeExp))
+```
+
+```{r gapminder-densities, fig.height=4.5, fig.width=6.5, fig.align='center'}
+# Make an overlapping density chart here
+```
+
+```{r gapminder-ridges, fig.height=4.5, fig.width=6.5, fig.align='center'}
+# Make an ridgeline chart here
+```
