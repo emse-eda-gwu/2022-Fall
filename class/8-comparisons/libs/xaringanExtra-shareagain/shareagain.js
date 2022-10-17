@@ -2,7 +2,8 @@
 (function () {
   function inIframe () {
     try {
-      return window.self !== window.top
+      return window.self !== window.top &&
+        !window.self.location.href.match('viewer_pane=1') // in RStudio
     } catch (e) {
       return true
     }
@@ -37,10 +38,12 @@
     }
 
     function getAuthor () {
-      let author = document.head.querySelector('meta[name="author"]').content
+      let author = document.head.querySelector('meta[name="author"]')
 
-      if (author.length > 0) {
-        author = author + ' — '
+      if (author) {
+        author = author.content + ' — '
+      } else {
+        author = ''
       }
       return author
     }
@@ -54,7 +57,7 @@
     };
 
     function getShortTitle () {
-      return truncate(window.document.title, 50)
+      return truncate(window.document.title || '', 50)
     }
 
     const navbar = document.createElement('nav')
@@ -65,7 +68,7 @@
       <button type="button" class="shareagain-button" id="shareagain-slide-prev" title="Next Slide">${icons.left}</button>
       <button type="button" class="shareagain-button" id="shareagain-slide-next" title="Previous Slide">${icons.right}</button>
     </li>
-    <li class="shareagain-title" title="${getAuthor()}${window.document.title}">${getShortTitle()}</li>
+    <li class="shareagain-title" title="${getAuthor()}${window.document.title || ''}">${getShortTitle()}</li>
     <li class="shareagain-buttons">
       <button type="button" class="shareagain-button" id="shareagain-fullscreen" title="View in Full Screen">${icons.fullScreen}</button>
       <button type="button" class="shareagain-button" id="shareagain-share" title="Share">${icons.share}</button>
@@ -124,11 +127,13 @@
 
     // button touch events (block remarkjs slide change on touch)
     btnSlidePrev.addEventListener('touchend', function (ev) {
+      ev.preventDefault()
       slideshow.gotoPreviousSlide()
       ev.stopPropagation()
     })
 
     btnSlideNext.addEventListener('touchend', function (ev) {
+      ev.preventDefault()
       slideshow.gotoNextSlide()
       ev.stopPropagation()
     });
@@ -142,7 +147,7 @@
       })
     })
 
-    navbar.addEventListener('touchend', function(ev) {
+    navbar.addEventListener('touchend', function (ev) {
       ev.preventDefault()
       ev.stopPropagation()
     })

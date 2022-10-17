@@ -114,7 +114,7 @@ website:
           href: project-mini/1-data-cleaning.qmd
         - text: "Exploring Data (Due Oct 18)"
           href: project-mini/2-exploring-data.qmd
-        - text: "Re-design (Due Nov 08)"
+        - text: "Re-design (Due Nov 15)"
           href: project-mini/3-re-design.qmd
       - text: "Final Project"
         menu:
