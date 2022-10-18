@@ -2,7 +2,7 @@
   background: inherit;
   position: absolute;
   cursor: pointer;
-  font-size: 4em;
+  font-size: 2em;
   line-height: 1;
   border-color: #ddd;
   border-width: 3px;
@@ -39,14 +39,14 @@
   background-color: #F04124;
 }
 .countdown.finished .countdown-digits {
-  color: #3C1009;
+  color: #3C1099;
 }
 .countdown.running.warning {
   border-color: #CFAE24;
   background-color: #E6C229;
 }
 .countdown.running.warning .countdown-digits {
-  color: #39300A;
+  color: #3930AA;
 }
 
 @-webkit-keyframes blink {

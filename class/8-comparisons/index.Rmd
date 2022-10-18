@@ -324,8 +324,8 @@ ggplot(gapminder_americas) +
     aes(x = lifeExp, y = country),
     color = 'steelblue', size = 2.5) +
   geom_vline( #<<
-      xintercept = mean(gapminder_americas$lifeExp), #<<
-      color = 'red', linetype = 'dashed') + #<<
+    xintercept = mean(gapminder_americas$lifeExp), #<<
+    color = 'red', linetype = 'dashed') + #<<
   theme_minimal_vgrid() +
   labs(x = 'Life expectancy (years)',
        y = 'Country')
@@ -354,8 +354,8 @@ ggplot(gapminder_americas) +
     aes(x = lifeExp, y = country),
     color = 'steelblue', size = 2.5) +
   geom_vline(
-      xintercept = mean(gapminder_americas$lifeExp),
-      color = 'red', linetype = 'dashed') +
+    xintercept = mean(gapminder_americas$lifeExp),
+    color = 'red', linetype = 'dashed') +
   annotate(
     'text', x = 73.2, y = 'Puerto Rico', #<<
     color = 'red', hjust = 1, #<<
@@ -417,12 +417,14 @@ ggplot(gapminder_diverging) +
 class: inverse
 
 ```{r, echo=FALSE}
-countdown(minutes = 20,
-          warn_when = 30,
-          update_every = 1,
-          top = 0,
-          right = 0,
-          font_size = '2em')
+countdown(
+    minutes = 20,
+    warn_when = 30,
+    update_every = 1,
+    top = 0,
+    right = 0,
+    font_size = '2em'
+)
 ```
 
 ### Your turn - comparing to a reference
@@ -811,7 +813,9 @@ class: center
 
 ```{r milk-compare-bullet, echo=FALSE, fig.height=5.5, fig.width=8, fig.align='center'}
 milk_compare %>%
-  spread(year, milk_produced) %>%
+  pivot_wider(
+      names_from = year,
+      values_from =  milk_produced) %>%
   ggplot() +
   geom_col(
     aes(x = `1970`, y = state, fill = '1970'),
@@ -837,7 +841,9 @@ milk_compare %>%
 
 ```{r, eval=FALSE}
 milk_compare %>%
-  spread(year, milk_produced) %>% #<<
+  pivot_wider( #<<
+      names_from = year, #<<
+      values_from =  milk_produced) #<<
   ggplot() +
   geom_col(
     aes(x = `1970`, y = state, fill = '1970'),
@@ -926,7 +932,7 @@ class: center
 
 .rightcol[
 
-**Dumbbell chart**
+**Dumbbell bars `r emo::ji("smile")`**
 
 ```{r milk-summary-dumbbell, echo=FALSE}
 top10states <- milk_production %>%
@@ -988,7 +994,7 @@ class: center
 
 .rightcol[
 
-**Slope chart**
+**Slope chart `r emo::ji("smile")`**
 
 ```{r milk-summary-slope, echo=FALSE}
 top10states <- milk_production %>%
@@ -1535,12 +1541,14 @@ ggplot(milk_summary_slope,
 class: inverse
 
 ```{r, echo=FALSE}
-countdown(minutes = 20,
-          warn_when = 30,
-          update_every = 1,
-          top = 0,
-          right = 0,
-          font_size = '2em')
+countdown(
+    minutes = 20,
+    warn_when = 30,
+    update_every = 1,
+    top = 0,
+    right = 0,
+    font_size = '2em'
+)
 ```
 
 ## Your turn - comparing multiple categories
@@ -1573,37 +1581,6 @@ internet_regions %>%
     position = "dodge") +
   labs(y = "Millions of internet users")
 ```
-
-]
-
----
-
-class: inverse
-
-# Quiz 3
-
-```{r, echo=FALSE}
-countdown(
-    minutes = 10,
-    warn_when = 30,
-    update_every = 1,
-    bottom = 0,
-    left = 0,
-    font_size = '4em'
-)
-```
-
-.leftcol[
-
-### Link is in the #class channel
-
-]
-
-.rightcol[
-
-<center>
-<img src="https://github.com/emse-p4a-gwu/2022-Spring/raw/main/images/quiz_doge.png" width="400">
-</center>
 
 ]
 
