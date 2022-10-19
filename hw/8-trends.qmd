@@ -9,4 +9,51 @@ params:
 source(here::here("R", "settings.R"))
 ```
 
-Coming soon!
+```{r child = here::here("fragments", "hw.qmd")}
+```
+
+# 1. Get Organized
+
+Download and edit [this template](`r url_template`) when working through this assignment.
+
+Then unzip the template folder (make sure you unzip it!), then open the .Rproj file to open RStudio. Open the ``r paste0('hw', params$number, '.Rmd')`` file, take notes, and write some example code as you go through the following.
+
+# 2. Readings
+
+Most of the readings this week have code in them that illustrate how to create each chart type, and I encourage you to try and reproduce the examples provided in R yourself.
+
+- Wilke: [13 - Visualizing time series](https://serialmentor.com/dataviz/time-series.html)
+- Wilke: [14 - Visualizing trends](https://serialmentor.com/dataviz/visualizing-trends.html)
+
+Some examples of visualizations we'll explore in class:
+
+- The "bar chart race": [Changes in how couples meet over time](https://flowingdata.com/2019/03/15/shifts-in-how-couples-meet-online-takes-the-top-spot/)
+- The heatmap: [How common is your birthday?](http://thedailyviz.com/2016/09/17/how-common-is-your-birthday-dailyviz/)
+- [Time-Series Heatmaps](https://towardsdatascience.com/time-series-calendar-heatmaps-9f576578fcfe)
+
+Optional:
+
+- [The Sankey diagrams (a.k.a. flow chart)](https://www.data-to-viz.com/graph/sankey.html)
+- Video: [The fallen of WWII](http://www.fallen.io/ww2/)
+
+# 3. Video
+
+This video by Hans Rosling is a great summary of his larger [TED talk](https://www.ted.com/talks/hans_rosling_the_best_stats_you_ve_ever_seen) on the "gapminder" project he started showing life expectancy and GDP over time. This is an excellent example of using an _animated_ chart to tell a much richer story than a static chart.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/jbkSRLYSojo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+# 4. Reflect
+
+Reflect on what you've learned while going through these readings and exercises. Is there anything that jumped out at you? Anything you found particularly interesting or confusing? Write at least a paragraph in your ``r paste0('hw', params$number, '.Rmd')`` file. Here are some suggestions:
+
+- Discuss some of the key insights or things you found interesting in the readings or recent class periods.
+- Write about the messiest data you've seen.
+- Connect the course content to your own work or project you're working on.
+
+# 5. Knit
+
+Click the "knit" button to compile your ``r paste0('hw', params$number, '.Rmd')`` file into a html web page. Then open the ``r paste0('hw', params$number, '.html')`` file in a web browser and proofread your report. Does all of the formatting look correct?
+
+# 6. Submit
+
+To submit this assignment, create a zip file of all the files in your R project folder for this assignment. Name the zip file ``r paste0('hw', params$number, '-netID.zip')``, replacing `netID` with your netID (e.g., ``r paste0('hw', params$number, '-jph.zip')``). Then copy that zip file into the "submissions" folder in your Box folder created for this class.
