@@ -9,4 +9,49 @@ params:
 source(here::here("R", "settings.R"))
 ```
 
-Coming soon!
+```{r child = here::here("fragments", "hw.qmd")}
+```
+
+# 1. Get Organized
+
+Download and edit [this template](`r url_template`) when working through this assignment.
+
+Then unzip the template folder (make sure you unzip it!), then open the .Rproj file to open RStudio. Open the ``r paste0('hw', params$number, '.Rmd')`` file, take notes, and write some example code as you go through the following.
+
+# 2. Readings
+
+This week we'll get into the weeds with techniques for polishing up your charts. This is a critically important step for making your charts easy for others to understand and effective as a central tool for communicating important results. It's also where you can be highly creative!
+
+- How to polish ggplot charts: [R4DS Chapter 28 - Graphics for communication](https://r4ds.had.co.nz/graphics-for-communication.html)
+- Wilke: [4 - Color scales](https://clauswilke.com/dataviz/color-basics.html)
+- Rost: [Which color scale to use when visualizing data](https://blog.datawrapper.de/which-color-scale-to-use-in-data-vis/)
+
+# Optional
+
+- Wilke: [21 - Multi-panel figures](https://serialmentor.com/dataviz/multi-panel-figures.html)
+- Check out the [patchwork package](https://patchwork.data-imaginist.com/articles/patchwork.html) for merging multiple charts together
+- How to make a multi-panel [figure with a shared legend](https://wilkelab.org/cowplot/articles/shared_legends.html).
+- Check out this [tool](https://github.com/clauswilke/colorblindr) for simulating color blindness.
+- Check out these tools for customizing your Rmd file: [PIMP my Rmd](https://holtzy.github.io/Pimp-my-rmd/)
+
+# 3. Practice polishing
+
+Go back to a previous homework where you made a chart (e.g. [hw6](https://eda.seas.gwu.edu/2022-Fall/hw/6-amounts-proportions.html)). Using some of the principles in the readings you just read, try to make a more polished version of your figure.
+
+# 3. Reflect
+
+Reflect on what you've learned while going through these readings and exercises. Is there anything that jumped out at you? Anything you found particularly interesting or confusing? Write at least a paragraph in your ``r paste0('hw', params$number, '.Rmd')`` file. Here are some suggestions:
+
+- Discuss some of the key insights or things you found interesting in the readings or recent class periods.
+- Write about the messiest data you've seen.
+- Connect the course content to your own work or project you're working on.
+
+**Do you have a favorite font / color / color palette? Share it in your reflection this week!**
+
+# 4. Knit
+
+Click the "knit" button to compile your ``r paste0('hw', params$number, '.Rmd')`` file into a html web page. Then open the ``r paste0('hw', params$number, '.html')`` file in a web browser and proofread your report. Does all of the formatting look correct?
+
+# 5. Submit
+
+To submit this assignment, create a zip file of all the files in your R project folder for this assignment. Name the zip file ``r paste0('hw', params$number, '-netID.zip')``, replacing `netID` with your netID (e.g., ``r paste0('hw', params$number, '-jph.zip')``). Then copy that zip file into the "submissions" folder in your Box folder created for this class.
