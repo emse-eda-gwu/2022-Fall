@@ -1,0 +1,11 @@
+
+class: inverse, middle
+
+# Week `r rmarkdown::metadata$week`: .fancy[`r rmarkdown::metadata$title`]
+
+## 1. .orange[Single Variables]
+## 2. Animations
+
+## BREAK
+
+## 3. Multiple Variables

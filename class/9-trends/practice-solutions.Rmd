@@ -1,0 +1,307 @@
+---
+title: "Trends"
+subtitle: "EMSE 4572: Exploratory Data Analysis"
+output: html_document
+---
+
+```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
+# # Install new packages (only do this once!)
+# install.packages('viridis')
+# install.packages('gganimate')
+# install.packages('magick')
+
+library(knitr)
+library(cowplot)
+library(tidyverse)
+library(viridis)
+library(ggrepel)
+library(gganimate)
+library(magick)
+library(here)
+
+knitr::opts_chunk$set(
+    warning = FALSE,
+    message = FALSE,
+    fig.path = "figs/",
+    fig.width = 7.252,
+    fig.height = 4,
+    comment = "#>",
+    fig.retina = 3
+)
+dplyr.width = Inf
+
+# Load all the data sets:
+global_temps <- read_csv(here::here('data', 'nasa_global_temps.csv'))
+us_covid     <- read_csv(here::here('data', 'us_covid.csv'))
+```
+
+# 1. Visualizing single variables over time
+
+Use the `global_temps` data frame to explore ways to visualize the change in average global temperatures.
+
+Consider using:
+
+- points
+- lines
+- areas
+- smoothed lines
+
+## Points
+
+```{r global-temps-points, fig.height=5, fig.width=6}
+ggplot(global_temps, aes(x = year, y = meanTemp)) +
+    geom_point(color = 'steelblue', size = 1.5) +
+    # Add a reference line at 0
+    geom_hline(yintercept = 0) +
+    theme_half_open(font_size = 18) +
+    labs(x = 'Year',
+         y = 'Temperature anomaly (C)')
+```
+
+## Line
+
+```{r global-temps-line, fig.height=5, fig.width=6}
+ggplot(global_temps, aes(x = year, y = meanTemp)) +
+    geom_line(color = 'steelblue', size = 1) +
+    # Add a reference line at 0
+    geom_hline(yintercept = 0) +
+    theme_half_open(font_size = 18) +
+    labs(x = 'Year',
+         y = 'Temperature anomaly (C)')
+```
+
+## Smoothed line
+
+```{r global-temps-line-smoothed, fig.height=5, fig.width=6}
+ggplot(global_temps, aes(x = year, y = meanTemp)) +
+    geom_point(color = 'grey', size = 1.5, alpha = 0.6) +
+    geom_smooth(color = 'steelblue', size = 1, se = FALSE) +
+    # Add a reference line at 0
+    geom_hline(yintercept = 0) +
+    theme_half_open(font_size = 18) +
+    labs(x = 'Year',
+         y = 'Temperature anomaly (C)')
+```
+
+## Area
+
+```{r global-temps-area, fig.height=5, fig.width=6}
+ggplot(global_temps, aes(x = year, y = meanTemp)) +
+    geom_area(fill = 'steelblue', alpha = 0.5) +
+    geom_line(color = 'steelblue', size = 1) +
+    theme_half_open(font_size = 18) +
+    labs(x = 'Year',
+         y = 'Temperature anomaly (C)')
+```
+
+# 2. Animation
+
+Use the `global_temps` data frame to animate one of the charts we did in the first exercise on changes in average global temperatures.
+
+## Points
+
+```{r global-temps-points-anim, fig.height=5, fig.width=6}
+plot <- ggplot(global_temps, aes(x = year, y = meanTemp)) +
+    geom_point(color = 'steelblue', size = 1.5) +
+    # Add a reference line at 0
+    geom_hline(yintercept = 0) +
+    theme_half_open(font_size = 16) +
+    labs(x = 'Year',
+         y = 'Temperature anomaly (C)')
+
+plot_anim <- plot +
+    transition_reveal(year) +
+    # Leave a trail of the points
+    shadow_trail(0.01)
+
+# Note that I've specified the renderer here to use the magick library,
+# which should work better on most computers
+animate(plot_anim, end_pause = 10, duration = 8,
+        width = 600, height = 500, res = 75, 
+        renderer = magick_renderer())
+```
+
+## Line
+
+```{r global-temps-line-anim, fig.height=5, fig.width=6}
+plot <- ggplot(global_temps, aes(x = year, y = meanTemp)) +
+    geom_line(color = 'steelblue', size = 1) +
+    # Add a reference line at 0
+    geom_hline(yintercept = 0) +
+    theme_half_open(font_size = 18) +
+    labs(x = 'Year',
+         y = 'Temperature anomaly (C)')
+
+plot_anim <- plot +
+    transition_reveal(year)
+
+animate(plot_anim, end_pause = 10, duration = 8,
+        width = 600, height = 500, res = 75,
+        renderer = magick_renderer())
+```
+
+## Area
+
+```{r global-temps-area-anim, fig.height=5, fig.width=6}
+plot <- ggplot(global_temps, aes(x = year, y = meanTemp)) +
+    geom_area(fill = 'steelblue', alpha = 0.5) +
+    geom_line(color = 'steelblue', size = 1) +
+    theme_half_open(font_size = 18) +
+    labs(x = 'Year',
+         y = 'Temperature anomaly (C)')
+
+plot_anim <- plot +
+    transition_reveal(year)
+
+animate(plot_anim, end_pause = 10, duration = 8,
+        width = 600, height = 500, res = 75,
+        renderer = magick_renderer())
+```
+
+# 3. Visualizing mutliple variables over time
+
+Use the `us_covid` data frame to explore ways to visualize the number of daily cases using:
+
+1. A labeled line chart
+2. A stacked area chart
+3. A heat map
+
+## Labeled line chart
+
+```{r covid_ca_ny, echo=FALSE, fig.height=4, fig.width=12, fig.align='center'}
+us_covid_ca_ny <- us_covid %>%
+  mutate(cases_daily = cases_daily / 10^3) %>%
+  filter(state %in% c("California", "New York"))
+
+ggplot(us_covid_ca_ny,
+       aes(x = day, y = cases_daily, color = state)) +
+  geom_line(
+    aes(group = state)) +
+  geom_text_repel(
+    data = us_covid_ca_ny %>%
+      filter(day == max(day)),
+    aes(label = state),
+    size = 5, direction = "y", hjust = 0, nudge_x = 5,
+    segment.color = NA
+  ) +
+  scale_x_continuous(
+    breaks = seq(0, 400, 100),
+    expand = expansion(add = c(0, 50))) +
+  scale_color_manual(values = c("red", "blue")) +
+  theme_minimal_grid(font_size = 18) +
+  theme(legend.position = "none") +
+  labs(
+    x = "Number of days into pandemic",
+    y = 'Number of daily cases (1,000s)',
+    title = 'Number of daily U.S. COVID19 cases in NY & CA')
+```
+
+## Another option: facets
+
+```{r covid_facets, echo=FALSE, fig.height=12, fig.width=15, fig.align='center'}
+us_covid %>%
+  mutate(
+    cases_daily = cases_daily / 10^3,
+    state = fct_reorder(state, -cases_daily)) %>%
+  ggplot(aes(x = day, y = cases_daily)) +
+  geom_line(aes(group = state)) +
+  facet_wrap(vars(state)) +
+  theme_minimal_hgrid(font_size = 16) +
+  theme(legend.position = "none") +
+  labs(
+    x = "Number of days into pandemic",
+    y = 'Number of daily cases (1,000s)',
+    title = 'Number of daily U.S. COVID19 cases by state')
+```
+
+## Stacked area chart
+
+```{r covid_area, fig.height=4, fig.width=12}
+us_covid %>%
+  mutate(
+    state = fct_other(state, keep = c(
+      "California", "New York")),
+    state = fct_relevel(state, c(
+      "Other", "California", "New York"
+    ))) %>%
+  group_by(day, state) %>%
+  summarise(deaths_daily = sum(deaths_daily)) %>%
+  ggplot(
+  aes(x = day, y = deaths_daily, fill = state)) +
+  geom_area(alpha = 0.5) +
+  scale_fill_manual(values = c("grey", "red", "blue")) +
+  scale_y_continuous(
+    expand = expansion(mult = c(0, 0.05))) +
+  theme_half_open(font_size = 18) +
+  labs(
+    x = "Number of days into pandemic",
+    y = 'Number of daily deaths',
+    fill = "State",
+    title = 'Number of daily U.S. COVID19 deaths')
+```
+
+```{r covid_area_labeled, fig.height=4, fig.width=12}
+covid_summary <- us_covid %>%
+  mutate(
+    state = fct_other(state, keep = c(
+      "California", "New York")),
+    state = fct_relevel(state, c(
+      "Other", "California", "New York"
+    ))) %>%
+  group_by(day, state) %>%
+  summarise(deaths_daily = sum(deaths_daily)) %>%
+  ungroup
+
+ggplot(covid_summary,
+       aes(x = day, y = deaths_daily)) +
+  geom_area(aes(fill = state), alpha = 0.5) +
+  geom_text_repel(
+    data = covid_summary %>%
+      filter(day == max(day)),
+    aes(label = state, color = state),
+    size = 6, direction = "y", hjust = 0, nudge_x = 3,
+    segment.color = NA
+  ) +
+  scale_x_continuous(
+    breaks = seq(0, 400, 100),
+    expand = expansion(add = c(0, 40))) +
+  scale_fill_manual(values = c("grey", "red", "blue")) +
+  scale_color_manual(values = c("grey", "red", "blue")) +
+  scale_y_continuous(
+    expand = expansion(mult = c(0, 0.05))) +
+  theme_half_open(font_size = 18) +
+  theme(legend.position = "none") +
+  labs(
+    x = "Number of days into pandemic",
+    y = 'Number of daily deaths',
+    fill = "State",
+    title = 'Number of daily U.S. COVID19 deaths')
+```
+
+## Heat map
+
+```{r covid_heatmap, fig.height=7, fig.width=10}
+us_covid %>%
+    mutate(state = fct_reorder(state, cases_daily)) %>%
+    ggplot() +
+    geom_tile(
+      aes(x = day, y = state, fill = cases_daily),
+      color = 'grey80') +
+    scale_x_continuous(expand = c(0, 0)) +
+    scale_fill_viridis(
+      option = 'inferno', direction = -1,
+      trans = 'sqrt') +
+    guides(fill = guide_colorbar(
+      title.position = 'top',
+      barwidth = 20)) +
+    theme_minimal() +
+    theme(
+      panel.grid = element_blank(),
+      legend.position = 'bottom',
+      text = element_text(size = 10)) +
+    labs(
+        x = "Number of days into pandemic",
+        y = NULL,
+        fill = 'Number of daily cases',
+        title = 'Number of daily U.S. COVID19 cases in each state')
+```
