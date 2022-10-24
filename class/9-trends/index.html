@@ -1,0 +1,1461 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Trends</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="John Paul Helveston" />
+    <meta name="date" content="2022-10-26" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/tile-view/tile-view.css" rel="stylesheet" />
+    <script src="libs/tile-view/tile-view.js"></script>
+    <link href="libs/panelset/panelset.css" rel="stylesheet" />
+    <script src="libs/panelset/panelset.js"></script>
+    <script src="libs/clipboard/clipboard.min.js"></script>
+    <link href="libs/xaringanExtra-clipboard/xaringanExtra-clipboard.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-clipboard/xaringanExtra-clipboard.js"></script>
+    <script>window.xaringanExtraClipboard(null, {"button":"Copy Code","success":"Copied!","error":"Press Ctrl+C to Copy"})</script>
+    <link href="libs/shareon/shareon.min.css" rel="stylesheet" />
+    <script src="libs/shareon/shareon.min.js"></script>
+    <link href="libs/xaringanExtra-shareagain/shareagain.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-shareagain/shareagain.js"></script>
+    <link href="libs/xaringanExtra-extra-styles/xaringanExtra-extra-styles.css" rel="stylesheet" />
+    <meta name="description" content="EMSE 4572: Exploratory Data Analysis"/>
+    <meta name="generator" content="xaringan and remark.js"/>
+    <meta name="github-repo" content="emse-eda-gwu/2022-Fall"/>
+    <meta name="twitter:title" content="Trends"/>
+    <meta name="twitter:description" content="EMSE 4572: Exploratory Data Analysis"/>
+    <meta name="twitter:url" content="https://eda.seas.gwu.edu/2022-Fall/"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:creator" content="@johnhelveston"/>
+    <meta name="twitter:site" content="@johnhelveston"/>
+    <meta property="og:title" content="Trends"/>
+    <meta property="og:description" content="EMSE 4572: Exploratory Data Analysis"/>
+    <meta property="og:url" content="https://eda.seas.gwu.edu/2022-Fall/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="article:author" content="John Paul Helveston"/>
+    <link href="libs/countdown/countdown.css" rel="stylesheet" />
+    <script src="libs/countdown/countdown.js"></script>
+    <link rel="stylesheet" href="css/lexis.css" type="text/css" />
+    <link rel="stylesheet" href="css/lexis-fonts.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+class: middle, inverse
+
+<style>.shareagain-bar {
+--shareagain-foreground: rgb(255, 255, 255);
+--shareagain-background: rgba(0, 0, 0, 0.5);
+--shareagain-twitter: none;
+--shareagain-facebook: none;
+--shareagain-linkedin: none;
+--shareagain-pinterest: none;
+--shareagain-pocket: none;
+--shareagain-reddit: none;
+}</style>
+
+.leftcol30[
+
+&lt;center&gt;
+&lt;img src="https://raw.githubusercontent.com/emse-eda-gwu/2022-Fall/master/images/logo.png" width=250&gt;
+&lt;/center&gt;
+
+]
+
+.rightcol70[
+
+# Week 9: .fancy[Trends]
+
+### <svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:white;overflow:visible;position:relative;"><path d="M243.4 2.587C251.4-.8625 260.6-.8625 268.6 2.587L492.6 98.59C506.6 104.6 514.4 119.6 511.3 134.4C508.3 149.3 495.2 159.1 479.1 160V168C479.1 181.3 469.3 192 455.1 192H55.1C42.74 192 31.1 181.3 31.1 168V160C16.81 159.1 3.708 149.3 .6528 134.4C-2.402 119.6 5.429 104.6 19.39 98.59L243.4 2.587zM256 128C273.7 128 288 113.7 288 96C288 78.33 273.7 64 256 64C238.3 64 224 78.33 224 96C224 113.7 238.3 128 256 128zM127.1 416H167.1V224H231.1V416H280V224H344V416H384V224H448V420.3C448.6 420.6 449.2 420.1 449.8 421.4L497.8 453.4C509.5 461.2 514.7 475.8 510.6 489.3C506.5 502.8 494.1 512 480 512H31.1C17.9 512 5.458 502.8 1.372 489.3C-2.715 475.8 2.515 461.2 14.25 453.4L62.25 421.4C62.82 420.1 63.41 420.6 63.1 420.3V224H127.1V416z"/></svg> EMSE 4572: Exploratory Data Analysis
+### <svg aria-hidden="true" role="img" viewBox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:white;overflow:visible;position:relative;"><path d="M224 256c70.7 0 128-57.31 128-128s-57.3-128-128-128C153.3 0 96 57.31 96 128S153.3 256 224 256zM274.7 304H173.3C77.61 304 0 381.6 0 477.3c0 19.14 15.52 34.67 34.66 34.67h378.7C432.5 512 448 496.5 448 477.3C448 381.6 370.4 304 274.7 304z"/></svg> John Paul Helveston
+### <svg aria-hidden="true" role="img" viewBox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:white;overflow:visible;position:relative;"><path d="M96 32C96 14.33 110.3 0 128 0C145.7 0 160 14.33 160 32V64H288V32C288 14.33 302.3 0 320 0C337.7 0 352 14.33 352 32V64H400C426.5 64 448 85.49 448 112V160H0V112C0 85.49 21.49 64 48 64H96V32zM448 464C448 490.5 426.5 512 400 512H48C21.49 512 0 490.5 0 464V192H448V464z"/></svg> October 26, 2022
+
+]
+
+---
+
+class: center, middle, inverse
+
+# .fancy[.blue[Tip of the week]]
+
+## Code outline in RStudio
+
+---
+
+## Today's data
+
+Old:
+
+
+```r
+gapminder        &lt;- read_csv(here::here('data', 'gapminder.csv'))
+milk_production  &lt;- read_csv(here::here('data', 'milk_production.csv'))
+global_temps     &lt;- read_csv(here::here('data', 'nasa_global_temps.csv'))
+internet_region  &lt;- read_csv(here::here('data', 'internet_users_region.csv'))
+```
+
+New:
+
+
+```r
+us_covid         &lt;- read_csv(here::here('data', 'us_covid.csv'))
+internet_country &lt;- read_csv(here::here('data', 'internet_users_country.csv'))
+hotdogs          &lt;- read_csv(here::here('data', 'hot_dog_winners.csv'))
+us_diseases      &lt;- read_csv(here::here('data', 'us_contagious_diseases.csv'))
+```
+
+---
+
+## New packages:
+
+
+```r
+install.packages('viridis')
+install.packages('gganimate')
+install.packages('magick')
+```
+
+---
+
+
+
+class: inverse, middle
+
+# Week 9: .fancy[Trends]
+
+## 1. Single Variables
+## 2. Animations
+
+## BREAK
+
+## 3. Multiple Variables
+
+---
+
+
+
+class: inverse, middle
+
+# Week 9: .fancy[Trends]
+
+## 1. .orange[Single Variables]
+## 2. Animations
+
+## BREAK
+
+## 3. Multiple Variables
+
+---
+
+.leftcol[
+
+## Points
+
+Plotting the data points is a good starting point for viewing trends
+
+&lt;img src="figs/milk_ca_point-1.png" width="432" style="display: block; margin: auto;" /&gt;
+
+]
+
+--
+
+.rightcol[
+
+## Points + line
+
+Adding lines between the points helps&lt;br&gt;see the overall trend
+
+&lt;img src="figs/milk_ca_point_line-1.png" width="432" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+
+.leftcol[
+
+## Line
+
+Omitting the points emphasizes the overall trend&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+&lt;img src="figs/milk_ca_line-1.png" width="432" style="display: block; margin: auto;" /&gt;
+
+]
+
+--
+
+.rightcol[
+
+## Line + area
+
+Filling area below line emphasizes cumulative over time
+
+(y-axis should start at 0)
+
+&lt;img src="figs/milk_ca_line_area-1.png" width="432" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+
+class: center, middle
+
+### If points are too sparse, a line can be misleading
+
+.leftcol[
+
+&lt;img src="figs/milk_ca_point_line_sparse1-1.png" width="432" style="display: block; margin: auto;" /&gt;
+
+]
+
+.rightcol[
+
+&lt;img src="figs/milk_ca_point_line_sparse2-1.png" width="432" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+
+.leftcol[
+
+## Smoothed line
+
+Adding a "smoothed" line shows a modeled representation of the overall trend
+
+&lt;img src="figs/milk_ca_smooth-1.png" width="432" style="display: block; margin: auto;" /&gt;
+
+]
+
+--
+
+.rightcol[
+
+## Smoothed line + points
+
+Putting the smoothed line over the data points helps show whether **outliers** are driving the trend line
+
+&lt;img src="figs/milk_ca_smooth_points-1.png" width="432" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+
+class: center, middle
+
+### Bars are useful when emphasizing the **data points**&lt;br&gt;rather than the **slope between them**
+
+.leftcol[
+
+&lt;img src="figs/hotdog_bar_record-1.png" width="468" style="display: block; margin: auto;" /&gt;
+
+]
+
+--
+
+.rightcol[
+
+&lt;img src="figs/hotdog_bar_winner-1.png" width="468" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+
+## How to: **Points + line**
+
+.leftcol55[.code70[
+
+Be sure to draw the line first,&lt;br&gt;then overlay the points
+
+```r
+ggplot(milk_ca,
+*   aes(x = year, y = milk_produced)) +
+*   geom_line(color = 'steelblue', size = 0.5) +
+*   geom_point(color = 'steelblue', size = 2) +
+    theme_half_open(font_size = 18) +
+    labs(x = 'Year',
+         y = 'Milk produced (billion lbs)',
+         title = 'Milk production in California')
+```
+
+]]
+
+.rightcol45[
+
+&lt;img src="figs/unnamed-chunk-7-1.png" width="432" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+
+## How to: **Line + area**
+
+.leftcol55[.code70[
+
+Likewise, draw the area first then overlay the line
+
+```r
+ggplot(milk_ca,
+    aes(x = year, y = milk_produced)) +
+*   geom_area(fill = 'steelblue', alpha = 0.5) +
+*   geom_line(color = 'steelblue', size = 1) +
+    scale_y_continuous(
+        expand = expansion(mult = c(0, 0.05))) +
+    theme_half_open(font_size = 18) +
+    labs(x = 'Year',
+         y = 'Milk produced (billion lbs)',
+         title = 'Milk production in California')
+```
+
+]]
+
+.rightcol45[
+
+&lt;img src="figs/unnamed-chunk-9-1.png" width="432" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+
+## How to: **Smoothed line + points**
+
+.leftcol[.code70[
+
+Use `alpha` to make points slightly transparent
+
+```r
+ggplot(milk_ca,
+    aes(x = year, y = milk_produced)) +
+*   geom_point(color = 'grey',
+*     size = 2, alpha = 0.9) +
+*   geom_smooth(color = 'steelblue',
+*     size = 1, se = FALSE) +
+    theme_half_open(font_size = 18) +
+    labs(
+      x = 'Year',
+      y = 'Milk produced (billion lbs)',
+      title = 'Milk production in California')
+```
+
+]]
+
+.rightcol[
+
+&lt;img src="figs/unnamed-chunk-11-1.png" width="432" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+
+class: inverse
+
+<div class="countdown" id="timer_63570481" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
+<code class="countdown-time"><span class="countdown-digits minutes">20</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+## Your turn
+
+.leftcol[
+
+Use the `global_temps` data frame to explore ways to visualize the change in average global temperatures.
+
+Consider using:
+
+- points
+- lines
+- areas
+- smoothed lines
+
+]
+
+.rightcol[
+
+
+```r
+global_temps &lt;- read_csv(here::here(
+  'data', 'nasa_global_temps.csv'))
+
+head(global_temps)
+```
+
+```
+#&gt; # A tibble: 6 × 3
+#&gt;    year meanTemp smoothTemp
+#&gt;   &lt;dbl&gt;    &lt;dbl&gt;      &lt;dbl&gt;
+#&gt; 1  1880    -0.15      -0.08
+#&gt; 2  1881    -0.07      -0.12
+#&gt; 3  1882    -0.1       -0.15
+#&gt; 4  1883    -0.16      -0.19
+#&gt; 5  1884    -0.27      -0.23
+#&gt; 6  1885    -0.32      -0.25
+```
+]
+
+
+---
+
+
+
+class: inverse, middle
+
+# Week 9: .fancy[Trends]
+
+## 1. Single Variables
+## 2. .orange[Animations]
+
+## BREAK
+
+## 3. Multiple Variables
+
+---
+
+class: center, middle
+
+### Animation adds emphasis to the **change over time**
+
+--
+
+### ...plus it's fun!
+
+---
+
+class: center
+
+# Static chart
+
+&lt;img src="figs/unnamed-chunk-15-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+---
+
+class: center
+
+# Animated chart
+
+&lt;center&gt;
+&lt;img src="images/milk_region_animation.gif" width="800"&gt;
+&lt;/center&gt;
+
+---
+
+class: center
+
+### Animation is particularly helpful for the **time dimension**
+
+&lt;center&gt;
+&lt;img src="images/gapminder_animation.gif" width=600&gt;
+&lt;/center&gt;
+
+.left["Gapminder" visualization by Hans Rosling]
+
+---
+
+class: center
+
+### Animation is particularly helpful for the **time dimension**
+
+&lt;center&gt;
+&lt;img src="images/spiral_temps.gif" width=450&gt;
+&lt;/center&gt;
+
+.left[Source: https://www.climate-lab-book.ac.uk/spirals/]
+
+---
+
+class: center
+
+### Animation is particularly helpful for the **time dimension**
+
+&lt;center&gt;
+&lt;img src="images/ft-flu.gif" width=800&gt;
+&lt;/center&gt;
+
+.left[Financial Times comparison of Flu seasons to COVID-19]
+
+---
+
+class: center
+
+### Animation is particularly helpful for the **time dimension**
+
+&lt;center&gt;
+&lt;img src="images/milk_race_anim.gif" width=550&gt;
+&lt;/center&gt;
+
+.left["Bar chart race" of top 10 milk producing states]
+
+---
+
+## How to: **Animate a line plot**
+
+.leftcol[.code60[
+
+Make a static plot w/labels for each year
+
+
+```r
+milk_region_anim_plot &lt;- milk_region %&gt;%
+  ggplot(
+    aes(x = year, y = milk_produced,
+        color = region)) +
+* geom_line(size = 1) +
+* geom_point(size = 2) +
+* geom_text_repel(
+*   aes(label = region),
+*   hjust = 0, nudge_x = 1, direction = "y",
+*   size = 6, segment.color = NA) +
+  scale_x_continuous(
+    breaks = seq(1970, 2010, 10),
+    expand = expansion(add = c(1, 13))) +
+  scale_color_manual(values = c(
+      'sienna', 'forestgreen', 'dodgerblue', 'orange')) +
+  theme_half_open(font_size = 18) +
+  theme(legend.position = 'none') +
+  labs(x = 'Year',
+       y = 'Milk produced (billion lbs)',
+       title = 'Milk production in four US regions')
+
+milk_region_anim_plot
+```
+
+]]
+
+.rightcol[
+
+&lt;img src="figs/unnamed-chunk-16-1.png" width="504" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+
+## How to: **Animate a line plot**
+
+.leftcol[.code60[
+
+Now animate it
+
+**Note the pause at the end!**
+
+
+```r
+*library(gganimate)
+
+milk_region_anim &lt;- milk_region_anim_plot +
+*   transition_reveal(year)
+
+# Render the animation
+*animate(milk_region_anim,
+*       end_pause = 15,
+*       duration = 10,
+*       width = 1100, height = 650, res = 150,
+*       renderer = magick_renderer())
+
+# Save last animation
+anim_save(here::here(
+  'figs', 'milk_region_animation.gif'))
+```
+
+]]
+
+.rightcol[
+
+&lt;center&gt;
+&lt;img src="images/milk_region_animation.gif"&gt;
+&lt;/center&gt;
+
+]
+
+---
+
+## How to: **Change label based on year**
+
+.leftcol55[.code80[
+
+First make a static plot
+
+
+```r
+gapminder_anim_plot &lt;- ggplot(gapminder,
+* aes(x = gdpPercap, y = lifeExp,
+*     size = pop, color = continent)) +
+  geom_point(alpha = 0.7) +
+* scale_size_area(
+*   guide = FALSE, max_size = 15) +
+  scale_color_brewer(palette = 'Set2') +
+  scale_x_log10() +
+  theme_bw(base_size = 18) +
+  theme(legend.position = c(0.85, 0.3)) +
+  labs(x = 'GDP per capita',
+       y = 'Life expectancy',
+       color = 'Continent')
+
+gapminder_anim_plot
+```
+
+]]
+
+.rightcol45[
+
+&lt;img src="figs/unnamed-chunk-18-1.png" width="504" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+
+## How to: **Change label based on year**
+
+.leftcol[.code80[
+
+Now animate it
+
+**Note**: Year must be an integer!
+
+
+```r
+gapminder_anim &lt;- gapminder_anim_plot +
+* transition_time(year) +
+* labs(title = "Year: {frame_time}")
+
+# Render the animation
+animate(gapminder_anim, end_pause = 10,
+        width = 800, height = 600,
+        res = 150,
+        renderer = magick_renderer())
+```
+
+]]
+
+.rightcol[
+
+&lt;center&gt;
+&lt;img src="images/gapminder_animation.gif" width=600&gt;
+&lt;/center&gt;
+
+]
+
+---
+
+.leftcol[.code40[
+
+
+```r
+milk_race_anim &lt;- milk_production %&gt;%
+    group_by(year) %&gt;%
+    mutate(
+        rank = rank(-milk_produced),
+        Value_rel = milk_produced / milk_produced[rank==1],
+        Value_lbl = paste0(' ', round(milk_produced))) %&gt;%
+    group_by(state) %&gt;%
+    filter(rank &lt;= 10) %&gt;%
+    ungroup() %&gt;%
+    mutate(year = as.integer(year)) %&gt;%
+    ggplot(aes(x = rank, group = state,
+               fill = region, color = region)) +
+*   geom_tile(aes(y = milk_produced / 2,
+*                 height = milk_produced),
+*             width = 0.9, alpha = 0.8, color = NA) +
+    geom_text(aes(y = 0, label = paste(state, " ")),
+              vjust = 0.2, hjust = 1) +
+    geom_text(aes(y = milk_produced, label = Value_lbl),
+              hjust = 0) +
+    coord_flip(clip = 'off', expand = FALSE) +
+    scale_y_continuous(labels = scales::comma) +
+    scale_fill_viridis(discrete = TRUE) +
+    scale_color_viridis(discrete = TRUE) +
+    scale_x_reverse() +
+    guides(color = FALSE) +
+    theme_minimal_vgrid() +
+    theme(
+        axis.line = element_blank(),
+        axis.text = element_blank(),
+        axis.ticks = element_blank(),
+        axis.title = element_blank(),
+        legend.position = c(0.7, 0.3),
+        legend.background = element_rect(fill = 'white'),
+        plot.title = element_text(
+          size = 22, hjust = 0.5, face = 'bold',
+          colour = 'grey', vjust = -1),
+        plot.subtitle = element_text(
+          size = 18, hjust = 0.5,
+          face = 'italic', color = 'grey'),
+        plot.caption = element_text(
+          size = 8, hjust = 0.5,
+          face = 'italic', color = 'grey'),
+          plot.margin = margin(0.5, 2, 0.5, 3, 'cm')) +
+*   transition_time(year) +
+*   view_follow(fixed_x = TRUE) +
+    labs(title    = 'Year : {frame_time}',
+         subtitle = 'Top 10 states by milk produced',
+         fill     = 'Region',
+         caption  = 'Milk produced (billions lbs)')
+```
+
+]]
+
+.rightcol[
+
+### .center[Making a bar chart race &lt;br&gt;[(tutorial here)](https://www.emilykuehler.com/portfolio/barchart-race/)]
+
+.code60[
+
+```r
+animate(milk_race_anim, duration = 17, end_pause = 15,
+        width = 800, height = 700, res = 150,
+        renderer = magick_renderer())
+```
+
+]
+
+&lt;center&gt;
+&lt;img src="images/milk_race_anim.gif" width=500&gt;
+&lt;/center&gt;
+
+]
+
+---
+
+# Resources
+
+### More animation options:
+
+- [More on gapminder + line charts](https://www.datanovia.com/en/blog/gganimate-how-to-create-plots-with-beautiful-animation-in-r/)
+- [Customizing the animation](https://github.com/ropenscilabs/learngganimate/blob/2872425f08392f9f647005eb19a9d4afacd1ab44/animate.md)
+
+---
+
+class: inverse
+
+<div class="countdown" id="timer_63570516" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
+<code class="countdown-time"><span class="countdown-digits minutes">20</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+## Your turn
+
+.leftcol[
+
+Use the `global_temps` data frame to explore ways to _animate_ the change in average global temperatures.
+
+Consider using:
+
+- points
+- lines
+- areas
+
+]
+
+.rightcol[
+
+&lt;center&gt;
+&lt;img src="images/global_temps_points_anim.gif" width=500&gt;
+&lt;/center&gt;
+
+]
+
+---
+
+class: inverse, center
+
+<div class="countdown" id="timer_63570244" style="top:1;right:0;bottom:0;left:0;margin:5%;font-size:8em;" data-warnwhen="30">
+<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+# Break!
+
+## Stand up, Move around, Stretch!
+
+---
+
+
+
+class: inverse, middle
+
+# Week 9: .fancy[Trends]
+
+## 1. Single Variables
+## 2. Animations
+
+## BREAK
+
+## 3. .orange[Multiple Variables]
+
+---
+
+class: center, middle
+
+## With multiple categories,&lt;br&gt;points &amp; lines can get messy
+
+--
+
+.leftcol[
+
+&lt;img src="figs/milk_region_dot-1.png" width="540" style="display: block; margin: auto;" /&gt;
+
+]
+
+--
+
+.rightcol[
+
+&lt;img src="figs/milk_region_dot_line-1.png" width="540" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+
+class: center, middle
+
+.leftcol[
+
+### **Better**: Lines alone makes distinguishing trends easier
+
+&lt;img src="figs/milk_region_line-1.png" width="540" style="display: block; margin: auto;" /&gt;
+
+]
+
+--
+
+.rightcol[
+
+### **Even better**: Directly label&lt;br&gt;lines to remove legend
+
+&lt;img src="figs/milk_region_line_label-1.png" width="540" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+
+class: center, middle
+
+### If goal is to communicate the **overall / total** trend,&lt;br&gt;consider a stacked area chart
+
+--
+
+.leftcol[
+
+### Highlights **regional** trends
+
+&lt;img src="figs/internet_region_line_label-1.png" width="540" style="display: block; margin: auto;" /&gt;
+
+]
+
+--
+
+.rightcol[
+
+### Highlights **overall / total** trend
+
+&lt;img src="figs/internet_region_area-1.png" width="576" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+
+### If you have **lots** of categories:&lt;br&gt;**1) Plot all the data with the average highlighted**
+
+--
+
+.leftcol[
+
+.center[Measles in **California**]
+
+&lt;img src="figs/measles_line_ca-1.png" width="432" style="display: block; margin: auto;" /&gt;
+
+]
+
+--
+
+.rightcol[
+
+.center[Measles in **all 50 states**]
+
+&lt;img src="figs/measles_line_us-1.png" width="432" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+
+### If you have **lots** of categories:&lt;br&gt;1) Plot all the data with the average highlighted&lt;br&gt;**2) Plot all the data with a heat map**
+
+&lt;img src="figs/measles_heat_map-1.png" width="55%" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Heatmaps are great for multiple divisions of time
+
+### My activity on Github:
+
+&lt;center&gt;
+&lt;img src="images/jhelvy_github.png" width=800&gt;
+&lt;/center&gt;
+&lt;br&gt;
+
+--
+
+###Check out this heat map on [Traffic fatalities](https://flowingdata.com/2017/04/27/traffic-fatalities-when-and-where/)
+
+---
+
+.leftcol55[.code60[
+
+Make the basic line chart first
+
+
+```r
+# Format the data
+milk_region &lt;- milk_production %&gt;%
+  filter(region %in% c(
+    'Pacific', 'Northeast', 'Lake States', 'Mountain')) %&gt;%
+  group_by(year, region) %&gt;%
+  summarise(milk_produced = sum(milk_produced)) %&gt;%
+  ungroup()
+
+# Make the line chart
+ggplot(milk_region,
+* aes(x = year, y = milk_produced,
+*     color = region)) +
+* geom_line(size = 1) +
+  scale_color_manual(values = c(
+    'sienna', 'forestgreen', 'dodgerblue', 'orange')) +
+  theme_half_open(font_size = 18) +
+  labs(
+    x     = 'Year',
+    y     = 'Milk produced (billion lbs)',
+    color = 'Region',
+    title = 'Milk production in four US regions')
+```
+
+]]
+
+.rightcol45[
+
+## .center[How to:&lt;br&gt;**Directly label lines**]
+
+&lt;br&gt;
+
+&lt;img src="figs/unnamed-chunk-26-1.png" width="504" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+
+.leftcol55[.code60[
+
+
+```r
+# Format the data
+milk_region &lt;- milk_production %&gt;%
+  filter(region %in% c(
+    'Pacific', 'Northeast', 'Lake States', 'Mountain')) %&gt;%
+  group_by(year, region) %&gt;%
+  summarise(milk_produced = sum(milk_produced)) %&gt;%
+  ungroup()
+
+# Make the line plot
+ggplot(milk_region,
+  aes(x = year, y = milk_produced,
+      color = region)) +
+  geom_line(size = 1) +
+  # Add labels
+* geom_text_repel(
+*   data = milk_region %&gt;%
+*     filter(year == max(year)),
+*   aes(label = region),
+*     hjust = 0, nudge_x = 1, direction = "y",
+*     size = 6, segment.color = NA) +
+  # Create space for labels on right side
+* scale_x_continuous(
+*   breaks = seq(1970, 2010, 10),
+*   expand = expansion(add = c(1, 13))) +
+  scale_color_manual(values = c(
+    'sienna', 'forestgreen', 'dodgerblue', 'orange')) +
+  theme_half_open(font_size = 18) +
+  # Remove legend
+* theme(legend.position = 'none') +
+  labs(x = 'Year',
+       y = 'Milk produced (billion lbs)',
+       title = 'Milk production in four US regions')
+```
+
+]]
+
+.rightcol45[
+
+## .center[How to:&lt;br&gt;**Directly label lines**]
+
+&lt;br&gt;
+
+&lt;img src="figs/unnamed-chunk-28-1.png" width="540" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+
+## How to: **Stacked area**
+
+.leftcol55[.code70[
+
+
+```r
+internet_region %&gt;%
+  mutate(numUsers = numUsers / 10^9) %&gt;%
+  ggplot() +
+* geom_area(aes(x = year, y = numUsers,
+*       fill = region)) +
+  # Nice colors from "viridis" library:
+* scale_fill_viridis(discrete = TRUE) +
+  # Sort the legend into 3 rows
+* guides(fill = guide_legend(
+*   nrow = 3, byrow = FALSE)) +
+  theme_minimal_grid(font_size = 15) +
+  theme(legend.position = 'bottom') +
+  labs(
+    x = 'Year',
+    y = NULL,
+    fill = 'Region',
+    title = 'Number of internet users (billions)')
+```
+
+]]
+
+.rightcol45[
+
+&lt;img src="figs/unnamed-chunk-30-1.png" width="576" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+
+.leftcol[.code60[
+
+Format the data
+
+
+```r
+# Format the data
+measles &lt;- us_diseases %&gt;%
+  filter(
+    disease == 'Measles',
+    !state %in% c("Hawaii", "Alaska")) %&gt;%
+  mutate(
+    rate = (count / population) * 10000,
+    state = fct_reorder(state, rate)) %&gt;%
+  # Compute annual mean rate across all states
+* group_by(year) %&gt;%
+* mutate(
+*   mean_rate = sum(count) / sum(population) * 10000)
+```
+
+Make all the state lines in light grey color
+
+
+```r
+ggplot(measles) +
+*   geom_line(aes(x = year, y = rate, group = state),
+*             color = 'grey', alpha = 0.3) +
+    # Add reference line &amp; label:
+    geom_vline(xintercept = 1963, col = 'blue',
+               linetype = 'dashed') +
+    annotate('text', x = 1964, y = 150, hjust = 0,
+             label = 'Vaccine introduced in 1964',
+             color = 'blue') +
+    theme_minimal_grid(font_size = 18) +
+    labs(y = 'Cases per 10,000 people')
+```
+
+]]
+
+.rightcol[
+
+## How to:&lt;br&gt;**Average line overlay**
+
+&lt;img src="figs/unnamed-chunk-32-1.png" width="432" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+
+.leftcol55[.code70[
+
+Now overlay the annual mean line
+
+
+```r
+ggplot(measles) +
+  geom_line(
+    aes(x = year, y = rate, group = state),
+    color = 'grey', alpha = 0.3) +
+* geom_line(
+*   aes(x = year, y = mean_rate), size = 0.8) +
+  # Add US mean label
+* annotate(
+*   'text', x = 1945, y = 55, hjust = 0,
+*   label = 'US Mean') +
+  # Add reference line &amp; label
+  geom_vline(xintercept = 1963, col = 'blue',
+             linetype = 'dashed') +
+  annotate('text', x = 1964, y = 150, hjust = 0,
+           label = 'Vaccine introduced in 1964',
+           color = 'blue') +
+  theme_minimal_grid(font_size = 18) +
+  labs(y = 'Cases per 10,000 people')
+```
+
+]]
+
+.rightcol45[
+
+## How to:&lt;br&gt;**Average line overlay**
+
+&lt;img src="figs/unnamed-chunk-34-1.png" width="432" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+
+.leftcol[.code70[
+
+Create main grid with `geom_tile()`
+
+
+```r
+ggplot(measles) +
+* geom_tile(
+*   aes(x = year, y = state, fill = rate),
+*   color = 'grey80') +
+  # Add reference line &amp; label
+  geom_vline(
+    xintercept = 1963, col = 'blue') +
+  annotate(
+    'text', x = 1964, y = 50.5, hjust = 0,
+    label = 'Vaccine introduced in 1964',
+    color = 'blue')
+```
+
+]]
+
+.rightcol[
+
+## How to: **Heat map**
+
+&lt;img src="figs/unnamed-chunk-35-1.png" width="576" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+
+.leftcol[.code60[
+
+Adjust scales and adjust theme
+
+
+```r
+ggplot(measles) +
+  geom_tile(aes(x = year, y = state, fill = rate),
+    color = 'grey80') +
+  # Add reference line &amp; label
+  geom_vline(xintercept = 1963, col = 'blue') +
+  annotate(
+    'text', x = 1964, y = 50.5, hjust = 0,
+    label = 'Vaccine introduced in 1964',
+    color = 'blue') +
+  # Adjust scales
+* scale_x_continuous(expand = c(0, 0)) +
+* scale_fill_viridis(
+*   option = 'inferno', direction = -1) +
+  # Adjust theme
+* theme_minimal() +
+* theme(
+*   panel.grid = element_blank(),
+*   legend.position = 'bottom',
+*   text = element_text(size = 10)) +
+* coord_cartesian(clip = 'off') +
+  labs(
+    x = NULL, y = NULL,
+    fill = 'Cases per 10,000 people',
+    title = 'Measles')
+```
+
+]]
+
+.rightcol[
+
+#### .center[Color scale is linear in this chart]
+
+&lt;img src="figs/unnamed-chunk-36-1.png" width="576" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+
+.leftcol[.code60[
+
+Adjust scales and adjust theme
+
+
+```r
+ggplot(measles) +
+  geom_tile(aes(x = year, y = state, fill = rate),
+    color = 'grey80') +
+  # Add reference line &amp; label
+  geom_vline(xintercept = 1963, col = 'blue') +
+  annotate(
+    'text', x = 1964, y = 50.5, hjust = 0,
+    label = 'Vaccine introduced in 1964',
+    color = 'blue') +
+  # Adjust scales
+  scale_x_continuous(expand = c(0, 0)) +
+  scale_fill_viridis(
+    option = 'inferno', direction = -1,
+*   trans = 'sqrt') +
+  # Modify legend color bar
+* guides(fill = guide_colorbar(
+*     title.position = 'top', reverse = TRUE)) +
+  # Adjust theme
+  theme_minimal() +
+  theme(
+    panel.grid = element_blank(),
+    legend.position = 'bottom',
+    text = element_text(size = 10)) +
+  coord_cartesian(clip = 'off') +
+  labs(
+    x = NULL, y = NULL,
+    fill = 'Cases per 10,000 people',
+    title = 'Measles')
+```
+
+]]
+
+.rightcol[
+
+#### .center[Non-linear color scale&lt;br&gt;helps with large variations]
+
+&lt;img src="figs/unnamed-chunk-38-1.png" width="576" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+
+class: inverse
+
+<div class="countdown" id="timer_6357034f" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
+<code class="countdown-time"><span class="countdown-digits minutes">20</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+## Your turn
+
+.leftcol[
+
+Use the `us_covid` data frame to explore ways to visualize the number of daily cases using:
+
+1. A labeled line chart
+2. A stacked area chart
+3. A heat map
+
+]
+
+.rightcol[
+
+
+```r
+us_covid &lt;- read_csv(here::here(
+  'data', 'us_covid.csv'))
+
+head(us_covid)
+```
+
+```
+#&gt; # A tibble: 6 × 7
+#&gt;   date         day state   cases_daily deaths_daily cases_total deaths_total
+#&gt;   &lt;date&gt;     &lt;dbl&gt; &lt;chr&gt;         &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;
+#&gt; 1 2020-01-23     1 Alabama           0            0           0            0
+#&gt; 2 2020-01-24     2 Alabama           0            0           0            0
+#&gt; 3 2020-01-25     3 Alabama           0            0           0            0
+#&gt; 4 2020-01-26     4 Alabama           0            0           0            0
+#&gt; 5 2020-01-27     5 Alabama           0            0           0            0
+#&gt; 6 2020-01-28     6 Alabama           0            0           0            0
+```
+
+]
+
+---
+
+class: center, middle, inverse
+
+# Two other examples for showing&lt;br&gt;change across mutliple categories
+
+---
+
+class: center
+
+# Seasonal chart
+
+&lt;center&gt;
+&lt;img src="images/seasonal_chart.png" width=700&gt;
+&lt;/center&gt;
+
+.left[Source: http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html#Seasonal%20Plot]
+
+---
+
+class: center
+
+## Sankey chart
+
+&lt;center&gt;
+&lt;img src="images/energy_sankey.png" width=800&gt;
+&lt;/center&gt;
+
+Source: https://flowcharts.llnl.gov/
+
+---
+
+class: middle
+
+.center[Would you consider purchasing an electric car?]
+
+&lt;center&gt;
+&lt;img src="images/bevSankey.png" width=700&gt;
+&lt;/center&gt;
+
+.leftcol70[.font70[
+
+Roberson, Laura A.  &amp; Helveston, J.P. (2020) "Electric vehicle adoption: can short experiences lead to big change?," Environmental Research Letters. 15(0940c3).&lt;br&gt;Made using the [ggforce](https://www.data-imaginist.com/2019/the-ggforce-awakens-again/) package
+
+]]
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

@@ -1,0 +1,141 @@
+---
+title: "Trends"
+subtitle: "EMSE 4572: Exploratory Data Analysis"
+output: html_document
+---
+
+```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
+# # Install new packages (only do this once!)
+# install.packages('viridis')
+# install.packages('gganimate')
+# install.packages('gifski')
+# install.packages('png')
+# install.packages('magick')
+# install.packages('av')
+
+library(knitr)
+library(cowplot)
+library(tidyverse)
+library(viridis)
+library(ggrepel)
+library(gganimate)
+library(here)
+
+knitr::opts_chunk$set(
+    warning = FALSE,
+    message = FALSE,
+    fig.path = "figs/",
+    fig.width = 7.252,
+    fig.height = 4,
+    comment = "#>",
+    fig.retina = 3
+)
+dplyr.width = Inf
+
+# Load all the data sets:
+global_temps <- read_csv(here::here('data', 'nasa_global_temps.csv'))
+us_covid     <- read_csv(here::here('data', 'us_covid.csv'))
+```
+
+# 1. Visualizing single variables over time
+
+Use the `global_temps` data frame to explore ways to visualize the change in average global temperatures.
+
+Consider using:
+
+- points
+- lines
+- areas
+- smoothed lines
+
+## Points
+
+```{r global-temps-points, fig.height=5, fig.width=6}
+# Write code here
+```
+
+## Line
+
+```{r global-temps-line, fig.height=5, fig.width=6}
+# Write code here
+```
+
+## Smoothed line
+
+```{r global-temps-line-smoothed, fig.height=5, fig.width=6}
+# Write code here
+```
+
+## Area
+
+```{r global-temps-area, fig.height=5, fig.width=6}
+# Write code here
+```
+
+# 2. Animation
+
+Use the `global_temps` data frame to animate one of the charts we did in the first exercise on changes in average global temperatures.
+
+## Points
+
+```{r global-temps-points-anim, fig.height=5, fig.width=6}
+# Write code here
+```
+
+## Line
+
+```{r global-temps-line-anim, fig.height=5, fig.width=6}
+# Write code here
+```
+
+## Area
+
+```{r global-temps-area-anim, fig.height=5, fig.width=6}
+# Write code here
+```
+
+# 3. Visualizing mutliple variables over time
+
+Use the `us_covid` data frame to explore ways to visualize the number of daily cases using:
+
+1. A labeled line chart
+2. A stacked area chart
+3. A heat map
+
+## Labeled line chart
+
+For this one, try showing just the lines for NY and CA.
+I already made the summary data frame to do this.
+
+```{r covid_ca_ny, echo=FALSE, fig.height=4, fig.width=12, fig.align='center'}
+us_covid_ca_ny <- us_covid %>%
+  mutate(cases_daily = cases_daily / 10^3) %>%
+  filter(state %in% c("California", "New York"))
+
+# Write ggplot code here
+```
+
+## Stacked area chart
+
+For this one, try showing NY, CA, and all other states.
+I already made the summary data frame to do this.
+
+```{r covid_area, fig.height=4, fig.width=12}
+us_covid %>%
+  mutate(
+    state = fct_other(state, keep = c(
+      "California", "New York")),
+    state = fct_relevel(state, c(
+      "Other", "California", "New York"
+    ))) %>%
+  group_by(day, state) %>%
+  summarise(deaths_daily = sum(deaths_daily))
+
+# Write ggplot code here
+```
+
+## Heat map
+
+```{r covid_heatmap, fig.height=7, fig.width=10}
+# Write code here
+```
