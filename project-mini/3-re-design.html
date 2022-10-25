@@ -63,14 +63,17 @@ ul.task-list li input[type="checkbox"] {
 <!-- fontawesome kit -->
 <script src="https://kit.fontawesome.com/1392a7030f.js" crossorigin="anonymous"></script>
 
+<script src="../site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
 
 <link rel="stylesheet" href="../styles.css">
 <meta property="og:title" content="EMSE 4572 - Mini Project 3: Data Viz Re-Design">
-<meta property="og:description" content="Coming soon!">
+<meta property="og:description" content="The American Wind Energy Association (AWEA) is a national trade association that advocates for the wind power industry. They also publish data on wind power statistics in the U.S.">
 <meta property="og:site-name" content="https://eda.seas.gwu.edu/">
 <meta property="og:locale" content="es_ES">
 <meta name="twitter:title" content="EMSE 4572 - Mini Project 3: Data Viz Re-Design">
-<meta name="twitter:description" content="Coming soon!">
+<meta name="twitter:description" content="The American Wind Energy Association (AWEA) is a national trade association that advocates for the wind power industry. They also publish data on wind power statistics in the U.S.">
 <meta name="twitter:image" content="https://eda.seas.gwu.edu/2022-Fall/images/logo-square.png">
 <meta name="twitter:creator" content="@johnhelveston">
 <meta name="twitter:card" content="summary">
@@ -364,7 +367,26 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
-    
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#background" id="toc-background" class="nav-link active" data-scroll-target="#background">Background</a></li>
+  <li><a href="#get-organized" id="toc-get-organized" class="nav-link" data-scroll-target="#get-organized">1. Get organized</a></li>
+  <li><a href="#load-the-data" id="toc-load-the-data" class="nav-link" data-scroll-target="#load-the-data">2. Load the data</a></li>
+  <li><a href="#preview-the-data" id="toc-preview-the-data" class="nav-link" data-scroll-target="#preview-the-data">3. Preview the data</a></li>
+  <li><a href="#clean-the-data" id="toc-clean-the-data" class="nav-link" data-scroll-target="#clean-the-data">4. Clean the data</a></li>
+  <li><a href="#summarize-the-data" id="toc-summarize-the-data" class="nav-link" data-scroll-target="#summarize-the-data">5. Summarize the data</a></li>
+  <li><a href="#visualize-the-data" id="toc-visualize-the-data" class="nav-link" data-scroll-target="#visualize-the-data">6. Visualize the data</a></li>
+  <li><a href="#summarize-your-analysis" id="toc-summarize-your-analysis" class="nav-link" data-scroll-target="#summarize-your-analysis">7. Summarize your analysis</a></li>
+  <li><a href="#knit-your-report" id="toc-knit-your-report" class="nav-link" data-scroll-target="#knit-your-report">8. Knit your report</a></li>
+  <li><a href="#submit" id="toc-submit" class="nav-link" data-scroll-target="#submit">9. Submit</a></li>
+  <li><a href="#grading-rubric" id="toc-grading-rubric" class="nav-link" data-scroll-target="#grading-rubric">Grading Rubric</a>
+  <ul class="collapse">
+  <li><a href="#total-points" id="toc-total-points" class="nav-link" data-scroll-target="#total-points">45 Total Points</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/emse-eda-gwu/2022-Fall/edit/main/project-mini/3-re-design.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/emse-eda-gwu/2022-Fall/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
@@ -388,9 +410,198 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Coming soon!</p>
+<div class="cell" data-layout-align="center">
+
+</div>
+<blockquote class="blockquote">
+<p><strong>Due</strong>: Nov 15 by 11:59pm</p>
+<p><strong>Weight</strong>: This assignment is worth 8% of your final grade.</p>
+<p><strong>Purpose</strong>: At some point in your career, you will likely be involved in creating or revising a summary chart of some data. When that happens, you will also likely be the most knowledge person in the room about what to do to design the chart(s) to effectively communicate the information in the data. This assignment is a practice run for that day.</p>
+<p><strong>Assessment</strong>: Your submission will be assessed using the <a href="#grading-rubric">rubric</a> at the bottom of this page.</p>
+</blockquote>
+<section id="background" class="level1">
+<h1>Background</h1>
+<p>The American Wind Energy Association (<a href="https://www.awea.org/">AWEA</a>) is a national trade association that advocates for the wind power industry. They also publish data on wind power statistics in the U.S. The authors of <a href="https://howmuch.net/articles/wind-power-in-the-united-states-2018">this article</a> at howmuch.net got a hold of some of this data and published this unfortunate chart:</p>
+<center>
+<br> <img src="images/us-wind-power.jpg" width="700">
+</center>
+<p><br></p>
+<p>For this assignment, you will use the <strong>ggplot2</strong> library in R to redesign the above chart. In this redesign, we are interested in exploring this question:</p>
+<blockquote class="blockquote">
+<p><strong>Which states are leaders in wind energy?</strong></p>
+</blockquote>
+<p>The answer depends on what you consider a “leader” to be. For example, the authors of the above chart clearly viewed the installed capacity as the most important metric to highlight. But this chart also contains lots of other data, such as the amount of money each state invested and the number of homes powered by wind in each state. Some states may be leading in other ways, such as the capacity built per dollar of investment.</p>
+<p>With that in mind, here’s what you need to do for this analysis:</p>
+</section>
+<section id="get-organized" class="level1">
+<h1>1. Get organized</h1>
+<ol type="1">
+<li>Download and unzip <a href="../templates/mini3-template.zip">this template</a> for your project, then open the <code>report.Rproj</code> file.</li>
+<li>Update the YAML with your name, a title, the date, etc.</li>
+<li>Delete any of the existing text / code in the template before submitting - the template text is just there as a helpful guide.</li>
+</ol>
+<blockquote class="blockquote">
+<p><strong>Points will be taken off for failing to follow these basic organizing steps.</strong></p>
+</blockquote>
+</section>
+<section id="load-the-data" class="level1">
+<h1>2. Load the data</h1>
+<p>Use <a href="http://eda.seas.gwu.edu/2022-Fall/data/US_State_Wind_Energy_Facts_2018.xlsx">this link</a> to download the <code>US_State_Wind_Energy_Facts_2018.xlsx</code> file and put it in your <code>data_raw</code> folder. Here is some information on the data:</p>
+<p><strong>Description</strong>: Data on which US states produce the most wind energy.</p>
+<p><strong>Source of downloaded file</strong>: The formatted Excel spreadsheet was downloaded from data.world: https://data.world/makeovermonday/2019w8</p>
+<p><strong>Original source</strong>: The primary source is the American Wind Energy Association (https://www.awea.org/), but the source for this particular data was found on <a href="https://github.com/emse-eda-gwu/2022-Fall/raw/main/content/This%20Chart%20Shows%20Which%20States%20Produce%20the%20Most%20Wind%20Energy.pdf">this article</a>, which cites the AWEA.</p>
+<p><strong>Data dictionary</strong>:</p>
+<div style="width:600px">
+<table class="table">
+<colgroup>
+<col style="width: 48%">
+<col style="width: 51%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>Ranking</code></td>
+<td>Rank order of state by installed capacity</td>
+</tr>
+<tr class="even">
+<td><code>State</code></td>
+<td>U.S. state</td>
+</tr>
+<tr class="odd">
+<td><code>Installed Capacity (MW)</code></td>
+<td>Installed capacity in MW</td>
+</tr>
+<tr class="even">
+<td><code>Equivalent Homes Powered</code></td>
+<td>Number of homes powered by wind power</td>
+</tr>
+<tr class="odd">
+<td><code>Total Investment ($ Millions)</code></td>
+<td>Total Investment in $ millions</td>
+</tr>
+<tr class="even">
+<td><code>Wind Projects Online</code></td>
+<td>Number of projects currently online</td>
+</tr>
+<tr class="odd">
+<td><code># of Wind Turbines</code></td>
+<td>Number of wind turbines in state</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="preview-the-data" class="level1">
+<h1>3. Preview the data</h1>
+<p>In the setup chunk in your <code>report.Rmd</code> file, write code to read in the excel sheet, then write code to preview the data, e.g.&nbsp;using <code>head()</code>, <code>glimpse()</code>, <code>View()</code>, and / or make some quick plots (<strong>Hint</strong>: look at the top and bottom!). Take note of what variables are available, their types, what they measure, and if there are any missing values. (<strong>Hint</strong>: Read the data dictionary!) Are all the variables encoded the way you would expect (e.g.&nbsp;are numbers encoded as numbers?)</p>
+</section>
+<section id="clean-the-data" class="level1">
+<h1>4. Clean the data</h1>
+<ol type="1">
+<li>Write code to modify variable types and names to get your data frame cleaned up for analysis. As you do so, I recommend that you modify some of the column names (especially those with spaces in them) to make your analysis easier. (<strong>Hint</strong>: The <code>clean_names()</code> function from the <code>janitor</code> package is a life saver!)</li>
+<li>Write a few sentences describing any modifications you made to the original data and why you did it.</li>
+</ol>
+</section>
+<section id="summarize-the-data" class="level1">
+<h1>5. Summarize the data</h1>
+<ol type="1">
+<li>Examine measures of centrality and variability in the important variables relevant to our research question. Remember that we’re interested in the states that are <strong>“leaders”</strong> in wind energy. While installed capacity is an obvious choice to look at, you should also look at summaries of other values, such as the amount of money invested, and <strong>at least two</strong> other computed measures, such as the capacity per dollar invested (<strong>Note</strong>: you’ll need to create new variables to do this!).</li>
+<li>Write a few sentences explaining your summary measures and what you learned from them.</li>
+</ol>
+</section>
+<section id="visualize-the-data" class="level1">
+<h1>6. Visualize the data</h1>
+<ol type="1">
+<li>Create an appropriate visualization that highlights leadership in <em>installed capacity</em>. This chart should be a substantial improvement over the original visualization, and it should follow the design principles we have covered in class.</li>
+<li>Create a second visualization that highlights “leadership” in another metric of your choice. This could be one of the existing variables or a variable you computed. Your chart and design choices should highlight the metric you chose and should have a clear message to convey. Again, this chart should follow the design principles we have covered in class.</li>
+</ol>
+<p><strong>Your charts should be polished</strong>. Points will be taken off for poor design principles, illegibility, etc.</p>
+</section>
+<section id="summarize-your-analysis" class="level1">
+<h1>7. Summarize your analysis</h1>
+<p>Write a summary of your analysis process. I’m specifically looking for a discussion of the following:</p>
+<ul>
+<li>What was wrong with the original chart? Discuss specific design principles we have covered in class.</li>
+<li>Discuss the improvements your first revised chart makes compared to the original chart.</li>
+<li>Discuss what message your second chart conveys and what design choices you made to highlight that message.</li>
+</ul>
+</section>
+<section id="knit-your-report" class="level1">
+<h1>8. Knit your report</h1>
+<p>Click the “knit” button to compile your <code>.Rmd</code> file into a html web page. Then open the <code>report.html</code> file in a web browser and proofread your report. Does all of the formatting look correct? Did your plots render as expected? Does the text you wrote support / align with the plots you made?</p>
+<p><strong>Treat your report as if you were going to send it to a publisher.</strong></p>
+</section>
+<section id="submit" class="level1">
+<h1>9. Submit</h1>
+<p>To submit this assignment, create a zip file of all the files in your R project folder for this assignment. Name the zip file <code>mini3-netID.zip</code>, replacing <code>netID</code> with your netID (e.g., <code>mini3-jph.zip</code>). Then copy that zip file into the “submissions” folder in your Box folder created for this class.</p>
+</section>
+<section id="grading-rubric" class="level1">
+<h1>Grading Rubric</h1>
+<section id="total-points" class="level3">
+<h3 class="anchored" data-anchor-id="total-points">45 Total Points</h3>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+
+<table class="table table-striped" style="margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Category </th>
+   <th style="text-align:left;"> Excellent </th>
+   <th style="text-align:left;"> Good </th>
+   <th style="text-align:left;"> Needs work </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Organization &amp; Formatting </td>
+   <td style="text-align:left;"> <b>5</b><br>Data placed in correct folder, read in, and variables have been renamed for ease of use in analysis. </td>
+   <td style="text-align:left;"> <b>4</b><br>Data not placed in correct folder OR variables were not renamed. </td>
+   <td style="text-align:left;"> <b>3</b><br>Data not placed in correct folder AND variables were not renamed, or not properly read into R. </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Data Summary </td>
+   <td style="text-align:left;"> <b>10 / 9</b><br>Measures of centrality and variability in appropriate variables are computed; at leaset two new useful measures are computed. </td>
+   <td style="text-align:left;"> <b>8 / 7 / 6</b><br>Measures of centrality and variability in appropriate variables are computed; only one new useful measure computed. </td>
+   <td style="text-align:left;"> <b>5 / 4 / 3</b><br>Measures of centrality and variability missing; failed to compute new measures. </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Data Visualization 1 </td>
+   <td style="text-align:left;"> <b>10 / 9</b><br>Charts expertly demonstrates best practices of visual design and highlights leadership in installed capacity. </td>
+   <td style="text-align:left;"> <b>8 / 7 / 6</b><br>Charts generally demonstrates best practices of visual design and highlights leadership in installed capacity; some elements might be confusing. </td>
+   <td style="text-align:left;"> <b>5 / 4 / 3</b><br>Chart generally lacks best practices of visual design; elements are confusing, does not highlight leadership in capacity. </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Data Visualization 2 </td>
+   <td style="text-align:left;"> <b>10 / 9</b><br>Charts expertly demonstrates best practices of visual design and conveys a clear message. </td>
+   <td style="text-align:left;"> <b>8 / 7 / 6</b><br>Charts generally demonstrates best practices of visual design and conveys a reasonably clear message; some elements might be confusing. </td>
+   <td style="text-align:left;"> <b>5 / 4 / 3</b><br>Chart generally lacks best practices of visual design; elements are confusing, does not highlight a clear message. </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Analysis Description </td>
+   <td style="text-align:left;"> <b>5</b><br>Informative description of flaws in the original chart &amp; their improvements; clear description of revised chart key message. </td>
+   <td style="text-align:left;"> <b>4</b><br>Description of one or two of design flaws in original chart &amp; improvements made; accurate but incomplete description of key message in revised charts. </td>
+   <td style="text-align:left;"> <b>3</b><br>Poor description of design flaws in the original chart &amp; improvements made; poor or missing description of key message of revised charts </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Technical things </td>
+   <td style="text-align:left;"> <b>5</b><br>All code runs without errors; all files included in the submitted .zip file. </td>
+   <td style="text-align:left;"> <b>4</b><br>Code has only one or two error, otherwise runs; all files included in the submitted .zip file. </td>
+   <td style="text-align:left;"> <b>3</b><br>Code has multiple errors; submitted .zip file is missing components necessary to reproduce analysis. </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

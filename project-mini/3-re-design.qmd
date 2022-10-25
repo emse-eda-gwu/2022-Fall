@@ -6,7 +6,7 @@ toc-location: left
 params:
   number: 3
   weight: '8%'
-  purpose: 'purpose'
+  purpose: 'At some point in your career, you will likely be involved in creating or revising a summary chart of some data. When that happens, you will also likely be the most knowledge person in the room about what to do to design the chart(s) to effectively communicate the information in the data. This assignment is a practice run for that day.'
   assessment: 'Your project will be assessed using [this rubric](rubrics/mini-3/rubric.html){target="_blank"}.'
 ---
 
@@ -31,4 +31,115 @@ maxPoints <- rubric %>%
     pull(max)
 ```
 
-Coming soon!
+```{r child = here::here("fragments", "mini.qmd")}
+```
+
+# Background
+
+The American Wind Energy Association ([AWEA](https://www.awea.org/)) is a national trade association that advocates for the wind power industry. They also publish data on wind power statistics in the U.S. The authors of [this article](https://howmuch.net/articles/wind-power-in-the-united-states-2018) at howmuch.net got a hold of some of this data and published this unfortunate chart:
+
+<center>
+<br>
+<img src="images/us-wind-power.jpg" width="700">
+</center>
+<br>
+
+For this assignment, you will use the **ggplot2** library in R to redesign the above chart. In this redesign, we are interested in exploring this question:
+
+> **Which states are leaders in wind energy?**
+
+The answer depends on what you consider a "leader" to be. For example, the authors of the above chart clearly viewed the installed capacity as the most important metric to highlight. But this chart also contains lots of other data, such as the amount of money each state invested and the number of homes powered by wind in each state. Some states may be leading in other ways, such as the capacity built per dollar of investment.
+
+With that in mind, here's what you need to do for this analysis:
+
+# 1. Get organized
+
+1. Download and unzip [this template](../templates/mini3-template.zip) for your project, then open the `report.Rproj` file.
+2. Update the YAML with your name, a title, the date, etc.
+3. Delete any of the existing text / code in the template before submitting - the template text is just there as a helpful guide.
+
+> **Points will be taken off for failing to follow these basic organizing steps.**
+
+# 2. Load the data
+
+Use [this link](http://eda.seas.gwu.edu/2022-Fall/data/US_State_Wind_Energy_Facts_2018.xlsx) to download the `US_State_Wind_Energy_Facts_2018.xlsx` file and put it in your `data_raw` folder. Here is some information on the data:
+
+**Description**: Data on which US states produce the most wind energy.
+
+**Source of downloaded file**: The formatted Excel spreadsheet was downloaded from data.world: https://data.world/makeovermonday/2019w8
+
+**Original source**: The primary source is the American Wind Energy Association (https://www.awea.org/), but the source for this particular data was found on [this article](https://github.com/emse-eda-gwu/2022-Fall/raw/main/content/This%20Chart%20Shows%20Which%20States%20Produce%20the%20Most%20Wind%20Energy.pdf), which cites the AWEA.
+
+**Data dictionary**:
+
+<div style="width:600px">
+
+Variable                        | Description
+--------------------------------|----------------------------------
+`Ranking`                       | Rank order of state by installed capacity
+`State`                         | U.S. state
+`Installed Capacity (MW)`       | Installed capacity in MW
+`Equivalent Homes Powered`      | Number of homes powered by wind power
+`Total Investment ($ Millions)` | Total Investment in $ millions
+`Wind Projects Online`          | Number of projects currently online
+`# of Wind Turbines`            | Number of wind turbines in state
+
+</div>
+
+# 3. Preview the data
+
+In the setup chunk in your `report.Rmd` file, write code to read in the excel sheet, then write code to preview the data, e.g. using `head()`, `glimpse()`, `View()`, and / or make some quick plots (**Hint**: look at the top and bottom!). Take note of what variables are available, their types, what they measure, and if there are any missing values. (**Hint**: Read the data dictionary!) Are all the variables encoded the way you would expect (e.g. are numbers encoded as numbers?)
+
+# 4. Clean the data
+
+1. Write code to modify variable types and names to get your data frame cleaned up for analysis. As you do so, I recommend that you modify some of the column names (especially those with spaces in them) to make your analysis easier. (**Hint**: The `clean_names()` function from the `janitor` package is a life saver!)
+2. Write a few sentences describing any modifications you made to the original data and why you did it.
+
+# 5. Summarize the data
+
+1. Examine measures of centrality and variability in the important variables relevant to our research question. Remember that we're interested in the states that are **"leaders"** in wind energy. While installed capacity is an obvious choice to look at, you should also look at summaries of other values, such as the amount of money invested, and **at least two** other computed measures, such as the capacity per dollar invested (**Note**: you'll need to create new variables to do this!).
+2. Write a few sentences explaining your summary measures and what you learned from them.
+
+# 6. Visualize the data
+
+1. Create an appropriate visualization that highlights leadership in _installed capacity_. This chart should be a substantial improvement over the original visualization, and it should follow the design principles we have covered in class.
+2. Create a second visualization that highlights "leadership" in another metric of your choice. This could be one of the existing variables or a variable you computed. Your chart and design choices should highlight the metric you chose and should have a clear message to convey. Again, this chart should follow the design principles we have covered in class.
+
+**Your charts should be polished**. Points will be taken off for poor design principles, illegibility, etc.
+
+# 7. Summarize your analysis
+
+Write a summary of your analysis process. I'm specifically looking for a discussion of the following:
+
+- What was wrong with the original chart? Discuss specific design principles we have covered in class.
+- Discuss the improvements your first revised chart makes compared to the original chart.
+- Discuss what message your second chart conveys and what design choices you made to highlight that message.
+
+# 8. Knit your report
+
+Click the "knit" button to compile your `.Rmd` file into a html web page. Then open the `report.html` file in a web browser and proofread your report. Does all of the formatting look correct? Did your plots render as expected? Does the text you wrote support / align with the plots you made?
+
+**Treat your report as if you were going to send it to a publisher.**
+
+# 9. Submit
+
+To submit this assignment, create a zip file of all the files in your R project folder for this assignment. Name the zip file `mini3-netID.zip`, replacing `netID` with your netID (e.g., `mini3-jph.zip`). Then copy that zip file into the "submissions" folder in your Box folder created for this class.
+
+# Grading Rubric
+
+### `r maxPoints` Total Points
+
+```{r, echo=FALSE}
+rubric %>%
+  mutate(description = paste0("<b>", points, '</b><br>', description)) %>%
+  select(-points) %>%
+  spread(key = rating, value = description) %>%
+  select(-category) %>%
+  rename(Category = label) %>%
+  arrange(order) %>%
+  select(-order) %>%
+  select(-maxPoints) %>%
+  kable(format = 'html', escape = FALSE) %>%
+  kable_styling(bootstrap_options = "striped")
+```
+
