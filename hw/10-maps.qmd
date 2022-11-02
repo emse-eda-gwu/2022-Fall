@@ -9,4 +9,44 @@ params:
 source(here::here("R", "settings.R"))
 ```
 
-Coming soon!
+```{r child = here::here("fragments", "hw.qmd")}
+```
+
+# 1. Get Organized
+
+Download and edit [this template](`r url_template`) when working through this assignment.
+
+Then unzip the template folder (make sure you unzip it!), then open the .Rproj file to open RStudio. Open the ``r paste0('hw', params$number, '.Rmd')`` file, take notes, and write some example code as you go through the following.
+
+# 2. Video
+
+Watch [this video](https://www.youtube.com/watch?v=kIID5FDi2JQ) on map projections:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/kIID5FDi2JQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+# 3. Readings
+
+This week we'll learn about maps and geospatial data. Maps are a unique type of data viz, and often times they are inappropriately or inaccurately used. These readings will help you learn best practices when visualizing geospatial data:
+
+- Wilke: [15 - Visualizing geospatial data](https://serialmentor.com/dataviz/geospatial-data.html)
+- [XKCD: Map projections](https://xkcd.com/977/)
+- Healy: [7 - Draw maps](http://socviz.co/maps.html#maps)
+- Drawing beautiful maps: Parts [one](https://www.r-spatial.org/r/2018/10/25/ggplot2-sf.html), [two](https://www.r-spatial.org/r/2018/10/25/ggplot2-sf-2.html), & [three](https://www.r-spatial.org/r/2018/10/25/ggplot2-sf-3.html)
+
+# 4. Reflect
+
+Reflect on what you've learned while going through these readings and exercises. Is there anything that jumped out at you? Anything you found particularly interesting or confusing? Write at least a paragraph in your ``r paste0('hw', params$number, '.Rmd')`` file. Here are some suggestions:
+
+- Discuss some of the key insights or things you found interesting in the readings or recent class periods.
+- Write about the messiest data you've seen.
+- Connect the course content to your own work or project you're working on.
+
+**This week, include in your reflection an image or link to a recent map you've seen (or one you thought was super interesting)**
+
+# 5. Knit
+
+Click the "knit" button to compile your ``r paste0('hw', params$number, '.Rmd')`` file into a html web page. Then open the ``r paste0('hw', params$number, '.html')`` file in a web browser and proofread your report. Does all of the formatting look correct?
+
+# 6. Submit
+
+To submit this assignment, create a zip file of all the files in your R project folder for this assignment. Name the zip file ``r paste0('hw', params$number, '-netID.zip')``, replacing `netID` with your netID (e.g., ``r paste0('hw', params$number, '-jph.zip')``). Then copy that zip file into the "submissions" folder in your Box folder created for this class.
