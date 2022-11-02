@@ -1,0 +1,13 @@
+
+class: inverse, middle
+
+# Week `r rmarkdown::metadata$week`: .fancy[`r rmarkdown::metadata$title`]
+
+### 1. .orange[Scales]
+### 2. Annotations
+
+### BREAK
+
+### 3. Colors
+### 4. Fonts
+### 5. Rmd tricks

@@ -1,0 +1,68 @@
+
+class: inverse
+
+## Your turn
+
+.leftcol40[
+Use the `wildlife_costs` data frame to create the following chart.
+
+Hint: Use the **lubridate** package to create dates for the x axis values, e.g. `ymd("2021-03-24")`
+]
+
+.rightcol60[
+```{r wildlife_costs_annotated, echo=FALSE, fig.height=6, fig.width=8, fig.align='center'}
+label1 <- "On Jan. 15, 2009,
+US Airways Flight 1549
+was crash landed into the
+Hudson river after striking a
+flock of Canada geese."
+
+label2 <- "On Nov. 22, 2007,
+multiple birds struck the
+right engine of a Delta
+flight out of Nice, France."
+
+ggplot(wildlife_costs) +
+  geom_point(aes(x = incident_date, y = cost)) +
+  geom_curve(
+    data = data.frame(
+      x = ymd('2000-01-01'), xend = ymd('2008-10-01'),
+      y = 13, yend = 16.4),
+    mapping = aes(
+      x = x, xend = xend, y = y, yend = yend),
+      color = 'grey75', size = 0.5, curvature = -0.2,
+      arrow = arrow(
+        length = unit(0.01, 'npc'), type = 'closed')) +
+  geom_label(
+    data = data.frame(
+      x = ymd('1995-01-01'), y = 13, label = label1),
+    mapping = aes(x = x, y = y, label = label),
+    hjust = 0, lineheight = .8, size = 4) +
+  geom_curve(
+    data = data.frame(
+      x = ymd('2011-01-01'), xend = ymd('2008-04-01'),
+      y = 12, yend = 11.1),
+    mapping = aes(
+      x = x, xend = xend, y = y, yend = yend),
+      color = 'grey75', size = 0.5, curvature = 0.2,
+      arrow = arrow(
+        length = unit(0.01, 'npc'), type = 'closed')) +
+  geom_label(
+    data = data.frame(
+      x = ymd('2010-06-01'), y = 10.8, label = label2),
+    mapping = aes(x = x, y = y, label = label),
+    hjust = 0, lineheight = .8, size = 4) +
+  scale_x_date(
+      date_breaks = '3 years',
+      date_labels = "'%y") +
+  scale_y_continuous(
+      labels = scales::dollar,
+      expand = expand_scale(mult = c(0, 0.05))) +
+  theme_minimal_grid(font_size = 16) +
+  labs(x = 'Year',
+       y = 'Cost of incident repairs ($ millions)',
+       title = 'Repair costs of aircraft impacts with wildlife',
+       subtitle = 'Top 4 airlines',
+       caption = 'Source: https://wildlife.faa.gov/home')
+```
+]
