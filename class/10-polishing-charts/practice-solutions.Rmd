@@ -1,0 +1,445 @@
+---
+title: "Polishing Charts"
+subtitle: "EMSE 4572: Exploratory Data Analysis"
+output: html_document
+---
+
+```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
+# install.packages('hrbrthemes')
+# remotes::install_github("clauswilke/colorblindr")
+
+# Note: if you are using a mac and are getting errors when
+#       installing the hrbrthemes library, make sure you have
+#       XQuartz installed on your computer: https://www.xquartz.org/
+
+library(hrbrthemes)
+library(knitr)
+library(cowplot)
+library(viridis)
+library(lubridate)
+library(tidyverse)
+library(here)
+
+knitr::opts_chunk$set(
+    warning = FALSE,
+    message = FALSE,
+    fig.path = "figs/",
+    fig.width = 7.252,
+    fig.height = 4,
+    comment = "#>",
+    fig.retina = 3
+)
+
+# Load all the data sets
+wildlife_impacts <- read_csv(here::here('data', 'wildlife_impacts.csv'))
+lotr_words       <- read_csv(here::here('data', 'lotr_words.csv'))
+milk_production  <- read_csv(here::here('data', 'milk_production.csv'))
+federal_spending <- read_csv(here::here('data', 'federal_spending_long.csv'))
+
+# Create some summary data frames
+lotr_summary <- lotr_words %>%
+    gather(key = 'gender', value = 'wordCount', Female:Male) %>%
+    group_by(Race, gender) %>%
+    summarise(wordCount = sum(wordCount)) %>%
+    ungroup() %>%
+    mutate(Race = fct_reorder(Race, desc(wordCount)))
+
+wildlife_costs <- wildlife_impacts %>%
+  rename(cost = cost_repairs_infl_adj) %>%
+  filter(! is.na(cost)) %>%
+  mutate(
+    cost = cost / 10^6,
+    incident_date = as.Date(incident_date))
+
+arrivals <- c('approach', 'arrival', 'descent', 'landing roll')
+departures <- c('climb', 'departure', 'take-off run')
+wildlife_impacts_2016 <- wildlife_impacts %>%
+  filter(incident_year == 2016) %>%
+  mutate(
+    phase_of_flt = str_to_lower(phase_of_flt),
+    phase_of_flt = case_when(
+      phase_of_flt %in% arrivals ~ 'arrival',
+      phase_of_flt %in% departures ~ 'departure',
+      TRUE ~ 'other'),
+    phase_of_flt = str_to_title(phase_of_flt))
+
+milk_top10states <- milk_production %>%
+  filter(year == 2017) %>%
+  arrange(desc(milk_produced)) %>%
+  slice(1:10) %>%
+  mutate(
+    milk_produced = milk_produced / 10^9,
+    state = fct_reorder(state, milk_produced))
+
+milk_summary_dumbbell <- milk_production %>%
+  filter(
+    year %in% c(1970, 2017),
+    state %in% milk_top10states$state) %>%
+  mutate(
+    # Reorder state variables to follow top 10 states
+    state = fct_relevel(state, levels(milk_top10states$state)),
+    # Convert year to discrete variable
+    year = as.factor(year),
+    # Modify the units
+    milk_produced = milk_produced / 10^9)
+```
+
+# 1. Scales
+
+Adjust the scales in the code chunk provided to match the chart on the slides.
+
+```{r, fig.height=5, fig.width=7, fig.align='center'}
+ggplot(wildlife_costs) +
+  geom_point(aes(x = incident_date, y = cost)) +
+  scale_x_date(
+    date_breaks = '3 years',
+    date_labels = "'%y") +
+  scale_y_continuous(
+    breaks = seq(0, 16, 4),
+    labels = scales::dollar) +
+  theme_minimal_grid(font_size = 16) +
+  labs(
+    x = 'Year',
+    y = 'Cost of incident repairs ($ millions)',
+    title = 'Repair costs of aircraft impacts with wildlife',
+    subtitle = 'Top 4 airlines',
+    caption = 'Source: https://wildlife.faa.gov/home')
+```
+
+# 2. Annotations
+
+Use the `lotr_summary` data frame to create the following chart.
+
+Hints:
+- For the `geom_label()`, use these points:
+    - `x = 0.6`
+    - `y = 2100`
+- For the `geom_curve()`, use these points:
+    - `x = 1.2`
+    - `xend = 1`
+    - `y = 1300`
+    - `yend = 200`
+
+```{r lotr_bars, echo=FALSE, fig.height=6, fig.width=7.5, fig.align='center'}
+label <- "Across 3 films,
+only 16 words were
+spoken by a
+female hobbit."
+
+ggplot(lotr_summary) +
+  geom_col(
+    aes(x = Race, y = wordCount, fill = gender),
+    width = 0.7, color = 'white') +
+  facet_wrap(vars(gender)) +
+  geom_curve(
+    data = data.frame(
+      x = 1.2, xend = 1, y = 1300, yend = 200, gender = 'Female'),
+    mapping = aes(x = x, y = y, xend = xend, yend = yend),
+    color = 'grey75', size = 0.5, curvature = 0.1,
+    arrow = arrow(length = unit(0.01, 'npc'), type = 'closed')) +
+  geom_label(
+    data = data.frame(
+      x = 0.6, y = 2100, label = label, gender = 'Female'),
+    mapping = aes(x = x, y = y, label = label),
+    hjust = 0, lineheight = .8) +
+  scale_y_continuous(
+    labels = scales::comma,
+    expand = expand_scale(mult = c(0, 0.05))) +
+  theme_minimal_hgrid(font_size = 18) +
+  theme(legend.position = 'none') +
+  panel_border() +
+  labs(
+    x = 'Race of character',
+    y = 'Number of words spoken',
+    title = 'Speaking roles in the LOTR film trilogy was\nheavily biased towards male characters')
+```
+
+# 3. Colors
+
+Make 3 different versions of this chart:
+
+1. Change the colors to the `"RdYlBu"` ColorBrewer palette.
+2. Change the colors to the `"inferno"` palette from the **viridis** library.
+3. Change the colors to your custom triadic palette:
+
+    - Use the ["eye dropper"](https://chrome.google.com/webstore/detail/eye-dropper/hmdcmlfkchdmnmnmheododdhjedfccka?hl=en) tool in Google Chrome to select a color from a website, then
+    - Use your color and the [color wheel tool](https://www.sessions.edu/color-calculator/) to find a triadic color palette.
+
+Base chart:
+
+```{r, fig.width=7, fig.height=5, fig.align='center'}
+base_plot <- ggplot(wildlife_impacts_2016) +
+  geom_point(
+    aes(x = speed, y = height, color = phase_of_flt),
+    alpha = 0.7, size = 2) +
+  scale_y_continuous(labels = scales::comma) +
+  theme_minimal_grid(font_size = 15) +
+  labs(x = 'Speed (mph)',
+       y = 'Height (ft)',
+       color = 'Phase of flight',
+       title = 'Wildlife impacts in 2016')
+
+base_plot
+```
+
+Same chart but with the `"RdYlBu"` ColorBrewer palette:
+
+```{r, fig.width=7, fig.height=5, fig.align='center'}
+base_plot +
+    scale_color_brewer(palette = 'RdYlBu')
+```
+
+Same chart but with the `"inferno"` palette from the **viridis** library:
+
+```{r, fig.width=7, fig.height=5, fig.align='center'}
+base_plot +
+    scale_color_viridis(discrete = TRUE, option = 'inferno')
+```
+
+Same chart but with a custom color palette:
+
+```{r, fig.width=7, fig.height=5, fig.align='center'}
+colorPalette <- c('#288ecd', '#cdb428', '#cd285c')
+
+base_plot +
+    scale_color_manual(values = colorPalette)
+```
+
+# 4. Fonts
+
+Modify the fonts and annotations in the dumbbell chart to match the chart shown here. The main font is `'Roboto Condensed'`.
+
+Once you've recreated the plot, try other fonts and themes, such as:
+
+- The `'Source Sans Pro'` font.
+- The `'Lato'` font.
+- The `theme_ipsum()` theme from the `hrbrthemes` library.
+
+Hint: Use `annotate()` to insert the year labels at the top:
+
+  - 1970: `x = 9`, `y = 10.5`
+  - 2017: `x = 40`, `y = 10.5`
+
+```{r, fig.height=6, fig.width=7, fig.align='center'}
+milk_summary_dumbbell %>%
+  ggplot(aes(x = milk_produced, y = state)) +
+  geom_line(
+    aes(group = state),
+    color = 'lightblue', size = 1) +
+  geom_point(
+    aes(color = year), size = 2.5) +
+  annotate(geom = "text",
+    x = 8, y = 10.5, label = '1970',
+    color = 'lightblue', size = 5,
+    family = 'Roboto Condensed') +
+  annotate(geom = "text",
+    x = 42, y = 10.5, label = '2017',
+    color = 'steelblue', size = 5,
+    family = 'Roboto Condensed') +
+  scale_color_manual(values = c('lightblue', 'steelblue')) +
+  coord_cartesian(clip = 'off') +
+  theme_minimal_vgrid(font_family = 'Roboto Condensed') +
+  theme(
+    axis.line.y = element_blank(),
+    axis.ticks = element_blank(),
+    legend.position = 'none',
+    plot.margin = margin(0.1, 1, 0.1, 0.1, "cm")) +
+  labs(
+    x = 'Milk produced (billion lbs)',
+    y = 'State',
+    color = 'Year',
+    title = 'Top 10 milk producing states\n')
+```
+
+
+
+
+
+
+
+
+
+
+
+
+# Other things I showed in class
+
+## Preview colors
+
+```{r}
+colors <- c('lightblue', 'sienna', 'forestgreen', '#eae9ea')
+scales::show_col(colors)
+```
+
+## Donald Duck in Mathmagic Land
+
+https://youtu.be/U_ZHsk0-eF0
+
+## Complete guide to scales
+
+https://ggplot2tor.com/scales
+
+## App for annotating your ggplots
+
+Install
+
+```{r, eval=FALSE}
+remotes::install_github("mattcowgill/ggannotate")
+```
+
+Example
+
+```{r, eval=FALSE}
+library(ggannotate)
+
+plot <- ggplot(mpg) +
+  geom_point(aes(x = displ, y = hwy, color = as.factor(cyl))) +
+  theme_half_open()
+
+ggannotate(plot)
+```
+
+## Color wheel tool
+
+https://www.sessions.edu/color-calculator/
+
+## Eye dropper tool
+
+https://chrome.google.com/webstore/detail/eye-dropper/hmdcmlfkchdmnmnmheododdhjedfccka?hl=en
+
+## Package for testing for color blindness
+
+Install
+
+```{r, eval=FALSE}
+# remotes::install_github("clauswilke/colorblindr")
+```
+
+Example
+
+```{r, eval=FALSE}
+library(colorblindr)
+
+mpg_plot <- ggplot(mtcars, aes(x = mpg, y = hp)) +
+  geom_point(
+    aes(color = as.factor(cyl)),
+    alpha = 0.8, size = 3) +
+  theme_half_open(font_size = 10) +
+  scale_color_manual(values = c(
+    '#a0522d', '#522da0', '#2da052'))
+
+cvd_grid(mpg_plot)
+```
+
+## Color palettes
+
+- **viridis**: https://cran.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html
+- **ColorBrewer**: https://www.datanovia.com/en/blog/the-a-z-of-rcolorbrewer-palette/
+- **Inauguration palette**: https://github.com/ciannabp/inauguration
+- **PNWColors**: https://github.com/jakelawlor/PNWColors
+
+## **rmdformats package**
+
+https://github.com/juba/rmdformats
+
+Install
+
+```{r, eval=FALSE}
+install.packages("rmdformats")
+```
+
+Example YAML:
+
+```
+---
+title: "My document"
+date: "`r Sys.Date()`"
+author: John Doe
+output:
+  rmdformats::downcute:
+    self_contained: true
+    thumbnails: true
+    lightbox: true
+    gallery: false
+    highlight: tango
+---
+```
+
+## Tips & tricks for Rmd files
+
+- **Pimp my RMD**: https://holtzy.github.io/Pimp-my-rmd/
+
+# Annotation examples of the Federal Spending data from class
+
+Create the summary data frame first: 
+
+```{r}
+federal_spending_summary <- federal_spending %>%
+    mutate(department = fct_other(
+        department, keep = 'DOD')) %>%
+    group_by(department, year) %>%
+    summarise(rd_budget = sum(rd_budget) / 10^3) %>%
+    ungroup() %>%
+    mutate(department = fct_relevel(
+        department, c('Other', 'DOD')))
+```
+
+Baseline chart:
+
+```{r fed_spending, fig.height=5, fig.width=7, fig.align='center'}
+dod_spending <- ggplot(federal_spending_summary) +
+  geom_area(
+    aes(x = year, y = rd_budget, fill = department)) +
+  scale_y_continuous(
+    expand = expand_scale(mult = c(0, 0.05))) +
+  scale_fill_manual(values = c('grey', 'sienna')) +
+  theme_minimal_hgrid() +
+  labs(
+    x = NULL,
+    y = 'R&D Budget ($ Billions)',
+    title = 'Federal R&D spending, 1976 - 2017',
+    subtitle = 'Source: AAAS Historical Trends')
+
+dod_spending
+```
+
+Annotations with `annotate()`:
+
+```{r fed_spending_annotate, fig.height=5, fig.width=7, fig.align='center'}
+dod_spending +
+    annotate(geom = 'text', x = 1995, y = 85, 
+             label = 'Other', size = 6, color = 'black') + 
+    annotate(geom = 'text', x = 1995, y = 25, 
+             label = 'DOD', size = 6, color = 'white') + 
+    theme(legend.position = 'none') 
+```
+
+Annotations with `geom_text()`:
+
+```{r fed_spending_geom_text, fig.height=5, fig.width=7, fig.align='center'}
+dod_spending +
+    geom_text( 
+      data = data.frame(x = 1995, y = 85, label = 'Other'), 
+      aes(x = x, y = y, label = label), 
+      size = 6, color = 'black') + 
+    geom_text( 
+      data = data.frame(x = 1995, y = 25, label = 'DOD'), 
+      aes(x = x, y = y, label = label), 
+      size = 6, color = 'white') + 
+    theme(legend.position = 'none') 
+```
+
+Annotations with `geom_label()`:
+
+```{r fed_spending_geom_label, fig.height=5, fig.width=7, fig.align='center'}
+dod_spending +
+    geom_label( 
+      data = data.frame(x = 1995, y = 85, label = 'Other'), 
+      aes(x = x, y = y, label = label), 
+      size = 6, color = 'black') + 
+    geom_label( 
+      data = data.frame(x = 1995, y = 25, label = 'DOD'), 
+      aes(x = x, y = y, label = label), 
+      size = 6, color = 'black') + 
+    theme(legend.position = 'none') 
+```

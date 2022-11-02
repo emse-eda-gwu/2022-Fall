@@ -1,0 +1,582 @@
+<!doctype html>
+<html xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml" xmlns:article="http://ogp.me/ns/article" lang="en-US" >
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	  
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+	  
+		<!-- This is Squarespace. --><!-- cole-knaflic -->
+<base href="">
+<meta charset="utf-8" />
+<title>the accidental misdirect &mdash; storytelling with data</title>
+<link rel="shortcut icon" type="image/x-icon" href="https://static1.squarespace.com/static/55b6a6dce4b089e11621d3ed/t/58d05b81b3db2bea2624f9fd/favicon.ico"/>
+<link rel="canonical" href="http://www.storytellingwithdata.com/blog/2019/7/12/the-accidental-misdirect"/>
+<meta property="og:site_name" content="storytelling with data"/>
+<meta property="og:title" content="the accidental misdirect"/>
+<meta property="og:latitude" content="37.7749295"/>
+<meta property="og:longitude" content="-122.41941550000001"/>
+<meta property="og:url" content="http://www.storytellingwithdata.com/blog/2019/7/12/the-accidental-misdirect"/>
+<meta property="og:type" content="article"/>
+<meta property="og:description" content="A friend of mine,  Mark Bradbourne ,   recently posted a picture to Twitter showing a bar chart that his local utility company included in his most recent bill. He entitled the picture “Let’s spot the issue!”&amp;nbsp;  So as to protect the utility company in question, I’ve recreated the chart below"/>
+<meta property="og:image" content="http://static1.squarespace.com/static/55b6a6dce4b089e11621d3ed/55b6cddee4b0f4fbddc2f557/5d28893c8c02e10001043f17/1563281620178/Screen+Shot+2019-07-12+at+9.16.24+AM.png?format=1500w"/>
+<meta property="og:image:width" content="856"/>
+<meta property="og:image:height" content="501"/>
+<meta itemprop="name" content="the accidental misdirect"/>
+<meta itemprop="url" content="http://www.storytellingwithdata.com/blog/2019/7/12/the-accidental-misdirect"/>
+<meta itemprop="description" content="A friend of mine,  Mark Bradbourne ,   recently posted a picture to Twitter showing a bar chart that his local utility company included in his most recent bill. He entitled the picture “Let’s spot the issue!”&amp;nbsp;  So as to protect the utility company in question, I’ve recreated the chart below"/>
+<meta itemprop="thumbnailUrl" content="http://static1.squarespace.com/static/55b6a6dce4b089e11621d3ed/55b6cddee4b0f4fbddc2f557/5d28893c8c02e10001043f17/1563281620178/Screen+Shot+2019-07-12+at+9.16.24+AM.png?format=1500w"/>
+<link rel="image_src" href="http://static1.squarespace.com/static/55b6a6dce4b089e11621d3ed/55b6cddee4b0f4fbddc2f557/5d28893c8c02e10001043f17/1563281620178/Screen+Shot+2019-07-12+at+9.16.24+AM.png?format=1500w" />
+<meta itemprop="image" content="http://static1.squarespace.com/static/55b6a6dce4b089e11621d3ed/55b6cddee4b0f4fbddc2f557/5d28893c8c02e10001043f17/1563281620178/Screen+Shot+2019-07-12+at+9.16.24+AM.png?format=1500w"/>
+<meta itemprop="author" content="Mike Cisneros"/>
+<meta itemprop="datePublished" content="2019-07-16T07:20:00-0500"/>
+<meta itemprop="headline" content="the accidental misdirect"/>
+<meta itemprop="publisher" content="storytelling with data"/>
+<meta name="twitter:title" content="the accidental misdirect"/>
+<meta name="twitter:image" content="http://static1.squarespace.com/static/55b6a6dce4b089e11621d3ed/55b6cddee4b0f4fbddc2f557/5d28893c8c02e10001043f17/1563281620178/Screen+Shot+2019-07-12+at+9.16.24+AM.png?format=1500w"/>
+<meta name="twitter:url" content="http://www.storytellingwithdata.com/blog/2019/7/12/the-accidental-misdirect"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:description" content="A friend of mine,  Mark Bradbourne ,   recently posted a picture to Twitter showing a bar chart that his local utility company included in his most recent bill. He entitled the picture “Let’s spot the issue!”&amp;nbsp;  So as to protect the utility company in question, I’ve recreated the chart below"/>
+<meta name="description" content="" />
+<script type="text/javascript" src="//use.typekit.net/ik/efaCFGTnXdoQh9Rcyns5OMYaQFxTx-WxbQrzjjmojSMfeG9ffFHN4UJLFRbh52jhWD9ujRZyFcsRZQsKw26oZQIUFRJUZ2F8Zg7SMPG0jhNCZPundcBcde8RO1FUiABkZWF3jAF8OcFzdPURdhU8OAl0jAZC-Aw0SaBujW48Sagyjh90jhNlOeUzjhBC-eNDifUDieNkpWs8deUTdcia-WsGZeBXjPoRdhXCiaiaOcFzde9l-hoyZcUTjkoDSWmyScmDSeBRZPoRdhXCiaiaO1FXda4oiemCde80ZaiTieyqjWsyOcFzdPJwSY4zpe8ljPu0daZyH6qJn3IbMg6IJMJ7fbKOMsMMeMS6MKG4fOMgIMMj2KMfH6qJRMIbMg6sJMHbMSzo7lJB.js"></script>
+<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+<script type="text/javascript">SQUARESPACE_ROLLUPS = {};</script>
+<script>(function(rollups, name) { if (!rollups[name]) { rollups[name] = {}; } rollups[name].js = ["//assets.squarespace.com/universal/scripts-compressed/common-309b2324259e619f15ec-min.en-US.js"]; })(SQUARESPACE_ROLLUPS, 'squarespace-common');</script>
+<script crossorigin="anonymous" src="//assets.squarespace.com/universal/scripts-compressed/common-309b2324259e619f15ec-min.en-US.js" ></script><script>(function(rollups, name) { if (!rollups[name]) { rollups[name] = {}; } rollups[name].js = ["//assets.squarespace.com/universal/scripts-compressed/commerce-b3cdf9847868a480be9f-min.en-US.js"]; })(SQUARESPACE_ROLLUPS, 'squarespace-commerce');</script>
+<script crossorigin="anonymous" src="//assets.squarespace.com/universal/scripts-compressed/commerce-b3cdf9847868a480be9f-min.en-US.js" ></script><script>(function(rollups, name) { if (!rollups[name]) { rollups[name] = {}; } rollups[name].css = ["//assets.squarespace.com/universal/styles-compressed/commerce-7e1f0c01f1058c944652b6e553c33629-min.css"]; })(SQUARESPACE_ROLLUPS, 'squarespace-commerce');</script>
+<link rel="stylesheet" type="text/css" href="//assets.squarespace.com/universal/styles-compressed/commerce-7e1f0c01f1058c944652b6e553c33629-min.css"/><script crossorigin="anonymous" src="//assets.squarespace.com/universal/scripts-compressed/performance-2acb68f4fa7904397d78-min.en-US.js" defer ></script><script data-name="static-context">Static = window.Static || {}; Static.SQUARESPACE_CONTEXT = {"facebookAppId":"314192535267336","rollups":{"squarespace-announcement-bar":{"css":"//assets.squarespace.com/universal/styles-compressed/announcement-bar-d41d8cd98f00b204e9800998ecf8427e-min.css","js":"//assets.squarespace.com/universal/scripts-compressed/announcement-bar-0d9071b4bd953c1c5e19-min.en-US.js"},"squarespace-audio-player":{"css":"//assets.squarespace.com/universal/styles-compressed/audio-player-a57b8f3aa31918104f57a068648fbc63-min.css","js":"//assets.squarespace.com/universal/scripts-compressed/audio-player-d007875a71c705d3dd38-min.en-US.js"},"squarespace-blog-collection-list":{"css":"//assets.squarespace.com/universal/styles-compressed/blog-collection-list-d41d8cd98f00b204e9800998ecf8427e-min.css","js":"//assets.squarespace.com/universal/scripts-compressed/blog-collection-list-9356b28997c8e2a56e4a-min.en-US.js"},"squarespace-calendar-block-renderer":{"css":"//assets.squarespace.com/universal/styles-compressed/calendar-block-renderer-a0cc7f57176bc63d87bc9f4149fada5a-min.css","js":"//assets.squarespace.com/universal/scripts-compressed/calendar-block-renderer-66823f884dda2dde3c51-min.en-US.js"},"squarespace-chartjs-helpers":{"css":"//assets.squarespace.com/universal/styles-compressed/chartjs-helpers-9935a41d63cf08ca108505d288c1712e-min.css","js":"//assets.squarespace.com/universal/scripts-compressed/chartjs-helpers-a6bf360e5cc8aa1f852a-min.en-US.js"},"squarespace-comments":{"css":"//assets.squarespace.com/universal/styles-compressed/comments-1637eb4ee93bed59528921026e024bf4-min.css","js":"//assets.squarespace.com/universal/scripts-compressed/comments-7421cd04c9cf999de400-min.en-US.js"},"squarespace-commerce-cart":{"js":"//assets.squarespace.com/universal/scripts-compressed/commerce-cart-067a7389285d6d17b0b4-min.en-US.js"},"squarespace-dialog":{"css":"//assets.squarespace.com/universal/styles-compressed/dialog-dcd502a8a4d9cfdf0ea1dc1c4761a2e9-min.css","js":"//assets.squarespace.com/universal/scripts-compressed/dialog-09b266104f5153aed516-min.en-US.js"},"squarespace-events-collection":{"css":"//assets.squarespace.com/universal/styles-compressed/events-collection-a0cc7f57176bc63d87bc9f4149fada5a-min.css","js":"//assets.squarespace.com/universal/scripts-compressed/events-collection-8b31b54e627f26bd1155-min.en-US.js"},"squarespace-form-rendering-utils":{"js":"//assets.squarespace.com/universal/scripts-compressed/form-rendering-utils-ef2926a19d97ecea0e94-min.en-US.js"},"squarespace-forms":{"css":"//assets.squarespace.com/universal/styles-compressed/forms-6f75db26ac5a6772b018268d7fb910ca-min.css","js":"//assets.squarespace.com/universal/scripts-compressed/forms-0c029156cd7829a5e98c-min.en-US.js"},"squarespace-gallery-collection-list":{"css":"//assets.squarespace.com/universal/styles-compressed/gallery-collection-list-d41d8cd98f00b204e9800998ecf8427e-min.css","js":"//assets.squarespace.com/universal/scripts-compressed/gallery-collection-list-f898cbcd6385df3d5ed1-min.en-US.js"},"squarespace-image-zoom":{"css":"//assets.squarespace.com/universal/styles-compressed/image-zoom-72b0ab7796582588032aa6472e2e2f14-min.css","js":"//assets.squarespace.com/universal/scripts-compressed/image-zoom-c54695cae89a51cea334-min.en-US.js"},"squarespace-pinterest":{"css":"//assets.squarespace.com/universal/styles-compressed/pinterest-d41d8cd98f00b204e9800998ecf8427e-min.css","js":"//assets.squarespace.com/universal/scripts-compressed/pinterest-574920f10db84d25f898-min.en-US.js"},"squarespace-popup-overlay":{"css":"//assets.squarespace.com/universal/styles-compressed/popup-overlay-62c9ec33d6124f4e3c04b78ce135a63e-min.css","js":"//assets.squarespace.com/universal/scripts-compressed/popup-overlay-4895de0dc6587d39d738-min.en-US.js"},"squarespace-product-quick-view":{"css":"//assets.squarespace.com/universal/styles-compressed/product-quick-view-2573bf4ff7704c95ef4221f794e6b6b5-min.css","js":"//assets.squarespace.com/universal/scripts-compressed/product-quick-view-b77723d2c5d9c9b7ee77-min.en-US.js"},"squarespace-products-collection-item-v2":{"css":"//assets.squarespace.com/universal/styles-compressed/products-collection-item-v2-72b0ab7796582588032aa6472e2e2f14-min.css","js":"//assets.squarespace.com/universal/scripts-compressed/products-collection-item-v2-1902ec963f1a5146cb72-min.en-US.js"},"squarespace-products-collection-list-v2":{"css":"//assets.squarespace.com/universal/styles-compressed/products-collection-list-v2-72b0ab7796582588032aa6472e2e2f14-min.css","js":"//assets.squarespace.com/universal/scripts-compressed/products-collection-list-v2-3824b794cb06f5172b9f-min.en-US.js"},"squarespace-search-page":{"css":"//assets.squarespace.com/universal/styles-compressed/search-page-ea3e98edb84abbc5e758884f69149027-min.css","js":"//assets.squarespace.com/universal/scripts-compressed/search-page-a613860484d786de8e6c-min.en-US.js"},"squarespace-search-preview":{"js":"//assets.squarespace.com/universal/scripts-compressed/search-preview-10fd0d6b1a3187682f11-min.en-US.js"},"squarespace-share-buttons":{"js":"//assets.squarespace.com/universal/scripts-compressed/share-buttons-4861ca99170b0883d60e-min.en-US.js"},"squarespace-simple-liking":{"css":"//assets.squarespace.com/universal/styles-compressed/simple-liking-9ef41bf7ba753d65ec1acf18e093b88a-min.css","js":"//assets.squarespace.com/universal/scripts-compressed/simple-liking-81d57236ed8a7fcbabf2-min.en-US.js"},"squarespace-social-buttons":{"css":"//assets.squarespace.com/universal/styles-compressed/social-buttons-bf7788a87c794b73afd9d5c49f72f4f3-min.css","js":"//assets.squarespace.com/universal/scripts-compressed/social-buttons-742093eacc9a87e2fab2-min.en-US.js"},"squarespace-tourdates":{"css":"//assets.squarespace.com/universal/styles-compressed/tourdates-d41d8cd98f00b204e9800998ecf8427e-min.css","js":"//assets.squarespace.com/universal/scripts-compressed/tourdates-682fa1f812249e29e440-min.en-US.js"},"squarespace-website-overlays-manager":{"css":"//assets.squarespace.com/universal/styles-compressed/website-overlays-manager-68df56a8135961401cbd590171d6b04a-min.css","js":"//assets.squarespace.com/universal/scripts-compressed/website-overlays-manager-fe7a0fe9264b446a61bc-min.en-US.js"}},"pageType":50,"website":{"id":"55b6a6dce4b089e11621d3ed","identifier":"cole-knaflic","websiteType":4,"contentModifiedOn":1563269722589,"cloneable":false,"developerMode":true,"siteStatus":{},"language":"en-US","timeZone":"America/Chicago","machineTimeZoneOffset":-18000000,"timeZoneOffset":-18000000,"timeZoneAbbr":"CDT","siteTitle":"storytelling with data","fullSiteTitle":"the accidental misdirect \u2014 storytelling with data","siteDescription":"","location":{"mapZoom":13.0,"mapLat":37.7749295,"mapLng":-122.41941550000001,"markerLat":37.7749295,"markerLng":-122.41941550000001,"addressTitle":"storytelling with data LLC","addressLine1":"","addressLine2":"San Francisco, CA","addressCountry":"USA"},"logoImageId":"58d059679de4bb62ea4ccf06","shareButtonOptions":{"5":true,"7":true,"3":true,"1":true,"2":true,"8":true,"4":true,"6":true},"logoImageUrl":"//static1.squarespace.com/static/55b6a6dce4b089e11621d3ed/t/58d059679de4bb62ea4ccf06/1563269722589/","authenticUrl":"http://www.storytellingwithdata.com","internalUrl":"http://cole-knaflic.squarespace.com","baseUrl":"http://www.storytellingwithdata.com","primaryDomain":"www.storytellingwithdata.com","sslSetting":1,"isHstsEnabled":false,"socialAccounts":[{"serviceId":4,"userId":"404895983","userName":"storywithdata","screenname":"Cole Nussbaumer","addedOn":1438641627184,"profileUrl":"https://twitter.com/storywithdata","iconUrl":"http://pbs.twimg.com/profile_images/595043219508834304/KwlJt1Fr_normal.jpg","collectionId":"55bfeddbe4b0fa21b09fa5e0","iconEnabled":true,"serviceName":"twitter"}],"typekitId":"","statsMigrated":false,"imageMetadataProcessingEnabled":false,"screenshotId":"f187a49","showOwnerLogin":false},"websiteSettings":{"id":"55b6a6dce4b089e11621d3ef","websiteId":"55b6a6dce4b089e11621d3ed","type":"Business","subjects":[],"country":"US","state":"WI","simpleLikingEnabled":true,"mobileInfoBarSettings":{"isContactEmailEnabled":false,"isContactPhoneNumberEnabled":false,"isLocationEnabled":false,"isBusinessHoursEnabled":false},"announcementBarSettings":{"style":1,"text":"<p>JOIN COLE IN SAN FRANCISCO ON 4/17! A few spots remain in this upcoming public workshop.</p><p>Dates &amp; locations for second half of 2018 to be announced soon.</p>","clickthroughUrl":{"url":"http://www.storytellingwithdata.com/public-workshops/","newWindow":false}},"commentLikesAllowed":true,"commentAnonAllowed":true,"commentThreaded":true,"commentApprovalRequired":false,"commentAvatarsOn":true,"commentSortType":2,"commentFlagThreshold":0,"commentFlagsAllowed":true,"commentEnableByDefault":true,"commentDisableAfterDaysDefault":0,"disqusShortname":"","commentsEnabled":true,"contactPhoneNumber":"","businessHours":{"monday":{"text":"","ranges":[{}]},"tuesday":{"text":"","ranges":[{}]},"wednesday":{"text":"","ranges":[{}]},"thursday":{"text":"","ranges":[{}]},"friday":{"text":"","ranges":[{}]},"saturday":{"text":"","ranges":[{}]},"sunday":{"text":"","ranges":[{}]}},"storeSettings":{"returnPolicy":null,"termsOfService":null,"privacyPolicy":null,"paymentSettings":{"stripeLivePublicApiKey":"pk_live_pV4AIOFv9QxYezeETG7qiZ0W","stripeTestPublicApiKey":"pk_test_2Ej1S0j1vfwJartwG4lAKxg2","stripeUserId":"acct_1CwGeTD6uCLU1MNR","stripeAccountCountry":"US"},"expressCheckout":false,"continueShoppingLinkUrl":"/","useLightCart":false,"showNoteField":false,"shippingCountryDefaultValue":"US","billToShippingDefaultValue":false,"showShippingPhoneNumber":false,"isShippingPhoneRequired":false,"showBillingPhoneNumber":true,"isBillingPhoneRequired":false,"currenciesSupported":["USD","AUD","CAD","CHF","CZK","DKK","EUR","GBP","HKD","ILS","MXN","MYR","NOK","NZD","PHP","PLN","RUB","SEK","SGD","THB"],"defaultCurrency":"USD","selectedCurrency":"USD","measurementStandard":1,"showCustomCheckoutForm":false,"enableMailingListOptInByDefault":true,"contactLocation":{"mapZoom":12.0,"mapLat":40.7207559,"mapLng":-74.00076130000002,"markerLat":40.7207559,"markerLng":-74.00076130000002,"addressLine1":"","addressLine2":"","addressCountry":""},"businessName":"storytelling with data LLC","sameAsRetailLocation":false,"businessId":"","merchandisingSettings":{"scarcityEnabledOnProductItems":false,"scarcityEnabledOnProductBlocks":false,"scarcityMessageType":"DEFAULT_SCARCITY_MESSAGE","scarcityThreshold":10,"multipleQuantityAllowedForServices":false,"restockNotificationsEnabled":false,"relatedProductsEnabled":false},"isLive":true,"multipleQuantityAllowedForServices":false},"useEscapeKeyToLogin":true,"ssBadgeType":1,"ssBadgePosition":4,"ssBadgeVisibility":1,"ssBadgeDevices":1,"pinterestOverlayOptions":{"mode":"disabled"},"ampEnabled":false},"cookieSettings":{"isCookieBannerEnabled":false,"isRestrictiveCookiePolicyEnabled":false,"isRestrictiveCookiePolicyAbsolute":false,"cookieBannerText":"","cookieBannerTheme":"","cookieBannerVariant":"","cookieBannerPosition":"","cookieBannerCtaVariant":"","cookieBannerCtaText":""},"websiteCloneable":false,"collection":{"title":"Blog","id":"55b6cddee4b0f4fbddc2f557","fullUrl":"/","type":1},"item":{"title":"the accidental misdirect","id":"5d28893c8c02e10001043f17","fullUrl":"/blog/2019/7/12/the-accidental-misdirect","publicCommentCount":0,"commentState":1,"recordType":1},"subscribed":false,"appDomain":"squarespace.com","templateTweakable":true,"tweakJSON":{"aspect-ratio":"Auto","gallery-arrow-style":"Circular","gallery-aspect-ratio":"3:2 Standard","gallery-auto-crop":"true","gallery-autoplay":"false","gallery-design":"Grid","gallery-info-overlay":"Show on Hover","gallery-loop":"true","gallery-navigation":"Circles","gallery-show-arrows":"true","gallery-transitions":"Fade","galleryArrowBackground":"rgba(34,34,34,1)","galleryArrowColor":"rgba(255,255,255,1)","galleryAutoplaySpeed":"3","galleryCircleColor":"rgba(255,255,255,1)","galleryInfoBackground":"rgba(0, 0, 0, .7)","galleryThumbnailSize":"100px","gridSize":"320px","gridSpacing":"20px","product-gallery-auto-crop":"true","product-image-auto-crop":"true"},"templateId":"5c93dedf15fcc0f2b1cfa642","pageFeatures":[1,2,4],"gmRenderKey":"QUl6YVN5Q0JUUk9xNkx1dkZfSUUxcjQ2LVQ0QWVUU1YtMGQ3bXk4","betaFeatureFlags":["SITE_USER_SERVICE-read-users-from-service","SITE_USER_SERVICE-get-or-create-users-from-service","SITE_USER_SERVICE-read-users-from-service-by-email","SITE_USER_SERVICE-update-users-last-shipping-address","SITE_USER_SERVICE-update-users-last-billing-address","SITE_USER_SERVICE-read-users-from-service-by-accountid","SITE_USER_SERVICE-update-users-name","SITE_USER_SERVICE-read-users-from-service-by-websiteId","SITE_USER_SERVICE-add-address-book-entry-from-service","SITE_USER_SERVICE-update-address-book-entry-from-service","SITE_USER_SERVICE-update-accountid-from-service","SITE_USER_SERVICE-delete-address-book-entry-from-service","SITE_USER_SERVICE-delete-note-from-service","SITE_USER_SERVICE-add-note-from-service","SITE_USER_SERVICE-read-note-by-site-user-from-service","SITE_USER_SERVICE-clear-shopping-cart-from-service","SITE_USER_SERVICE-clear-shopping-carts-from-service","SITE_USER_SERVICE-set-shopping-cart-id-from-service","SITE_USER_SERVICE-update-transaction-summaries-from-service","SITE_USER_SERVICE-update-payment-card-from-service","SITE_USER_SERVICE-delete-payment-card-from-service","SITE_USER_SERVICE-delete-tags-by-website-from-service","SITE_USER_SERVICE-get-or-create-tags-from-service","SITE_USER_SERVICE-get-active-tags-from-service","SITE_USER_SERVICE-get-active-tags-by-website-from-service","SITE_USER_SERVICE-update-tags-from-service","SITE_USER_SERVICE-rename-tag-label-from-service","ORDERS-SERVICE-check-digital-good-access-with-service","ORDERS-SERVICE-reset-digital-goods-access-with-service","ORDERS-SERVICE-submit-order-through-service","dg_downloads_from_fastly","product-retriever-v2-enabled","domain_registration_via_registrar_service","domain_locking_via_registrar_service","image_editor_experimental_features","domain_deletion_via_registrar_service","domain_info_via_registrar_service","domain_renewal_via_registrar_service","add_new_page_alt","image_picker","member_email_verified_flag_migration"],"impersonatedSession":false,"tzData":{"zones":[[-360,"US","C%sT",null]],"rules":{"US":[[1967,2006,null,"Oct","lastSun","2:00","0","S"],[1987,2006,null,"Apr","Sun>=1","2:00","1:00","D"],[2007,"max",null,"Mar","Sun>=8","2:00","1:00","D"],[2007,"max",null,"Nov","Sun>=1","2:00","0","S"]]}}};</script><script type="text/javascript"> SquarespaceFonts.loadViaContext(); Squarespace.load(window);</script><link rel="alternate" type="application/rss+xml" title="RSS Feed" href="http://www.storytellingwithdata.com/blog?format=RSS" />
+<script type="application/ld+json">{"url":"http://www.storytellingwithdata.com","name":"storytelling with data","description":"","image":"//static1.squarespace.com/static/55b6a6dce4b089e11621d3ed/t/58d059679de4bb62ea4ccf06/1563269722589/","@context":"http://schema.org","@type":"WebSite"}</script><script type="application/ld+json">{"legalName":"storytelling with data LLC","address":"San Francisco, CA\nUSA","email":"support@storytellingwithdata.com","telephone":"","sameAs":["https://twitter.com/storywithdata"],"@context":"http://schema.org","@type":"Organization"}</script><script type="application/ld+json">{"address":"","image":"https://static1.squarespace.com/static/55b6a6dce4b089e11621d3ed/t/58d059679de4bb62ea4ccf06/1563269722589/","name":"storytelling with data LLC","openingHours":", , , , , , ","@context":"http://schema.org","@type":"LocalBusiness"}</script><script type="application/ld+json">{"name":"the accidental misdirect","url":"http://www.storytellingwithdata.com/blog/2019/7/12/the-accidental-misdirect","datePublished":"2019-07-16T07:20:00-0500","headline":"the accidental misdirect","author":"Mike Cisneros","publisher":{"name":"storytelling with data","logo":"//static1.squarespace.com/static/55b6a6dce4b089e11621d3ed/t/58d059679de4bb62ea4ccf06/1563269722589/","@context":"http://schema.org","@type":"Organization"},"image":"http://static1.squarespace.com/static/55b6a6dce4b089e11621d3ed/55b6cddee4b0f4fbddc2f557/5d28893c8c02e10001043f17/1563281620178/Screen+Shot+2019-07-12+at+9.16.24+AM.png?format=1500w","@context":"http://schema.org","@type":"Article"}</script><!--[if gte IE 9]> <link rel="stylesheet" type="text/css" href="//static1.squarespace.com/static/sitecss/55b6a6dce4b089e11621d3ed/13/5c93dedf15fcc0f2b1cfa642/5c93dee015fcc0f2b1cfa647/0-05142015/1562678963434/site.css?&filterFeatures=false&part=1"/><link rel="stylesheet" type="text/css" href="//static1.squarespace.com/static/sitecss/55b6a6dce4b089e11621d3ed/13/5c93dedf15fcc0f2b1cfa642/5c93dee015fcc0f2b1cfa647/0-05142015/1562678963434/site.css?&filterFeatures=false&part=2"/><link rel="stylesheet" type="text/css" href="//static1.squarespace.com/static/sitecss/55b6a6dce4b089e11621d3ed/13/5c93dedf15fcc0f2b1cfa642/5c93dee015fcc0f2b1cfa647/0-05142015/1562678963434/site.css?&filterFeatures=false&part=3"/><link rel="stylesheet" type="text/css" href="//static1.squarespace.com/static/sitecss/55b6a6dce4b089e11621d3ed/13/5c93dedf15fcc0f2b1cfa642/5c93dee015fcc0f2b1cfa647/0-05142015/1562678963434/site.css?&filterFeatures=false&part=4"/><![endif]-->
+<!--[if lt IE 9]><link rel="stylesheet" type="text/css" href="//static1.squarespace.com/static/sitecss/55b6a6dce4b089e11621d3ed/13/5c93dedf15fcc0f2b1cfa642/5c93dee015fcc0f2b1cfa647/0-05142015/1562678963434/site.css?&filterFeatures=false&noMedia=true&part=1"/><link rel="stylesheet" type="text/css" href="//static1.squarespace.com/static/sitecss/55b6a6dce4b089e11621d3ed/13/5c93dedf15fcc0f2b1cfa642/5c93dee015fcc0f2b1cfa647/0-05142015/1562678963434/site.css?&filterFeatures=false&noMedia=true&part=2"/><link rel="stylesheet" type="text/css" href="//static1.squarespace.com/static/sitecss/55b6a6dce4b089e11621d3ed/13/5c93dedf15fcc0f2b1cfa642/5c93dee015fcc0f2b1cfa647/0-05142015/1562678963434/site.css?&filterFeatures=false&noMedia=true&part=3"/><link rel="stylesheet" type="text/css" href="//static1.squarespace.com/static/sitecss/55b6a6dce4b089e11621d3ed/13/5c93dedf15fcc0f2b1cfa642/5c93dee015fcc0f2b1cfa647/0-05142015/1562678963434/site.css?&filterFeatures=false&noMedia=true&part=4"/><![endif]-->
+<!--[if !IE]> --><link rel="stylesheet" type="text/css" href="//static1.squarespace.com/static/sitecss/55b6a6dce4b089e11621d3ed/13/5c93dedf15fcc0f2b1cfa642/5c93dee015fcc0f2b1cfa647/0-05142015/1562678963434/site.css?&filterFeatures=false"/><!-- <![endif]-->
+<script async src="https://widget.websitevoice.com/x2GrdIqCpNeqzWnAV5Y9_Q"></script>
+<script>
+  window.wvData=window.wvData||{};function wvtag(a,b){wvData[a]=b;}
+  wvtag('id', 'x2GrdIqCpNeqzWnAV5Y9_Q');
+  wvtag('gender', 'female');
+  wvtag('widget-style', {
+    className: 'wv-circle-small',
+    backgroundColor: '#6FA6E8'
+  });
+</script><script async src="https://widget.websitevoice.com/x2GrdIqCpNeqzWnAV5Y9_Q"></script>
+<script>
+  window.wvData=window.wvData||{};function wvtag(a,b){wvData[a]=b;}
+  wvtag('id', 'x2GrdIqCpNeqzWnAV5Y9_Q');
+  wvtag('gender', 'female');
+  wvtag('widget-style', {
+    className: 'wv-circle-small',
+    backgroundColor: '#6FA6E8'
+  });
+</script><script>Static.COOKIE_BANNER_CAPABLE = true;</script>
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', 'UA-141306314-1', 'auto');ga('send', 'pageview');</script><!-- End of Squarespace Headers -->
+
+	</head>
+	
+	<body class="blog-meta-data-split     social-icon-style-round  show-products-category-navigation    event-show-past-events event-thumbnails event-thumbnail-size-32-standard event-date-label  event-list-show-cats event-list-date event-list-time event-list-address   event-icalgcal-links  event-excerpts      gallery-design-grid aspect-ratio-auto lightbox-style-light gallery-navigation-circles gallery-info-overlay-show-on-hover gallery-aspect-ratio-32-standard gallery-arrow-style-circular gallery-transitions-fade gallery-show-arrows gallery-auto-crop  gallery-loop product-list-titles-under product-list-alignment-center product-item-size-11-square product-image-auto-crop product-gallery-size-11-square product-gallery-auto-crop show-product-price show-product-item-nav product-social-sharing newsletter-style-dark hide-opentable-icons opentable-style-dark small-button-style-solid small-button-shape-square medium-button-style-solid medium-button-shape-square large-button-style-solid large-button-shape-square image-block-poster-text-alignment-center image-block-card-dynamic-font-sizing image-block-card-content-position-center image-block-card-text-alignment-left image-block-overlap-dynamic-font-sizing image-block-overlap-content-position-center image-block-overlap-text-alignment-left image-block-collage-dynamic-font-sizing image-block-collage-content-position-top image-block-collage-text-alignment-left image-block-stack-dynamic-font-sizing image-block-stack-text-alignment-left button-style-outline button-corner-style-rounded tweak-product-quick-view-button-style-floating tweak-product-quick-view-button-position-bottom tweak-product-quick-view-lightbox-excerpt-display-truncate tweak-product-quick-view-lightbox-show-arrows tweak-product-quick-view-lightbox-show-close-button tweak-product-quick-view-lightbox-controls-weight-light native-currency-code-usd view-item collection-type-blog collection-layout-default collection-55b6cddee4b0f4fbddc2f557 mobile-style-available" id="item-5d28893c8c02e10001043f17">
+
+	<div id="site">
+		<div id="canvas">
+
+			<div id="headerWrapper">
+				<header id="header">
+
+					<div id="headerInfo">
+						
+						<h1 class="logo image">
+							<a href="/" title="storytelling with data" role="bookmark" data-content-field="site-title">
+							  <span class="placed-logo-image"><img src="//static1.squarespace.com/static/55b6a6dce4b089e11621d3ed/t/58d059679de4bb62ea4ccf06/1563269722589/?format=1500w" alt="storytelling with data" /></span>
+							  
+							</a>
+						</h1>
+						
+		      	<script>
+			        Y.use('squarespace-ui-base', function(Y) {
+			          	Y.one("h1.logo").plug(Y.Squarespace.TextShrink, {
+			            	parentEl: Y.one('#header'),
+			            	minFontSize: 16
+			          	});
+			          	if (Y.one('p.site-tagline')){
+				          	Y.one("p.site-tagline").plug(Y.Squarespace.TextShrink, {
+				            	parentEl: Y.one('#header'),
+				            	minFontSize: 12
+				          	});
+				          }
+			        });
+		      	</script>
+						
+						
+						<div id="navBlock" role="navigation">
+							
+<nav class="main-nav" data-content-field="navigation">
+
+  <ul>
+  
+    
+      
+        <li class="blog-collection active-link">
+          <a href="/">Blog</a>
+        </li>
+      
+      
+    
+  
+    
+      
+        <li class="page-collection">
+          <a href="/books">Books</a>
+        </li>
+      
+      
+    
+  
+    
+      <li class="folder-collection folder">
+        <a aria-haspopup="true" href="#" onClick="return false;" class="">WORKSHOPS</a>
+        <div class="subnav">
+          <ul>
+            
+              
+                <li class="page-collection">
+                  <a href="/swdreach">SWD reach</a>
+                </li>
+              
+              
+            
+              
+                <li class="page-collection">
+                  <a href="/public-workshops">Public workshops</a>
+                </li>
+              
+              
+            
+              
+                <li class="page-collection">
+                  <a href="/custom-workshops">Custom workshops</a>
+                </li>
+              
+              
+            
+          </ul>
+        </div>
+      </li>
+    
+  
+    
+      
+        <li class="page-collection">
+          <a href="/podcast">Podcast</a>
+        </li>
+      
+      
+    
+  
+    
+      
+        <li class="page-collection">
+          <a href="/swdchallenge">#SWDchallenge</a>
+        </li>
+      
+      
+    
+  
+    
+      
+        <li class="page-collection">
+          <a href="/livestream">Live stream</a>
+        </li>
+      
+      
+    
+  
+    
+      <li class="folder-collection folder">
+        <a aria-haspopup="true" href="#" onClick="return false;" class="">Contact</a>
+        <div class="subnav">
+          <ul>
+            
+              
+                <li class="page-collection">
+                  <a href="/contact">Contact us</a>
+                </li>
+              
+              
+            
+              
+                <li class="page-collection">
+                  <a href="/meet-the-team">Meet the team</a>
+                </li>
+              
+              
+            
+          </ul>
+        </div>
+      </li>
+    
+  
+  </ul>
+
+  <select id="mobileSelect" name="mobileSelect">
+    <option class="mobile-select-label" value="">Navigation</option>
+    
+      
+        
+          <option class="blog-collection" value="/" selected="selected">Blog</option>
+        
+        
+      
+    
+      
+        
+          <option class="page-collection" value="/books">Books</option>
+        
+        
+      
+    
+      
+        <optgroup label="WORKSHOPS" >WORKSHOPS
+        
+          
+            <option class="page-collection" value="/swdreach">SWD reach</option>
+          
+          
+        
+          
+            <option class="page-collection" value="/public-workshops">Public workshops</option>
+          
+          
+        
+          
+            <option class="page-collection" value="/custom-workshops">Custom workshops</option>
+          
+          
+        
+        </optgroup>
+      
+    
+      
+        
+          <option class="page-collection" value="/podcast">Podcast</option>
+        
+        
+      
+    
+      
+        
+          <option class="page-collection" value="/swdchallenge">#SWDchallenge</option>
+        
+        
+      
+    
+      
+        
+          <option class="page-collection" value="/livestream">Live stream</option>
+        
+        
+      
+    
+      
+        <optgroup label="Contact" >Contact
+        
+          
+            <option class="page-collection" value="/contact">Contact us</option>
+          
+          
+        
+          
+            <option class="page-collection" value="/meet-the-team">Meet the team</option>
+          
+          
+        
+        </optgroup>
+      
+    
+  </select>
+
+</nav>
+
+
+					  </div>
+
+						<!-- CATEGORY NAV -->
+						
+
+					</div>
+
+				</header>
+			</div><!-- / headerWrapper -->
+
+			<div id="pageWrapper" class="hfeed" role="main">
+				<section id="page" data-content-field="main-content">
+					<article class="hentry category-makeovers category-tips author-mike-cisneros post-type-text" id="article-5d28893c8c02e10001043f17" data-item-id="5d28893c8c02e10001043f17">
+
+	<div class="content-wrapper">
+  <!--SPECIAL CONTENT-->
+
+    
+
+    <div class="post">
+
+    <!--POST HEADER-->
+
+			<header>
+				<h1 class="entry-title" data-content-field="title" itemprop="headline"><a href="/blog/2019/7/12/the-accidental-misdirect">the accidental misdirect</a></h1>
+				<div class="article-meta-top">
+          <div class="location"></div>
+          <span class="date"><a href="/blog/2019/7/12/the-accidental-misdirect"><time class="published" datetime="2019-07-16" itemprop="datePublished">July 16, 2019</time></a></span>
+           <span class="author"><a href="/?author=5cfa916c7b25500001aea907" rel="author">by Mike Cisneros</a></span>
+          <span class="categories">in <a href="/?category=Makeovers" rel="tag">Makeovers</a>, <a href="/?category=Tips" rel="tag">Tips</a></span>
+        </div>
+			</header>
+
+    <!--POST BODY-->
+
+      <div class="body entry-content"><div class="sqs-layout sqs-grid-12 columns-12" data-layout-label="Post Body" data-type="item" data-updated-on="1562939377785" id="item-5d28893c8c02e10001043f17"><div class="row sqs-row"><div class="col sqs-col-12 span-12"><div class="sqs-block html-block sqs-block-html" data-block-type="2" id="block-05517269fa9d6d65ee4e"><div class="sqs-block-content"><p class="" style="white-space:pre-wrap;">A friend of mine, <a href="https://www.twitter.com/MarkBradbourne">Mark Bradbourne<span style="text-decoration:underline">,</span></a> recently posted a picture to Twitter showing a bar chart that his local utility company included in his most recent bill. He entitled the picture “Let’s spot the issue!”&nbsp;</p><p class="" style="white-space:pre-wrap;">So as to protect the utility company in question, I’ve recreated the chart below, as faithfully as possible. (There are, of course, many changes I would make in order to render this a <em>storytelling with data</em>-esque visualization, but for the purposes of this discussion it’s important that you see the chart as close to its original, “true” form as possible.)</p></div></div><div class="sqs-block image-block sqs-block-image" data-block-type="5" id="block-yui_3_17_2_1_1562937635227_22369"><div class="sqs-block-content">
+
+  
+
+    
+      <div class="image-block-outer-wrapper layout-caption-below design-layout-inline combination-animation-none individual-animation-none individual-text-animation-none">
+      
+        <div class="intrinsic" style="max-width:856.0px;">
+          
+            <div style="padding-bottom:58.52803421020508%;" class="image-block-wrapper   has-aspect-ratio" data-description="&lt;p class=&quot;&quot;&gt;The chart from Mark’s utility bill, recreated from the original photograph as posted on Twitter.&lt;/p&gt;" >
+              <noscript><img src="https://images.squarespace-cdn.com/content/v1/55b6a6dce4b089e11621d3ed/1562937953426-117X1LPCXK4A2H1X9QM5/ke17ZwdGBToddI8pDm48kDEYzMeDFVdyvuF0jDqn8OdZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZamWLI2zvYWH8K3-s_4yszcp2ryTI0HqTOaaUohrI8PIWzCVIbzwhjlfQlO8f3RWym4tKjnsTDGD90UtcjRfq9c/Screen+Shot+2019-07-12+at+9.16.24+AM.png" alt="The chart from Mark’s utility bill, recreated from the original photograph as posted on Twitter." /></noscript><img class="thumb-image" data-src="https://images.squarespace-cdn.com/content/v1/55b6a6dce4b089e11621d3ed/1562937953426-117X1LPCXK4A2H1X9QM5/ke17ZwdGBToddI8pDm48kDEYzMeDFVdyvuF0jDqn8OdZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZamWLI2zvYWH8K3-s_4yszcp2ryTI0HqTOaaUohrI8PIWzCVIbzwhjlfQlO8f3RWym4tKjnsTDGD90UtcjRfq9c/Screen+Shot+2019-07-12+at+9.16.24+AM.png" data-image="https://images.squarespace-cdn.com/content/v1/55b6a6dce4b089e11621d3ed/1562937953426-117X1LPCXK4A2H1X9QM5/ke17ZwdGBToddI8pDm48kDEYzMeDFVdyvuF0jDqn8OdZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZamWLI2zvYWH8K3-s_4yszcp2ryTI0HqTOaaUohrI8PIWzCVIbzwhjlfQlO8f3RWym4tKjnsTDGD90UtcjRfq9c/Screen+Shot+2019-07-12+at+9.16.24+AM.png" data-image-dimensions="856x501" data-image-focal-point="0.5,0.5" alt="The chart from Mark’s utility bill, recreated from the original photograph as posted on Twitter." data-load="false" data-image-id="5d288a6140743e0001d090f9" data-type="image" />
+            </div>
+          
+
+          
+          <div class="image-caption-wrapper">
+            <div class="image-caption"><p class="">The chart from Mark’s utility bill, recreated from the original photograph as posted on Twitter.</p></div>
+          </div>
+          
+
+        </div>
+      
+      </div>
+    
+
+  
+
+
+</div></div><div class="sqs-block html-block sqs-block-html" data-block-type="2" id="block-yui_3_17_2_1_1562937635227_22657"><div class="sqs-block-content"><p class="" style="white-space:pre-wrap;">The internet immediately latched onto the seemingly absurd collection of months portrayed in this chart. The bill, dating from June of 2019, included 13 prior months of usage from as early as August of 2016, as recently as March of 2019, and in a random order.</p><p class="" style="white-space:pre-wrap;">Soon, our non-U.S.-based friends pointed out that the dates made even less sense to them, as (of course) their convention is not to show dates in MM/YY format, but in YY/MM format.</p><p class="" style="white-space:pre-wrap;">And with this, the truth of the matter became obvious: the dates were in neither MM/YY format nor YY/MM format; <strong>they were in MM/DD format, and excluded labeling the year entirely.</strong>&nbsp;</p></div></div><div class="sqs-block horizontalrule-block sqs-block-horizontalrule" data-block-type="47" id="block-yui_3_17_2_1_1562937635227_19063"><div class="sqs-block-content"><hr /></div></div><div class="sqs-block html-block sqs-block-html" data-block-type="2" id="block-yui_3_17_2_1_1562937635227_19126"><div class="sqs-block-content"><p class="" style="white-space:pre-wrap;">Whenever we run across these kind of so-called “chart fails,” it helps to keep in mind that <strong>whoever created the chart wasn’t setting out to be confusing or deceptive. </strong>The utility company clearly wanted its customers to be aware of their recent usage, and went so far as to show that usage in a visual format so that it would be more accessible.</p><p class="" style="white-space:pre-wrap;">The danger, though, is in the assumptions we make when we are the ones creating the chart. Specifically, in this case, there were likely assumptions made about how much information needed to be made explicit versus how much could be assumed.</p><p class="" style="white-space:pre-wrap;">The energy company likely thought: </p><blockquote><p class="" style="white-space:pre-wrap;">The chart says that it’s showing monthly usage; and, since it shows 13 bars, the homeowner will know, or at least assume, that the bars represent the last 13 months in chronological order. </p></blockquote><p class="" style="white-space:pre-wrap;">And in general, yes: that is what our first assumptions would be, <em>if there had been no labels whatsoever.&nbsp;</em></p><p class="" style="white-space:pre-wrap;">In this case, the company chose to label the bars with a MM/DD convention, excluding the year—probably to denote what specific day the meter was last read, or on what specific day the last water bill was issued. But <strong>we very rarely see dates in MM/DD format when they cut across two different years.</strong> We’re trained to see date formats in the style of XX/YY being representative of months and years, not months and days. To interpret the chart correctly, we would have had to ignore and resist our personal experience with this convention.</p><p class="" style="white-space:pre-wrap;">So on the one hand, logic told us that the chart showed the last 13 months; on the other hand, our experience and the direct labels told us that it was mistakenly showing us 13 random months. What other elements of the chart, or other design choices, could have nudged us towards one of these interpretations over the other?<br><br></p><p class="" style="white-space:pre-wrap;">Perhaps<strong> if the chart had been a line chart rather than a bar chart, </strong>we would have been nudged into thinking that the data was being shown over a continuous period of time; this could have been enough to make the chart more easily interpreted.</p></div></div><div class="sqs-block image-block sqs-block-image" data-block-type="5" id="block-yui_3_17_2_1_1562937635227_27966"><div class="sqs-block-content">
+
+  
+
+    
+      <div class="image-block-outer-wrapper layout-caption-below design-layout-inline combination-animation-none individual-animation-none individual-text-animation-none">
+      
+        <div class="intrinsic" style="max-width:855.0px;">
+          
+            <div style="padding-bottom:56.842105865478516%;" class="image-block-wrapper   has-aspect-ratio" data-description="&lt;p class=&quot;&quot;&gt;The original chart recreated as a line, rather than a bar.&lt;/p&gt;" >
+              <noscript><img src="https://images.squarespace-cdn.com/content/v1/55b6a6dce4b089e11621d3ed/1562938200750-N8NGBKSM9601MFEGLFEJ/ke17ZwdGBToddI8pDm48kPwiZFK_a8zEmcj-8sL87ehZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZamWLI2zvYWH8K3-s_4yszcp2ryTI0HqTOaaUohrI8PIDoagvIvF9G7JHBz5iJU4tYOPDtRsNihjVX9xlib4BUg/Screen+Shot+2019-07-12+at+9.16.06+AM.png" alt="The original chart recreated as a line, rather than a bar." /></noscript><img class="thumb-image" data-src="https://images.squarespace-cdn.com/content/v1/55b6a6dce4b089e11621d3ed/1562938200750-N8NGBKSM9601MFEGLFEJ/ke17ZwdGBToddI8pDm48kPwiZFK_a8zEmcj-8sL87ehZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZamWLI2zvYWH8K3-s_4yszcp2ryTI0HqTOaaUohrI8PIDoagvIvF9G7JHBz5iJU4tYOPDtRsNihjVX9xlib4BUg/Screen+Shot+2019-07-12+at+9.16.06+AM.png" data-image="https://images.squarespace-cdn.com/content/v1/55b6a6dce4b089e11621d3ed/1562938200750-N8NGBKSM9601MFEGLFEJ/ke17ZwdGBToddI8pDm48kPwiZFK_a8zEmcj-8sL87ehZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZamWLI2zvYWH8K3-s_4yszcp2ryTI0HqTOaaUohrI8PIDoagvIvF9G7JHBz5iJU4tYOPDtRsNihjVX9xlib4BUg/Screen+Shot+2019-07-12+at+9.16.06+AM.png" data-image-dimensions="855x486" data-image-focal-point="0.5,0.5" alt="The original chart recreated as a line, rather than a bar." data-load="false" data-image-id="5d288b589f1fac000116d1ae" data-type="image" />
+            </div>
+          
+
+          
+          <div class="image-caption-wrapper">
+            <div class="image-caption"><p class="">The original chart recreated as a line, rather than a bar.</p></div>
+          </div>
+          
+
+        </div>
+      
+      </div>
+    
+
+  
+
+
+</div></div><div class="sqs-block html-block sqs-block-html" data-block-type="2" id="block-yui_3_17_2_1_1562937635227_28253"><div class="sqs-block-content"><p class="" style="white-space:pre-wrap;">Or,<strong> if the labels had used abbreviations for the months,</strong> rather than numbers, we almost certainly would&nbsp; have seen the orderly progression of months more clearly.</p></div></div><div class="sqs-block image-block sqs-block-image" data-block-type="5" id="block-yui_3_17_2_1_1563281455132_28458"><div class="sqs-block-content">
+
+  
+
+    
+      <div class="image-block-outer-wrapper layout-caption-below design-layout-inline combination-animation-none individual-animation-none individual-text-animation-none">
+      
+        <div class="intrinsic" style="max-width:839.0px;">
+          
+            <div style="padding-bottom:62.21692657470703%;" class="image-block-wrapper   has-aspect-ratio" data-description="&lt;p class=&quot;&quot;&gt;The original bar chart, but with the months on the horizontal axis labels shown with three-letter abbreviations instead of numbers.&lt;/p&gt;" >
+              <noscript><img src="https://images.squarespace-cdn.com/content/v1/55b6a6dce4b089e11621d3ed/1563281503194-9M53P97D2HW7MMH1JAN3/ke17ZwdGBToddI8pDm48kCnXM_NJmpBfpF_pwgKhtERZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZamWLI2zvYWH8K3-s_4yszcp2ryTI0HqTOaaUohrI8PIIyuaEwpGd0zdSESC64v-SIdlIr8g4RXmHVXgZJ1yL-c/Screen+Shot+2019-07-16+at+8.50.28+AM.png" alt="The original bar chart, but with the months on the horizontal axis labels shown with three-letter abbreviations instead of numbers." /></noscript><img class="thumb-image" data-src="https://images.squarespace-cdn.com/content/v1/55b6a6dce4b089e11621d3ed/1563281503194-9M53P97D2HW7MMH1JAN3/ke17ZwdGBToddI8pDm48kCnXM_NJmpBfpF_pwgKhtERZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZamWLI2zvYWH8K3-s_4yszcp2ryTI0HqTOaaUohrI8PIIyuaEwpGd0zdSESC64v-SIdlIr8g4RXmHVXgZJ1yL-c/Screen+Shot+2019-07-16+at+8.50.28+AM.png" data-image="https://images.squarespace-cdn.com/content/v1/55b6a6dce4b089e11621d3ed/1563281503194-9M53P97D2HW7MMH1JAN3/ke17ZwdGBToddI8pDm48kCnXM_NJmpBfpF_pwgKhtERZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZamWLI2zvYWH8K3-s_4yszcp2ryTI0HqTOaaUohrI8PIIyuaEwpGd0zdSESC64v-SIdlIr8g4RXmHVXgZJ1yL-c/Screen+Shot+2019-07-16+at+8.50.28+AM.png" data-image-dimensions="839x522" data-image-focal-point="0.5,0.5" alt="The original bar chart, but with the months on the horizontal axis labels shown with three-letter abbreviations instead of numbers." data-load="false" data-image-id="5d2dc85fa268c70001ddb556" data-type="image" />
+            </div>
+          
+
+          
+          <div class="image-caption-wrapper">
+            <div class="image-caption"><p class="">The original bar chart, but with the months on the horizontal axis labels shown with three-letter abbreviations instead of numbers.</p></div>
+          </div>
+          
+
+        </div>
+      
+      </div>
+    
+
+  
+
+
+</div></div><div class="sqs-block html-block sqs-block-html" data-block-type="2" id="block-yui_3_17_2_1_1562937635227_40663"><div class="sqs-block-content"><p class="" style="white-space:pre-wrap;">Another solution, one which would have almost certainly eliminated all confusion, would have been <strong>to include the actual year </strong>in the labels, or as super-categories below the existing labels.</p></div></div><div class="sqs-block image-block sqs-block-image" data-block-type="5" id="block-yui_3_17_2_1_1562937635227_42355"><div class="sqs-block-content">
+
+  
+
+    
+      <div class="image-block-outer-wrapper layout-caption-below design-layout-inline combination-animation-none individual-animation-none individual-text-animation-none">
+      
+        <div class="intrinsic" style="max-width:854.0px;">
+          
+            <div style="padding-bottom:60.18735122680664%;" class="image-block-wrapper   has-aspect-ratio" data-description="&lt;p class=&quot;&quot;&gt;With super-categories for the years along the horizontal axis, confusion is likely minimized.&lt;/p&gt;" >
+              <noscript><img src="https://images.squarespace-cdn.com/content/v1/55b6a6dce4b089e11621d3ed/1562938584883-APFUFL481RQWLQQPLLUT/ke17ZwdGBToddI8pDm48kMJrSILR1eoBFzXSKNbXAuZZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZamWLI2zvYWH8K3-s_4yszcp2ryTI0HqTOaaUohrI8PIhqi_KiRFpinmxv0Dt3yBSyPEabXy4XOg2aFLkEm1tHA/Screen+Shot+2019-07-12+at+9.15.40+AM.png" alt="With super-categories for the years along the horizontal axis, confusion is likely minimized." /></noscript><img class="thumb-image" data-src="https://images.squarespace-cdn.com/content/v1/55b6a6dce4b089e11621d3ed/1562938584883-APFUFL481RQWLQQPLLUT/ke17ZwdGBToddI8pDm48kMJrSILR1eoBFzXSKNbXAuZZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZamWLI2zvYWH8K3-s_4yszcp2ryTI0HqTOaaUohrI8PIhqi_KiRFpinmxv0Dt3yBSyPEabXy4XOg2aFLkEm1tHA/Screen+Shot+2019-07-12+at+9.15.40+AM.png" data-image="https://images.squarespace-cdn.com/content/v1/55b6a6dce4b089e11621d3ed/1562938584883-APFUFL481RQWLQQPLLUT/ke17ZwdGBToddI8pDm48kMJrSILR1eoBFzXSKNbXAuZZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZamWLI2zvYWH8K3-s_4yszcp2ryTI0HqTOaaUohrI8PIhqi_KiRFpinmxv0Dt3yBSyPEabXy4XOg2aFLkEm1tHA/Screen+Shot+2019-07-12+at+9.15.40+AM.png" data-image-dimensions="854x514" data-image-focal-point="0.5,0.5" alt="With super-categories for the years along the horizontal axis, confusion is likely minimized." data-load="false" data-image-id="5d288cd8ea240e0001f83b56" data-type="image" />
+            </div>
+          
+
+          
+          <div class="image-caption-wrapper">
+            <div class="image-caption"><p class="">With super-categories for the years along the horizontal axis, confusion is likely minimized.</p></div>
+          </div>
+          
+
+        </div>
+      
+      </div>
+    
+
+  
+
+
+</div></div><div class="sqs-block horizontalrule-block sqs-block-horizontalrule" data-block-type="47" id="block-yui_3_17_2_1_1562937635227_20099"><div class="sqs-block-content"><hr /></div></div><div class="sqs-block html-block sqs-block-html" data-block-type="2" id="block-yui_3_17_2_1_1562937635227_20161"><div class="sqs-block-content"><p class="" style="white-space:pre-wrap;">We could also ask the question: <strong>Do we need to be so precise with our X axis labels that the specific day of the month is shown at all?&nbsp;</strong></p><p class="" style="white-space:pre-wrap;">It doesn’t seem like it; especially considering that the data on the Y axis has most likely been rounded off, and is presented to the audience at a very general level.&nbsp;</p><p class="" style="white-space:pre-wrap;">Look at the level of granularity on the Y axis; although it ranges from 0.1 to 0.7 (in 1000s of units), every bar is shown at an exact increment of 0.1. It’s unlikely that a homeowner’s actual monthly utility usage is always an exact multiple of 100.&nbsp;</p><p class="" style="white-space:pre-wrap;">In this case, the labeling of the specific date on the X axis implies a specificity of data that the Y axis does not support.&nbsp;</p></div></div><div class="sqs-block image-block sqs-block-image" data-block-type="5" id="block-yui_3_17_2_1_1562937635227_47035"><div class="sqs-block-content">
+
+  
+
+    
+      <div class="image-block-outer-wrapper layout-caption-below design-layout-inline combination-animation-none individual-animation-none individual-text-animation-none">
+      
+        <div class="intrinsic" style="max-width:855.0px;">
+          
+            <div style="padding-bottom:61.63742446899414%;" class="image-block-wrapper   has-aspect-ratio" data-description="&lt;p class=&quot;&quot;&gt;Bar chart with more consistency of specificity between the horizontal and vertical axes.&lt;/p&gt;" >
+              <noscript><img src="https://images.squarespace-cdn.com/content/v1/55b6a6dce4b089e11621d3ed/1562939250080-0R4Z4MAV8VHA3MRLL1JM/ke17ZwdGBToddI8pDm48kKXClyU-GvNFMO1HgCPq_iVZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZamWLI2zvYWH8K3-s_4yszcp2ryTI0HqTOaaUohrI8PIfPWqKrp0MqKsQvZICJMH3XidkE5PGCgQonUFqhqGauQ/Screen+Shot+2019-07-12+at+9.47.16+AM.png" alt="Bar chart with more consistency of specificity between the horizontal and vertical axes." /></noscript><img class="thumb-image" data-src="https://images.squarespace-cdn.com/content/v1/55b6a6dce4b089e11621d3ed/1562939250080-0R4Z4MAV8VHA3MRLL1JM/ke17ZwdGBToddI8pDm48kKXClyU-GvNFMO1HgCPq_iVZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZamWLI2zvYWH8K3-s_4yszcp2ryTI0HqTOaaUohrI8PIfPWqKrp0MqKsQvZICJMH3XidkE5PGCgQonUFqhqGauQ/Screen+Shot+2019-07-12+at+9.47.16+AM.png" data-image="https://images.squarespace-cdn.com/content/v1/55b6a6dce4b089e11621d3ed/1562939250080-0R4Z4MAV8VHA3MRLL1JM/ke17ZwdGBToddI8pDm48kKXClyU-GvNFMO1HgCPq_iVZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZamWLI2zvYWH8K3-s_4yszcp2ryTI0HqTOaaUohrI8PIfPWqKrp0MqKsQvZICJMH3XidkE5PGCgQonUFqhqGauQ/Screen+Shot+2019-07-12+at+9.47.16+AM.png" data-image-dimensions="855x527" data-image-focal-point="0.5,0.5" alt="Bar chart with more consistency of specificity between the horizontal and vertical axes." data-load="false" data-image-id="5d288f71be50330001c91d21" data-type="image" />
+            </div>
+          
+
+          
+          <div class="image-caption-wrapper">
+            <div class="image-caption"><p class="">Bar chart with more consistency of specificity between the horizontal and vertical axes.</p></div>
+          </div>
+          
+
+        </div>
+      
+      </div>
+    
+
+  
+
+
+</div></div><div class="sqs-block html-block sqs-block-html" data-block-type="2" id="block-yui_3_17_2_1_1562937635227_47322"><div class="sqs-block-content"><p class="" style="white-space:pre-wrap;">The bottom line, though, is that the creator of the chart made assumptions about what they needed to show versus what they could exclude; and in making those assumptions, they inadvertently misled their audience in a manner that was very confusing.</p></div></div><div class="sqs-block horizontalrule-block sqs-block-horizontalrule" data-block-type="47" id="block-yui_3_17_2_1_1562937635227_21391"><div class="sqs-block-content"><hr /></div></div><div class="sqs-block html-block sqs-block-html" data-block-type="2" id="block-yui_3_17_2_1_1562937635227_21453"><div class="sqs-block-content"><p class="" style="white-space:pre-wrap;">It is important to focus your audience’s attention on your data in your visualizations, and to remove extraneous clutter and distracting elements—including redundant information in labels. This case, however, highlights the danger of taking your assumptions too far, and inadvertently adding confusion rather than clarity.</p><p class="" style="white-space:pre-wrap;">Sometimes we get so familiar with our own work, and our own data, that we lose track of what is, or isn’t, obvious to other people. During your design process, it can be valuable to get input from people who aren’t as close to your work. This helps to identify, and avoid, situations like this one, where familiarity with the data led to design choices that were confusing, rather than clarifying.&nbsp;</p><p class="" style="white-space:pre-wrap;">Putting yourself in the mind of your audience, and soliciting feedback from other people who aren’t as close to your subject, will help you to avoid these kinds of misunderstandings in your own work. </p></div></div><div class="sqs-block horizontalrule-block sqs-block-horizontalrule" data-block-type="47" id="block-yui_3_17_2_1_1562937635227_166683"><div class="sqs-block-content"><hr /></div></div><div class="sqs-block html-block sqs-block-html" data-block-type="2" id="block-yui_3_17_2_1_1562937635227_166745"><div class="sqs-block-content"><p class="" style="white-space:pre-wrap;"><em>Mike Cisneros is a Data Storyteller on the SWD team. He believes that everybody has a story to tell, and he is driven to find ways to help people get their data stories heard. Connect with Mike on </em><a href="https://www.linkedin.com/in/mikevizneros"><em>LinkedIn</em></a><em> or </em><a href="https://twitter.com/mikevizneros"><em>Twitter</em></a><em>.</em><br><br><br><br><br></p></div></div></div></div></div></div>
+
+    <!--POST FOOTER-->
+
+      <footer class="article-meta">
+
+      	<span class="date"><a href="/blog/2019/7/12/the-accidental-misdirect"><i class="icon-calendar"></i><time class="published" datetime="2019-07-16" itemprop="datePublished">July 16, 2019</time></a></span>
+        <span class="author"><span class="delimiter">/</span><a href="/?author=5cfa916c7b25500001aea907" rel="author"><i class="icon-user"></i>Mike Cisneros</a></span>
+        
+        
+        <div class="categories"><i class="icon-bookmark"></i><a href="/?category=Makeovers" rel="tag">Makeovers</a>, <a href="/?category=Tips" rel="tag">Tips</a></div>
+
+        <div class="shareLoveButtons">
+          
+  <span class="sqs-simple-like" data-item-id="5d28893c8c02e10001043f17" data-like-count="0">
+    <span class="like-icon"></span>
+    <span class="like-count"></span>
+  </span>
+
+
+          <span class="squarespace-social-buttons inline-style" data-system-data-id="1562939425027-JF37VN2ILR5HI8378JL3" data-asset-url="https://static1.squarespace.com/static/55b6a6dce4b089e11621d3ed/55b6cddee4b0f4fbddc2f557/5d28893c8c02e10001043f17/1563281620178/Screen+Shot+2019-07-12+at+9.16.24+AM.png" data-record-type="1" data-full-url="/blog/2019/7/12/the-accidental-misdirect" data-title="the accidental misdirect"></span>
+        </div>
+
+        <br>
+<a style="color:#4f81bd" href="http://eepurl.com/bvFAV9" target="_blank" >CLICK HERE TO JOIN OUR MAILING LIST</a>
+<br><br>
+<a style="color:lightgrey">SEARCH STORYTELLING WITH DATA:</a>
+<script>
+  (function() {
+    var cx = '010606417252560547091:lh5dwrldy_o';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+
+      </footer>
+
+    </div><!-- /post -->
+
+  </div><!-- /content-wrapper -->
+  </article>
+
+
+
+
+<!--PAGINATION-->
+
+
+<nav class="item pagination">
+  <div class="content-wrapper">
+    <ul>
+      <li class="prev"><span title="Viewing the latest post"><i class="icon-chevron-left"></i>Newer</span></li>
+      <li class="next"><a href="/blog/2019/7/10/power-pairing-color-words" title="power pairing: color + words " id="nextLink">Older<i class="icon-chevron-right"></i></a></li>
+      
+    </ul>
+  </div>
+</nav>
+
+
+<!--COMMENTS-->
+
+
+  
+  <div class="content-wrapper">
+    <section id="comments-5d28893c8c02e10001043f17" class="comments-wrapper">
+      
+  <div class="squarespace-comments" id="comments-5d28893c8c02e10001043f17" data-item-id="5d28893c8c02e10001043f17" data-public-comment-count="0" data-comment-state="1"></div>
+
+
+    </section>
+  </div>
+				</section>
+			</div><!-- / pageWrapper -->
+
+			<div id="footerWrapper">
+				<footer id="footer">
+			   
+					  
+					    <div id="sqs-social" class="social-links sqs-svg-icon--list" data-content-field="connected-accounts">
+					      
+  <a href="https://twitter.com/storywithdata" target="_blank" class="sqs-svg-icon--wrapper twitter">
+    <div>
+      <svg class="sqs-svg-icon--social" viewBox="0 0 64 64">
+        <use class="sqs-use--icon" xlink:href="#twitter-icon"></use>
+        <use class="sqs-use--mask" xlink:href="#twitter-mask"></use>
+      </svg>
+    </div>
+  </a>
+
+					    </div>
+					  
+					
+					<div class="sqs-layout sqs-grid-12 columns-12" data-layout-label="Footer Content" data-type="block-field" data-updated-on="1553194091076" id="footerBlock"><div class="row sqs-row"><div class="col sqs-col-12 span-12"><div class="sqs-block html-block sqs-block-html" data-block-type="2" id="block-b4c586d9d5f1be28bd21"><div class="sqs-block-content"><p style="text-align:center;white-space:pre-wrap;">© 2010-2019 COLE NUSSBAUMER KNAFLIC. ALL RIGHTS RESERVED. <br>STORYTELLING WITH DATA AND THE STORYTELLING WITH DATA LOGO ARE TRADEMARKS OF COLE NUSSBAUMER KNAFLIC. </p></div></div></div></div></div>
+				</footer>
+			</div><!-- / footerWrapper -->
+
+		</div><!-- / canvas -->
+	</div><!-- / site -->
+
+	<div id="amzn-assoc-ad-4cc68379-50d6-42e1-8a81-b6f8c292f76f"></div><script async src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=4cc68379-50d6-42e1-8a81-b6f8c292f76f"></script><script type="text/javascript" data-sqs-type="imageloader-bootstrapper">(function() {if(window.ImageLoader) { window.ImageLoader.bootstrap({}, document); }})();</script><script>Squarespace.afterBodyLoad(Y);</script><svg xmlns="http://www.w3.org/2000/svg" version="1.1" style="display:none" data-usage="social-icons-svg"><symbol id="twitter-icon" viewBox="0 0 64 64"><path d="M48,22.1c-1.2,0.5-2.4,0.9-3.8,1c1.4-0.8,2.4-2.1,2.9-3.6c-1.3,0.8-2.7,1.3-4.2,1.6 C41.7,19.8,40,19,38.2,19c-3.6,0-6.6,2.9-6.6,6.6c0,0.5,0.1,1,0.2,1.5c-5.5-0.3-10.3-2.9-13.5-6.9c-0.6,1-0.9,2.1-0.9,3.3 c0,2.3,1.2,4.3,2.9,5.5c-1.1,0-2.1-0.3-3-0.8c0,0,0,0.1,0,0.1c0,3.2,2.3,5.8,5.3,6.4c-0.6,0.1-1.1,0.2-1.7,0.2c-0.4,0-0.8,0-1.2-0.1 c0.8,2.6,3.3,4.5,6.1,4.6c-2.2,1.8-5.1,2.8-8.2,2.8c-0.5,0-1.1,0-1.6-0.1c2.9,1.9,6.4,2.9,10.1,2.9c12.1,0,18.7-10,18.7-18.7 c0-0.3,0-0.6,0-0.8C46,24.5,47.1,23.4,48,22.1z"/></symbol><symbol id="twitter-mask" viewBox="0 0 64 64"><path d="M0,0v64h64V0H0z M44.7,25.5c0,0.3,0,0.6,0,0.8C44.7,35,38.1,45,26.1,45c-3.7,0-7.2-1.1-10.1-2.9 c0.5,0.1,1,0.1,1.6,0.1c3.1,0,5.9-1,8.2-2.8c-2.9-0.1-5.3-2-6.1-4.6c0.4,0.1,0.8,0.1,1.2,0.1c0.6,0,1.2-0.1,1.7-0.2 c-3-0.6-5.3-3.3-5.3-6.4c0,0,0-0.1,0-0.1c0.9,0.5,1.9,0.8,3,0.8c-1.8-1.2-2.9-3.2-2.9-5.5c0-1.2,0.3-2.3,0.9-3.3 c3.2,4,8.1,6.6,13.5,6.9c-0.1-0.5-0.2-1-0.2-1.5c0-3.6,2.9-6.6,6.6-6.6c1.9,0,3.6,0.8,4.8,2.1c1.5-0.3,2.9-0.8,4.2-1.6 c-0.5,1.5-1.5,2.8-2.9,3.6c1.3-0.2,2.6-0.5,3.8-1C47.1,23.4,46,24.5,44.7,25.5z"/></symbol></svg>
+	<script type="text/javascript" src="https://static1.squarespace.com/static/ta/55b6a6dce4b089e11621d3ed/0/scripts/combo/?site.js"></script>
+
+	
+
+	</body>
+</html>
