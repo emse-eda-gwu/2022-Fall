@@ -26,7 +26,7 @@ Unzip the template folder (make sure you unzip it!), then open the .Rproj file t
 
 1. **Getting Familiar with the Course**: Follow [Snoop's advice](https://www.youtube.com/watch?v=Tnlaokj1opA) and read the entire [Course Syllabus](../syllabus.html) (actually read the whole thing). Then review the [schedule](../schedule.html) and make sure to note important upcoming deadlines.
 2. **Getting Familiar with Tidy Data**: Read [this tidyverse article](https://tidyr.tidyverse.org/articles/tidy-data.html) explaining the concept of tidy data.
-3. **Practice Rehaping Messy Data**: Go to [this page](https://cfss.uchicago.edu/notes/tidy-exercise/) and try loading at least one of the example data sets shown. Then try rehaping the data into a tidy format.
+3. **Practice Reshaping Messy Data**: Go to [this page](https://cfss.uchicago.edu/notes/tidy-exercise/) and try loading at least one of the example data sets shown. Then try reshaping the data into a tidy format.
 
 # 4. Reflect 
 
