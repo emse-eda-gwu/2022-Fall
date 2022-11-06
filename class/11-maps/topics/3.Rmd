@@ -1,0 +1,11 @@
+
+class: inverse, middle
+
+# Week `r rmarkdown::metadata$week`: .fancy[`r rmarkdown::metadata$title`]
+
+## 1. Plotting maps
+## 2. Adding data to maps
+
+### BREAK
+
+## 3. .orange[Projections]
