@@ -1,0 +1,229 @@
+---
+title: "Maps"
+subtitle: "EMSE 4572: Exploratory Data Analysis"
+output: html_document
+---
+
+Load libraries and settings
+```{r setup, message=FALSE, warning=FALSE}
+# install.packages('maps')
+# install.packages('sf')
+# install.packages('rgeos')
+# install.packages('rnaturalearth')
+# devtools::install_github("ropensci/rnaturalearthhires")
+# devtools::install_github("ropensci/rnaturalearthdata")
+
+library(knitr)
+library(cowplot)
+library(viridis)
+library(tidyverse)
+library(here)
+library(janitor)
+library(maps)
+library(sf)
+library(rnaturalearth)
+library(rnaturalearthdata)
+library(rnaturalearthhires)
+
+options(
+    htmltools.dir.version = FALSE,
+    knitr.table.format = "html",
+    knitr.kable.NA = '',
+    tibble.width = Inf)
+knitr::opts_chunk$set(
+    warning = FALSE,
+    message = FALSE,
+    fig.path = "figs/",
+    fig.retina = 3)
+dplyr.width = Inf
+
+# Load all the data sets:
+milk_production <- read_csv(here::here('data', 'milk_production.csv'))
+us_coffee_shops <- read_csv(here::here('data', 'us_coffee_shops.csv'))
+internet_users  <- read_csv(here::here('data', 'internet_users_country.csv'))
+# Load state_abbs data frame, containing state abbreviations
+source(here::here('data', 'state_abbs.R'))
+```
+
+# 1. Maps
+
+Use the **rnaturalearth** library to extract and plot the shape files for China and Africa.
+
+China:
+
+```{r china, fig.width = 6, fig.height = 3.7}
+# Get the shape file
+china <- ne_states(
+    country = 'china',
+    returnclass = 'sf')
+
+# Make the plot
+china_map <- ggplot(data = china) +
+    geom_sf(fill = 'grey90', color = 'grey60')
+
+china_map +
+    theme_void()
+```
+
+Africa:
+
+```{r africa, fig.width = 6, fig.height = 3.7}
+# Get the shape file
+world <- ne_countries(scale = "medium", returnclass = "sf")
+africa <- world %>%
+    filter(continent == 'Africa')
+
+# Make the plot
+africa_map <- ggplot(data = africa) +
+    geom_sf(fill = 'grey90', color = 'grey60')
+
+africa_map +
+    theme_map()
+```
+
+# 2. Adding data to maps
+
+Create the map of squirrels in NYC's central park using the following data:
+
+- The `CentralPark.shp` file in the `data/central_park` folder.
+- The `nyc_squirrels.csv` file in the `data` folder.
+
+Read in the shape file and squirrels data:
+
+```{r}
+central_park <- st_read(here::here(
+    'data', 'central_park', 'CentralPark.shp'))
+squirrels <- read_csv(here::here('data', 'nyc_squirrels.csv'))
+```
+
+Make the plot:
+
+```{r nyc_squirrels, fig.width = 10, fig.height = 4}
+squirrels <- squirrels %>%
+    filter(!is.na(primary_fur_color))
+
+ggplot() +
+    geom_sf(data = central_park, color = 'grey75') +
+    geom_point(data = squirrels,
+        aes(x = long, y = lat, color = primary_fur_color),
+        size = .5) +
+    facet_wrap(~primary_fur_color, nrow = 1) +
+    theme_void(base_size = 15) +
+    theme(legend.position = 'none',
+          plot.title = element_text(hjust = 0.5)) +
+    labs(title = 'Squirrels in NYC Central Park')
+```
+
+# 3. Projections
+
+Use the `internet_users_country.csv` data and the `world` data frame from the **rnaturalearth** library to create the map of internet access by country in 2015.
+
+Hints:
+
+- The `iso_a3` variable in the `worlds` data frame corresponds with the `code` variable in the `internet_users_country.csv` data frame (use this for joining).
+- Use `scale_fill_gradient()` to fill the color:
+
+```{r, eval=FALSE}
+scale_fill_gradient(
+    low = "#e7e1ef",
+    high = "#dd1c77",
+    na.value = "grey70",
+    limits = c(0, 100))
+```
+
+Filter out the internet data to only include 2015 data:
+
+```{r}
+internet_users_2015 <- internet_users %>%
+    filter(year == 2015)
+```
+
+Load the shape file of world countries:
+
+```{r}
+world <- ne_countries(
+    scale = "medium",
+    returnclass = "sf")
+```
+
+Join the internet user data to the world shape file:
+
+```{r}
+world_int <- world %>%
+    left_join(internet_users_2015, by = c('iso_a3' = 'code')) %>%
+    filter(iso_a3 != "ATA")  # No internet in Antarctica...sorry penguins.
+```
+
+Make the baseline map (with no specific projection)
+
+```{r, fig.width = 6, fig.height = 3.7}
+internet_map <- ggplot(world_int) +
+    geom_sf(aes(fill = percent), color = NA) +
+    scale_fill_gradient(
+        low = "#e7e1ef",
+        high = "#dd1c77",
+        na.value = "grey70",
+        limits = c(0, 100)) +
+    guides(fill = guide_colorbar(
+        title.position = "top",
+        title.hjust = 0.5,
+        barwidth = 10, barheight = 0.5)) +
+    theme_void() +
+    theme(
+        legend.position = 'bottom',
+        plot.title = element_text(hjust = 0.5)) +
+    labs(
+        title = "Internet access by country in 2015",
+        fill = '% of population with access')
+
+internet_map
+```
+
+Re-make the map using a Robinson projection
+
+```{r, fig.width = 6, fig.height = 3.7}
+internet_map +
+    coord_sf(crs = "ESRI:54030")
+```
+
+Re-make the map using a Mercator projection
+
+```{r, fig.width = 6, fig.height = 3.7}
+internet_map +
+    coord_sf(crs = "ESRI:54004")
+```
+
+# 4. Extra practice
+
+Use the `us_states_cont` data frame and the `state_abbs` data frame to create a labeled map of the U.S.
+
+Load the shape file of the continental US states & set the CRS to an Albers projection:
+
+```{r}
+us_states_cont <- ne_states(
+    country = 'united states of america',
+    returnclass = 'sf') %>%
+    filter(! name %in% c('Alaska', 'Hawaii')) %>%
+    st_transform(crs = "ESRI:102003")
+```
+
+Compute the centroids (the center point) of each state shape:
+
+```{r}
+centroids <- as.data.frame(
+    st_coordinates(st_centroid(us_states_cont)))
+names(centroids) <- c('label_x', 'label_y')
+us_states_cont <- bind_cols(us_states_cont, centroids)
+```
+
+Join the `state_abbs` data frame to the `us_states_cont` data frame and make the plot:
+
+```{r, fig.width = 9, fig.height = 5.5}
+us_states_cont <- us_states_cont %>%
+    left_join(state_abbs, by = c('name' = 'state_name'))
+
+ggplot(us_states_cont) +
+    geom_sf() +
+    geom_label(aes(x = label_x, y = label_y, label = state_abb)) +
+    theme_void(base_size = 15)
+```

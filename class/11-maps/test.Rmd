@@ -1,0 +1,31 @@
+---
+title: "Test"
+date: March 30, 2021
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    seal: false
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: "16:9"
+---
+
+```{r setup, include=FALSE}
+# Setup xaringanExtra options
+xaringanExtra::use_freezeframe()
+```
+
+---
+
+class: center
+background-color: #fff
+
+### Land doesn't vote - people vote
+
+<center>
+<img src="images/swiss_vote.gif" width=600>
+</center>
+
+By [David Zumbach](https://twitter.com/DavidZumbach/status/1344547411985911808?s=19)
