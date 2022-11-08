@@ -9,4 +9,47 @@ params:
 source(here::here("R", "settings.R"))
 ```
 
-Coming soon!
+```{r child = here::here("fragments", "hw.qmd")}
+```
+
+# 1. Get Organized
+
+Download and edit [this template](`r url_template`) when working through this assignment.
+
+Then unzip the template folder (make sure you unzip it!), then open the .Rproj file to open RStudio. Open the ``r paste0('hw', params$number, '.Rmd')`` file, take notes, and write some example code as you go through the following.
+
+# 2. Readings
+
+This week, I want you to experience some **good** interactive charts so you can get a sense for how different the user experience is between static and interactive charts.
+
+To get started, find an article online that has some interactive charts. I recommend going to [The Pudding](https://pudding.cool/) - almost all of their articles blend text, data, and interactive charts. Feel free to use an article on a different site if you wish though.
+
+Once you've found an article you find interesting, read through it carefully. As you scroll though it, take note in your reflection this week of some of the key points you remember from the article. Answer these questions:
+
+- What was one main conclusion or point the author made?
+- Were any of the visualizations particularly effective in grabbing your attention and supporting that point?
+- Was there anything you could critique about the article or charts you saw?
+
+# 3. Make a chart
+
+Now that you've seen some interactive charts, make a simple, static chart in the chunk provided in your reflection. It can be any ggplot chart - feel free to copy-paste something we've made in class (don't forget to also copy-paste any data files you may need to create the chart).
+
+Once you've made your static chart, **make it interactive**!
+
+Load the `plotly` package, and then add...<UPDATE>
+
+# 4. Reflect
+
+Reflect on what you've learned while going through these readings and exercises. Is there anything that jumped out at you? Anything you found particularly interesting or confusing? Write at least a paragraph in your ``r paste0('hw', params$number, '.Rmd')`` file. Here are some suggestions:
+
+- Discuss some of the key insights or things you found interesting in the readings or recent class periods.
+- Write about the messiest data you've seen.
+- Connect the course content to your own work or project you're working on.
+
+# 5. Knit
+
+Click the "knit" button to compile your ``r paste0('hw', params$number, '.Rmd')`` file into a html web page. Then open the ``r paste0('hw', params$number, '.html')`` file in a web browser and proofread your report. Does all of the formatting look correct?
+
+# 6. Submit
+
+To submit this assignment, create a zip file of all the files in your R project folder for this assignment. Name the zip file ``r paste0('hw', params$number, '-netID.zip')``, replacing `netID` with your netID (e.g., ``r paste0('hw', params$number, '-jph.zip')``). Then copy that zip file into the "submissions" folder in your Box folder created for this class.
