@@ -9,4 +9,36 @@ params:
 source(here::here("R", "settings.R"))
 ```
 
-Coming soon!
+```{r child = here::here("fragments", "hw.qmd")}
+```
+
+# 1. Get Organized
+
+Download and edit [this template](`r url_template`) when working through this assignment.
+
+Then unzip the template folder (make sure you unzip it!), then open the .Rproj file to open RStudio. Open the ``r paste0('hw', params$number, '.Rmd')`` file, take notes, and write some example code as you go through the following.
+
+# 2. Video
+
+Watch this video on how to start a speech:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/w82a1FT5o88" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+# 3. Readings
+
+We'll be discussing good techniques for telling a story this week. These readings will be a good primer:
+
+- [Wilke Chapter 29 - Telling a story and making a point](https://serialmentor.com/dataviz/telling-a-story.html).
+- Stephanie Evergreen's blog post ["So What?"](https://stephanieevergreen.com/so-what/)
+
+# 4. Reflect
+
+For your final reflection, in addition to any thoughts that emerged when going through the above content, write about a talk or presentation you saw that you found particularly impactful. Was there anything memorable about it that made the presenter's message stick? Do you remember how the speaker began or ended their talk?
+
+# 5. Knit
+
+Click the "knit" button to compile your ``r paste0('hw', params$number, '.Rmd')`` file into a html web page. Then open the ``r paste0('hw', params$number, '.html')`` file in a web browser and proofread your report. Does all of the formatting look correct?
+
+# 6. Submit
+
+To submit this assignment, create a zip file of all the files in your R project folder for this assignment. Name the zip file ``r paste0('hw', params$number, '-netID.zip')``, replacing `netID` with your netID (e.g., ``r paste0('hw', params$number, '-jph.zip')``). Then copy that zip file into the "submissions" folder in your Box folder created for this class.
