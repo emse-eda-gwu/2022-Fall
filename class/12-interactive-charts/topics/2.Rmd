@@ -1,0 +1,11 @@
+
+class: inverse, middle
+
+# Week `r rmarkdown::metadata$week`: .fancy[`r rmarkdown::metadata$title`]
+
+### 1. Interactive charts
+### 2. .orange[Interactive tables]
+
+### Intermission
+
+### 3. Interactive maps
