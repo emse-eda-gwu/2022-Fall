@@ -1,0 +1,248 @@
+---
+title: "Interactive Charts"
+subtitle: "EMSE 4572: Exploratory Data Analysis"
+output: html_document
+---
+
+```{r install, echo=FALSE, message=FALSE, warning=FALSE}
+# These packages are needed
+# Use these commands to install them if you have not already
+# install.packages('plotly')
+# install.packages('htmlwidgets')
+# install.packages('htmltools')
+# install.packages('leaflet')
+# install.packages('DT')
+# install.packages('reactable')
+# install.packages('reactablefmtr')
+# install.packages('sparkline')
+
+# Install these for maps (in case you didn't last week)
+# install.packages('maps')
+# install.packages('sf')
+# install.packages('rgeos')
+# install.packages('devtools')
+# install.packages('rnaturalearth')
+# devtools::install_github("ropensci/rnaturalearthhires")
+# devtools::install_github("ropensci/rnaturalearthdata")
+```
+
+```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
+knitr::opts_chunk$set(
+    warning = FALSE,
+    message = FALSE,
+    fig.path = "figs/",
+    fig.width = 7.252,
+    fig.height = 4,
+    comment = "#>",
+    fig.retina = 3
+)
+
+library(tidyverse)
+library(here)
+library(knitr)
+library(viridis)
+library(cowplot)
+library(rnaturalearth)
+library(rnaturalearthhires)
+library(rnaturalearthdata)
+library(plotly)
+library(htmlwidgets)
+library(htmltools)
+library(leaflet)
+library(DT)
+library(reactable)
+library(reactablefmtr)
+library(sparkline)
+
+# Read in data sets
+internet_regions <- read_csv(here('data', 'internet_users_region.csv'))
+lotr_words <- read_csv(here::here('data', 'lotr_words.csv'))
+gapminder <- read_csv(here::here("data", "gapminder.csv"))
+internet_users <- read_csv(here::here('data', 'internet_users_country.csv'))
+```
+
+# 1. Interactive Charts
+
+Here are two examples of interactive charts using `ggplotly()`
+
+Make the static internet usage dumbbell chart:
+
+```{r internet-usage-dumbbell, fig.height=4, fig.width=6, fig.align='center'}
+internet_regions_compare <- internet_regions %>%
+  filter(year %in% c(2000, 2015)) %>%
+  mutate(
+    numUsers = numUsers / 10^6,
+    year = as.factor(year))
+
+dumbbell_chart <- internet_regions_compare %>%
+  mutate(region = fct_reorder2(region, year, -numUsers)) %>%
+  ggplot(aes(x = numUsers, y = region)) +
+  geom_line(
+    aes(group = region),
+    color = 'lightblue', size = 1) +
+    geom_point(aes(color = year), size = 2.5) +
+    scale_color_manual(values = c('lightblue', 'steelblue')) +
+    scale_x_continuous(limits = c(0, 1200)) +
+    theme_minimal_vgrid() +
+    # Remove y axis line
+    theme(axis.line.y = element_blank()) +
+    labs(x = 'Millions of internet users',
+         y = 'Region',
+         color = 'Year',
+         title = 'Number of internet users by world region',
+         subtitle = "(2000 - 2015)")
+
+dumbbell_chart
+```
+
+Make the interactive version
+
+```{r}
+ggplotly(dumbbell_chart)
+```
+
+Make the static chart of the LOTR word counts:
+
+```{r lotr_bars, echo=FALSE, fig.height=4.5, fig.width=6, fig.align='center'}
+label <- "Across 3 films,
+only 16 words were
+spoken by a
+female hobbit."
+
+lotr_bars <- lotr_words %>%
+    gather(key = 'gender', value = 'wordCount', Female:Male) %>%
+    group_by(Race, gender) %>%
+    summarise(wordCount = sum(wordCount)) %>%
+    ungroup() %>%
+    mutate(Race = fct_reorder(Race, desc(wordCount))) %>%
+  ggplot() +
+  geom_col(
+    aes(x = Race, y = wordCount, fill = gender),
+    width = 0.7, color = 'white') +
+  facet_wrap(vars(gender)) +
+  geom_curve(
+    data = data.frame(
+      x = 1.2, xend = 1, y = 1300, yend = 200, gender = 'Female'),
+    mapping = aes(x = x, y = y, xend = xend, yend = yend),
+    color = 'grey75', size = 0.5, curvature = 0.1,
+    arrow = arrow(length = unit(0.01, 'npc'), type = 'closed')) +
+  geom_label(
+    data = data.frame(
+      x = 0.6, y = 2100, label = label, gender = 'Female'),
+    mapping = aes(x = x, y = y, label = label),
+    hjust = 0, lineheight = .8) +
+  scale_y_continuous(
+    labels = scales::comma,
+    expand = expand_scale(mult = c(0, 0.05))) +
+  theme_minimal_hgrid(font_size = 10) +
+  theme(legend.position = 'none') +
+  panel_border() +
+  labs(
+    x = 'Race of character',
+    y = 'Number of words spoken',
+    title = 'Speaking roles in the LOTR film trilogy was heavily biased towards male characters\n\n')
+
+lotr_bars
+```
+
+Make the interactive chart:
+
+```{r}
+ggplotly(
+  lotr_bars,
+  tooltip = c("Race", "wordCount"),
+)
+```
+
+
+
+
+
+# 2. Interactive Tables
+
+Use `reactable()` to make the following interactive table
+
+Read [this example](https://kcuilla.github.io/reactablefmtr/articles/embed_img.html) and use the `gapminder_flags` data frame
+
+```{r}
+gapminder_flags <- gapminder %>%
+  mutate(flag = paste(
+    "https://flagshub.com/images/flag-of-",
+    str_to_lower(country), ".png", sep = "")) %>%
+  select(flag, country, everything())
+```
+
+```{r gapminder_reactable_flags, echo=FALSE}
+gapminder_flags %>%
+  reactable(
+    searchable = TRUE,
+    highlight = TRUE,
+    filterable = TRUE,
+    defaultPageSize = 5,
+    showPageSizeOptions = TRUE,
+    pageSizeOptions = c(5, 10, 15),
+    columns = list(flag = colDef(cell = embed_img(
+      width = "30", height = "20")))
+  )
+```
+
+
+
+# 3. Interactive maps
+
+Create the `world_internet_2015` data frame:
+
+```{r}
+world_internet_2015 <- ne_countries(
+  scale = "medium", returnclass = "sf") %>%
+  select(code = iso_a3) %>%
+  left_join(internet_users, by = "code") %>%
+  filter(year == 2015)
+```
+
+Create the color palette:
+
+```{r}
+pal <- colorBin(
+  palette = "viridis",
+  domain = world_internet_2015$percent)
+```
+
+Here's an alternative, continuous color palette:
+
+```{r}
+pal <- colorNumeric(
+  palette = "viridis",
+  domain = world_internet_2015$percent)
+```
+
+Create the labels:
+
+```{r}
+world_internet_2015 <- world_internet_2015 %>%
+  mutate(label = paste(country, ": ", round(percent, 2), "%", sep = ""))
+```
+
+Create the leaflet map:
+
+```{r internet_leaflet_map, fig.width=8, fig.height=6, fig.align='center'}
+leaflet(data = world_internet_2015) %>%
+  addPolygons(
+    fillColor = ~pal(percent),
+    weight = 2,
+    opacity = 1,
+    color = "white",
+    dashArray = "3",
+    fillOpacity = 0.7,
+    highlight = highlightOptions(
+      weight = 5,
+      color = "#666",
+      dashArray = "",
+      fillOpacity = 0.7,
+      bringToFront = TRUE),
+    label = world_internet_2015$label) %>%
+  addLegend(
+    pal = pal, values = ~percent, opacity = 0.7,
+    title = "% Pop w/internet access",
+    position = "bottomright")
+```

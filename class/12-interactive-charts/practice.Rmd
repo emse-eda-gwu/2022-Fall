@@ -1,0 +1,120 @@
+---
+title: "Interactive Charts"
+subtitle: "EMSE 4572: Exploratory Data Analysis"
+output: html_document
+---
+
+```{r install, echo=FALSE, message=FALSE, warning=FALSE}
+# These packages are needed
+# Use these commands to install them if you have not already
+# install.packages('plotly')
+# install.packages('htmlwidgets')
+# install.packages('htmltools')
+# install.packages('leaflet')
+# install.packages('DT')
+# install.packages('reactable')
+# install.packages('reactablefmtr')
+# install.packages('sparkline')
+
+# Install these for maps (in case you didn't last week)
+# install.packages('maps')
+# install.packages('sf')
+# install.packages('rgeos')
+# install.packages('devtools')
+# install.packages('rnaturalearth')
+# devtools::install_github("ropensci/rnaturalearthhires")
+# devtools::install_github("ropensci/rnaturalearthdata")
+```
+
+```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
+knitr::opts_chunk$set(
+    warning = FALSE,
+    message = FALSE,
+    fig.path = "figs/",
+    fig.width = 7.252,
+    fig.height = 4,
+    comment = "#>",
+    fig.retina = 3
+)
+
+library(tidyverse)
+library(here)
+library(knitr)
+library(viridis)
+library(cowplot)
+library(rnaturalearth)
+library(rnaturalearthhires)
+library(rnaturalearthdata)
+library(plotly)
+library(htmlwidgets)
+library(htmltools)
+library(leaflet)
+library(DT)
+library(reactable)
+library(reactablefmtr)
+library(sparkline)
+
+# Read in data sets
+internet_regions <- read_csv(here('data', 'internet_users_region.csv'))
+lotr_words <- read_csv(here::here('data', 'lotr_words.csv'))
+gapminder <- read_csv(here::here("data", "gapminder.csv"))
+internet_users <- read_csv(here::here('data', 'internet_users_country.csv'))
+```
+
+# 1. Interactive Charts
+
+1. Open your reflection from this past week
+2. Take turns sharing your interactive chart
+3. With a classmate, go back to a chart we made in a previous class and make it interactive using either `ggplotly()` or `plot_ly()`
+
+
+
+
+# 2. Interactive Tables
+
+Use `reactable()` to make the following interactive table
+
+Read [this example](https://kcuilla.github.io/reactablefmtr/articles/embed_img.html) and use the `gapminder_flags` data frame
+
+```{r}
+gapminder_flags <- gapminder %>%
+  mutate(flag = paste(
+    "https://flagshub.com/images/flag-of-",
+    str_to_lower(country), ".png", sep = "")) %>%
+  select(flag, country, everything())
+```
+
+```{r gapminder_reactable_flags, echo=FALSE}
+gapminder_flags %>%
+```
+
+
+# 3. Interactive maps
+
+Create the `world_internet_2015` data frame:
+
+```{r}
+world_internet_2015 <- ne_countries(
+  scale = "medium", returnclass = "sf") %>%
+  select(code = iso_a3) %>%
+  left_join(internet_users, by = "code") %>%
+  filter(year == 2015)
+```
+
+Create the color palette:
+
+```{r}
+pal <-
+```
+
+Create the labels:
+
+```{r}
+world_internet_2015 <- world_internet_2015 %>%
+```
+
+Create the leaflet map:
+
+```{r internet_leaflet_map, fig.width=8, fig.height=6, fig.align='center'}
+leaflet(data = world_internet_2015)
+```
