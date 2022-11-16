@@ -54,7 +54,7 @@ Again, follow [these guidelines](https://writingcenter.gmu.edu/guides/how-to-wri
 
 Discuss the data source(s) you are using for your analysis. For each data source:
 
-- Describe it and include urls or references to the original sources as well as links to any pre-processed or formatted data you are using. These are not always the same. For example, in the [Mini Project 1 assignment](a-mini-project-1.html), the original source was the [Transit Costs Project](https://transitcosts.com/) whereas the data file used was posted on [this GitHub repo](https://github.com/rfordatascience/tidytuesday/tree/master/data/2021/2021-01-05).
+- Describe it and include urls or references to the original sources as well as links to any pre-processed or formatted data you are using. These are not always the same. For example, for [Mini Project 2](https://eda.seas.gwu.edu/2022-Fall/project-mini/2-exploring-daata.html), the original source was the [Transit Costs Project](https://transitcosts.com/) whereas the data file used was posted on [this GitHub repo](https://github.com/rfordatascience/tidytuesday/tree/master/data/2021/2021-01-05).
 - Discuss the validity of your data:
 
     - Is the data you are using from the _original_ source, or has it been pre-processed?
@@ -72,7 +72,7 @@ Discuss the data source(s) you are using for your analysis. For each data source
 ## 5. Include two preliminary charts
 
 - Your charts should either support or oppose your research question(s), or they should illustrate what else you might need to address your research question.
-- You may choose whatever chart types you wish, but your choices should highlight the point you want to make or should clearly show the relationship you want to emphasize. Consider [these resources](ref-visualizing-data.html) when choosing your charts.
+- You may choose whatever chart types you wish, but your choices should highlight the point you want to make or should clearly show the relationship you want to emphasize. Consider [these resources](https://eda.seas.gwu.edu/2022-Fall/help/visualizing-data.html) when choosing your charts.
 - Your charts should follow the design principles we have covered in class. They do not have to be fully "polished" yet, but at a minimum they should be accurate (i.e. not misleading) and they should not include distracting non-data ink.
 
 ## 6. Review your teammates
