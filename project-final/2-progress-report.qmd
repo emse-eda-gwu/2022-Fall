@@ -54,7 +54,7 @@ Again, follow [these guidelines](https://writingcenter.gmu.edu/guides/how-to-wri
 
 Discuss the data source(s) you are using for your analysis. For each data source:
 
-- Describe it and include urls or references to the original sources as well as links to any pre-processed or formatted data you are using. These are not always the same. For example, in the [Mini Project 1 assignment](a-mini-project-1.html), the original source was the [Transit Costs Project](https://transitcosts.com/) whereas the data file used was posted on [this GitHub repo](https://github.com/rfordatascience/tidytuesday/tree/master/data/2021/2021-01-05).
+- Describe it and include urls or references to the original sources as well as links to any pre-processed or formatted data you are using. These are not always the same. For example, for [Mini Project 2](https://eda.seas.gwu.edu/2022-Fall/project-mini/2-exploring-daata.html), the original source was the [Transit Costs Project](https://transitcosts.com/) whereas the data file used was posted on [this GitHub repo](https://github.com/rfordatascience/tidytuesday/tree/master/data/2021/2021-01-05).
 - Discuss the validity of your data:
 
     - Is the data you are using from the _original_ source, or has it been pre-processed?
