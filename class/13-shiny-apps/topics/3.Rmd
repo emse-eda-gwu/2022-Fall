@@ -1,0 +1,13 @@
+
+class: inverse, middle
+
+# Week `r rmarkdown::metadata$week`: .fancy[`r rmarkdown::metadata$title`]
+
+### 1. Anatomy of a Shiny App
+### 2. User Interface
+### 3. .orange[Server]
+
+### Intermission
+
+### 4. Extras
+### 5. Deploying your App
