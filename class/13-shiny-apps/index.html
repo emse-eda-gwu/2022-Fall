@@ -1,0 +1,1330 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Shiny Apps</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="John Paul Helveston" />
+    <meta name="date" content="2022-11-30" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/tile-view/tile-view.css" rel="stylesheet" />
+    <script src="libs/tile-view/tile-view.js"></script>
+    <link href="libs/panelset/panelset.css" rel="stylesheet" />
+    <script src="libs/panelset/panelset.js"></script>
+    <script src="libs/clipboard/clipboard.min.js"></script>
+    <link href="libs/xaringanExtra-clipboard/xaringanExtra-clipboard.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-clipboard/xaringanExtra-clipboard.js"></script>
+    <script>window.xaringanExtraClipboard(null, {"button":"Copy Code","success":"Copied!","error":"Press Ctrl+C to Copy"})</script>
+    <link href="libs/shareon/shareon.min.css" rel="stylesheet" />
+    <script src="libs/shareon/shareon.min.js"></script>
+    <link href="libs/xaringanExtra-shareagain/shareagain.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-shareagain/shareagain.js"></script>
+    <link href="libs/xaringanExtra-extra-styles/xaringanExtra-extra-styles.css" rel="stylesheet" />
+    <meta name="description" content="EMSE 4572: Exploratory Data Analysis"/>
+    <meta name="generator" content="xaringan and remark.js"/>
+    <meta name="github-repo" content="emse-eda-gwu/2022-Fall"/>
+    <meta name="twitter:title" content="Shiny Apps"/>
+    <meta name="twitter:description" content="EMSE 4572: Exploratory Data Analysis"/>
+    <meta name="twitter:url" content="https://eda.seas.gwu.edu/2022-Fall/"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:creator" content="@johnhelveston"/>
+    <meta name="twitter:site" content="@johnhelveston"/>
+    <meta property="og:title" content="Shiny Apps"/>
+    <meta property="og:description" content="EMSE 4572: Exploratory Data Analysis"/>
+    <meta property="og:url" content="https://eda.seas.gwu.edu/2022-Fall/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="article:author" content="John Paul Helveston"/>
+    <link href="libs/countdown/countdown.css" rel="stylesheet" />
+    <script src="libs/countdown/countdown.js"></script>
+    <link rel="stylesheet" href="css/lexis.css" type="text/css" />
+    <link rel="stylesheet" href="css/lexis-fonts.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+
+
+
+class: middle, inverse
+
+.leftcol30[
+
+&lt;center&gt;
+&lt;img src="https://raw.githubusercontent.com/emse-eda-gwu/2022-Fall/master/images/logo.png" width=250&gt;
+&lt;/center&gt;
+
+]
+
+.rightcol70[
+
+# Week 13: .fancy[Shiny Apps]
+
+### <svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:white;overflow:visible;position:relative;"><path d="M243.4 2.6l-224 96c-14 6-21.8 21-18.7 35.8S16.8 160 32 160v8c0 13.3 10.7 24 24 24H456c13.3 0 24-10.7 24-24v-8c15.2 0 28.3-10.7 31.3-25.6s-4.8-29.9-18.7-35.8l-224-96c-8.1-3.4-17.2-3.4-25.2 0zM128 224H64V420.3c-.6 .3-1.2 .7-1.8 1.1l-48 32c-11.7 7.8-17 22.4-12.9 35.9S17.9 512 32 512H480c14.1 0 26.5-9.2 30.6-22.7s-1.1-28.1-12.9-35.9l-48-32c-.6-.4-1.2-.7-1.8-1.1V224H384V416H344V224H280V416H232V224H168V416H128V224zm128-96c-17.7 0-32-14.3-32-32s14.3-32 32-32s32 14.3 32 32s-14.3 32-32 32z"/></svg> EMSE 4572: Exploratory Data Analysis
+### <svg aria-hidden="true" role="img" viewBox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:white;overflow:visible;position:relative;"><path d="M272 304h-96C78.8 304 0 382.8 0 480c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32C448 382.8 369.2 304 272 304zM48.99 464C56.89 400.9 110.8 352 176 352h96c65.16 0 119.1 48.95 127 112H48.99zM224 256c70.69 0 128-57.31 128-128c0-70.69-57.31-128-128-128S96 57.31 96 128C96 198.7 153.3 256 224 256zM224 48c44.11 0 80 35.89 80 80c0 44.11-35.89 80-80 80S144 172.1 144 128C144 83.89 179.9 48 224 48z"/></svg> John Paul Helveston
+### <svg aria-hidden="true" role="img" viewBox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:white;overflow:visible;position:relative;"><path d="M152 64H296V24C296 10.75 306.7 0 320 0C333.3 0 344 10.75 344 24V64H384C419.3 64 448 92.65 448 128V448C448 483.3 419.3 512 384 512H64C28.65 512 0 483.3 0 448V128C0 92.65 28.65 64 64 64H104V24C104 10.75 114.7 0 128 0C141.3 0 152 10.75 152 24V64zM48 448C48 456.8 55.16 464 64 464H384C392.8 464 400 456.8 400 448V192H48V448z"/></svg> November 30, 2022
+
+]
+
+---
+
+class: middle, center
+
+&lt;center&gt;
+&lt;img src="images/wind1.png" width=100%&gt;
+&lt;/center&gt;
+
+---
+
+class: middle, center
+
+&lt;center&gt;
+&lt;img src="images/wind2.png" width=100%&gt;
+&lt;/center&gt;
+
+---
+
+class: middle, center
+
+&lt;center&gt;
+&lt;img src="images/wind3.png" width=80%&gt;
+&lt;/center&gt;
+
+---
+
+class: middle, center
+
+&lt;center&gt;
+&lt;img src="images/wind4.png" width=80%&gt;
+&lt;/center&gt;
+
+---
+
+class: inverse
+
+# Quiz 5
+
+<div class="countdown" id="timer_638523e2" style="bottom:0;left:0;font-size:4em;" data-warnwhen="30">
+<code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+.leftcol[
+
+### Instructions will be posted in the #class channel on slack
+
+]
+
+.rightcol[
+
+&lt;center&gt;
+&lt;img src="images/quiz_doge.png" width="400"&gt;
+&lt;/center&gt;
+
+]
+
+---
+
+class: middle, center 
+
+# License
+
+## These slides were modified from [Florencia D'Andrea](https://florencia.netlify.app/)'s [RLadies Shiny Meetup Slides](https://github.com/flor14/rladies_shiny_meetup_2020)
+
+This work is licensed under a&lt;/br&gt;[Creative Commons Attribution-ShareAlike 4.0](http://creativecommons.org/licenses/by-sa/4.0/) International License
+
+---
+
+# New libraries to install
+
+
+```r
+install.packages('shiny')
+install.packages('shinyWidgets')
+install.packages('rsconnect')
+```
+
+---
+
+class: center, middle
+
+.leftcol40[
+
+&lt;center&gt;
+&lt;img src="https://github.com/rstudio/shiny/raw/main/man/figures/logo.png" width=300&gt;
+&lt;/center&gt;
+
+]
+
+.rightcol60[
+
+&lt;/br&gt;
+
+# Interactive Webapps in R
+
+## Check out the [Shiny Gallery](https://shiny.rstudio.com/gallery/)
+
+]
+
+---
+
+
+
+class: inverse, middle
+
+# Week 13: .fancy[Shiny Apps]
+
+### 1. Anatomy of a Shiny App
+### 2. User Interface
+### 3. Server
+
+### Intermission
+
+### 4. Extras
+### 5. Deploying your App
+
+---
+
+
+
+class: inverse, middle
+
+# Week 13: .fancy[Shiny Apps]
+
+### 1. .orange[Anatomy of a Shiny App]
+### 2. User Interface
+### 3. Server
+
+### Intermission
+
+### 4. Extras
+### 5. Deploying your App
+
+---
+
+# Anatomy of a Shiny App
+
+A Shiny app is a web page (UI) connected to a computer running a live R session (Server)
+
+&lt;img src="images/cheat1.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# `app.R`
+
+.leftcol45[
+
+You can insert all the code at once with the shinyapp snippet!
+
+Just start typing `shiny`...
+
+&lt;img src="images/snippet_2.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+]
+
+.rightcol55[
+
+
+```r
+library(shiny)
+
+ui &lt;- fluidPage(
+  
+)
+
+server &lt;- function(input, output, session) {
+  
+}
+
+shinyApp(ui, server)
+```
+
+]
+
+---
+
+# Building a shiny app
+
+&lt;img src="images/cheat1.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+.pull-left[
+
+**`ui`**
+
+1. Pick a layout function
+
+2. Add inputs widgets
+
+3. Add `*Output()` functions
+
+]
+
+.pull-right[
+
+**`server`**
+
+1. Use `render*()` functions to make outputs
+
+2. Link outputs with `output$&lt;id&gt;` 
+
+3. Link inputs with `input$&lt;id&gt;`
+
+]
+
+---
+
+# Run the app 🎬
+
+- **Option 1**: Click the "Run App" button in the toolbar:
+
+&lt;img src="images/run_app.png" width="25%" style="display: block; margin: auto;" /&gt;
+
+- **Option 2**: Use a keyboard shortcut: Cmd/Ctrl + Shift + Enter.
+
+- **Option 3**: `shiny::runApp()` with the path to the **app.R** file.
+
+---
+
+class: inverse
+
+.leftcol40[
+
+## Your Turn
+
+### `hello_shiny.app`
+
+File -&gt; New File -&gt; Shiny Web App...
+
+]
+
+.rightcol60[.code50[
+
+
+```r
+*library(shiny)
+
+# Define UI for application that draws a histogram
+*ui &lt;- fluidPage(
+
+    # Application title
+    titlePanel("Old Faithful Geyser Data"),
+
+    # Sidebar with a slider input for number of bins 
+    sidebarLayout(
+        sidebarPanel(
+            sliderInput("bins",
+                        "Number of bins:",
+                        min = 1,
+                        max = 50,
+                        value = 30)
+        ),
+
+        # Show a plot of the generated distribution
+        mainPanel(
+           plotOutput("distPlot")
+        )
+    )
+)
+
+# Define server logic required to draw a histogram
+*server &lt;- function(input, output) {
+
+    output$distPlot &lt;- renderPlot({
+        # generate bins based on input$bins from ui.R
+        x    &lt;- faithful[, 2]
+        bins &lt;- seq(min(x), max(x), length.out = input$bins + 1)
+
+        # draw the histogram with the specified number of bins
+        hist(x, breaks = bins, col = 'darkgray', border = 'white')
+    })
+}
+
+# Run the application 
+*shinyApp(ui = ui, server = server)
+```
+
+]]
+
+---
+
+
+
+class: inverse, middle
+
+# Week 13: .fancy[Shiny Apps]
+
+### 1. Anatomy of a Shiny App
+### 2. .orange[User Interface]
+### 3. Server
+
+### Intermission
+
+### 4. Extras
+### 5. Deploying your App
+
+---
+
+background-color: #fff
+class: center
+
+## User Interface (UI)
+
+&lt;img src="images/mamu_4.jpg" width="70%" style="display: block; margin: auto;" /&gt;
+
+[Matryoshka Dolls](https://en.wikipedia.org/wiki/Matryoshka_doll)
+
+---
+
+background-color: #fff
+
+### Organize panels and elements into a layout with a **layout function**
+
+### Top level is usually `fluidPage()`
+
+&lt;img src="images/layout.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+---
+
+background-color: #fff
+
+&lt;img src="images/slide_mamu1.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+---
+
+### `sidebarLayout()`
+
+.leftcol40[
+
+
+```r
+ui &lt;- fluidPage(
+
+  titlePanel("Hello Shiny!"),
+
+* sidebarLayout(
+
+*   sidebarPanel(
+      sliderInput( 
+        "bins", label = "Number of bins:",
+        min = 1, value = 30, max = 50
+      )
+    ),
+
+*   mainPanel(
+      plotOutput("distPlot")
+    )
+  )
+)
+```
+
+]
+
+.rightcol60[
+
+&lt;img src="images/sidebarLayout.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+
+### `navbarPage()`: An alternative to `fluidPage()`
+
+Think of each `tabPanel()` as it's own `fluidPage()`
+
+.leftcol40[
+
+
+```r
+*ui &lt;- navbarPage("My Application",
+  tabPanel("Component 1"),
+  tabPanel("Component 2"),
+  tabPanel("Component 3")
+)
+```
+
+]
+
+.rightcol60[
+
+&lt;img src="images/navbarPage.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+
+### `navbarPage()`: An alternative to `fluidPage()`
+
+Use `navbarMenu()` to create a nested menu item
+
+.leftcol40[
+
+
+```r
+ui &lt;- navbarPage("My Application",
+  tabPanel("Component 1"),
+  tabPanel("Component 2"),
+* navbarMenu("More",
+*   tabPanel("Sub-Component A"),
+*   tabPanel("Sub-Component B"))
+)
+```
+
+]
+
+.rightcol60[
+
+&lt;img src="images/navbarMenu.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+
+class: middle, inverse
+
+# The UI defines the "what" and "where" for:
+
+## 1. **.orange[Inputs]**: collect values from the user
+## 2. **Output**: display something to the user
+
+---
+
+background-color: #fff
+
+# **Inputs**: collect values from the user
+
+&lt;img src="images/inputs.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Example Input: Radio buttons in the sidebar
+
+.leftcol30[
+
+
+```r
+ui &lt;- fluidPage(
+  sidebarLayout(
+    sidebarPanel(
+*     radioButtons(…)
+    ), 
+    mainPanel(…)
+  )
+)
+```
+
+]
+
+.rightcol70[
+
+&lt;img src="images/slide_mamu2.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+
+class: inverse 
+
+## Quick practice
+
+Open the `widgets.R` app and click the "Run App" button
+
+---
+
+background-color: #fff
+class: center, middle
+
+&lt;img src="images/parentesis.png" width="70%" style="display: block; margin: auto;" /&gt;
+
+---
+
+background-color: #fff
+class: center, middle
+
+&lt;img src="images/closing_par.png" width="90%" style="display: block; margin: auto;" /&gt;
+
+---
+
+class: inverse
+
+<div class="countdown blink-colon noupdate-15" id="timer_63852392" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
+<code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+## Your Turn
+
+.leftcol80[
+
+1. Open the `widgets.R` file.
+2. Go to the [Shiny Widgets Gallery](https://shiny.rstudio.com/gallery/widget-gallery.html) and pick a new widget. 
+3. Look at the code for the widget and try to add that widget to the sidebar in the `widgets.R` file below all the other widgets.
+4. Debug together! (ask each other questions)
+
+]
+
+---
+
+class: middle, inverse
+
+# The UI defines the "what" and "where" for:
+
+## 1. **Inputs**: collect values from the user
+## 2. **.orange[Output]**: display something to the user
+
+---
+
+## Example Output: Put a plot in the main panel
+
+.leftcol30[
+
+
+```r
+ui &lt;- fluidPage(
+  sidebarLayout(
+    sidebarPanel(
+      radioButtons(…) 
+    ), 
+    mainPanel(
+*     plotOutput(…)
+    )
+  )
+)
+```
+
+]
+
+.rightcol70[
+
+&lt;img src="images/slide_mamu3.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+
+# **Output**: display something to the user
+
+Output function  | Description
+-----------------| ---------------
+`plotOutput()`   | Display a reactive _plot_
+`dataTableOutput()` | Display a `DT::datatable()`
+`textOutput()`   | Display reactive _text_
+`imageOutput()`  | Display an image
+
+---
+
+
+
+class: inverse, middle
+
+# Week 13: .fancy[Shiny Apps]
+
+### 1. Anatomy of a Shiny App
+### 2. User Interface
+### 3. .orange[Server]
+
+### Intermission
+
+### 4. Extras
+### 5. Deploying your App
+
+---
+
+# Building a shiny app
+
+&lt;img src="images/cheat1.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+.pull-left[
+
+**`ui`**
+
+1. Pick a layout function, e.g. `sidebarLayout()` 
+
+2. Add inputs widgets
+
+3. Add `*Output()` functions
+
+]
+
+.pull-right[
+
+**`server`**
+
+1. Use `render*()` functions to make outputs
+
+2. Link outputs with `output$&lt;id&gt;` 
+
+3. Link inputs with `input$&lt;id&gt;`
+
+]
+
+---
+
+background-color: #fff
+
+&lt;img src="images/outputs.png" width="90%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Using `renderPlot()`: make a plot
+
+.leftcol[
+
+
+```r
+library(ggplot2)
+
+ggplot(mpg) +
+  geom_point(
+    aes(x = displ, y = hwy, color = class))
+```
+
+]
+
+.rightcol[
+
+&lt;img src="figs/unnamed-chunk-20-1.png" width="504" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+
+## Link plot to output with `output$&lt;id&gt;`
+
+.leftcol45[
+
+`ui`
+
+```r
+ui &lt;- fluidPage(
+  sidebarLayout(
+    sidebarPanel(
+      radioButtons(…) 
+    ), 
+    mainPanel(
+*     plotOutput(
+*       outputId = "mpg_plot"
+*     )
+    )
+  )
+)
+```
+
+]
+
+.rightcol55[
+
+`server`
+
+```r
+server &lt;- function(input, output, session) {
+* output$mpg_plot &lt;- renderPlot({
+    ggplot(mpg) +
+      geom_point(
+        aes(x = displ, y = hwy, color = class))
+  })
+}
+```
+
+]
+
+---
+
+## Link user inputs to plot with `input$&lt;id&gt;`
+
+.leftcol[.code60[
+
+`ui`
+
+```r
+ui &lt;- fluidPage(
+  sidebarLayout(
+    sidebarPanel(
+      radioButtons(
+*       inputId = "xvar",
+        label = "Select the x-axis variable:",
+        selected = "displ",
+        choices = c(
+*         "Highway miles per gallon" = "hwy",
+*         "City miles per gallon" = "cty",
+*         "Engine displacement, in litres" = "displ")
+      ),
+    ), 
+    mainPanel(
+      plotOutput(
+        outputId = "mpg_plot" 
+      ) 
+    )
+  )
+)
+```
+
+]]
+
+.rightcol[.code60[
+
+`server`
+
+```r
+server &lt;- function(input, output, session) {
+  output$mpg_plot &lt;- renderPlot({ 
+    ggplot(mpg) +
+      geom_point(
+*       aes_string(
+*         x = input$xvar,
+          y = "hwy", 
+          color = "class")) 
+  })
+}
+```
+
+**Note**: I switched the ggplot code from&lt;/br&gt;`aes()` to `aes_string()`
+
+]]
+
+---
+
+class: inverse 
+
+## Quick practice
+
+Open the `mpg.R` app and click the "Run App" button
+
+---
+
+class: inverse
+
+<div class="countdown blink-colon noupdate-15" id="timer_6385225d" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
+<code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+## Your Turn
+
+.leftcol[
+
+1. Open the `caseConverter.R` file.
+2. In the `server`: Write code in the provided `renderText()` to convert the input text to lower case.
+3. Run the app and test that it's working.
+4. In the `ui` main panel: Add two more `textOutput()` functions for also displaying the input text in "upper" case and "title" case.
+3. In the `server`: Define two more outputs to convert the input text to "upper" case and "title" case.
+
+]
+
+.rightcol[
+
+&lt;center&gt;
+&lt;img src="images/caseConverter.png" width=500&gt;
+&lt;/center&gt;
+
+]
+
+---
+
+background-color: #fff
+class: center
+
+<div class="countdown" id="timer_638521ca" style="top:1;right:0;bottom:0;left:0;margin:5%;font-size:8em;" data-warnwhen="30">
+<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+# Intermission
+
+&lt;center&gt;
+&lt;img src="https://media.giphy.com/media/3oEjHWPTo7c0ajPwty/giphy.gif" width=500&gt;
+&lt;/center&gt;
+
+---
+
+
+
+class: inverse, middle
+
+# Week 13: .fancy[Shiny Apps]
+
+### 1. Anatomy of a Shiny App
+### 2. User Interface
+### 3. Server
+
+### Intermission
+
+### 4. .orange[Extras]
+### 5. Deploying your App
+
+---
+
+# Use html functions to add text
+
+.leftcol60[
+
+See example in `html.R` app
+
+```r
+ui &lt;- fluidPage(
+  h1("Header 1"),
+  h2("Header 2"),
+  h3("Header 3"),
+  h4("Header 4"),
+  p("Some text"),
+  br(),
+  p(strong("Some bold text")),
+  p(em("Some italic text")),  
+  p(code("Some code")),  
+  hr(),
+  a(href="https://eda.seas.gwu.edu/2022-Fall/",
+    "Class home page"),
+  HTML("&lt;p&gt;Raw html&lt;/p&gt;")
+)
+```
+
+]
+
+.rightcol40[
+
+&lt;center&gt;
+&lt;img src="images/html.png" width=500&gt;
+&lt;/center&gt;
+
+]
+
+---
+
+# Can also just use plain markdown
+
+.leftcol60[
+
+See example in `markdown.R` app
+
+```r
+ui &lt;- fluidPage(
+  markdown("
+  # Header 1
+  ## Header 2
+  ### Header 3
+  #### Header 4
+  Some text
+  **Some bold text**
+  _Some italic text_
+  `Some code`
+  [Class home page](https://eda.seas.gwu.edu/2022-Fall/)
+  ")
+)
+```
+
+]
+
+.rightcol40[
+
+&lt;center&gt;
+&lt;img src="images/html.png" width=500&gt;
+&lt;/center&gt;
+
+]
+
+---
+
+class: inverse 
+
+<div class="countdown blink-colon noupdate-15" id="timer_638521b9" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
+<code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+# Quick practice
+
+.leftcol80[
+
+Open your `caseConverter.R` app and add html functions or markdown to add the following:
+
+- Give the app a title by inserting a level 1 header in the `fluidPage()` function and before the `sidebarLayout()` function.
+- In the main `ui` panel, add a short description of what the app does.  
+
+]
+
+---
+
+background-color: #fff
+class: center 
+
+## Add a theme with ["shinythemes"](https://rstudio.github.io/shinythemes/) package
+
+&lt;img src="images/shinythemes.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+---
+
+### .center[Insert theme at top of main `ui` layout function]
+
+.leftcol40[
+
+
+```r
+library(shinythemes)
+
+ui &lt;- fluidPage(
+* theme = shinytheme("sandstone"),
+  sidebarLayout(
+    sidebarPanel(
+      &lt;insert widgets&gt;
+    ), 
+    mainPanel(
+      &lt;insert outputs&gt;
+    )
+  )
+)
+```
+
+]
+
+.rightcol60[
+
+&lt;img src="https://rstudio.github.io/shinythemes/images/sandstone.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+
+class: center, middle
+
+## Fancier widgets with ["shinyWidgets"](http://shinyapps.dreamrs.fr/shinyWidgets/) package
+
+### Open the `shinyWidgets.R` app and click the "Run App" button
+
+---
+
+# Common shiny situations
+
+### - Filtering for a single category: `federalSpending.R`
+### - Filtering for multiple categories: `federalSpendingCompare.R`
+
+---
+
+### .center[Filtering for a single category: `federalSpending.R`]
+
+.leftcol45[.code70[
+
+
+```r
+ui &lt;- fluidPage(
+
+  h1("Federal R&amp;D Spending by Department"),
+
+  sidebarLayout(
+
+    sidebarPanel(
+      selectInput(
+*       inputId = "department",
+        label = "Choose a department:",
+        selected = "DOD",
+        choices = c(...)
+    ),
+
+    mainPanel(
+      plotOutput("spendingPlot")
+    )
+  )
+)
+```
+
+]]
+
+.rightcol55[.code70[
+
+
+```r
+server &lt;- function(input, output){
+  output$spendingPlot &lt;- renderPlot({
+
+    # Filter out the data based on the user input
+*   data &lt;- federal_spending %&gt;%
+*     filter(department == input$department)
+
+    ggplot(data) +
+      geom_col(
+        aes(x = year, y = rd_budget),
+        fill = "steelblue", width = 0.7, alpha = 0.8) +
+      scale_y_continuous(
+        labels = scales::dollar,
+        expand = expansion(mult = c(0, 0.05))) +
+      theme_half_open(font_size = 18) +
+      labs(
+        x = "Year",
+        y = "$USD Millions",
+        title = paste("Federal R&amp;D Spending"))
+
+  })
+}
+```
+
+]]
+
+---
+
+### .center[Filtering for multiple categories: `federalSpendingCompare.R`]
+
+.leftcol45[.code70[
+
+
+```r
+ui &lt;- fluidPage(
+
+  h1("Federal R&amp;D Spending by Department"),
+
+  sidebarLayout(
+
+    sidebarPanel(
+      selectInput(
+        inputId = "department",
+        label = "Choose a department:",
+        selected = "DOD",
+*       multiple = TRUE,
+        choices = c(...)
+    ),
+
+    mainPanel(
+      plotOutput("spendingPlot")
+    )
+  )
+)
+```
+
+]]
+
+.rightcol55[.code70[
+
+
+```r
+server &lt;- function(input, output){
+  output$spendingPlot &lt;- renderPlot({
+
+    # Filter out the data based on the user input
+    data &lt;- federal_spending %&gt;% 
+*     filter(department %in% input$department)
+
+    ggplot(data) +
+      geom_col(
+        aes(x = year, y = rd_budget),
+        fill = "steelblue", width = 0.7, alpha = 0.8) +
+*     facet_wrap(~department) +
+      scale_y_continuous(
+        labels = scales::dollar,
+        expand = expansion(mult = c(0, 0.05))) +
+      theme_half_open(font_size = 18) +
+      labs(
+        x = "Year",
+        y = "$USD Millions",
+        title = paste("Federal R&amp;D Spending"))
+
+  })
+}
+```
+
+]]
+
+---
+
+# If you really want to get good at this:
+
+## 1. Print out this [Cheatsheet](https://shiny.rstudio.com/articles/cheatsheet.html)
+
+## 2. Watch this [2.5 Hour Comprehensive RStudio Tutorial](https://shiny.rstudio.com/tutorial)
+
+## 3. Use this reference manual: [Mastering Shiny](https://mastering-shiny.org/)
+
+---
+
+
+
+class: inverse, middle
+
+# Week 13: .fancy[Shiny Apps]
+
+### 1. Anatomy of a Shiny App
+### 2. User Interface
+### 3. Server
+
+### Intermission
+
+### 4. Extras
+### 5. .orange[Deploying your App]
+
+---
+
+# You can deploy an app for free on [shinyapps.io](https://www.shinyapps.io/)
+
+### Follow [the RStudio guide](https://shiny.rstudio.com/articles/shinyapps.html)
+
+1. Create a shinyapps.io account
+2. Open your tokens, click "Show", copy the code
+3. Run the code in RStudio 
+4. Deploy your app:
+
+
+```r
+library(rsconnect)
+deployApp()
+```
+
+---
+
+class: inverse
+
+<div class="countdown blink-colon noupdate-15" id="timer_638522c7" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
+<code class="countdown-time"><span class="countdown-digits minutes">15</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+## Your Turn
+
+.leftcol80[
+
+1. Open the `internetUsers.R` file.
+2. Modify the server code so that the inputs control the plot.
+3. Deploy your app to shinyapps.io
+
+]
+
+---
+
+class: center, middle, inverse
+
+## Fill out course evals: https://gwu.smartevals.com/
+
+### (please be specific!)
+
+&lt;center&gt;
+&lt;img src="https://media.tenor.com/images/76f5c6f0db05171eef3ee586eba77410/tenor.gif" width=600&gt;
+&lt;/center&gt;
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

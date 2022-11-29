@@ -10,7 +10,16 @@ zip::zip(
     zipfile = paste0(lesson, ".zip"),
     files = c(
         'data',
-        'practice.Rmd',
-        'practice-solutions.Rmd',
+        'caseConverter_solution.R',
+        'caseConverter.R',
+        'federalSpending.R',
+        'federalSpendingCompare.R',
+        'html.R',
+        'internetUsers_solution.R',
+        'internetUsers.R',
+        'markdown.R',
+        'mpg.R',
+        'shinyWidgets.R',
+        'widgets.R',
         paste0(lesson, ".Rproj"))
 )
