@@ -30,4 +30,33 @@ maxPoints <- rubric %>%
     pull(max)
 ```
 
-Coming soon!
+Create a video recording of a slideshow presentation of your findings in your final report and publish it on the web (e.g. via Youtube, Vimeo, etc.). We will watch all the videos together during the period scheduled for the exam (December 14, 2021). Below is a list of specific items your presentation should include.
+
+## 1. Format
+
+- Your presentation should be no longer than 10 minutes in length (it can be shorter though).
+- Each team member must present at least one slide.
+- You may use as many slides as you feel helps you communicate your ideas, but keep the 10 minute limit in mind (<1 slide / min is probably a guideline).
+- Your title slide should include the project title, team member names, and the presentation date: May 05, 2021.
+- All slides should be numbered in the bottom-left or bottom-right corners.
+
+## 2. Recording strategies
+
+I recommend using Zoom to record your presentation. Have someone share their screen showing the slides and talk over the slides while recording the call.
+
+Another option is to use a screen recording program, such as Quicktime (mac only), to record a screen recording on someone talking over the slides, though this may be challenging if not all teammates can be in the same room.
+
+## 3. Content
+
+Your slides do not need to include the detailed code used to conduct your analysis - that should be accessible from your report. Rather, the purpose of your presentation is to present the "big picture" overview of your project. You should discuss:
+
+1. What you studied and why it matters (i.e. your research question).
+2. What data you used (describe your sources)
+3. What you found (show polished charts, discuss key results).
+4. Any conclusions or new hypotheses you learned from your analyses.
+
+## 4. Publish and submit
+
+Publish your video recording on the web (e.g. via Youtube, Vimeo, etc.). Only one team member needs to publish the video.
+
+Once your video is posted, create a zip file of your slides as a pdf and / or pptx. Name your file `final-presentation.zip`, then go to your team Box folder and submit your zip file in the "submissions" folder. **Only one person from your team should submit the report.**
