@@ -410,7 +410,49 @@
     "href": "project-final/3-final-report.html",
     "title": "Final Report",
     "section": "",
-    "text": "Coming soon!"
+    "text": "Your final report should be a fully reproducible html webpage. It should include text, data, code, and plots. Your report should be written in a narrative format (i.e. using coherent paragraphs rather than a series of bullet points). You may use headings where appropriate to break up your report into sections. There is no length requirement - your report should be sufficiently detailed to address the requirements listed below and sufficiently concise such that it is expressed in the fewest necessary words. It is also perfectly acceptable for large portions of your final report to be identical to sections in your progress report, albeit all results should be “polished” and publication ready. Below is a list of specific items your report should include."
+  },
+  {
+    "objectID": "project-final/3-final-report.html#get-organized",
+    "href": "project-final/3-final-report.html#get-organized",
+    "title": "Final Report",
+    "section": "1. Get organized",
+    "text": "1. Get organized\n\nDownload and unzip this template for your proposal report. Open the project.Rproj file and write your progress report in the report.Rmd file. The template comes with some text and code explaining how to use it - you should delete the template code and text as it is only for explanatory purposes. Be sure to adjust the content in the YAML:\n\nWrite your project title in the title field (and provide a subtitle if you wish, or delete the subtitle field).\nIn the author field, list the names of all teammates, e.g. author: Luke Skywalker, Leia Organa, and Han Solo.\n\nPut the data you are working with for your project in the appropriate folders. Even if you are reading in data directly from a website (e.g. data <- read_csv(\"www.somewhere.com/data.csv)), be sure to download a local copy of the data and put it in the appropriate data folder.\nAt the bottom of your report, add an Appendix section that includes data dictionaries for the key data sets used in your analysis as well as a copy of all of the code used in your report, which can be automatically generated with a single chunk like this:\n\n```{r ref.label=knitr::all_labels(), echo=TRUE, eval=FALSE}\n```"
+  },
+  {
+    "objectID": "project-final/3-final-report.html#state-your-research-question",
+    "href": "project-final/3-final-report.html#state-your-research-question",
+    "title": "Final Report",
+    "section": "2. State your research question",
+    "text": "2. State your research question\nClearly state your research question and motivate why it is important / why the reader should care about it. You should follow these guidelines."
+  },
+  {
+    "objectID": "project-final/3-final-report.html#discuss-your-data-sources",
+    "href": "project-final/3-final-report.html#discuss-your-data-sources",
+    "title": "Final Report",
+    "section": "3. Discuss your data sources",
+    "text": "3. Discuss your data sources\nDiscuss the data source(s) you are using for your analysis. For each data source:\n\nDescribe it and include urls or references to the original sources as well as links to any pre-processed or formatted data you are using. These are not always the same. For example, in the Mini Project 1 assignment, the original source was the Transit Costs Project whereas the data file used was posted on this GitHub repo.\nDiscuss the validity of your data:\n\nIs the data you are using from the original source, or has it been pre-processed?\nHow was the original data collected and by whom?\nAre there perhaps any missing data that might not have been observed?\nCould the data be biased in some way?\n\nFinally, provide a data dictionary for each data file you are using in an appendix at the end of your report. The dictionary should contain a table of each variable name along with a brief description of the variable."
+  },
+  {
+    "objectID": "project-final/3-final-report.html#describe-your-results-with-text-and-charts",
+    "href": "project-final/3-final-report.html#describe-your-results-with-text-and-charts",
+    "title": "Final Report",
+    "section": "4. Describe your results with text and charts",
+    "text": "4. Describe your results with text and charts\n\nDisplay polished charts that either support or oppose your research question or illustrate what else you might need to address your research question.\nYour charts should be “polished” with appropriate labels and follow the design principles we have covered in class.\nYour plot type choices should highlight the main point(s) you want to make or clearly show the relationship you want to emphasize.\nAround your charts, write narrative text explaining what the chart shows and its significance towards addressing your research question. This should read as a continuous story rather than as a reply to each of the requirements described here.\nYour analysis must include at least three polished charts / animations, though you can of course include more. Alternatively, you can build an interactive shiny app with at least two dynamic charts. If you build a shiny app, include a link to your app and screenshots of key charts from your app in your final report."
+  },
+  {
+    "objectID": "project-final/3-final-report.html#review-your-teammates",
+    "href": "project-final/3-final-report.html#review-your-teammates",
+    "title": "Final Report",
+    "section": "5. Review your teammates",
+    "text": "5. Review your teammates\nFor students working in teams: On Blackboard under the assignment titled “Team Member Review: Final Report”, submit a short description of the specific contributions of each team member in your team (this is one of the only things I’ll ask for on Blackboard). Here is an example review:\nStudent A identified the data source and wrote the documentation for it. Student B led the data cleaning process and did much of the initial data exploration. Student C helped write code for the main visualizations.\nThese reviews will be kept confidential and compared to assess that the workload and grading for team members are equitable. Team members who do not make meaningful contributions to their projects will not receive the same grade as that of their team mates."
+  },
+  {
+    "objectID": "project-final/3-final-report.html#knit-and-submit",
+    "href": "project-final/3-final-report.html#knit-and-submit",
+    "title": "Final Report",
+    "section": "6. Knit and submit",
+    "text": "6. Knit and submit\n\nClick the “knit” button to compile your .Rmd file into a html web page.\nSpell check your report by running: spelling::spell_check_files(\"report.Rmd\").\nProofread your html webpage! If any fixes are needed, repeat steps 1 & 2.\nCreate a zip file of everything in your R Project folder. Name your file final-report.zip, then go to your team Box folder and submit your zip file in the “submissions” folder. Only one person from your team should submit the report."
   },
   {
     "objectID": "project-final/4-final-presentation.html",
