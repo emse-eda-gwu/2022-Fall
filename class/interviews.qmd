@@ -6,4 +6,34 @@ title: Final Interviews
 source(here::here("R", "settings.R"))
 ```
 
-Coming soon!
+> **Due**: Students will sign up for individual meetings during finals week (Dec 12 - 13).
+>
+> **Weight**: This assignment is worth 10% of your final grade.
+>
+> **Assessment**: Your submission will be assessed using the [rubric](#grading-rubric) at the bottom of this page.
+
+The instructor will hold a 10-minute one-on-one interview with each student. The interview will consist of questions about your final project as well as questions about core concepts covered during the course. The full list of question can be seen [here](../content/questions.html).
+
+Some suggestions:
+
+1. Bring water to drink - it will calm you when you are nervous and your mouth dries up. You can also pause and think while you drink.
+2. Don't answer right away - think a bit.
+3. Answer the question asked. Don't try to impress or I will ask more questions.
+4. Don't say "I don't know." Try and I will help you.
+
+
+# Grading Rubric
+
+### 100 Total Points
+
+You will be asked 10 questions; for each question, you will be assigned points based on this scale:
+
+Points | Description
+-------|------------------------------------------------
+10     | Answers immediately and correctly without hesitation
+9      | Answers correctly after some initial struggles
+8      | Answers mostly correct after some time
+7      | Answers mostly correct after some time and some help
+6      | Answers mostly correctly after considerable help
+5      | Poor or partial answer, even after considerable help
+0      | Cannot answer even with considerable help
