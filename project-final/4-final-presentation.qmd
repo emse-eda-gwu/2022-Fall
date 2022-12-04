@@ -30,6 +30,9 @@ maxPoints <- rubric %>%
     pull(max)
 ```
 
+```{r child = here::here("fragments", "project.qmd")}
+```
+
 Create a video recording of a slideshow presentation of your findings in your final report and publish it on the web (e.g. via Youtube, Vimeo, etc.). We will watch all the videos together during the period scheduled for the exam (December 14, 2021). Below is a list of specific items your presentation should include.
 
 ## 1. Format
