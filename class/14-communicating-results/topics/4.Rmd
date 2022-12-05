@@ -1,0 +1,9 @@
+
+class: inverse, middle
+
+# Week `r rmarkdown::metadata$week`: .fancy[`r rmarkdown::metadata$title`]
+
+## 1. Telling a story
+## 2. Designing slides
+## 3. Giving a talk
+## 4. .orange["Final" thoughts]
