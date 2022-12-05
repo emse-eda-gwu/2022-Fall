@@ -20,3 +20,6 @@ order,category,label,rating,maxPoints,points,description
 7,technical,Technical things,Excellent,5,5,All code runs without errors; all files included in the submitted .zip file.
 7,technical,Technical things,Good,5,4,"Code has only one or two error, otherwise runs; all files included in the submitted .zip file."
 7,technical,Technical things,Needs work,5,3,Code has multiple errors; submitted .zip file is missing components necessary to reproduce analysis.
+9,contributions,Individual Contributions,Excellent,8,8 / 7,"(Individual score): Based on reviews by team members, the team member made substantial contributions to this assignment. Individual also submitted a review. "
+9,contributions,Individual Contributions,Good,8,6 / 5,"(Individual score): Based on reviews by team members, the team member made contributions to this assignment, but contributions were late or incomplete. Individual also submitted a review."
+9,contributions,Individual Contributions,Needs work,8,4 / 3 / 2 / 1 / 0,"(Individual score): Based on reviews by team members, the team member made little to no contributions to this assignment. Individual’s peer review is missing."
