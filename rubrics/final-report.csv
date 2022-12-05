@@ -14,6 +14,9 @@ order,category,label,rating,maxPoints,points,description
 5,visualizations,Visualizations,Excellent,30,27 - 30,Charts expertly demonstrate best practices of visual design; charts are functionally accurate and address research questions; appropriate chart types used for conveying key messages; annotations are appropriate; minimum of 3 charts met.
 5,visualizations,Visualizations,Good,30,22 - 26,"Charts generally demonstrate best practices of visual design; some elements are distracting or confusing; some annotations missing, incomplete, or inaccurate; minimum of 3 charts not met."
 5,visualizations,Visualizations,Needs work,30,15 - 21,Charts generally lack best practices of visual design; multiple confusing or unclear / distracting elements; unrelated to research question; minimum of 3 charts notmet.
-7,technical,Technical things,Excellent,5,5,All code runs without errors; all files included in the submitted .zip file; report is published on RPubs.
-7,technical,Technical things,Good,5,4,"Code has only one or two error, otherwise runs; all files included in the submitted .zip file; or report is not published on RPubs"
-7,technical,Technical things,Needs work,5,3 / 2,Code has multiple errors; submitted .zip file is missing components necessary to reproduce analysis; report not published on RPubs.
+7,technical,Technical Things,Excellent,5,5,All code runs without errors; all files included in the submitted .zip file; report is published on RPubs.
+7,technical,Technical Things,Good,5,4,"Code has only one or two error, otherwise runs; all files included in the submitted .zip file; or report is not published on RPubs"
+7,technical,Technical Things,Needs work,5,3 / 2,Code has multiple errors; submitted .zip file is missing components necessary to reproduce analysis; report not published on RPubs.
+9,contributions,Individual Contributions,Excellent,8,8 / 7,"(Individual score): Based on reviews by team members, the team member made substantial contributions to this assignment. Individual also submitted a review. "
+9,contributions,Individual Contributions,Good,8,6 / 5,"(Individual score): Based on reviews by team members, the team member made contributions to this assignment, but contributions were late or incomplete. Individual also submitted a review."
+9,contributions,Individual Contributions,Needs work,8,4 / 3 / 2 / 1 / 0,"(Individual score): Based on reviews by team members, the team member made little to no contributions to this assignment. Individual’s peer review is missing."
