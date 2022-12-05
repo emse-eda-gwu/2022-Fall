@@ -63,3 +63,21 @@ Your slides do not need to include the detailed code used to conduct your analys
 Publish your video recording on the web (e.g. via Youtube, Vimeo, etc.). Only one team member needs to publish the video.
 
 Once your video is posted, create a zip file of your slides as a pdf and / or pptx. Name your file `final-presentation.zip`, then go to your team Box folder and submit your zip file in the "submissions" folder. **Only one person from your team should submit the report.**
+
+# Grading Rubric
+
+### `r maxPoints` Total Points
+
+```{r, echo=FALSE}
+rubric %>%
+  mutate(description = paste0("<b>", points, '</b><br>', description)) %>%
+  select(-points) %>%
+  spread(key = rating, value = description) %>%
+  select(-category) %>%
+  rename(Category = label) %>%
+  arrange(order) %>%
+  select(-order) %>%
+  select(-maxPoints) %>%
+  kable(format = 'html', escape = FALSE) %>%
+  kable_styling(bootstrap_options = "striped")
+```
