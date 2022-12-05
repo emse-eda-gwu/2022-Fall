@@ -81,32 +81,30 @@ Discuss the data source(s) you are using for your analysis. For each data source
 
 (this is one of the only things I'll ask for on Blackboard)
 
-On Blackboard under the assignment titled "Team Member Review: Final Report", review each of your team members' contributions to the project. For each member, do the following:
+On Blackboard under the assignment titled "Team Member Review: Final Report", write a short description of the specific contributions the team member made throughout the whole project (from proposal to the final report). Note down if there are any team members you feel have done an exceptional job (gone beyond what was required) or have not contributed in a significant way (e.g. does not respond to team communications, turns in parts they are responsible for late or never).
 
-- Write a short description of the specific contributions the team member made throughout the whole project (from proposal to the final report).
-- Provide an honest breakdown of how the team member contributed to the project (totaling to 100%).
+These reviews will be kept confidential and compared to assess that the workload and grading for team members are equitable. Team members who do not make meaningful contributions to their projects will not receive the same grade as that of their teammates.
 
 Here is an example review:
 
 ```
-John (30%):
+John:
 
 - Identified the data source and wrote the documentation for it.
 - Helped with initial data cleaning.you
 - Wrote introduction section of all reports.
 
-Jane (30%):
+Jane:
 
  - Completed final data cleaning process.
  - Did most of the initial data exploration, including most of the charts in the progress report.
 
-Paul (40%):
+Paul:
 
 - Wrote code for the final, polished visualizations.
 - Did most of the remaining writing of the final report.
 ```
 
-These reviews will be kept confidential and compared to assess that the workload and grading for team members are equitable. Team members who do not make meaningful contributions to their projects will not receive the same grade as that of their teammates.
 
 ## 6. Knit and submit
 
