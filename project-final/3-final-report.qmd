@@ -105,7 +105,6 @@ Paul:
 - Did most of the remaining writing of the final report.
 ```
 
-
 ## 6. Knit and submit
 
 1. Click the "knit" button to compile your `.Rmd` file into a html web page.
