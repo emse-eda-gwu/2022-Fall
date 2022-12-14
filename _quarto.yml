@@ -159,6 +159,8 @@ website:
           href: help/other.qmd
       - icon: slack
         href: https://emse-eda-f22.slack.com
+      - text: Showcase
+        href: https://eda.seas.gwu.edu/showcase-2022-fall.html
     right:
     - icon: list
       menu:
