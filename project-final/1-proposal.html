@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.475">
+<meta name="generator" content="quarto-1.3.433">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -17,7 +17,7 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
 </style>
@@ -56,7 +56,8 @@ ul.task-list li input[type="checkbox"] {
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
@@ -69,17 +70,15 @@ ul.task-list li input[type="checkbox"] {
 
 <link rel="stylesheet" href="../styles.css">
 <meta property="og:title" content="EMSE 4572 - Project Proposal">
-<meta property="og:description" content="Write a proposal of an exploratory data analysis that you plan to conduct for your final project.">
+<meta property="og:description" content="">
 <meta property="og:site-name" content="https://eda.seas.gwu.edu/">
 <meta property="og:locale" content="es_ES">
 <meta name="twitter:title" content="EMSE 4572 - Project Proposal">
-<meta name="twitter:description" content="Write a proposal of an exploratory data analysis that you plan to conduct for your final project.">
-<meta name="twitter:image" content="https://eda.seas.gwu.edu/2022-Fall/images/logo-square.png">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="https://eda.seas.gwu.edu/2022-Fall/project-final/images/logo-square.png">
 <meta name="twitter:creator" content="@johnhelveston">
 <meta name="twitter:site" content="@johnhelveston">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image-height" content="807">
-<meta name="twitter:image-width" content="807">
 </head>
 
 <body class="floating nav-fixed">
@@ -93,291 +92,293 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">EMSE 4572</span>
     </a>
   </div>
+            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html">
+    <a class="nav-link" href="../index.html" rel="" target="">
  <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../syllabus.html">
+    <a class="nav-link" href="../syllabus.html" rel="" target="">
  <span class="menu-text">Syllabus</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../schedule.html">
+    <a class="nav-link" href="../schedule.html" rel="" target="">
  <span class="menu-text">Schedule</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-class" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-class" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
  <span class="menu-text">Class</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-class">    
         <li>
-    <a class="dropdown-item" href="../class/1-getting-started.html">
+    <a class="dropdown-item" href="../class/1-getting-started.html" rel="" target="">
  <span class="dropdown-text">Aug 31: Getting Started</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../class/2-tidy-data.html">
+    <a class="dropdown-item" href="../class/2-tidy-data.html" rel="" target="">
  <span class="dropdown-text">Sep 07: Tidy Data</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../class/3-cleaning-data.html">
+    <a class="dropdown-item" href="../class/3-cleaning-data.html" rel="" target="">
  <span class="dropdown-text">Sep 14: Cleaning Data</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../class/4-centrality-variability.html">
+    <a class="dropdown-item" href="../class/4-centrality-variability.html" rel="" target="">
  <span class="dropdown-text">Sep 21: Centrality &amp; Variability</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../class/5-correlation.html">
+    <a class="dropdown-item" href="../class/5-correlation.html" rel="" target="">
  <span class="dropdown-text">Sep 28: Correlation</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../class/6-visualizing-information.html">
+    <a class="dropdown-item" href="../class/6-visualizing-information.html" rel="" target="">
  <span class="dropdown-text">Oct 05: Visualizing Information</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../class/7-amounts-proportions.html">
+    <a class="dropdown-item" href="../class/7-amounts-proportions.html" rel="" target="">
  <span class="dropdown-text">Oct 12: Amounts &amp; Proportions</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../class/8-comparisons.html">
+    <a class="dropdown-item" href="../class/8-comparisons.html" rel="" target="">
  <span class="dropdown-text">Oct 19: Comparisons</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../class/9-trends.html">
+    <a class="dropdown-item" href="../class/9-trends.html" rel="" target="">
  <span class="dropdown-text">Oct 26: Trends</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../class/10-polishing-charts.html">
+    <a class="dropdown-item" href="../class/10-polishing-charts.html" rel="" target="">
  <span class="dropdown-text">Nov 02: Polishing Charts</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../class/11-maps.html">
+    <a class="dropdown-item" href="../class/11-maps.html" rel="" target="">
  <span class="dropdown-text">Nov 09: Maps</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../class/12-interactive-charts.html">
+    <a class="dropdown-item" href="../class/12-interactive-charts.html" rel="" target="">
  <span class="dropdown-text">Nov 16: Interactive Charts</span></a>
   </li>  
         <li class="dropdown-header">Nov 23: Thanksgiving - no class</li>
         <li>
-    <a class="dropdown-item" href="../class/13-shiny-apps.html">
+    <a class="dropdown-item" href="../class/13-shiny-apps.html" rel="" target="">
  <span class="dropdown-text">Nov 30: Shiny Apps</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../class/14-communicating-results.html">
+    <a class="dropdown-item" href="../class/14-communicating-results.html" rel="" target="">
  <span class="dropdown-text">Dec 07: Communicating Results</span></a>
   </li>  
         <li class="dropdown-header">Dec 14: Final Presentations</li>
         <li>
-    <a class="dropdown-item" href="../class/interviews.html">
+    <a class="dropdown-item" href="../class/interviews.html" rel="" target="">
  <span class="dropdown-text">Final Interviews</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-assignments" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-assignments" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
  <span class="menu-text">Assignments</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-assignments">    
         <li>
-    <a class="dropdown-item" href="../hw/0-course-primer.html">
+    <a class="dropdown-item" href="../hw/0-course-primer.html" rel="" target="">
  <span class="dropdown-text">Course Primer (optional)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../hw/1-tidy-data.html">
+    <a class="dropdown-item" href="../hw/1-tidy-data.html" rel="" target="">
  <span class="dropdown-text">Aug 31: Tidy Data (Due Sep 06)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../hw/2-cleaning-data.html">
+    <a class="dropdown-item" href="../hw/2-cleaning-data.html" rel="" target="">
  <span class="dropdown-text">Sep 07: Cleaning Data (Due Sep 13)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../hw/3-centrality-variability.html">
+    <a class="dropdown-item" href="../hw/3-centrality-variability.html" rel="" target="">
  <span class="dropdown-text">Sep 14: Centrality &amp; Variability (Due Sep 20)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../hw/4-correlation.html">
+    <a class="dropdown-item" href="../hw/4-correlation.html" rel="" target="">
  <span class="dropdown-text">Sep 21: Correlation (Due Sep 27)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../hw/5-visualizing-information.html">
+    <a class="dropdown-item" href="../hw/5-visualizing-information.html" rel="" target="">
  <span class="dropdown-text">Sep 28: Visualizing Information (Due Oct 04)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../hw/6-amounts-proportions.html">
+    <a class="dropdown-item" href="../hw/6-amounts-proportions.html" rel="" target="">
  <span class="dropdown-text">Oct 05: Amounts &amp; Proportions (Due Oct 11)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../hw/7-comparisons.html">
+    <a class="dropdown-item" href="../hw/7-comparisons.html" rel="" target="">
  <span class="dropdown-text">Oct 12: Comparisons (Due Oct 18)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../hw/8-trends.html">
+    <a class="dropdown-item" href="../hw/8-trends.html" rel="" target="">
  <span class="dropdown-text">Oct 19: Trends (Due Oct 25)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../hw/9-polishing-charts.html">
+    <a class="dropdown-item" href="../hw/9-polishing-charts.html" rel="" target="">
  <span class="dropdown-text">Oct 26: Polishing Charts (Due Nov 01)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../hw/10-maps.html">
+    <a class="dropdown-item" href="../hw/10-maps.html" rel="" target="">
  <span class="dropdown-text">Nov 02: Maps (Due Nov 08)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../hw/11-interactive-charts.html">
+    <a class="dropdown-item" href="../hw/11-interactive-charts.html" rel="" target="">
  <span class="dropdown-text">Nov 09: Interactive Charts (Due Nov 15)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../hw/12-communicating-results.html">
+    <a class="dropdown-item" href="../hw/12-communicating-results.html" rel="" target="">
  <span class="dropdown-text">Nov 30: Communicating Results (Due Dec 06)</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-mini-projects" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-mini-projects" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
  <span class="menu-text">Mini Projects</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-mini-projects">    
         <li>
-    <a class="dropdown-item" href="../project-mini/1-data-cleaning.html">
+    <a class="dropdown-item" href="../project-mini/1-data-cleaning.html" rel="" target="">
  <span class="dropdown-text">Data Cleaning (Due Sep 27)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../project-mini/2-exploring-data.html">
+    <a class="dropdown-item" href="../project-mini/2-exploring-data.html" rel="" target="">
  <span class="dropdown-text">Exploring Data (Due Oct 18)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../project-mini/3-re-design.html">
+    <a class="dropdown-item" href="../project-mini/3-re-design.html" rel="" target="">
  <span class="dropdown-text">Re-design (Due Nov 15)</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-final-project" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-final-project" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
  <span class="menu-text">Final Project</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-final-project">    
         <li>
-    <a class="dropdown-item" href="../project-final/0-overview.html">
+    <a class="dropdown-item" href="../project-final/0-overview.html" rel="" target="">
  <span class="dropdown-text">Project Overview</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../project-final/1-proposal.html">
+    <a class="dropdown-item" href="../project-final/1-proposal.html" rel="" target="">
  <span class="dropdown-text">Proposal (Due Oct 04)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../project-final/2-progress-report.html">
+    <a class="dropdown-item" href="../project-final/2-progress-report.html" rel="" target="">
  <span class="dropdown-text">Progress Report (Due Nov 01)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../project-final/3-final-report.html">
+    <a class="dropdown-item" href="../project-final/3-final-report.html" rel="" target="">
  <span class="dropdown-text">Final Report (Due Dec 11)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../project-final/4-final-presentation.html">
+    <a class="dropdown-item" href="../project-final/4-final-presentation.html" rel="" target="">
  <span class="dropdown-text">Final Presentation (Due Dec 13)</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-help" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-help" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
  <span class="menu-text">Help</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-help">    
         <li>
-    <a class="dropdown-item" href="https://jhelvy.appointlet.com/b/professor-helveston"><i class="bi bi-person" role="img">
+    <a class="dropdown-item" href="https://jhelvy.appointlet.com/b/professor-helveston" rel="" target=""><i class="bi bi-person" role="img">
 </i> 
  <span class="dropdown-text">Schedule a call w/Prof.&nbsp;Helveston</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../help/example-projects.html"><i class="bi bi-file-earmark-medical" role="img">
+    <a class="dropdown-item" href="../help/example-projects.html" rel="" target=""><i class="bi bi-file-earmark-medical" role="img">
 </i> 
  <span class="dropdown-text">Example Projects</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../help/finding-data.html"><i class="bi bi-search" role="img">
+    <a class="dropdown-item" href="../help/finding-data.html" rel="" target=""><i class="bi bi-search" role="img">
 </i> 
  <span class="dropdown-text">Finding Data</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../help/course-software.html"><i class="bi bi-hdd" role="img">
+    <a class="dropdown-item" href="../help/course-software.html" rel="" target=""><i class="bi bi-hdd" role="img">
 </i> 
  <span class="dropdown-text">Course Software</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../help/getting-help.html"><i class="bi bi-question-circle" role="img">
+    <a class="dropdown-item" href="../help/getting-help.html" rel="" target=""><i class="bi bi-question-circle" role="img">
 </i> 
  <span class="dropdown-text">Getting Help</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../help/visualizing-data.html"><i class="bi bi-bar-chart" role="img">
+    <a class="dropdown-item" href="../help/visualizing-data.html" rel="" target=""><i class="bi bi-bar-chart" role="img">
 </i> 
  <span class="dropdown-text">Visualizing Data</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../help/programming.html"><i class="bi bi-terminal" role="img">
+    <a class="dropdown-item" href="../help/programming.html" rel="" target=""><i class="bi bi-terminal" role="img">
 </i> 
  <span class="dropdown-text">Programming in R</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../help/rmarkdown.html"><i class="bi bi-pen" role="img">
+    <a class="dropdown-item" href="../help/rmarkdown.html" rel="" target=""><i class="bi bi-pen" role="img">
 </i> 
  <span class="dropdown-text">R Markdown</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../help/other.html"><i class="bi bi-chevron-expand" role="img">
+    <a class="dropdown-item" href="../help/other.html" rel="" target=""><i class="bi bi-chevron-expand" role="img">
 </i> 
  <span class="dropdown-text">Other</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item compact">
-    <a class="nav-link" href="https://emse-eda-f22.slack.com"><i class="bi bi-slack" role="img">
+    <a class="nav-link" href="https://emse-eda-f22.slack.com" rel="" target=""><i class="bi bi-slack" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://eda.seas.gwu.edu/showcase-2022-fall.html">
+    <a class="nav-link" href="https://eda.seas.gwu.edu/showcase/2022-fall.html" rel="" target="">
  <span class="menu-text">Showcase</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-bi-list" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-bi-list" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
       <i class="bi bi-list" role="img">
 </i> 
  <span class="menu-text"></span>
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-bi-list">    
         <li>
-    <a class="dropdown-item" href="../about.html"><i class="bi bi-question-circle" role="img">
+    <a class="dropdown-item" href="../about.html" rel="" target=""><i class="bi bi-question-circle" role="img">
 </i> 
  <span class="dropdown-text">About</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../LICENSE.html"><i class="bi bi-award" role="img">
+    <a class="dropdown-item" href="../LICENSE.html" rel="" target=""><i class="bi bi-award" role="img">
 </i> 
  <span class="dropdown-text">License</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="mailto:jph@gwu.edu"><i class="bi bi-envelope" role="img">
+    <a class="dropdown-item" href="mailto:jph@gwu.edu" rel="" target=""><i class="bi bi-envelope" role="img">
 </i> 
  <span class="dropdown-text">Contact</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="https://github.com/emse-eda-gwu/2022-Fall"><i class="bi bi-github" role="img">
+    <a class="dropdown-item" href="https://github.com/emse-eda-gwu/2022-Fall" rel="" target=""><i class="bi bi-github" role="img">
 </i> 
  <span class="dropdown-text">Source files</span></a>
   </li>  
     </ul>
   </li>
 </ul>
-              <div id="quarto-search" class="" title="Search"></div>
+            <div class="quarto-navbar-tools">
+</div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
@@ -385,7 +386,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Table of contents</h2>
    
@@ -402,6 +403,7 @@ ul.task-list li input[type="checkbox"] {
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/emse-eda-gwu/2022-Fall/edit/main/project-final/1-proposal.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/emse-eda-gwu/2022-Fall/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
 </nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
     </div>
@@ -425,9 +427,6 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<div class="cell" data-layout-align="center">
-
-</div>
 <blockquote class="blockquote">
 <p><strong>Due</strong>: Oct 04 by 11:59pm</p>
 <p><strong>Weight</strong>: This assignment is worth 9% of your final grade.</p>
@@ -483,49 +482,70 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="anchored" data-anchor-id="total-points">40 Total Points</h3>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-
-<table class="table table-striped" style="margin-left: auto; margin-right: auto;">
- <thead>
-  <tr>
-   <th style="text-align:left;"> Category </th>
-   <th style="text-align:left;"> Excellent </th>
-   <th style="text-align:left;"> Good </th>
-   <th style="text-align:left;"> Needs work </th>
-  </tr>
- </thead>
+<table class="table table-striped table-sm small" data-quarto-postprocess="true">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Category</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Excellent</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Good</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Needs work</th>
+</tr>
+</thead>
 <tbody>
-  <tr>
-   <td style="text-align:left;"> Organization &amp; Formatting </td>
-   <td style="text-align:left;"> <b>5</b><br>All formatting guidelines are followed; YAML is correct with all team members listed. </td>
-   <td style="text-align:left;"> <b>4</b><br>Most formatting guidelines are followed; YAML is correct with all team members listed. </td>
-   <td style="text-align:left;"> <b>3</b><br>Several or all formatting guidelines not followed; YAML contains elements that aren't updated from the template. </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Research Question </td>
-   <td style="text-align:left;"> <b>10 / 9</b><br>Research question is clear, focused, concise, complex, and arguable. </td>
-   <td style="text-align:left;"> <b>8 / 7 / 6</b><br>Research question is reasonably clear and focused, but may be too simple, too complex, or too verbose. </td>
-   <td style="text-align:left;"> <b>5 / 4 / 3</b><br>Research question is unclear and lacks focus; question is far too simple or overly complex. </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Data Sources </td>
-   <td style="text-align:left;"> <b>10 / 9</b><br>Data sources or plausible data sources are clearly described; validity of and concerns about data are discussed. </td>
-   <td style="text-align:left;"> <b>8 / 7 / 6</b><br>Identified data sources or plausible data sources are not clearly described; validity of and concerns about data are minimally discussed. </td>
-   <td style="text-align:left;"> <b>5 / 4 / 3</b><br>Data sources are poorly described or missing; description of validity of and concerns about data are poor or missing. </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Anticipated Results </td>
-   <td style="text-align:left;"> <b>10 / 9</b><br>Detailed description of: 1) two variables and their expected distribution; 2) two expected relationships; 3) two charts that help visualize expected relationships; and 4) how chosen variables will inform research questions. </td>
-   <td style="text-align:left;"> <b>8 / 7 / 6</b><br>Detailed description of only one expected variable, relationship, or chart; minimal description of two expected variables, relationships, or charts; minimal description of links between variables and research question. </td>
-   <td style="text-align:left;"> <b>5 / 4 / 3</b><br>Poor or missing descriptions of variables, relationships, or charts; poor or missing description between variables and research question. </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Technical things </td>
-   <td style="text-align:left;"> <b>5</b><br>All code runs without errors; all files included in the submitted .zip file. </td>
-   <td style="text-align:left;"> <b>4</b><br>Code has only one or two error, otherwise runs; all files included in the submitted .zip file. </td>
-   <td style="text-align:left;"> <b>3</b><br>Code has multiple errors; submitted .zip file is missing components necessary to reproduce analysis. </td>
-  </tr>
+<tr class="odd">
+<td style="text-align: left;">Organization &amp; Formatting</td>
+<td style="text-align: left;"><strong>5</strong><br>
+All formatting guidelines are followed; YAML is correct with all team members listed.</td>
+<td style="text-align: left;"><strong>4</strong><br>
+Most formatting guidelines are followed; YAML is correct with all team members listed.</td>
+<td style="text-align: left;"><strong>3</strong><br>
+Several or all formatting guidelines not followed; YAML contains elements that aren't updated from the template.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Research Question</td>
+<td style="text-align: left;"><strong>10 / 9</strong><br>
+Research question is clear, focused, concise, complex, and arguable.</td>
+<td style="text-align: left;"><strong>8 / 7 / 6</strong><br>
+Research question is reasonably clear and focused, but may be too simple, too complex, or too verbose.</td>
+<td style="text-align: left;"><strong>5 / 4 / 3</strong><br>
+Research question is unclear and lacks focus; question is far too simple or overly complex.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Data Sources</td>
+<td style="text-align: left;"><strong>10 / 9</strong><br>
+Data sources or plausible data sources are clearly described; validity of and concerns about data are discussed.</td>
+<td style="text-align: left;"><strong>8 / 7 / 6</strong><br>
+Identified data sources or plausible data sources are not clearly described; validity of and concerns about data are minimally discussed.</td>
+<td style="text-align: left;"><strong>5 / 4 / 3</strong><br>
+Data sources are poorly described or missing; description of validity of and concerns about data are poor or missing.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Anticipated Results</td>
+<td style="text-align: left;"><strong>10 / 9</strong><br>
+Detailed description of: 1) two variables and their expected distribution; 2) two expected relationships; 3) two charts that help visualize expected relationships; and 4) how chosen variables will inform research questions.</td>
+<td style="text-align: left;"><strong>8 / 7 / 6</strong><br>
+Detailed description of only one expected variable, relationship, or chart; minimal description of two expected variables, relationships, or charts; minimal description of links between variables and research question.</td>
+<td style="text-align: left;"><strong>5 / 4 / 3</strong><br>
+Poor or missing descriptions of variables, relationships, or charts; poor or missing description between variables and research question.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Technical things</td>
+<td style="text-align: left;"><strong>5</strong><br>
+All code runs without errors; all files included in the submitted .zip file.</td>
+<td style="text-align: left;"><strong>4</strong><br>
+Code has only one or two error, otherwise runs; all files included in the submitted .zip file.</td>
+<td style="text-align: left;"><strong>3</strong><br>
+Code has multiple errors; submitted .zip file is missing components necessary to reproduce analysis.</td>
+</tr>
 </tbody>
 </table>
+
 
 </div>
 </div>
@@ -562,9 +582,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -629,6 +663,92 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
@@ -667,12 +787,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-      var filterRegex = new RegExp(/https:\/\/eda\.seas\.gwu\.edu\/2022-Fall\//);
+      var filterRegex = new RegExp("https:\/\/eda\.seas\.gwu\.edu\/2022-Fall\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
-    var links = window.document.querySelectorAll('a:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
@@ -685,13 +805,19 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-      <div class="nav-footer-center">
-        <ul class="footer-items list-unstyled">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+      <ul class="footer-items list-unstyled">
     <li class="nav-item">
  © 2022 John Paul Helveston <a href="LICENSE.html"><i class="fab fa-creative-commons"></i><i class="fab fa-creative-commons-by"></i><i class="fab fa-creative-commons-sa"></i></a><br><i class="far fa-calendar-alt"></i> Wednesdays | <i class="far fa-clock"></i> 12:45PM - 3:15PM EST | <a href="https://acadtech.gwu.edu/location?id=373&amp;campus=FB&amp;type=building&amp;selection=36"><i class="fa fa-map-marker-alt"></i> 1776 G St C-119</a> | <a href="https://www.jhelvy.com"><i class="fas fa-user"></i> Dr. John Paul Helveston</a> | <a href="mailto:jph@gwu.edu"><i class="fas fa-envelope"></i> jph@gwu.edu</a> | <a href="https://github.com/emse-eda-gwu/2022-Fall"><i class="fab fa-github"></i></a>
   </li>  
 </ul>
-      </div>
+    </div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
   </div>
 </footer>
 
