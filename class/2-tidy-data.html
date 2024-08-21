@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.433">
+<meta name="generator" content="quarto-1.5.56">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>EMSE 4572 - Tidy Data</title>
+<title>Tidy Data – EMSE 4572</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -46,7 +46,12 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -55,6 +60,7 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -67,10 +73,13 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="../styles.css">
-<meta property="og:title" content="EMSE 4572 - Tidy Data">
-<meta property="og:site-name" content="https://eda.seas.gwu.edu/">
+<meta property="og:title" content="Tidy Data – EMSE 4572">
+<meta property="og:description" content="Course website for Fall 2022 semester of the EMSE course “Exploratory Data Analysis” at GWU">
+<meta property="og:image" content="https://eda.seas.gwu.edu/2022-Fall/class/images/logo.png">
+<meta property="og:site_name" content="https://eda.seas.gwu.edu/">
 <meta property="og:locale" content="es_ES">
-<meta name="twitter:title" content="EMSE 4572 - Tidy Data">
+<meta name="twitter:title" content="Tidy Data – EMSE 4572">
+<meta name="twitter:description" content="Course website for Fall 2022 semester of the EMSE course “Exploratory Data Analysis” at GWU">
 <meta name="twitter:image" content="https://eda.seas.gwu.edu/2022-Fall/class/images/logo-square.png">
 <meta name="twitter:creator" content="@johnhelveston">
 <meta name="twitter:site" content="@johnhelveston">
@@ -81,301 +90,301 @@ ul.task-list li input[type="checkbox"] {
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">EMSE 4572</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html" rel="" target="">
- <span class="menu-text">Home</span></a>
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../syllabus.html" rel="" target="">
- <span class="menu-text">Syllabus</span></a>
+    <a class="nav-link" href="../syllabus.html"> 
+<span class="menu-text">Syllabus</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../schedule.html" rel="" target="">
- <span class="menu-text">Schedule</span></a>
+    <a class="nav-link" href="../schedule.html"> 
+<span class="menu-text">Schedule</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-class" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-class" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Class</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-class">    
         <li>
-    <a class="dropdown-item" href="../class/1-getting-started.html" rel="" target="">
+    <a class="dropdown-item" href="../class/1-getting-started.html">
  <span class="dropdown-text">Aug 31: Getting Started</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../class/2-tidy-data.html" rel="" target="">
+    <a class="dropdown-item" href="../class/2-tidy-data.html">
  <span class="dropdown-text">Sep 07: Tidy Data</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../class/3-cleaning-data.html" rel="" target="">
+    <a class="dropdown-item" href="../class/3-cleaning-data.html">
  <span class="dropdown-text">Sep 14: Cleaning Data</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../class/4-centrality-variability.html" rel="" target="">
+    <a class="dropdown-item" href="../class/4-centrality-variability.html">
  <span class="dropdown-text">Sep 21: Centrality &amp; Variability</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../class/5-correlation.html" rel="" target="">
+    <a class="dropdown-item" href="../class/5-correlation.html">
  <span class="dropdown-text">Sep 28: Correlation</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../class/6-visualizing-information.html" rel="" target="">
+    <a class="dropdown-item" href="../class/6-visualizing-information.html">
  <span class="dropdown-text">Oct 05: Visualizing Information</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../class/7-amounts-proportions.html" rel="" target="">
+    <a class="dropdown-item" href="../class/7-amounts-proportions.html">
  <span class="dropdown-text">Oct 12: Amounts &amp; Proportions</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../class/8-comparisons.html" rel="" target="">
+    <a class="dropdown-item" href="../class/8-comparisons.html">
  <span class="dropdown-text">Oct 19: Comparisons</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../class/9-trends.html" rel="" target="">
+    <a class="dropdown-item" href="../class/9-trends.html">
  <span class="dropdown-text">Oct 26: Trends</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../class/10-polishing-charts.html" rel="" target="">
+    <a class="dropdown-item" href="../class/10-polishing-charts.html">
  <span class="dropdown-text">Nov 02: Polishing Charts</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../class/11-maps.html" rel="" target="">
+    <a class="dropdown-item" href="../class/11-maps.html">
  <span class="dropdown-text">Nov 09: Maps</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../class/12-interactive-charts.html" rel="" target="">
+    <a class="dropdown-item" href="../class/12-interactive-charts.html">
  <span class="dropdown-text">Nov 16: Interactive Charts</span></a>
   </li>  
         <li class="dropdown-header">Nov 23: Thanksgiving - no class</li>
         <li>
-    <a class="dropdown-item" href="../class/13-shiny-apps.html" rel="" target="">
+    <a class="dropdown-item" href="../class/13-shiny-apps.html">
  <span class="dropdown-text">Nov 30: Shiny Apps</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../class/14-communicating-results.html" rel="" target="">
+    <a class="dropdown-item" href="../class/14-communicating-results.html">
  <span class="dropdown-text">Dec 07: Communicating Results</span></a>
   </li>  
         <li class="dropdown-header">Dec 14: Final Presentations</li>
         <li>
-    <a class="dropdown-item" href="../class/interviews.html" rel="" target="">
+    <a class="dropdown-item" href="../class/interviews.html">
  <span class="dropdown-text">Final Interviews</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-assignments" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-assignments" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Assignments</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-assignments">    
         <li>
-    <a class="dropdown-item" href="../hw/0-course-primer.html" rel="" target="">
+    <a class="dropdown-item" href="../hw/0-course-primer.html">
  <span class="dropdown-text">Course Primer (optional)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../hw/1-tidy-data.html" rel="" target="">
+    <a class="dropdown-item" href="../hw/1-tidy-data.html">
  <span class="dropdown-text">Aug 31: Tidy Data (Due Sep 06)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../hw/2-cleaning-data.html" rel="" target="">
+    <a class="dropdown-item" href="../hw/2-cleaning-data.html">
  <span class="dropdown-text">Sep 07: Cleaning Data (Due Sep 13)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../hw/3-centrality-variability.html" rel="" target="">
+    <a class="dropdown-item" href="../hw/3-centrality-variability.html">
  <span class="dropdown-text">Sep 14: Centrality &amp; Variability (Due Sep 20)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../hw/4-correlation.html" rel="" target="">
+    <a class="dropdown-item" href="../hw/4-correlation.html">
  <span class="dropdown-text">Sep 21: Correlation (Due Sep 27)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../hw/5-visualizing-information.html" rel="" target="">
+    <a class="dropdown-item" href="../hw/5-visualizing-information.html">
  <span class="dropdown-text">Sep 28: Visualizing Information (Due Oct 04)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../hw/6-amounts-proportions.html" rel="" target="">
+    <a class="dropdown-item" href="../hw/6-amounts-proportions.html">
  <span class="dropdown-text">Oct 05: Amounts &amp; Proportions (Due Oct 11)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../hw/7-comparisons.html" rel="" target="">
+    <a class="dropdown-item" href="../hw/7-comparisons.html">
  <span class="dropdown-text">Oct 12: Comparisons (Due Oct 18)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../hw/8-trends.html" rel="" target="">
+    <a class="dropdown-item" href="../hw/8-trends.html">
  <span class="dropdown-text">Oct 19: Trends (Due Oct 25)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../hw/9-polishing-charts.html" rel="" target="">
+    <a class="dropdown-item" href="../hw/9-polishing-charts.html">
  <span class="dropdown-text">Oct 26: Polishing Charts (Due Nov 01)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../hw/10-maps.html" rel="" target="">
+    <a class="dropdown-item" href="../hw/10-maps.html">
  <span class="dropdown-text">Nov 02: Maps (Due Nov 08)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../hw/11-interactive-charts.html" rel="" target="">
+    <a class="dropdown-item" href="../hw/11-interactive-charts.html">
  <span class="dropdown-text">Nov 09: Interactive Charts (Due Nov 15)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../hw/12-communicating-results.html" rel="" target="">
+    <a class="dropdown-item" href="../hw/12-communicating-results.html">
  <span class="dropdown-text">Nov 30: Communicating Results (Due Dec 06)</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-mini-projects" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-mini-projects" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Mini Projects</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-mini-projects">    
         <li>
-    <a class="dropdown-item" href="../project-mini/1-data-cleaning.html" rel="" target="">
+    <a class="dropdown-item" href="../project-mini/1-data-cleaning.html">
  <span class="dropdown-text">Data Cleaning (Due Sep 27)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../project-mini/2-exploring-data.html" rel="" target="">
+    <a class="dropdown-item" href="../project-mini/2-exploring-data.html">
  <span class="dropdown-text">Exploring Data (Due Oct 18)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../project-mini/3-re-design.html" rel="" target="">
+    <a class="dropdown-item" href="../project-mini/3-re-design.html">
  <span class="dropdown-text">Re-design (Due Nov 15)</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-final-project" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-final-project" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Final Project</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-final-project">    
         <li>
-    <a class="dropdown-item" href="../project-final/0-overview.html" rel="" target="">
+    <a class="dropdown-item" href="../project-final/0-overview.html">
  <span class="dropdown-text">Project Overview</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../project-final/1-proposal.html" rel="" target="">
+    <a class="dropdown-item" href="../project-final/1-proposal.html">
  <span class="dropdown-text">Proposal (Due Oct 04)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../project-final/2-progress-report.html" rel="" target="">
+    <a class="dropdown-item" href="../project-final/2-progress-report.html">
  <span class="dropdown-text">Progress Report (Due Nov 01)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../project-final/3-final-report.html" rel="" target="">
+    <a class="dropdown-item" href="../project-final/3-final-report.html">
  <span class="dropdown-text">Final Report (Due Dec 11)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../project-final/4-final-presentation.html" rel="" target="">
+    <a class="dropdown-item" href="../project-final/4-final-presentation.html">
  <span class="dropdown-text">Final Presentation (Due Dec 13)</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-help" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-help" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Help</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-help">    
         <li>
-    <a class="dropdown-item" href="https://jhelvy.appointlet.com/b/professor-helveston" rel="" target=""><i class="bi bi-person" role="img">
+    <a class="dropdown-item" href="https://jhelvy.appointlet.com/b/professor-helveston"><i class="bi bi-person" role="img">
 </i> 
  <span class="dropdown-text">Schedule a call w/Prof.&nbsp;Helveston</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../help/example-projects.html" rel="" target=""><i class="bi bi-file-earmark-medical" role="img">
+    <a class="dropdown-item" href="../help/example-projects.html"><i class="bi bi-file-earmark-medical" role="img">
 </i> 
  <span class="dropdown-text">Example Projects</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../help/finding-data.html" rel="" target=""><i class="bi bi-search" role="img">
+    <a class="dropdown-item" href="../help/finding-data.html"><i class="bi bi-search" role="img">
 </i> 
  <span class="dropdown-text">Finding Data</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../help/course-software.html" rel="" target=""><i class="bi bi-hdd" role="img">
+    <a class="dropdown-item" href="../help/course-software.html"><i class="bi bi-hdd" role="img">
 </i> 
  <span class="dropdown-text">Course Software</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../help/getting-help.html" rel="" target=""><i class="bi bi-question-circle" role="img">
+    <a class="dropdown-item" href="../help/getting-help.html"><i class="bi bi-question-circle" role="img">
 </i> 
  <span class="dropdown-text">Getting Help</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../help/visualizing-data.html" rel="" target=""><i class="bi bi-bar-chart" role="img">
+    <a class="dropdown-item" href="../help/visualizing-data.html"><i class="bi bi-bar-chart" role="img">
 </i> 
  <span class="dropdown-text">Visualizing Data</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../help/programming.html" rel="" target=""><i class="bi bi-terminal" role="img">
+    <a class="dropdown-item" href="../help/programming.html"><i class="bi bi-terminal" role="img">
 </i> 
  <span class="dropdown-text">Programming in R</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../help/rmarkdown.html" rel="" target=""><i class="bi bi-pen" role="img">
+    <a class="dropdown-item" href="../help/rmarkdown.html"><i class="bi bi-pen" role="img">
 </i> 
  <span class="dropdown-text">R Markdown</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../help/other.html" rel="" target=""><i class="bi bi-chevron-expand" role="img">
+    <a class="dropdown-item" href="../help/other.html"><i class="bi bi-chevron-expand" role="img">
 </i> 
  <span class="dropdown-text">Other</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item compact">
-    <a class="nav-link" href="https://emse-eda-f22.slack.com" rel="" target=""><i class="bi bi-slack" role="img">
+    <a class="nav-link" href="https://emse-eda-f22.slack.com"> <i class="bi bi-slack" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://eda.seas.gwu.edu/showcase/2022-fall.html" rel="" target="">
- <span class="menu-text">Showcase</span></a>
+    <a class="nav-link" href="https://eda.seas.gwu.edu/showcase.html#fall-2022"> 
+<span class="menu-text">Showcase</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-bi-list" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-bi-list" role="link" data-bs-toggle="dropdown" aria-expanded="false">
       <i class="bi bi-list" role="img">
 </i> 
  <span class="menu-text"></span>
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-bi-list">    
         <li>
-    <a class="dropdown-item" href="../about.html" rel="" target=""><i class="bi bi-question-circle" role="img">
+    <a class="dropdown-item" href="../about.html"><i class="bi bi-question-circle" role="img">
 </i> 
  <span class="dropdown-text">About</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../LICENSE.html" rel="" target=""><i class="bi bi-award" role="img">
+    <a class="dropdown-item" href="../LICENSE.html"><i class="bi bi-award" role="img">
 </i> 
  <span class="dropdown-text">License</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="mailto:jph@gwu.edu" rel="" target=""><i class="bi bi-envelope" role="img">
+    <a class="dropdown-item" href="mailto:jph@gwu.edu"><i class="bi bi-envelope" role="img">
 </i> 
  <span class="dropdown-text">Contact</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="https://github.com/emse-eda-gwu/2022-Fall" rel="" target=""><i class="bi bi-github" role="img">
+    <a class="dropdown-item" href="https://github.com/emse-eda-gwu/2022-Fall"><i class="bi bi-github" role="img">
 </i> 
  <span class="dropdown-text">Source files</span></a>
   </li>  
     </ul>
   </li>
 </ul>
+          </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
 </div>
-          </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -402,7 +411,9 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
+
 </header>
+
 
 <div class="grid">
 <div class="g-col-6">
@@ -437,6 +448,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 
+<p>:::</p>
 
 
 </main> <!-- /main -->
@@ -475,18 +487,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -518,11 +519,55 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/eda\.seas\.gwu\.edu\/2022-Fall\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -532,8 +577,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -545,7 +599,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -589,6 +766,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -614,6 +792,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -671,20 +875,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       });
     }
   }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-      var filterRegex = new RegExp("https:\/\/eda\.seas\.gwu\.edu\/2022-Fall\/");
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-          // target, if specified
-          link.setAttribute("target", "_blank");
-      }
-    }
 });
 </script>
 </div> <!-- /content -->
@@ -699,12 +889,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
  © 2022 John Paul Helveston <a href="LICENSE.html"><i class="fab fa-creative-commons"></i><i class="fab fa-creative-commons-by"></i><i class="fab fa-creative-commons-sa"></i></a><br><i class="far fa-calendar-alt"></i> Wednesdays | <i class="far fa-clock"></i> 12:45PM - 3:15PM EST | <a href="https://acadtech.gwu.edu/location?id=373&amp;campus=FB&amp;type=building&amp;selection=36"><i class="fa fa-map-marker-alt"></i> 1776 G St C-119</a> | <a href="https://www.jhelvy.com"><i class="fas fa-user"></i> Dr. John Paul Helveston</a> | <a href="mailto:jph@gwu.edu"><i class="fas fa-envelope"></i> jph@gwu.edu</a> | <a href="https://github.com/emse-eda-gwu/2022-Fall"><i class="fab fa-github"></i></a>
   </li>  
 </ul>
-    <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/emse-eda-gwu/2022-Fall/edit/main/class/2-tidy-data.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/emse-eda-gwu/2022-Fall/issues/new" class="toc-action">Report an issue</a></p></div></div></div>
+    <div class="toc-actions"><ul><li><a href="https://github.com/emse-eda-gwu/2022-Fall/edit/main/class/2-tidy-data.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/emse-eda-gwu/2022-Fall/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>
   </div>
 </footer>
+
 
 
 
